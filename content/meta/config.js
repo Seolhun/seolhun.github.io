@@ -13,7 +13,8 @@ module.exports = {
   authorTwitterAccount: 'seol_hooney',
   // info
   infoTitle: 'Seolhun',
-  infoTitleNote: 'Seolhun TechBlog',
+  infoTitleNote: 'TechBlog',
+  ownerImage: 'https://avatars.githubusercontent.com/Seolhun',
   // manifest.json
   manifestName: 'SeolHun TechBlog - The Dreamer through the Programming',
   manifestShortName: 'SeolHun TechBlog', // max 12 characters

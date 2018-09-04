@@ -6,7 +6,6 @@ import IconButton from '@material-ui/core/IconButton';
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import avatar from '../../images/jpg/avatar.jpg';
 import config from '../../../content/meta/config';
 
 const styles = (theme) => ({
@@ -118,7 +117,7 @@ const InfoHeader = (props) => {
         title="back to Home page"
       >
         <div className={classes.avatar}>
-          <img src={avatar} alt="" />
+          <img src={config.ownerImage} alt="" />
         </div>
       </Link>
       <h1 className={classes.title}>

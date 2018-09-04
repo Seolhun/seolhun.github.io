@@ -147,7 +147,7 @@ export const guery = graphql`
           frontmatter {
             title
             subTitle
-            category
+            # category
             cover {
               children {
                 ... on ImageSharp {

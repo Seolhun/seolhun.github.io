@@ -4,7 +4,6 @@ import injectSheet from 'react-jss';
 import Avatar from '@material-ui/core/Avatar';
 
 import config from '../../../content/meta/config';
-import avatar from '../../images/jpg/avatar.jpg';
 
 const styles = (theme) => ({
   author: {
@@ -46,7 +45,11 @@ const PostAuthor = (props) => {
 
   return (
     <div className={classes.author}>
-      <Avatar src={avatar} className={classes.avatar} alt={config.authorName} />
+      <Avatar
+        src={config.ownerImage}
+        className={classes.avatar}
+        alt={config.authorName}
+      />
       <div
         className={classes.box}
         dangerouslySetInnerHTML={{ __html: author.html }}

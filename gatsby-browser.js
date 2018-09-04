@@ -1,9 +1,9 @@
-import React from "react";
-import { Router } from "react-router-dom";
-import { Provider } from "react-redux";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import createStore from "./src/state/store";
+import createStore from './src/state/store';
 
 // remove the JSS style tag generated on the server to avoid conflicts with the one added on the client
 // exports.onInitialClientRender = function() {
@@ -22,7 +22,7 @@ exports.replaceRouterComponent = ({ history }) => {
   );
 
   ConnectedRouterWrapper.propTypes = {
-    children: PropTypes.object.isRequired
+    children: PropTypes.object.isRequired,
   };
 
   return ConnectedRouterWrapper;

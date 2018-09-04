@@ -41,7 +41,7 @@ const styles = (theme) => ({
 });
 
 const PostHeader = (props) => {
-  const { classes, title, subTitle, date } = props;
+  const { classes, title, subTitle, date, author } = props;
 
   function myDate(dateString) {
     const dateObj = new Date(dateString).toUTCString();
@@ -58,6 +58,7 @@ const PostHeader = (props) => {
       <h1 className={classes.title}>{title}</h1>
       <h2 className={classes.subTitle}>{subTitle}</h2>
       <div className={classes.meta}>{myDate(date)}</div>
+      <div className={classes.meta}>{author}</div>
     </header>
   );
 };
@@ -66,6 +67,7 @@ PostHeader.propTypes = {
   classes: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string,
+  author: PropTypes.node,
   date: PropTypes.string.isRequired,
 };
 

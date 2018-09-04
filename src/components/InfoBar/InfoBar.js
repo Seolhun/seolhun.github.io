@@ -9,7 +9,6 @@ import { setNavigatorPosition } from '../../state/store';
 import { featureNavigator, moveNavigatorAside } from './../../utils/shared';
 
 import config from '../../../content/meta/config';
-import avatar from '../../images/jpg/avatar.jpg';
 import TopMenu from './TopMenu';
 
 const styles = (theme) => ({
@@ -72,7 +71,7 @@ class InfoBar extends React.Component {
         >
           <Avatar
             alt={config.infoTitle}
-            src={avatar}
+            src={config.ownerImage}
             className={classes.avatar}
           />
         </Link>
