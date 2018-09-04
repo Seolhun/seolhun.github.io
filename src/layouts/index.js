@@ -1,34 +1,37 @@
-import React from "react";
-import injectSheet from "react-jss";
-import { MuiThemeProvider } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import React from 'react';
+import injectSheet from 'react-jss';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import withRoot from "../withRoot";
+import withRoot from '../withRoot';
 
-import theme from "../styles/theme";
-import globals from "../styles/globals";
+import theme from '../styles/theme';
+import globals from '../styles/globals';
 
-import { setFontSizeIncrease, setIsWideScreen } from "../state/store";
+import { setFontSizeIncrease, setIsWideScreen } from '../state/store';
 
-import asyncComponent from "../components/common/AsyncComponent/";
-import Loading from "../components/common/Loading/";
-import Navigator from "../components/Navigator/";
-import ActionsBar from "../components/ActionsBar/";
-import InfoBar from "../components/InfoBar/";
-import LayoutWrapper from "../components/LayoutWrapper/";
+import asyncComponent from '../components/common/AsyncComponent/';
+import Loading from '../components/common/Loading/';
+import Navigator from '../components/Navigator/';
+import ActionsBar from '../components/ActionsBar/';
+import InfoBar from '../components/InfoBar/';
+import LayoutWrapper from '../components/LayoutWrapper/';
 
-import { isWideScreen, timeoutThrottlerHandler } from "../utils/helpers";
+import { isWideScreen, timeoutThrottlerHandler } from '../utils/helpers';
 
 const InfoBox = asyncComponent(
   () =>
-    import("../components/InfoBox/")
-      .then(module => {
+    import('../components/InfoBox/')
+      .then((module) => {
         return module;
       })
-      .catch(error => {}),
+      .catch((error) => {}),
   <Loading
-    overrides={{ width: `${theme.info.sizes.width}px`, height: "100vh", right: "auto" }}
+    overrides={{
+      width: `${theme.info.sizes.width}px`,
+      height: '100vh',
+      right: 'auto',
+    }}
     afterRight={true}
   />
 );
@@ -39,14 +42,14 @@ class Layout extends React.Component {
 
   componentDidMount() {
     this.props.setIsWideScreen(isWideScreen());
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", this.resizeThrottler, false);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', this.resizeThrottler, false);
     }
   }
 
   componentWillMount() {
-    if (typeof localStorage !== "undefined") {
-      const inLocal = +localStorage.getItem("font-size-increase");
+    if (typeof localStorage !== 'undefined') {
+      const inLocal = +localStorage.getItem('font-size-increase');
 
       const inStore = this.props.fontSizeIncrease;
 
@@ -70,7 +73,12 @@ class Layout extends React.Component {
   };
 
   resizeThrottler = () => {
-    return timeoutThrottlerHandler(this.timeouts, "resize", 500, this.resizeHandler);
+    return timeoutThrottlerHandler(
+      this.timeouts,
+      'resize',
+      500,
+      this.resizeHandler
+    );
   };
 
   resizeHandler = () => {
@@ -87,7 +95,9 @@ class Layout extends React.Component {
         <Navigator posts={data.posts.edges} />
         <ActionsBar categories={this.categories} />
         <InfoBar pages={data.pages.edges} parts={data.parts.edges} />
-        {this.props.isWideScreen && <InfoBox pages={data.pages.edges} parts={data.parts.edges} />}
+        {this.props.isWideScreen && (
+          <InfoBox pages={data.pages.edges} parts={data.parts.edges} />
+        )}
       </LayoutWrapper>
     );
   }
@@ -99,20 +109,20 @@ Layout.propTypes = {
   setIsWideScreen: PropTypes.func.isRequired,
   isWideScreen: PropTypes.bool.isRequired,
   fontSizeIncrease: PropTypes.number.isRequired,
-  setFontSizeIncrease: PropTypes.func.isRequired
+  setFontSizeIncrease: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
     pages: state.pages,
     isWideScreen: state.isWideScreen,
-    fontSizeIncrease: state.fontSizeIncrease
+    fontSizeIncrease: state.fontSizeIncrease,
   };
 };
 
 const mapDispatchToProps = {
   setIsWideScreen,
-  setFontSizeIncrease
+  setFontSizeIncrease,
 };
 
 export default connect(

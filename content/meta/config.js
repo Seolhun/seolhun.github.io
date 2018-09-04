@@ -1,32 +1,32 @@
-const colors = require("../../src/styles/colors");
+const colors = require('../../src/styles/colors');
 
 module.exports = {
-  siteTitle: "PersonalBlog - a blog starter for GatsbyJS", // <title>
-  shortSiteTitle: "PersonalBlog GatsbyJS Starter", // <title> ending for posts and pages
-  siteDescription: "PersonalBlog is a GatsbyJS starter.",
-  siteUrl: "https://gatsby-starter-personal-blog.greglobinski.com",
-  pathPrefix: "",
-  siteImage: "preview.jpg",
-  siteLanguage: "en",
+  siteTitle: 'SeolHun TechBlog', // <title>
+  shortSiteTitle: 'SeolHun TechBlog', // <title> ending for posts and pages
+  siteDescription: 'The Dreamer through the Programming',
+  siteUrl: 'https://seolhun.github.io',
+  pathPrefix: '',
+  siteImage: 'preview.jpg',
+  siteLanguage: 'ko',
   // author
-  authorName: "greg lobinski",
-  authorTwitterAccount: "greglobinski",
+  authorName: 'Seolhun',
+  authorTwitterAccount: 'seol_hooney',
   // info
-  infoTitle: "greg lobinski",
-  infoTitleNote: "personal blog",
+  infoTitle: 'Seolhun',
+  infoTitleNote: 'Seolhun TechBlog',
   // manifest.json
-  manifestName: "PersonalBlog - a blog starter for GatsbyJS",
-  manifestShortName: "PersonalBlog", // max 12 characters
-  manifestStartUrl: "/",
+  manifestName: 'SeolHun TechBlog - The Dreamer through the Programming',
+  manifestShortName: 'SeolHun TechBlog', // max 12 characters
+  manifestStartUrl: '/',
   manifestBackgroundColor: colors.background,
   manifestThemeColor: colors.background,
-  manifestDisplay: "standalone",
+  manifestDisplay: 'standalone',
   // contact
-  contactEmail: "john@doe.com",
+  contactEmail: 'shun10116@gamil.com',
   // social
   authorSocialLinks: [
-    { name: "github", url: "https://github.com/greglobinski" },
-    { name: "twitter", url: "https://twitter.com/greglobinski" },
-    { name: "facebook", url: "http://facebook.com/greglobinski" }
-  ]
+    { name: 'github', url: 'https://github.com/Seolhun' },
+    { name: 'twitter', url: 'https://twitter.com/seol_hooney' },
+    { name: 'facebook', url: 'http://facebook.com/shun10114' },
+  ],
 };

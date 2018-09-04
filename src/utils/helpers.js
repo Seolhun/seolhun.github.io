@@ -1,4 +1,4 @@
-import theme from "../styles/theme";
+import theme from '../styles/theme';
 
 export function isWideScreen() {
   if (typeof window !== `undefined`) {

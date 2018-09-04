@@ -1,5 +1,5 @@
-require("dotenv").config();
-const config = require("./content/meta/config");
+require('dotenv').config();
+const config = require('./content/meta/config');
 
 const query = `{
   allMarkdownRemark(filter: { id: { regex: "//posts|pages//" } }) {
@@ -24,8 +24,9 @@ const query = `{
 const queries = [
   {
     query,
-    transformer: ({ data }) => data.allMarkdownRemark.edges.map(({ node }) => node)
-  }
+    transformer: ({ data }) =>
+      data.allMarkdownRemark.edges.map(({ node }) => node),
+  },
 ];
 
 module.exports = {
@@ -35,48 +36,54 @@ module.exports = {
     siteUrl: config.siteUrl,
     pathPrefix: config.pathPrefix,
     algolia: {
-      appId: process.env.ALGOLIA_APP_ID ? process.env.ALGOLIA_APP_ID : "",
+      appId: process.env.ALGOLIA_APP_ID ? process.env.ALGOLIA_APP_ID : '',
       searchOnlyApiKey: process.env.ALGOLIA_SEARCH_ONLY_API_KEY
         ? process.env.ALGOLIA_SEARCH_ONLY_API_KEY
-        : "",
-      indexName: process.env.ALGOLIA_INDEX_NAME ? process.env.ALGOLIA_INDEX_NAME : ""
+        : '',
+      indexName: process.env.ALGOLIA_INDEX_NAME
+        ? process.env.ALGOLIA_INDEX_NAME
+        : '',
     },
     facebook: {
-      appId: process.env.FB_APP_ID ? process.env.FB_APP_ID : ""
-    }
+      appId: process.env.FB_APP_ID ? process.env.FB_APP_ID : '',
+    },
   },
   plugins: [
     `gatsby-plugin-react-next`,
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
-        appId: process.env.ALGOLIA_APP_ID ? process.env.ALGOLIA_APP_ID : "",
-        apiKey: process.env.ALGOLIA_ADMIN_API_KEY ? process.env.ALGOLIA_ADMIN_API_KEY : "",
-        indexName: process.env.ALGOLIA_INDEX_NAME ? process.env.ALGOLIA_INDEX_NAME : "",
+        appId: process.env.ALGOLIA_APP_ID ? process.env.ALGOLIA_APP_ID : '',
+        apiKey: process.env.ALGOLIA_ADMIN_API_KEY
+          ? process.env.ALGOLIA_ADMIN_API_KEY
+          : '',
+        indexName: process.env.ALGOLIA_INDEX_NAME
+          ? process.env.ALGOLIA_INDEX_NAME
+          : '',
         queries,
-        chunkSize: 10000 // default: 1000
-      }
+        chunkSize: 10000, // default: 1000
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/posts/`,
-        name: "posts"
-      }
+        name: 'posts',
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/pages/`,
-        name: "pages"
-      }
+        name: 'pages',
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `parts`,
-        path: `${__dirname}/content/parts/`
-      }
+        path: `${__dirname}/content/parts/`,
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -87,20 +94,20 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 800,
-              backgroundColor: "transparent"
-            }
+              backgroundColor: 'transparent',
+            },
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 2em`
-            }
+              wrapperStyle: `margin-bottom: 2em`,
+            },
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`
-        ]
-      }
+          `gatsby-remark-smartypants`,
+        ],
+      },
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -117,49 +124,49 @@ module.exports = {
         display: config.manifestDisplay,
         icons: [
           {
-            src: "/icons/icon-48x48.png",
-            sizes: "48x48",
-            type: "image/png"
+            src: '/icons/icon-48x48.png',
+            sizes: '48x48',
+            type: 'image/png',
           },
           {
-            src: "/icons/icon-96x96.png",
-            sizes: "96x96",
-            type: "image/png"
+            src: '/icons/icon-96x96.png',
+            sizes: '96x96',
+            type: 'image/png',
           },
           {
-            src: "/icons/icon-144x144.png",
-            sizes: "144x144",
-            type: "image/png"
+            src: '/icons/icon-144x144.png',
+            sizes: '144x144',
+            type: 'image/png',
           },
           {
-            src: "/icons/icon-192x192.png",
-            sizes: "192x192",
-            type: "image/png"
+            src: '/icons/icon-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
           },
           {
-            src: "/icons/icon-256x256.png",
-            sizes: "256x256",
-            type: "image/png"
+            src: '/icons/icon-256x256.png',
+            sizes: '256x256',
+            type: 'image/png',
           },
           {
-            src: "/icons/icon-384x384.png",
-            sizes: "384x384",
-            type: "image/png"
+            src: '/icons/icon-384x384.png',
+            sizes: '384x384',
+            type: 'image/png',
           },
           {
-            src: "/icons/icon-512x512.png",
-            sizes: "512x512",
-            type: "image/png"
-          }
-        ]
-      }
+            src: '/icons/icon-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+        ],
+      },
     },
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_ID
-      }
+        trackingId: process.env.GOOGLE_ANALYTICS_ID,
+      },
     },
     {
       resolve: `gatsby-plugin-feed`,
@@ -179,12 +186,12 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+              return allMarkdownRemark.edges.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }]
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
                 });
               });
             },
@@ -211,19 +218,19 @@ module.exports = {
                 }
               }
             `,
-            output: "/rss.xml"
-          }
-        ]
-      }
+            output: '/rss.xml',
+          },
+        ],
+      },
     },
     {
-      resolve: `gatsby-plugin-sitemap`
+      resolve: `gatsby-plugin-sitemap`,
     },
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-react-svg',
       options: {
-        include: /svg-icons/
-      }
-    }
-  ]
+        include: /svg-icons/,
+      },
+    },
+  ],
 };

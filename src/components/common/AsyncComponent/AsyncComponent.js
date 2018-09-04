@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export default function asyncComponent(getComponent, loadingComponent) {
   class AsyncComponent extends React.Component {
@@ -6,7 +6,7 @@ export default function asyncComponent(getComponent, loadingComponent) {
 
     componentDidMount() {
       if (!this.state.Component) {
-        getComponent().then(Component => {
+        getComponent().then((Component) => {
           this.setState({ Component });
         });
       }
