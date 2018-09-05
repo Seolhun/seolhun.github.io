@@ -2,7 +2,7 @@
 title: "[Typescript] Namespace란?"
 author: Seolhun
 date: 2018-03-08
-categories: ['Javascript', 'Typescript']
+categories: "Javascript"
 tags: ['Javascript', 'Typescript', 'Namespace', 'Declare', 'Module']
 cover: "typescript.png"
 ---

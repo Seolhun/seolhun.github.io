@@ -2,7 +2,7 @@
 title: "[Javascript/Typescript] Prototype이란?"
 author: Seolhun
 date: 2018-03-05
-categories: ['Javascript', 'Typescript']
+categories: "Javascript"
 tags: ['Prototype', 'Javascript', 'Typescript', 'Class', 'Module']
 cover: "javascript.jpeg"
 ---
