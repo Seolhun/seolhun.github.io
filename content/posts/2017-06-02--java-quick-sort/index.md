@@ -1,17 +1,12 @@
 ---
-title: [Algorithm/Sort] QuickSort 자바로 구현해보기
+title: "[Algorithm/Sort] QuickSort 자바로 구현해보기"
 author: Seolhun
-authorURL: https://github.com/SeolHun
-authorFBID: 100007393233015
-date: 2017-06-02
-weight: 1
-categories: ['Algorithm', 'Java']
-categories_weight: 10
+categories: "Algorithm"
 tags: ['Algorithm', 'Java', 'Sort', 'Quick']
-tags_weight: 10
+cover: "java.jpg"
 ---
-이번에는 Java로 QuickSort를 구현해보도록 하겠습니다.
 
+이번에는 Java로 QuickSort를 구현해보도록 하겠습니다.
 
 ## 1. Quick Sort란?
 찰스 앤터니 리처드 호어가 1959년에 개발한 알고리즘이다. 퀵이라는 이름에서 알 수 있듯이 평균적인 상황에서 최고의 성능을 나타낸다. 컴퓨터로 가장 많이 구현된 정렬 알고리즘 중 하나이다. C, C++, PHP, 자바 등 거의 모든 언어에서 제공하는 정렬 함수에서 퀵 정렬 혹은 퀵 정렬의 변형 알고리즘을 사용한다.

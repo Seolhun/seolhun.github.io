@@ -1,12 +1,11 @@
 ---
-title: [JS/Vue] Vue Study를 통한 문법 및 예제 만들기 - Part 1
+title: "[JS/Vue] Vue Study를 통한 문법 및 예제 만들기 - Part 1"
 author: Seolhun
-authorURL: https://github.com/SeolHun
-authorFBID: 100007393233015
-date: '2017-11-09'
-categories: ['Javascript', 'JS']
-tags: ['Javascript', 'JS', 'Vue', 'Grammar']
+categories: "Javascript"
+tags: ['Javascript', 'Vue']
+cover: "vue.png"
 ---
+
 이번에는 이전 Vue Study 간 정리한 내용을 블로그에 다시 정리하여 올려보겠습니다.
 개인적으로 Vue의 data, method, computed처럼 직관적으로 기능과 이름이 고정되어 코딩하는 것을 좋아합니다. 같은 것을 공유할 수도 있고 코딩 스타일도 구조에 맞게 구성되어 큰 어려움 없이 개발할 수 있기 때문입니다. 총 3번의 정리한 내용들을 이번 블로그를 통해서 나눠보겠습니다.
 

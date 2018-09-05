@@ -1,19 +1,13 @@
 ---
-title:  [Java/Collection] Java Collection Framework에 대한 이해를 통해 Data Structure 이해하기
-author:  Seolhun
-authorURL: https://github.com/SeolHun
-authorFBID: 100007393233015
-date:  2017-06-02
-weight:  1
-categories:  ['Java', 'Datastructure']
-categories_weight:  10
+title: "[Java/Collection] Java Collection Framework에 대한 이해를 통해 Data Structure 이해하기"
+author: Seolhun
+categories: "Datastructure"
 tags:  ['Datastructure', 'Java', 'Collection']
-tags_weight:  10
-writer:  'seolhun'
+cover: "java.jpg"
 ---
+
 안녕하세요, 설훈입니다.
 이번에는 Java의 Collection Framework에 대해서 알아보겠습니다.
-
 
 ## Intro
 자바를 이용하여 프로그래밍을 하다보면 자료구조에 대한 필요성을 느끼게 된다. 특히, 이번 설문지 프로젝트를 통해 설문지를 구성하면서 자료를 담아내는 List와 Set, Map 등 기본지식의 부족을 느끼게 되었다. 이를 이해하기 위해서는, Java에 기본적으로 제공되는 Collection Framework를 이해할 필요가 있다고 생각했다.

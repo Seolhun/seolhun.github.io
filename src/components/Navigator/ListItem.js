@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import LazyLoad from 'react-lazyload';
 
+import logo from '../../../static/images/logo.png';
+
 const styles = (theme) => ({
   listItem: {
     margin: '0 0 .7em 0',
@@ -136,6 +138,7 @@ class ListItem extends React.Component {
 
   render() {
     const { classes, post, linkOnClick } = this.props;
+
     return (
       <li
         className={`${classes.listItem} ${post.node.frontmatter.category}`}
@@ -161,7 +164,7 @@ class ListItem extends React.Component {
                   type="image/webp"
                   srcSet={
                     post.node.frontmatter.cover.children[0].resolutions
-                      .srcSetWebp
+                      .srcSetWebp || logo
                   }
                 />
                 <source

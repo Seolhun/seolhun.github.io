@@ -1,18 +1,13 @@
 ---
-title: [Java/Thread] Java Thread Pool을 이용한 Thread를 이해하기(Thread, Runnable)
+title: "[Java/Thread] Java Thread Pool을 이용한 Thread를 이해하기(Thread, Runnable)"
 author: Seolhun
-authorURL: https://github.com/SeolHun
-authorFBID: 100007393233015
-date: 2017-04-22
-weight: 1
-categories: ['Java', 'Thread']
-categories_weight: 10
+categories: "Java"
 tags: ['Thread', 'Java', 'Task', 'Runnable']
-tags_weight: 10
+cover: "java.jpg"
 ---
+
 안녕하세요, 설훈입니다.
 이번에는 Java의 Thread, Runnable, Task 등에 대해서 알아보겠습니다.
-
 
 ## Intro
 1. Thread로 간단한 게임 프로젝트 진행 중 Thread에 대한 관리가 명확하지 않아 Thread Pool을 통해 Thread에 관리 가능정도와 효율성 장단점을 이해하고 싶었다.

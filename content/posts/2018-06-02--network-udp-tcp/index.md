@@ -8,7 +8,6 @@ cover: "ip.jpg"
 
 HTTP의 관심을 갖고 책을 읽으면서 학습을 하고 있지만, Network에 더 근본적인 IP와 UDP, TCP에 대해서 이해해야 할 필요가 있다고 생각하여 적게되었습니다. 관련 사항에 간단하게 읽어본적은 있지만 읽어보는 것과 이를 숙지하기 위해 반복적으로 학습하는 것은 큰차이가 있기에 이번 시간을 계기로 이와 관련한 내용을 숙지하고자 합니다.
 
-
 ## IP란?
 IP에서 인터넷(the Internet) 이름자체가 'inter-' 라는 접두사와 '네트워크'를 의미하는 'net'이 합쳐진 말로, 인터넷은 네트워크들을 연동하는 것이라고 말할 수 있습니다. 즉, IP(Internet Protocol)라는 이름은 `네트워크를 연동하는 프로토콜`이라는 뜻으로 해석하면 쉬울 것 같습니다. IP는 OSI의 3 Layer(Network Layer)와 Internet Protocol Suite의 3 Layer(Internet Layer)에 위치하고 있습니다.
 

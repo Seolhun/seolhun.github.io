@@ -1,17 +1,12 @@
 ---
-title: [Javascript/Typescript] JavaScript new, constructor란?
+title: "[Javascript/Typescript] JavaScript new, constructor란?"
 author: Seolhun
-authorURL: https://github.com/SeolHun
-authorFBID: 100007393233015
-date: 2018-02-27
-weight: 1
-categories: ['Javascript', 'Typescript']
-categories_weight: 10
+categories: "Javascript"
 tags: ['New', 'Constructor', 'Singleton']
-tags_weight: 10
+cover: "javascript.jpeg"
 ---
-Singleton 디자인 패턴을 사용하면서 Javascript의 new에 대한 개념을 더 정확히 알아야된다고 생각하여 작성하게 되었습니다.
 
+Singleton 디자인 패턴을 사용하면서 Javascript의 new에 대한 개념을 더 정확히 알아야된다고 생각하여 작성하게 되었습니다.
 
 ## Goal
 - `new` 생성자의 작동원리와 활용법 이해
