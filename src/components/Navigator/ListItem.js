@@ -136,7 +136,6 @@ class ListItem extends React.Component {
 
   render() {
     const { classes, post, linkOnClick } = this.props;
-
     return (
       <li
         className={`${classes.listItem} ${post.node.frontmatter.category}`}
