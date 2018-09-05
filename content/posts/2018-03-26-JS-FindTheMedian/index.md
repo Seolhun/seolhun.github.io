@@ -1,15 +1,12 @@
 ---
-title: [Algorithm/JavaScript] HackerRank - FindTheMedian
+title: "[Algorithm/JavaScript] HackerRank - FindTheMedian"
 author: Seolhun
-authorURL: https://github.com/SeolHun
-authorFBID: 100007393233015
 date: 2018-03-26
-weight: 1
 categories: ['Algorithm', 'JavaScript']
-categories_weight: 10
 tags: ['Algorithm', 'JavaScript', 'HackerRank', 'Sort', 'FindTheMedian']
-tags_weight: 10
+cover: "javascript.jpeg"
 ---
+
 저번 시간에 ClosestNumbers 문제를 풀어보았습니다.
 이번에는 FindTheMedian 알고리즘을 풀어보겠습니다.
 주어진 배열 값 안에서 배열의 가운데 값을 찾는 알고리즘입니다.

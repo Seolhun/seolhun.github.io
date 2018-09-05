@@ -1,19 +1,14 @@
 ---
-title: [Algorithm/Java] Programmers - 멀리뛰기
+title: "[Algorithm/Java] Programmers - 멀리뛰기"
 author: Seolhun
-authorURL: https://github.com/SeolHun
-authorFBID: 100007393233015
 date: 2018-03-19
-weight: 1
 categories: ['Java', 'Algorithm']
-categories_weight: 10
 tags: ['Java', 'Algorithm', 'Programmers', '야근지수']
-tags_weight: 10
+cover: "java.jpg"
 ---
+
 이번에는 Java로 Programmers의 31번 문제 멀리뛰기를 구현해보도록 하겠습니다.
-
 [Programmers 멀리뛰기 - Java](https://programmers.co.kr/learn/challenge_codes/31#)
-
 
 ## 1. Question
 [멀리뛰기]

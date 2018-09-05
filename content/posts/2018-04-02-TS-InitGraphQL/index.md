@@ -1,15 +1,12 @@
 ---
-title: [JS/TS/GraphQL] GraphQL 시작해보기 - Part 1
+title: "[JS/TS/GraphQL] GraphQL 시작해보기 - Part 1"
 author: Seolhun
-authorURL: https://github.com/SeolHun
-authorFBID: 100007393233015
 date: 2018-04-03
-weight: 1
 categories: ['Javascript', 'Typescript', 'GraphQL']
-categories_weight: 10
 tags: ['Javascript', 'Typescript', 'NodeJS', 'GraphQL']
-tags_weight: 10
+cover: "javascript.jpeg"
 ---
+
 이번에 간단히 NodeJS와 GraphQL로 회사에 직원들과 책을 관리할 수 있는 프로젝트를 만들어보았습니다.
 이와 관련하여 간단히 정리해보자 합니다.
 

@@ -1,15 +1,12 @@
 ---
-title: [JS] JS는 어떻게 싱글스레드로 작동되는가?
+title: "[JS] JS는 어떻게 싱글스레드로 작동되는가?"
 author: Seolhun
-authorURL: https://github.com/SeolHun
-authorFBID: 100007393233015
 date: 2018-04-04
-weight: 1
 categories: ['Javascript']
-categories_weight: 10
 tags: ['Javascript', 'JS', 'EventLoop', 'Web Worker', 'Stack']
-tags_weight: 10
+cover: "javascript.jpeg"
 ---
+
 이번에 면접을 보면서 JS가 어떻게 Single Thread로 이벤트를 처리하는지에 대한 질문을 받고, WEb Worker라는 것에 대해서 알게 되었습니다.
 간단하게 Single Thread로 이벤트를 처리한다고만 생각했고 더 이를 추론할 수 없었습니다. 그래서 이를 좀 더 알아보고자 이렇게 글로 정리해볼까 합니다.
 

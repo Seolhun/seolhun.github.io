@@ -1,14 +1,10 @@
 ---
-title: [Java/Thread/DataStructure] Java Thread와 Queue를 이용여 Producer & Consumer 패턴 구현하기: Part1
+title: "[Java/Thread/DataStructure] Java Thread와 Queue를 이용여 Producer & Consumer 패턴 구현하기: Part1"
 author: Seolhun
-authorURL: https://github.com/SeolHun
-authorFBID: 100007393233015
 date: 2018-03-23
-weight: 1
 categories: ['Java', 'Thread', 'DataStructure']
-categories_weight: 10
 tags: ['Java', 'Thread', 'Qeue', 'Producer', 'Consumer', 'Pattern', 'Concurrency']
-tags_weight: 10
+cover: "java.jpg"
 ---
 
 안녕하세요, 설훈입니다.

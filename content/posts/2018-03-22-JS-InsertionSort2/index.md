@@ -1,18 +1,14 @@
 ---
-title: [Algorithm/JavaScript] HackerRank - InsertionSort Part 2
+title: "[Algorithm/JavaScript] HackerRank - InsertionSort Part 2"
 author: Seolhun
-authorURL: https://github.com/SeolHun
-authorFBID: 100007393233015
 date: 2018-03-22
-weight: 1
 categories: ['Algorithm', 'JavaScript']
-categories_weight: 10
 tags: ['Algorithm', 'JavaScript', 'HackerRank', 'InsertionSort']
-tags_weight: 10
+cover: "javascript.jpeg"
 ---
+
 저번 시간에 삽입 정렬 1번을 풀었고 이번에는 2번을 풀어보도록 하겠습니다.
 [HackerRank - Sort - Insertion Sort Part 2](https://www.hackerrank.com/challenges/insertionsort2/problem)
-
 
 ## 1. Question
 2번 문제는 문자가 많아 다로 간단히 첨부하지는 않겠습니다.

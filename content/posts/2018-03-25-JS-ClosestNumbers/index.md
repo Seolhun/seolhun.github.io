@@ -1,15 +1,12 @@
 ---
-title: [Algorithm/JavaScript] HackerRank - ClosestNumbers
+title: "[Algorithm/JavaScript] HackerRank - ClosestNumbers"
 author: Seolhun
-authorURL: https://github.com/SeolHun
-authorFBID: 100007393233015
 date: 2018-03-25
-weight: 1
 categories: ['Algorithm', 'JavaScript']
-categories_weight: 10
 tags: ['Algorithm', 'JavaScript', 'HackerRank', 'Sort', 'ClosestNumbers']
-tags_weight: 10
+cover: "javascript.jpeg"
 ---
+
 저번 시간에 Counting Sort 2문제를 모두 풀어보았습니다.
 
 이번에는 ClosestNumbers 알고리즘을 풀어보겠습니다.

@@ -1,17 +1,13 @@
 ---
-title: [Javascript/Typescript] Promise에 대해서 알아보고 예제 작성하기 - 1
+title: "[Javascript/Typescript] Promise에 대해서 알아보고 예제 작성하기 - 1"
 author: Seolhun
-authorURL: https://github.com/SeolHun
-authorFBID: 100007393233015
 date: 2018-03-12
-weight: 1
 categories: ['javascript', 'typescript', 'nodejs']
-categories_weight: 10
 tags: ['Promise', 'Async']
-tags_weight: 10
+cover: "typescript.png"
 ---
-TypeScript 환경에서 Promise 사용법을 알아보고 테스트코드를 작성해보고자 합니다. 문제가 되는 부분이나, 도움이 되는 것을 알려주시면 감사합니다.
 
+TypeScript 환경에서 Promise 사용법을 알아보고 테스트코드를 작성해보고자 합니다. 문제가 되는 부분이나, 도움이 되는 것을 알려주시면 감사합니다.
 
 ## Intro
 첫 시작을 Java 개발자로 시작하여, Javascript에서 Promise개념을 처음 사용할 때에는 상당히 어렵게 느껴졌습니다. 특히, jQuery 라이브러리를 이용하면서 Promise와 비슷한 jQuery, Defferred를 사용하고 멘붕을 겪었습니다. Promise가 어려웠던 점은 아마 기존 Java의 환경에서 Script의 언어를 바라보았기 때문이라고 생각합니다.

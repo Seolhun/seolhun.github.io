@@ -1,14 +1,10 @@
 ---
-title: [Jenkins/CI] Continuous Integration with Jenkins and Github 알아보고 예제 작성하기 - 1
+title: "[Jenkins/CI] Continuous Integration with Jenkins and Github 알아보고 예제 작성하기 - 1"
 author: Seolhun
 date: 2018-03-02
-authorURL: https://github.com/SeolHun
-authorFBID: 100007393233015
-weight: 1
 categories: ['CI', 'Java', 'Jenkins']
-categories_weight: 10
 tags: ['CI', 'Jenkins', 'Test', 'Pipeline', 'Devops']
-tags_weight: 10
+cover: "jenkins.png"
 ---
 > Continuous Integration doesn’t get rid of bugs, but it does make them dramatically easier to find and remove. - Martin Fowler
 

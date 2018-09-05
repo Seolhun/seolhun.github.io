@@ -1,17 +1,13 @@
 ---
-title: [Javascript/Typescript] Module Pattern이란?
+title: "[Javascript/Typescript] Module Pattern이란?"
 author: Seolhun
-authorURL: https://github.com/SeolHun
-authorFBID: 100007393233015
 date: 2018-03-05
-weight: 1
 categories: ['Javascript', 'Typescript']
-categories_weight: 10
 tags: ['Javascript', 'Typescript', 'Module', 'Pattern']
-tags_weight: 10
+cover: "javascript.jpeg"
 ---
-Module Pattern을 공부하면서 Module Javascript의 new에 대한 개념을 더 정확히 알아야된다고 생각하여 작성하게 되었습니다.
 
+Module Pattern을 공부하면서 Module Javascript의 new에 대한 개념을 더 정확히 알아야된다고 생각하여 작성하게 되었습니다.
 
 ## Intro
 모듈 패턴은 전통적인 소프트웨어 공학에서 클래스 사용에 **private 과 public 으로 나뉜 캡슐화를 제공하는 방법**입니다.

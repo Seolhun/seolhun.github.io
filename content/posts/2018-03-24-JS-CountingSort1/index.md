@@ -1,15 +1,12 @@
 ---
-title: [Algorithm/JavaScript] HackerRank - CountingSort Part 1
+title: "[Algorithm/JavaScript] HackerRank - CountingSort Part 1"
 author: Seolhun
-authorURL: https://github.com/SeolHun
-authorFBID: 100007393233015
 date: 2018-03-24
-weight: 1
 categories: ['Algorithm', 'JavaScript']
-categories_weight: 10
 tags: ['Algorithm', 'JavaScript', 'HackerRank', 'Sort', 'Counting']
-tags_weight: 10
+cover: "javascript.jpeg"
 ---
+
 저번 시간에 삽입정렬 2개 모두 풀어보았습니다.
 이번에는 배열 안에서 같은 값의 개수를 파악하는 CountingSort를 풀어보겠습니다.
 

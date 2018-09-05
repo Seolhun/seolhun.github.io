@@ -1,15 +1,12 @@
 ---
-title: [Algorithm/JavaScript] HackerRank - InsertionSort Part 1
+title: "[Algorithm/JavaScript] HackerRank - InsertionSort Part 1"
 author: Seolhun
-authorURL: https://github.com/SeolHun
-authorFBID: 100007393233015
 date: 2018-03-21
-weight: 1
 categories: ['Algorithm', 'JavaScript']
-categories_weight: 10
 tags: ['Algorithm', 'JavaScript', 'HackerRank', 'InsertionSort', '삽입정렬']
-tags_weight: 10
+cover: "javascript.jpeg"
 ---
+
 안녕하세요, 설훈입니다.
 이번에 친구와 함께 해커랭크에 1일 1알고리즘을 스터디를 시작하였습니다.
 알고리즘 사이트는 `HackerRank`로 선정하였습니다. 깃허브와 연동 및 기록도 남고 오류 확인 등 사이트가 아주 잘 되어있어 편리하기 때문입니다.
