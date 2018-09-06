@@ -217,14 +217,6 @@ public class Solution {
     static int W;
     static int[][] boardMap;
 
-    // Y, X
-    // static final int[][][] coverType = {
-    //         {{0, 0}, {1, 0}, {0, 1}},
-    //         {{0, 0}, {0, 1}, {1, 1}},
-    //         {{0, 0}, {1, 0}, {1, 1}},
-    //         {{0, 0}, {1, 0}, {1, -1}},
-    // };
-
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();

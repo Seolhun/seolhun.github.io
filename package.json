@@ -7,9 +7,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "gatsby develop",
-    "build": "gatsby build && gh-pages -d public",
+    "build": "gatsby build",
     "serve": "gatsby serve",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "deploy": "gatsby build && gh-pages -d public",
     "format-output": "prettier src/**/*.{js,jsx}",
     "format": "prettier --write src/**/*.{js,jsx}",
     "lint-errors": "eslint src/**/*.{js,jsx} --quiet",
