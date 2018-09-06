@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>파일:attachment/큐(자료구조)/queue.png - 나무위키</title>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="x-pjax-version" content="fecdfd024d31401416f6ca581b41760f">
+<meta name="generator" content="the seed">
+<meta name="application-name" content="나무위키">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="msapplication-tooltip" content="나무위키">
+<meta name="msapplication-starturl" content="/w/%EB%82%98%EB%AC%B4%EC%9C%84%ED%82%A4:%EB%8C%80%EB%AC%B8">
+<link rel="canonical" href="https://namu.wiki/w/%ED%8C%8C%EC%9D%BC:attachment/%ED%81%90(%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0)/queue.png">
+<link rel="search" type="application/opensearchdescription+xml" title="나무위키" href="/opensearch.xml">
+<meta name="theme-color" content="#008275"><meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" sizes="128x128" href="/img/icon.png">
+<link rel="apple-touch-icon" href="/img/apple_icon.png">
+<meta name="googlebot" content="noarchive">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-83625086-2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-83625086-2');
+</script>
+		<link rel="copyright" href="//creativecommons.org/licenses/by-nc-sa/2.0/kr/" />
+
+
+<link rel="stylesheet" href="/css/diffview.css?05e3f5dd">
+<link rel="stylesheet" href="/css/katex.min.css?7ee60c84">
+<link rel="stylesheet" href="/css/wiki.css?39d536e6">
+<link rel="stylesheet" href="/skins/senkawa/css/lib/jquery-ui.min.css?840cca94">
+<link rel="stylesheet" href="/skins/senkawa/css/lib/bootstrap.min.css?f040bd43">
+<link rel="stylesheet" href="/skins/senkawa/css/lib/ionicons.min.css?2d4234e8">
+<link rel="stylesheet" href="/skins/senkawa/css/lib/nprogress.css?9dc52b7d">
+<link rel="stylesheet" href="/skins/senkawa/css/bootstrap-fix.css?b43106c0">
+<link rel="stylesheet" href="/skins/senkawa/css/layout.css?5fcbe609">
+<link rel="stylesheet" href="/skins/senkawa/css/wiki.css?2c03de5d">
+<link rel="stylesheet" href="/skins/senkawa/css/discuss.css?7fd2aa53">
+<link rel="stylesheet" href="/skins/senkawa/css/dark.css?21f8f5c5">
+
+<!--[if (!IE)|(gt IE 8)]><!--><script type="text/javascript" src="/js/jquery-2.1.4.min.js?f9c7afd0"></script><!--<![endif]-->
+<!--[if lt IE 9]><script type="text/javascript" src="/js/jquery-1.11.3.min.js?895323ed"></script><![endif]-->
+<script type="text/javascript" src="/js/dateformatter.js?508d6dd4"></script>
+<script type="text/javascript" src="/js/intersection-observer.js?b462101e"></script>
+<script type="text/javascript" src="/js/theseed.js?5861f27e"></script>
+<script type="text/javascript" src="/skins/senkawa/js/lib/jquery.pjax.js?700f7656"></script>
+<script type="text/javascript" src="/skins/senkawa/js/lib/jquery.lazyload.min.js?5c01d7af"></script>
+<script type="text/javascript" src="/skins/senkawa/js/lib/jquery-ui.min.js?557e2375"></script>
+<script type="text/javascript" src="/skins/senkawa/js/lib/tether.min.js?e21e4520"></script>
+<script type="text/javascript" src="/skins/senkawa/js/lib/bootstrap.min.js?a2f0eda8"></script>
+<script type="text/javascript" src="/skins/senkawa/js/lib/nprogress.js?5fc208df"></script>
+<script type="text/javascript" src="/skins/senkawa/js/namu.js?beddd0b2"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=explicit&onload=recaptchaOnLoad" async defer></script>
+</head>
+<body class="senkawa">
+
+	<script type="text/javascript" src="/skins/senkawa/js/layout.js?4b7226db"></script>
+	<div class="navbar-wrapper">
+		<nav class="navbar navbar-dark bg-inverse navbar-static-top">
+			<a class="navbar-brand wiki-logo" href="/w/%EB%82%98%EB%AC%B4%EC%9C%84%ED%82%A4:%EB%8C%80%EB%AC%B8"></a>
+			<ul class="nav navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="/RecentChanges" title="최근 변경">
+						<span class="icon ion-compass"></span>
+						<span class="icon-title">최근 변경</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/RecentDiscuss" title="최근 토론">
+						<span class="icon ion-android-textsms"></span>
+						<span class="icon-title">최근 토론</span>
+					</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" title="특수 기능" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="icon ion-ios-gear"></span>
+						<span class="icon-title">특수 기능</span>
+
+						<span class="caret"></span>
+					</a>
+
+					<div class="dropdown-menu right">
+						<a class="dropdown-item" href="https://board.namu.wiki/" data-npjax="true">
+							<span class="icon ion-clipboard"></span>
+							<span class="icon-title">게시판</span>
+						</a>
+
+						<div class="dropdown-divider"></div>
+
+						<a class="dropdown-item" href="/NeededPages">
+							<span class="icon ion-coffee"></span>
+							<span class="icon-title">작성이 필요한 문서</span>
+						</a>
+						<a class="dropdown-item" href="/OrphanedPages">
+							<span class="icon ion-sad-outline"></span>
+							<span class="icon-title">고립된 문서</span>
+						</a>
+						<a class="dropdown-item" href="/UncategorizedPages">
+							<span class="icon ion-help-circled"></span>
+							<span class="icon-title">분류가 되지 않은 문서</span>
+						</a>
+						<a class="dropdown-item" href="/OldPages">
+							<span class="icon ion-pause"></span>
+							<span class="icon-title">편집된 지 오래된 문서</span>
+						</a>
+						<a class="dropdown-item" href="/ShortestPages">
+							<span class="icon ion-heart-broken"></span>
+							<span class="icon-title">내용이 짧은 문서</span>
+						</a>
+						<a class="dropdown-item" href="/LongestPages">
+							<span class="icon ion-star"></span>
+							<span class="icon-title">내용이 긴 문서</span>
+						</a>
+						<a class="dropdown-item" href="/BlockHistory">
+							<span class="icon ion-eye-disabled"></span>
+							<span class="icon-title">차단 내역</span>
+						</a>
+						<a class="dropdown-item" href="/RandomPage">
+							<span class="icon ion-shuffle"></span>
+							<span class="icon-title">RandomPage</span>
+						</a>
+						<a class="dropdown-item" href="/Upload">
+							<span class="icon ion-android-upload"></span>
+							<span class="icon-title">파일 올리기</span>
+						</a>
+						<a class="dropdown-item" href="/License">
+							<span class="icon ion-pricetag"></span>
+							<span class="icon-title">라이선스</span>
+						</a>
+
+
+
+
+
+
+
+
+					</div>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="//namu.live/" title="나무라이브">
+						<span class="icon ion-android-list"></span>
+						<span class="icon-title">라이브</span>
+					</a>
+				</li>
+			</ul>
+
+			<!-- middle -->
+
+			<ul class="nav navbar-nav pull-right">
+				<li class="nav-item dropdown user-menu-parent">
+					<a class="nav-link dropdown-toggle user-menu" href="#" title="Member Menu" data-toggle="dropdown" aria-haspopup="true">
+					
+						<span class="icon ion-person"></span>
+					
+					</a>
+
+					<div class="dropdown-menu user-dropdown right">
+					
+						<div class="dropdown-item user-info">
+							<div class="user-info">
+								<div>39.120.170.187</div>
+								<div>Please login!</div>
+							</div>
+						</div>
+					
+						<div class="dropdown-divider"></div>
+						<a id="settingsLink" class="dropdown-item" href="/settings" style="display: none;">스킨 설정</a>
+						<a id="darkToggleLink" class="dropdown-item" href="#">어두운 화면으로</a>
+						<div class="dropdown-divider"></div>
+					
+						<a class="dropdown-item" href="/contribution/ip/39.120.170.187/document">내 문서 기여 목록</a>
+						<a class="dropdown-item" href="/contribution/ip/39.120.170.187/discuss">내 토론 기여 목록</a>
+					
+						<div class="dropdown-divider"></div>
+					
+						<a class="dropdown-item" href="/member/login?redirect=%2Fw%2F%25ED%258C%258C%25EC%259D%25BC%3Aattachment%2F%25ED%2581%2590(%25EC%259E%2590%25EB%25A3%258C%25EA%25B5%25AC%25EC%25A1%25B0)%2Fqueue.png">로그인</a>
+					
+					</div>
+				</li>
+			</ul>
+
+			<form class="form-inline navbar-form search-box-parent">
+				<div class="input-group search-box">
+					<span class="input-group-btn left-search-btns">
+						<a class="btn btn-secondary" href="/random" role="button">
+							<span class="icon ion-shuffle"></span>
+						</a>
+					</span>
+					<input type="text" id="searchInput" class="form-control" placeholder="Search" tabindex="1">
+					<span class="input-group-btn right-search-btns">
+						<button id="searchBtn" class="btn btn-secondary" type="button">
+							<span class="icon ion-search"></span>
+						</button>
+						<button id="goBtn" class="btn btn-secondary" type="button">
+							<span class="icon ion-arrow-right-c"></span>
+						</button>
+					</span>
+				</div>
+			</form>
+		</nav>
+	</div>
+
+	<div class="content-wrapper">
+		<aside class="sidebar has-site-notice">
+			<div class="card recent-card">
+				<h5 class="card-title">최근 변경</h5>
+				<div class="link-table" id="recentChangeTable">
+					<a><span>00:00</span>갱신중...</a>
+				</div>
+				<a class="more-link" href="/RecentChanges">[더 보기]</a>
+			</div>
+
+			<div class="card live-list-card" data-slug="headline" data-count="5">
+				<h5 class="card-title">라이브 헤드라인 최신글</h5>
+				<div class="link-table">
+					<a><span>00:00</span>갱신중...</a>
+				</div>
+				<a class="more-link" href="//namu.live/b/headline">[더 보기]</a>
+			</div>
+
+			
+		</aside>
+
+		<div class="live-topbar-area">&nbsp;</div>
+		<article class="container-fluid wiki-article">
+
+			
+
+			
+			
+				
+				<div class="wiki-article-menu">
+					<div class="btn-group" role="group">
+						<a class="btn btn-secondary" href="/xref/%ED%8C%8C%EC%9D%BC:attachment/%ED%81%90(%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0)/queue.png" role="button">역링크</a>
+						<a class="btn btn-secondary" href="/discuss/%ED%8C%8C%EC%9D%BC:attachment/%ED%81%90(%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0)/queue.png" role="button">토론</a>
+						<a class="btn btn-secondary" rel="nofollow" href="/edit/%ED%8C%8C%EC%9D%BC:attachment/%ED%81%90(%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0)/queue.png" role="button">편집</a>
+						<a class="btn btn-secondary" href="/history/%ED%8C%8C%EC%9D%BC:attachment/%ED%81%90(%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0)/queue.png" role="button">역사</a>
+					
+						<a class="btn btn-secondary" href="/acl/%ED%8C%8C%EC%9D%BC:attachment/%ED%81%90(%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0)/queue.png" role="button">ACL</a>
+					</div>
+				</div>
+				
+			
+			
+				<h1 class="title">
+				
+					<a href="/w/%ED%8C%8C%EC%9D%BC:attachment/%ED%81%90(%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0)/queue.png"><span class="wiki-document-namespace">파일:</span><span class="wiki-document-title">attachment/큐(자료구조)/queue.png</span></a>
+				
+				</h1>
+			
+			
+			
+	
+	<p class="wiki-edit-date">최근 수정 시각: <time datetime="2016-07-15T15:36:43.000Z" data-format="Y-m-d H:i:s">2016-07-15 15:36:43</time></p>
+	
+
+	
+
+	
+
+	
+
+	<div class="wiki-content clearfix">
+		
+		<span class='wiki-image-align-normal'><span class='wiki-image-wrapper'><img class='wiki-image-space' src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwMCIgaGVpZ2h0PSIxMzA5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg=='><img class='wiki-image wiki-image-loading' src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwMCIgaGVpZ2h0PSIxMzA5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==' data-filesize='45168' data-src='//cdn.namuwikiusercontent.com/s/b7785ff70f623fedbcae126015a3ae0a18b2f3a785bdd691d803aad2b10aee91f7b3fc438aadd3676cb84b9608ac18c4ce4dcc9a35eed34a61a2ffffff9b56ebee2036854043a6b0be698267d163bdba?e=1524404764&amp;k=5SayNljT15dyJO5kLy_maA' alt='파일:attachment/큐(자료구조)/queue.png'><noscript><img class='wiki-image' src='//cdn.namuwikiusercontent.com/s/b7785ff70f623fedbcae126015a3ae0a18b2f3a785bdd691d803aad2b10aee91f7b3fc438aadd3676cb84b9608ac18c4ce4dcc9a35eed34a61a2ffffff9b56ebee2036854043a6b0be698267d163bdba?e=1524404764&amp;k=5SayNljT15dyJO5kLy_maA' alt='파일:attachment/큐(자료구조)/queue.png'></noscript></span></span>
+		
+		
+		<div class="wiki-inner-content">
+			
+			
+			
+		</div>
+
+
+		
+
+
+	</div>
+
+	<footer>
+		<p>
+			<img src="/skins/senkawa/img/license/ca9238c7df97342cfcca7252507d24153031d8a3334e150154bb072d2e87d7a6.png?d6c34310" style="display:none;">
+			<img alt="크리에이티브 커먼즈 라이선스" style="border-width: 0;" src="/skins/senkawa/img/cc-by-nc-sa-2.0-88x31.png?65c20b73">
+		</p>
+		<p>
+			이 저작물은 <a rel="license" href="//creativecommons.org/licenses/by-nc-sa/2.0/kr/">CC BY-NC-SA 2.0 KR</a>에 따라 이용할 수 있습니다. (단, 라이선스가 명시된 일부 문서 및 삽화 제외)<br />
+			기여하신 문서의 저작권은 각 기여자에게 있으며, 각 기여자는 기여하신 부분의 저작권을 갖습니다.
+		</p>
+		<p>
+			나무위키는 백과사전이 아니며 검증되지 않았거나, 편향적이거나, 잘못된 서술이 있을 수 있습니다.<br />나무위키는 위키위키입니다. 여러분이 직접 문서를 고칠 수 있으며, 다른 사람의 의견을 원할 경우 직접 토론을 발제할 수 있습니다.
+		</p>
+	</footer>
+
+
+		</article>
+	</div>
+
+	<div class="footer-wrapper">
+		<footer class="footer">
+			<p>namu.wiki<span class="sep"></span><a href="mailto:support@namu.wiki">Contáctenos</a><span class="sep"></span><a href="/Policy">Términos de uso</a><span class="sep"></span>Operado por umanle S.R.L.<span class="sep"></span>Hecho con &lt;3 en Asunción, República del Paraguay</p>
+			<p>Su zona horaria es <span id="timezone"></span><span class="sep"></span>Impulsado por <i>the seed engine</i></p>
+		</footer>
+	</div>
+
+	<ul class="nav-control">
+		<li>
+			<a href="#top" id="goTopBtn">
+				<span class="ion-arrow-up-b"></span>
+			</a>
+		</li>
+		<li>
+			<a href="#bottom" id="goBottomBtn">
+				<span class="ion-arrow-down-b"></span>
+			</a>
+		</li>
+	</ul>
+
+	<div class="modal fade" id="shortcutHelpModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">Close</span>
+					</button>
+					<h5 class="modal-title">단축키 도움말</h5>
+				</div>
+				<div class="modal-body">
+					<dl class="dl-horizontal">
+						<dt class="col-sm-3"><b>F</b>ront Gate</dt>
+						<dd class="col-sm-9">대문</dd>
+
+						<dt class="col-sm-3">Recent<b>C</b>hanges</dt>
+						<dd class="col-sm-9">최근 변경</dd>
+
+						<dt class="col-sm-3">Recent<b>D</b>iscuss</dt>
+						<dd class="col-sm-9">최근 토론</dd>
+
+						<dt class="col-sm-3">R<b>A</b>ndom</dt>
+						<dd class="col-sm-9">랜덤 문서</dd>
+
+						<dt class="col-sm-3"><b>Shift</b> + <b>S</b>earch</dt>
+						<dd class="col-sm-9">검색</dd>
+
+						<dt class="col-sm-3"><b>E</b>dit</dt>
+						<dd class="col-sm-9">문서 편집</dd>
+
+						<dt class="col-sm-3"><b>?</b></dt>
+						<dd class="col-sm-9">단축키 도움말</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="searchModal" data-backdrop="false">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">Close</span>
+					</button>
+					<h6 class="modal-title">검색</h6>
+				</div>
+				<div class="modal-body">
+					<div class="input-group search-box">
+						<input type="text" id="searchInput" class="form-control" placeholder="Search" tabindex="1">
+						<span class="input-group-btn">
+							<button id="searchBtn" class="btn btn-secondary" type="button" style="margin-left: 0;">
+								<span class="icon ion-search"></span>
+							</button>
+							<button id="goBtn" class="btn btn-secondary" type="button">
+								<span class="icon ion-arrow-right-c"></span>
+							</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal" id="footnoteModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">각주:</h5>
+				</div>
+				<div class="modal-body"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-block" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
+
