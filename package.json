@@ -7,9 +7,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "gatsby develop",
-    "develop-host": "gatsby develop --host 192.168.0.112",
-    "build": "gatsby build",
+    "build": "gatsby build && gh-pages -d public",
     "serve": "gatsby serve",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "format-output": "prettier src/**/*.{js,jsx}",
     "format": "prettier --write src/**/*.{js,jsx}",
     "lint-errors": "eslint src/**/*.{js,jsx} --quiet",
@@ -30,6 +30,7 @@
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.10.0",
     "gatsby-plugin-algolia": "^0.0.4",
+    "gh-pages": "^1.2.0",
     "prettier": "^1.13.7",
     "sharp-cli": "^1.7.0",
     "webpack-bundle-analyzer": "^2.13.1"
