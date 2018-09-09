@@ -1,5 +1,6 @@
 ---
-title: About Me
+title: About Seolhun
+menuTitle: About Me
 ---
 
 <div>
