@@ -1,9 +1,5 @@
 {
   "assetsByChunkName": {
-    "path---2018-04-20-network-http-https": [
-      "path---2018-04-20-network-http-https-43986ceca680723a07e2.js",
-      "path---2018-04-20-network-http-https-43986ceca680723a07e2.js.map"
-    ],
     "path---js-find-the-median": [
       "path---js-find-the-median-810087a8d2fc42cdc257.js",
       "path---js-find-the-median-810087a8d2fc42cdc257.js.map"
@@ -11,6 +7,10 @@
     "path---js-lonely-integer": [
       "path---js-lonely-integer-ae1eff92407e86b9a6d4.js",
       "path---js-lonely-integer-ae1eff92407e86b9a6d4.js.map"
+    ],
+    "path---network-http-https": [
+      "path---network-http-https-1a6e49acbc7ebc66e08e.js",
+      "path---network-http-https-1a6e49acbc7ebc66e08e.js.map"
     ],
     "path---java-quick-sort": [
       "path---java-quick-sort-cdab7fd4b521c0b78c98.js",
@@ -85,8 +85,8 @@
       "path---js-insertion-sort-2-507e99b743d68df5e720.js.map"
     ],
     "path---": [
-      "path----f179d64bb4e59929ed87.js",
-      "path----f179d64bb4e59929ed87.js.map"
+      "path----271e7ebf59868298644b.js",
+      "path----271e7ebf59868298644b.js.map"
     ],
     "path---web-how-to-optimize-web-1": [
       "path---web-how-to-optimize-web-1-553e30b4eaaec0152196.js",
@@ -133,8 +133,8 @@
       "path---java-weeks-1-must-solve-linear-14ba0b46e992a505f087.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-90210daba0b1115d67b6.js",
-      "component---src-layouts-index-js-90210daba0b1115d67b6.js.map"
+      "component---src-layouts-index-js-dc8e34a7686a8e0e5516.js",
+      "component---src-layouts-index-js-dc8e34a7686a8e0e5516.js.map"
     ],
     "path---java-perfect-shuffle": [
       "path---java-perfect-shuffle-9be3bddef3697666f60b.js",
@@ -218,6 +218,10 @@
       "path---java-elevators-764b3a70e5d188fa89a3.js",
       "path---java-elevators-764b3a70e5d188fa89a3.js.map"
     ],
+    "path---java-stack-implement-1": [
+      "path---java-stack-implement-1-d084602bb6c645a7fd9e.js",
+      "path---java-stack-implement-1-d084602bb6c645a7fd9e.js.map"
+    ],
     "path---js-insertion-sort-1": [
       "path---js-insertion-sort-1-fce77b2b93bd65939a91.js",
       "path---js-insertion-sort-1-fce77b2b93bd65939a91.js.map"
@@ -243,9 +247,9 @@
       "path---db-mariadb-reset-auth-f30bc9da44d11bbaac1b.js.map"
     ],
     "app": [
-      "app-af17c81c7d6ceab490ca.js",
+      "app-7e65c12b69161b552ccc.js",
       "build-js-styles.css",
-      "app-af17c81c7d6ceab490ca.js.map",
+      "app-7e65c12b69161b552ccc.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-templates-page-template-js": [
@@ -255,10 +259,6 @@
     "path---js-new-operators": [
       "path---js-new-operators-f81a274255c3ea805137.js",
       "path---js-new-operators-f81a274255c3ea805137.js.map"
-    ],
-    "path---2018-05-02-java-stack-implement-1": [
-      "path---2018-05-02-java-stack-implement-1-00579cdba86554029f10.js",
-      "path---2018-05-02-java-stack-implement-1-00579cdba86554029f10.js.map"
     ],
     "path---search": [
       "path---search-8fd8f423ad64b52b2482.js",
