@@ -210,7 +210,7 @@ GIT_AUTHOR_EMAIL testJenkins@testJenkins.com
 	- Declarative Pipeline fundamentals
 		- Declarative Pipeline 구문에서 파이프 라인 블록은 전체 파이프 라인에서 수행 된 모든 작업을 정의합니다.
 	- Scripted Pipeline fundamentals
-		- 파이프라인의 핵심작업을 정의합니다..
+		- 파이프라인의 핵심작업을 정의합니다.
 		- **Pipeline의 작업을 노드 블록 내부로 한정하는 2가지 경우에 사용됩니다.**
 			- 작업 큐에 항목을 추가/예약하여 Node에서 Executor가 사용 가능 해지자 마자 실행됩니다.
  			- SCM에서 Checkout 한 파일에서 작업을 수행 할 수있는 작업 영역을 만듭니다.
