@@ -1,0 +1,1490 @@
+<!DOCTYPE html><html lang="ko" prefix="og: http://ogp.me/ns#"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/component---src-layouts-index-js-90210daba0b1115d67b6.js" as="script"/><link rel="preload" href="/component---src-templates-post-template-js-08c924998ac11c3fe5b5.js" as="script"/><link rel="preload" href="/path---how-to-calculate-algorithm-time-ed22955c1742716d8fde.js" as="script"/><link rel="preload" href="/app-af17c81c7d6ceab490ca.js" as="script"/><link rel="preload" href="/commons-b713904dd0d0c99e9639.js" as="script"/><style type="text/css" id="server-side-jss">html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  background-color: #fafafa;
+}
+@media print {
+  body {
+    background-color: #fff;
+  }
+}
+.jss52 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  position: absolute;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.jss53 {
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  position: absolute;
+}
+.jss54 {
+  opacity: 0.3;
+  transform: scale(1);
+  animation: mui-ripple-enter 550ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.jss55 {
+  animation-duration: 200ms;
+}
+.jss56 {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  display: block;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+.jss57 {
+  opacity: 0;
+  animation: mui-ripple-exit 550ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.jss58 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  animation: mui-ripple-pulsate 2500ms cubic-bezier(0.4, 0, 0.2, 1) 200ms infinite;
+}
+@keyframes mui-ripple-enter {
+  0% {
+    opacity: 0.1;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+@keyframes mui-ripple-exit {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes mui-ripple-pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.92);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.jss42 {
+  color: inherit;
+  cursor: pointer;
+  margin: 0;
+  border: 0;
+  display: inline-flex;
+  padding: 0;
+  outline: none;
+  position: relative;
+  user-select: none;
+  align-items: center;
+  border-radius: 0;
+  vertical-align: middle;
+  justify-content: center;
+  -moz-appearance: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.jss42::-moz-focus-inner {
+  border-style: none;
+}
+.jss42.jss43 {
+  cursor: default;
+  pointer-events: none;
+}
+.jss36 {
+  flex: 0 0 auto;
+  width: 48px;
+  color: rgba(0, 0, 0, 0.54);
+  height: 48px;
+  padding: 0;
+  font-size: 1.7142857142857142rem;
+  text-align: center;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 50%;
+}
+.jss36:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+.jss36.jss40 {
+  color: rgba(0, 0, 0, 0.26);
+}
+@media (hover: none) {
+  .jss36:hover {
+    background-color: transparent;
+  }
+}
+.jss36:hover.jss40 {
+  background-color: transparent;
+}
+.jss37 {
+  color: inherit;
+}
+.jss38 {
+  color: #2196f3;
+}
+.jss38:hover {
+  background-color: rgba(33, 150, 243, 0.08);
+}
+@media (hover: none) {
+  .jss38:hover {
+    background-color: transparent;
+  }
+}
+.jss39 {
+  color: #f50057;
+}
+.jss39:hover {
+  background-color: rgba(245, 0, 87, 0.08);
+}
+@media (hover: none) {
+  .jss39:hover {
+    background-color: transparent;
+  }
+}
+.jss41 {
+  width: 100%;
+  display: flex;
+  align-items: inherit;
+  justify-content: inherit;
+}
+.jss45 {
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  font-size: 24px;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  user-select: none;
+  flex-shrink: 0;
+}
+.jss46 {
+  color: #2196f3;
+}
+.jss47 {
+  color: #f50057;
+}
+.jss48 {
+  color: rgba(0, 0, 0, 0.54);
+}
+.jss49 {
+  color: #f44336;
+}
+.jss50 {
+  color: rgba(0, 0, 0, 0.26);
+}
+.jss51 {
+  font-size: inherit;
+}
+.jss62 {
+  background-color: #fff;
+}
+.jss63 {
+  border-radius: 4px;
+}
+.jss64 {
+  box-shadow: none;
+}
+.jss65 {
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),0px 1px 1px 0px rgba(0, 0, 0, 0.14),0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+.jss66 {
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),0px 2px 2px 0px rgba(0, 0, 0, 0.14),0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+.jss67 {
+  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2),0px 3px 4px 0px rgba(0, 0, 0, 0.14),0px 3px 3px -2px rgba(0, 0, 0, 0.12);
+}
+.jss68 {
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),0px 4px 5px 0px rgba(0, 0, 0, 0.14),0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+.jss69 {
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),0px 5px 8px 0px rgba(0, 0, 0, 0.14),0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+}
+.jss70 {
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),0px 6px 10px 0px rgba(0, 0, 0, 0.14),0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+.jss71 {
+  box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2),0px 7px 10px 1px rgba(0, 0, 0, 0.14),0px 2px 16px 1px rgba(0, 0, 0, 0.12);
+}
+.jss72 {
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),0px 8px 10px 1px rgba(0, 0, 0, 0.14),0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.jss73 {
+  box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.2),0px 9px 12px 1px rgba(0, 0, 0, 0.14),0px 3px 16px 2px rgba(0, 0, 0, 0.12);
+}
+.jss74 {
+  box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.2),0px 10px 14px 1px rgba(0, 0, 0, 0.14),0px 4px 18px 3px rgba(0, 0, 0, 0.12);
+}
+.jss75 {
+  box-shadow: 0px 6px 7px -4px rgba(0, 0, 0, 0.2),0px 11px 15px 1px rgba(0, 0, 0, 0.14),0px 4px 20px 3px rgba(0, 0, 0, 0.12);
+}
+.jss76 {
+  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),0px 12px 17px 2px rgba(0, 0, 0, 0.14),0px 5px 22px 4px rgba(0, 0, 0, 0.12);
+}
+.jss77 {
+  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),0px 13px 19px 2px rgba(0, 0, 0, 0.14),0px 5px 24px 4px rgba(0, 0, 0, 0.12);
+}
+.jss78 {
+  box-shadow: 0px 7px 9px -4px rgba(0, 0, 0, 0.2),0px 14px 21px 2px rgba(0, 0, 0, 0.14),0px 5px 26px 4px rgba(0, 0, 0, 0.12);
+}
+.jss79 {
+  box-shadow: 0px 8px 9px -5px rgba(0, 0, 0, 0.2),0px 15px 22px 2px rgba(0, 0, 0, 0.14),0px 6px 28px 5px rgba(0, 0, 0, 0.12);
+}
+.jss80 {
+  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2),0px 16px 24px 2px rgba(0, 0, 0, 0.14),0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+}
+.jss81 {
+  box-shadow: 0px 8px 11px -5px rgba(0, 0, 0, 0.2),0px 17px 26px 2px rgba(0, 0, 0, 0.14),0px 6px 32px 5px rgba(0, 0, 0, 0.12);
+}
+.jss82 {
+  box-shadow: 0px 9px 11px -5px rgba(0, 0, 0, 0.2),0px 18px 28px 2px rgba(0, 0, 0, 0.14),0px 7px 34px 6px rgba(0, 0, 0, 0.12);
+}
+.jss83 {
+  box-shadow: 0px 9px 12px -6px rgba(0, 0, 0, 0.2),0px 19px 29px 2px rgba(0, 0, 0, 0.14),0px 7px 36px 6px rgba(0, 0, 0, 0.12);
+}
+.jss84 {
+  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2),0px 20px 31px 3px rgba(0, 0, 0, 0.14),0px 8px 38px 7px rgba(0, 0, 0, 0.12);
+}
+.jss85 {
+  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2),0px 21px 33px 3px rgba(0, 0, 0, 0.14),0px 8px 40px 7px rgba(0, 0, 0, 0.12);
+}
+.jss86 {
+  box-shadow: 0px 10px 14px -6px rgba(0, 0, 0, 0.2),0px 22px 35px 3px rgba(0, 0, 0, 0.14),0px 8px 42px 7px rgba(0, 0, 0, 0.12);
+}
+.jss87 {
+  box-shadow: 0px 11px 14px -7px rgba(0, 0, 0, 0.2),0px 23px 36px 3px rgba(0, 0, 0, 0.14),0px 9px 44px 8px rgba(0, 0, 0, 0.12);
+}
+.jss88 {
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),0px 24px 38px 3px rgba(0, 0, 0, 0.14),0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+.jss95 {
+  width: 100%;
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  text-align: left;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+.jss96 {
+  position: relative;
+}
+.jss97 {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+.jss98 {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.jss99 {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.jss100 {
+  opacity: 0.5;
+}
+.jss101 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  background-clip: padding-box;
+}
+.jss102 {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+@media (min-width:600px) {
+  .jss102 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+.jss103 {
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.jss103:hover {
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.01);
+}
+@media (hover: none) {
+  .jss103:hover {
+    background-color: transparent;
+  }
+}
+.jss104 {
+  padding-right: 32px;
+}
+.jss93 {
+  width: auto;
+  color: rgba(0, 0, 0, 0.87);
+  height: 24px;
+  overflow: hidden;
+  font-size: 1.1428571428571428rem;
+  box-sizing: content-box;
+  font-weight: 400;
+  line-height: 1.5em;
+  font-family: Arial, sans-serif;
+  white-space: nowrap;
+  padding-left: 16px;
+  text-overflow: ellipsis;
+  padding-right: 16px;
+}
+.jss93.jss94 {
+  background-color: rgba(0, 0, 0, 0.14);
+}
+.jss89 {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  list-style: none;
+}
+.jss90 {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.jss91 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.jss92 {
+  padding-top: 0;
+}
+.jss15 {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  font-size: 1.4285714285714284rem;
+  flex-shrink: 0;
+  font-family: Arial, sans-serif;
+  align-items: center;
+  user-select: none;
+  border-radius: 50%;
+  justify-content: center;
+}
+.jss16 {
+  color: #fafafa;
+  background-color: #bdbdbd;
+}
+.jss17 {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  object-fit: cover;
+}
+.jss25 {
+  display: none;
+}
+.is-aside.closed .jss25, .moving-featured.closed .jss25 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  margin: 0;
+  display: flex;
+  padding: 0 30px 0 40px;
+  position: absolute;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.jss25 h3 {
+  color: #555555;
+  margin: -.2em 0 0 0;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.jss25 h3 small {
+  margin: 0 0 .1em;
+  display: block;
+  font-size: .6em;
+  font-weight: 300;
+  letter-spacing: .2em;
+}
+.jss26 {
+  color: #555555;
+}
+.jss27 {
+  color: #2196f3;
+  margin: 0 calc(-.5rem + 20px) 1em calc(-.5rem + 20px);
+  padding: 0 1em 1em;
+  position: relative;
+  font-size: 1.2em;
+  line-height: 1;
+  font-weight: 300;
+  border-bottom: 1px solid #dedede;
+}
+.jss27 strong {
+  display: block;
+  font-weight: 600;
+}
+.jss27 small {
+  margin: 0 0 .3em 0;
+  display: block;
+}
+@media (min-width: 1024px) {
+  .jss27 {
+    margin: 0 0 1em 0;
+    padding: 0 1em 1.5em;
+  }
+  .is-aside .jss27 {
+    margin: 0 calc(-.5rem + 20px) 1em calc(-.5rem + 20px);
+    padding: 0 0 1em .5em;
+  }
+}
+.jss28 {
+  top: 0;
+  right: 0;
+  position: absolute;
+}
+.jss29 {
+  margin: 0 0 .7em 0;
+  transition: height 1s;
+}
+@media (min-width: 600px) {
+  .jss29 {
+    margin: 0 0 1.5rem 0;
+  }
+}
+@media (min-width: 1024px) {
+  .moving-featured .jss29, .is-aside .jss29 {
+    margin: 0 0 0 0;
+  }
+}
+.jss30 {
+  color: #555555;
+  display: flex;
+  padding: .7em 1em .7em 1em;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+@media (hover: hover) {
+  .jss30:hover {
+    color: #2196f3;
+  }
+  .jss30:hover .pointer {
+    border-radius: 65% 75%;
+  }
+}
+.jss31 {
+  width: 60px;
+  height: 60px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  transition: all .5s;
+  flex-shrink: 0;
+  border-radius: 75% 65%;
+}
+.jss31 img {
+  width: 100%;
+  height: 100%;
+}
+@media (min-width: 600px) {
+  .jss31 {
+    width: 80px;
+    height: 80px;
+    margin-right: .5em;
+  }
+}
+@media (min-width: 1024px) {
+  .jss31 {
+    width: 90px;
+    height: 90px;
+    transition: all .3s;
+    margin-right: .8em;
+    transition-timing-function: ease;
+  }
+  .moving-featured .jss31, .is-aside .jss31 {
+    width: 30px;
+    height: 30px;
+  }
+}
+.jss32 {
+  width: 100%;
+  margin: 0 0 0 1.5em;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+.jss32 h1 {
+  margin: 0;
+  font-size: 1.3em;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.jss32 h2 {
+  margin: .3em 0 0 0;
+  display: block;
+  font-size: 1.1em;
+  line-height: 1.2;
+}
+@media (min-width: 1024px) {
+  .moving-featured .jss32, .is-aside .jss32 {
+    margin: 0 0 0 .5em;
+  }
+}
+@media (min-width: 600px) {
+  .jss32 h2 {
+    font-size: 1.265em;
+  }
+}
+@media (min-width: 1024px) {
+  .jss32 h2 {
+    font-size: 1.4300000000000002em;
+  }
+  .moving-featured .jss32 h2, .is-aside .jss32 h2 {
+    display: none;
+  }
+}
+@media (min-width: 600px) {
+  .jss32 h1 {
+    font-size: 1.4949999999999999em;
+  }
+}
+@media (min-width: 1024px) {
+  .jss32 h1 {
+    font-size: 1.6900000000000002em;
+  }
+  .moving-featured .jss32 h1, .is-aside .jss32 h1 {
+    font-size: 1em;
+    font-weight: 400;
+  }
+}
+.jss22 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+}
+.jss23 {
+  padding: calc(60px + 1.3rem) 1.3rem calc(60px + 1.3rem) 1.3rem;
+}
+@media (min-width: 600px) {
+  .jss23 {
+    padding: calc(60px + 2rem) 2rem calc(60px + 2rem) 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .jss23 {
+    left: 320px;
+    padding: 2rem  calc(1rem + 17px) calc(2rem + 17px) 2rem;
+  }
+  .moving-featured .jss23, .is-aside .jss23 {
+    padding: 1rem .5rem 1rem .5rem;
+  }
+}
+.jss24 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.is-aside.closed .jss24, .moving-featured.closed .jss24 {
+  display: none;
+}
+.jss21 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  transform: translate3d(0, 0, 0);
+  background: #ffffff;
+  transition: left .9s;
+  will-change: left, top, bottom, width;
+  transition-timing-function: ease;
+}
+@media (max-width: 1023px) {
+  .jss21.is-aside {
+    left: -100%;
+  }
+  .jss21.is-featured {
+    left: 0;
+  }
+}
+@media (min-width: 1024px) {
+  .jss21.is-featured {
+    top: 0;
+    left: 320px;
+    width: calc(100vw - 320px - 60px);
+    transition: left .9s;
+  }
+  .jss21.is-aside {
+    top: auto;
+    left: 0;
+    width: 319px;
+    z-index: 1;
+    transition: none, bottom 0.5s;
+  }
+  .jss21.moving-aside {
+    top: 0;
+    left: calc(-100vw + 700px);
+    width: calc(100vw - 320px - 60px);
+    transition: left 0.9s;
+  }
+  .jss21.resizing-aside {
+    top: auto;
+    left: 0;
+    width: 319px;
+    transition: none;
+  }
+  .jss21.moving-featured {
+    top: auto;
+    left: 0;
+    width: 319px;
+    bottom: -100%;
+    z-index: 1;
+    transition: bottom .3s;
+  }
+  .jss21.resizing-featured {
+    top: 0;
+    left: calc(-100vw + 700px);
+    width: calc(100vw - 320px - 60px);
+    bottom: auto;
+    transition: none;
+  }
+  .jss21.resizing-aside.closed {
+    bottom: calc(-100% + 100px);
+    height: calc(100% - 100px);
+  }
+  .jss21.resizing-aside.open {
+    bottom: calc(-100% + 100px);
+    height: calc(100% - 100px);
+  }
+  .jss21.is-aside.closed {
+    bottom: calc(-100% + 100px + 80px);
+    height: calc(100% - 100px);
+  }
+  .jss21.is-aside.open {
+    bottom: 0;
+    height: calc(100% - 100px);
+  }
+  .jss21.is-aside::after {
+    top: 0;
+    left: 20px;
+    right: 20px;
+    height: 0;
+    content: "";
+    position: absolute;
+    border-top: 1px solid #dedede;
+  }
+}
+.jss60 {
+  color: #555555;
+}
+.jss61 {
+  pointer-events: none;
+}
+.jss33 {
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 60px;
+  display: flex;
+  padding: 0 20px;
+  position: absolute;
+  background: #ffffff;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.jss33::before {
+  top: 0;
+  left: 20px;
+  right: 20px;
+  height: 0;
+  content: "";
+  position: absolute;
+  border-top: 1px solid #dedede;
+}
+@media (min-width: 600px) {
+  .jss33 {
+    padding: 0 calc(20px * 1.5);
+  }
+}
+@media (min-width: 1024px) {
+  .jss33 {
+    top: 0;
+    left: auto;
+    right: 0;
+    width: 60px;
+    height: 100%;
+    padding: 20px 0;
+    flex-direction: column;
+  }
+  .jss33::before {
+    top: 20px;
+    left: 0;
+    right: auto;
+    width: 0;
+    bottom: 20px;
+    height: auto;
+    border-left: 1px solid #dedede;
+  }
+}
+.jss34 {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+@media (min-width: 1024px) {
+  .jss34 {
+    flex-direction: column;
+  }
+}
+.jss35 {
+  color: #555555;
+}
+.jss109 {
+  float: right;
+  margin: 5px 10px 0 0;
+}
+.jss110 {
+  color: #555555;
+}
+.jss111 {
+  pointer-events: none;
+}
+.jss105 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  background: #ffffff;
+}
+.jss105::before {
+  left: 20px;
+  right: 20px;
+  height: 0;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  border-top: 1px solid #dedede;
+}
+@media (min-width: 1024px) {
+  .jss105 {
+    display: none;
+  }
+}
+.jss106 {
+  float: left;
+  color: #555555;
+  margin: 10px 0 0 15px;
+}
+.jss106 small {
+  margin: 2px 0 0 0;
+  display: block;
+  font-size: .65em;
+}
+.jss107 {
+  float: left;
+  margin: 13px 0 0 30px;
+  display: block;
+}
+.jss108 {
+  width: 36px;
+  border: 1px solid #ddd;
+  height: 36px;
+  border-radius: 65% 75%;
+}
+.jss1 {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1px;
+  position: absolute;
+  overflow: hidden;
+}
+@media print {
+  .jss1 {
+    position: relative;
+    overflow: visible;
+  }
+}
+article, aside, footer, header, nav, section, figcaption, figure, main {
+  display: block;
+}
+h1 {
+  margin: 0.67em 0;
+  font-size: 2em;
+}
+hr {
+  height: 0;
+  overflow: visible;
+  box-sizing: content-box;
+}
+pre {
+  font-size: 1em;
+  font-family: monospace, monospace;
+}
+a:active, a:hover {
+  outline-width: 0;
+}
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+}
+b, strong {
+  font-weight: bolder;
+}
+code, kbp, samp {
+  font-size: 1em;
+  font-family: monospace, monospace;
+}
+dfn {
+  font-style: italic;
+}
+mark {
+  color: #000;
+  background-color: #ff0;
+}
+small {
+  font-size: 80%;
+}
+sub, sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+audio, video {
+  display: inline-block;
+}
+audio:not([controls]) {
+  height: 0;
+  display: none;
+}
+img {
+  border-style: none;
+  vertical-align: middle;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+button, input, optgroup, select, textarea {
+  margin: 0;
+  font-size: 100%;
+  font-family: sans-serif;
+  line-height: 1.15;
+}
+button, input {
+  overflow: visible;
+}
+button, select {
+  text-transform: none;
+}
+button, [type=reset], [type=submit] {
+  -webkit-appearance: button;
+}
+button::-moz-focus-inner, [type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+button:-moz-focusring, [type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  color: inherit;
+  display: table;
+  padding: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: normal;
+}
+progress {
+  display: inline-block;
+  vertical-align: baseline;
+}
+textarea {
+  overflow: auto;
+}
+[type=checkbox], [type=radio] {
+  padding: 0;
+  box-sizing: border-box;
+}
+[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+[type=search] {
+  appearance: textfield;
+  outline-offset: -2px;
+}
+[type=search]::-webkit-search-cancel-button, [type=search]::-webkit-search-decoration {
+  appearance: none;
+}
+::-webkit-file-upload-button {
+  font: inherit;
+  appearance: button;
+}
+details, menu {
+  display: block;
+}
+summary {
+  display: list-item;
+}
+canvas {
+  display: inline-block;
+}
+template {
+  display: none;
+}
+[hidden] {
+  display: none;
+}
+html {
+  box-sizing: border-box;
+  font-family: Arial;
+  line-height: 1.15;
+  text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: 100%;
+}
+html.wf-active {
+  font-family: Open Sans;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+noscript {
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  z-index: 1000;
+  padding: 1.5rem 2.5rem;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: #d00;
+  box-shadow: 0 0 10px 52px rgba(255,255,255,.8);
+  font-weight: 400;
+  border-radius: 2px;
+}
+body {
+  margin: 0;
+  background: #ffffff;
+  -webkit-tap-highlight-color: rgba(0,0,0,.05);
+}
+main {
+  position: relative;
+}
+h1, h2, h3 {
+  font-weight: 300;
+}
+a {
+  background: transparent;
+  transition: 0.3s;
+  font-weight: bold;
+  text-decoration: none;
+  text-decoration-skip: objects;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 50px white inset;
+}
+:not(pre) > code[class*='language-'] {
+  color: #666;
+  padding: 1px 5px;
+  background: #eee;
+  text-shadow: none;
+  border-radius: 2px;
+}
+.jss2 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  animation-name: main-entry;
+  animation-duration: .5s;
+}
+@media (min-width: 1024px) {
+  .jss2 {
+    left: 320px;
+    width: calc(100vw - 320px - 60px);
+  }
+}
+@media print {
+  .jss2 {
+    position: relative;
+  }
+  .jss2 > div {
+    overflow: visible!important;
+  }
+  .jss2 > div > div {
+    position: relative!important;
+  }
+}
+.jss3 {
+  margin: 0 auto;
+  padding: calc(1.5rem + undefinedpx) 1.8rem 1.5rem 1.5rem;
+}
+.jss3 strong, .jss3 b {
+  font-weight: 600;
+  letter-spacing: -.02em;
+}
+.jss3 a {
+  display: inline-block;
+  transition: 0.3s;
+  font-weight: 600;
+  text-shadow: 
+         2px  2px #ffffff,
+        -2px  2px #ffffff,
+        -2px -2px #ffffff,
+        -2px  2px #ffffff,
+        -2px  0   #ffffff,
+         2px  0   #ffffff
+      ;
+  letter-spacing: -.02em;
+  text-decoration: none;
+}
+@media (min-width: 600px) {
+  .jss3 {
+    padding: calc(2.5rem + undefinedpx) 3.5rem 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .jss3 {
+    padding: 3.5rem;
+  }
+}
+.jss3 a:hover {
+  color: hsl(206.60000000000002, 89.7%, 59.5%);
+}
+@keyframes main-entry {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.jss4 {
+  margin: 0 auto;
+  padding: calc(60px + 1.5rem) 1.5rem  1.5rem 1.5rem;
+  max-width: 50em;
+  background: #ffffff;
+}
+.jss4 strong, .jss4 b {
+  letter-spacing: -.02em;
+}
+.jss4 a {
+  transition: 0.3s;
+  font-weight: bold;
+  letter-spacing: -.02em;
+  text-decoration: underline;
+}
+@media (min-width: 600px) {
+  .jss4 {
+    padding: calc(2.5rem + 60px) 3.5rem 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .jss4 {
+    padding: 3.5rem;
+  }
+}
+.jss4 a:hover {
+  color: hsl(206.60000000000002, 89.7%, 59.5%);
+}
+.jss5 {
+  margin: 0 0 3em;
+}
+.jss6 {
+  color: #555555;
+  margin: 0 0 0.4em;
+  font-size: 1.9em;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+@media (min-width: 600px) {
+  .jss6 {
+    font-size: 2.5em;
+  }
+}
+@media (min-width: 1024px) {
+  .jss6 {
+    font-size: 2.7em;
+    letter-spacing: -0.05em;
+  }
+}
+.jss7 {
+  color: #555555;
+  font-size: 1.5em;
+  line-height: 1.1;
+  font-weight: 300;
+}
+@media (min-width: 600px) {
+  .jss7 {
+    font-size: 1.8em;
+  }
+}
+@media (min-width: 1024px) {
+  .jss7 {
+    font-size: 1.95em;
+  }
+}
+.jss8 {
+  color: #555555;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+.jss9 {
+  color: #333333;
+  line-height: 1.6;
+}
+.jss9 a {
+  color: #2196f3;
+}
+.jss9 .gatsby-highlight {
+  margin: 2em 0;
+}
+.jss9 .gatsby-resp-iframe-wrapper {
+  margin: 2em 0;
+}
+.jss9 .gatsby-resp-image-link {
+  margin: 2em -1.5rem;
+  border: none;
+}
+.jss9 h2, .jss9 h3 {
+  color: #555555;
+  margin: 2em 0 1em;
+  font-size: 1.5em;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+.jss9 h3 {
+  font-size: 1.3em;
+}
+.jss9 p {
+  margin: 0 0 1.5em 0;
+  font-weight: 400;
+}
+.jss9 ul {
+  padding: 0 0 0 1.3em;
+  list-style: circle;
+}
+.jss9 li {
+  margin: 0 0 .5em 0;
+}
+.jss9 blockquote {
+  border: 5px solid #bbbbbb;
+  margin: 2.5em 0;
+  padding: 1em 1.1em 1em 1.3em;
+  position: relative;
+  font-style: italic;
+}
+@media (min-width: 600px) {
+  .jss9 {
+    font-size: 1.15em;
+  }
+}
+@media (min-width: 1024px) {
+  .jss9 {
+    font-size: 1.1em;
+  }
+}
+.jss9 blockquote p {
+  margin: 0;
+}
+.jss9 blockquote::before, .jss9 blockquote::after {
+  top: -5px;
+  left: 50%;
+  width: 94%;
+  height: 5px;
+  content: "";
+  position: absolute;
+  background: #ffffff;
+  margin-left: -47%;
+}
+.jss9 blockquote::after {
+  top: auto;
+  bottom: -5px;
+}
+@media (min-width: 600px) {
+  .jss9 ul {
+    padding: 0 0 0 2em;
+  }
+}
+@media (min-width: 600px) {
+  .jss9 .gatsby-resp-image-link {
+    margin: 2.5em -3.5rem;
+  }
+}
+.jss10 {
+  font-size: calc(1em * 1);
+}
+.jss12 {
+  margin: 3em 0 0;
+  padding: 3em 0 0;
+  display: flex;
+  border-top: 1px solid #ddd;
+  align-items: center;
+  flex-direction: column;
+}
+.jss12 a {
+  color: #2196f3;
+}
+@media (min-width: 600px) {
+  .jss12 {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+.jss13 {
+  width: 60px;
+  margin: 0 1em 1em;
+  height: 60px;
+  border: 1px solid #ddd;
+  flex-shrink: 0;
+  border-radius: 75% 65%;
+}
+@media (min-width: 600px) {
+  .jss13 {
+    margin: 0 1em 0;
+  }
+}
+.jss14 {
+  display: flex;
+  min-height: 50px;
+  align-items: center;
+  flex-dirction: column;
+}
+.jss18 {
+  margin: 3em 0 0;
+  padding: 3em 0 0;
+  border-top: 1px solid #ddd;
+}
+.jss11 {
+  color: #555555;
+  font-size: 1em;
+  line-height: 1.4;
+}
+.jss11 p {
+  margin: 0;
+}
+.jss20 {
+  color: hsl(0, 0%, 50%);
+  font-size: 0.8em;
+  line-height: 1.4;
+}
+.jss20 a {
+  color: #2196f3;
+  font-weight: normal;
+  text-shadow: none;
+}
+.jss20 a:hover {
+  color: hsl(206.60000000000002, 89.7%, 64.9%);
+}
+.jss20 ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+.jss20 li {
+  margin: 0 .3em;
+  display: inline-block;
+}
+.jss19 {
+  color: #555555;
+  padding: 1.5rem 1.5rem  calc(60px + 1.5rem) 1.5rem;
+}
+.jss19 p {
+  margin: 0;
+}
+@media (min-width: 600px) {
+  .jss19 {
+    padding: 2rem 2.5rem  calc(60px + 2rem) 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .jss19 {
+    padding: 2rem 3rem 2rem 3rem;
+  }
+}</style><title data-react-helmet="true">[Algorithm] 알고리즘을 위한 시간복잡도 계산 방법 - Big-O 표기 - SeolHun TechBlog</title><meta data-react-helmet="true" name="description" content="The Dreamer through the Programming"/><meta data-react-helmet="true" property="og:url" content="https://seolhun.github.io/How-to-calculate-algorithm-time/"/><meta data-react-helmet="true" property="og:title" content="[Algorithm] 알고리즘을 위한 시간복잡도 계산 방법 - Big-O 표기 - SeolHun TechBlog"/><meta data-react-helmet="true" property="og:description" content="The Dreamer through the Programming"/><meta data-react-helmet="true" property="og:image" content="/static/algorithm-d1c3892c18f5ce85b49ef4e6d58aa526-ada8c.jpeg"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" property="fb:app_id" content="543531359431658"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="seol_hooney"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#ffffff"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><style id="gatsby-inlined-css">code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#f8f8f2}.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="#D0E0D8"/><meta name="apple-mobile-web-app-title" content="Lazywill"/><link rel="apple-touch-icon" href="/icons/app-icon-57x57.png" sizes="57x57"/><link rel="apple-touch-icon" href="/icons/app-icon-60x60.png" sizes="60x60"/><link rel="apple-touch-icon" href="/icons/app-icon-72x72.png" sizes="72x72"/><link rel="apple-touch-icon" href="/icons/app-icon-76x76.png" sizes="76x76"/><link rel="apple-touch-icon" href="/icons/app-icon-114x114.png" sizes="114x114"/><link rel="apple-touch-icon" href="/icons/app-icon-120x120.png" sizes="120x120"/><link rel="apple-touch-icon" href="/icons/app-icon-144x144.png" sizes="144x144"/><link rel="apple-touch-icon" href="/icons/app-icon-152x152.png" sizes="152x152"/><link rel="apple-touch-icon" href="/icons/app-icon-180x180.png" sizes="180x180"/><link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png"/></head><body><noscript>You need to enable JavaScript to run this app!</noscript><div id="___gatsby"><div class="jss1"><main class="jss2"><div style="position:relative;overflow:hidden;width:100%;height:100%"><div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;-webkit-overflow-scrolling:touch;margin-right:0;margin-bottom:0"><article class="jss4"><header class="jss5"><h1 class="jss6">[Algorithm] 알고리즘을 위한 시간복잡도 계산 방법 - Big-O 표기</h1><h2 class="jss7"></h2><div class="jss8">Thu, 05 Apr 2018</div><div class="jss8"></div></header><div class="jss10 jss9"><p>이번에는 알고리즘을 풀면서 시간복잡도를 표기하는 Big-O 표기법에 대해 잘 알지 못해 이를 정리해보고자 합니다.</p>
+<h2>Intro</h2>
+<p>개발자들을 면접보는 방법에는 여러가지가 있습니다. 그 중 가장 보편적인 것은</p>
+<ol>
+<li>알고리즘 풀기</li>
+<li>간단한 프로젝트 만들기</li>
+</ol>
+<p>위 2가지 일 것입니다. 그 중에서도 더 선호되고 보편적으로 사용되는 방법은 알고리즘 풀기입니다. 알고리즘을 풀어봄으로써 <code class="language-text">문제해결 능력</code>, <code class="language-text">코드 작성습관</code> 등에 대한 개발적인 성향을 더 잘 파악할 수 있기 때문입니다. 어떻게 보면 스타트업들은 당장의 서비스를 개발해야하는 부분들이 많아 알고리즘 보다 서비스 개발능력 및 이해도를 많이 볼 수도 있습니다. 하지만, 대기업이나, 이미 CachCow가 있는 기업들은 기존의 코드에서 나오는 기술 부채들을 청산하기 위해 리팩토링 및 새로운 기술 도입, 알고리즘 변경 등이 보편적으로 많이 선택됩니다. 이러한 부분에서 필요한 것이 알고리즘 능력이라고 볼 수 있습니다.</p>
+<p>그렇다면, 알고리즘을 더 좋게 만들려면 무엇을 알아야 할까요? 알고리즘은 결국 수학처럼 0, 1처럼 조건에 부합하여 문제를 해결해야합니다. 그리고, 다음으로 더 빠른 해결책을 찾아야 합니다. 이를 위해 필요한 것이 바로 <code class="language-text">시간 복잡도</code>입니다. 즉, 시간 복잡도란, 일정한 조건에서 해당 코드가 얼마나 빠른지를 판단할 수 있는 기준이 되는 것입니다. 다음으로 <code class="language-text">공간 복잡도</code>입니다. 얼마나 많은 메모리를 차지하는가 입니다.</p>
+<p>그렇다면 우리가 알아야 할 시간 복잡도는 어떻게 알 수 있을까요? 간단하게 시간 복잡도를 계산하는 방법을 알아보겠습니다.</p>
+<h2>Contents</h2>
+<ul>
+<li>
+<p>알고리즘 시간 복잡도 표기법 3가지 표기법</p>
+<ul>
+<li>최상의 경우 : 오메가 표기법 (Big-Ω Notation)</li>
+<li>최악의 경우 : 빅오 표기법 (Big-O Notation)</li>
+<li>평균의 경우 : 세타 표기법 (Big-θ Notation)</li>
+</ul>
+</li>
+</ul>
+<p>가장 보편적으로 사용되는 것은 <code class="language-text">Big-O 표기법</code>입니다.
+Big-O 표기법은 계수와 낮은 차수의 항을 제외시키는 방법입니다(ex: 2n²-2n+2 > O(n2)로 표기). 이런 방식으로 표현할 때, (예를 들면, 입력 크기를 무한대로 입력하여) 시간복잡도를 점근적으로 묘사한다고 말한다.</p>
+<p>Big-O 표기법 개발자들에게 최악의 경우가 중요하다는 의미를 내포하고 있어 최악의 경우를 대비하여 속도를 개선하는 것이 중요함을 알 수 있습니다.
+그 중, Big-O 표현식에 가장 큰 영향을 미치는 것은 조건 Input의 n(개수)의 단위입니다. 주어진 Input의 개수를 의미하는 n을 기반으로 명령어들의 연산이 몇번이나 실행됬는지를 숫자로 표시하는 것입니다.</p>
+<h4>- Big-O Notation?</h4>
+<blockquote>
+<p>Big-O notation is a way of converting the overall steps of an algorithm into algebraic terms, then excluding lower order constants and coefficients that don’t have that big an impact on the overall complexity of the problem.</p>
+</blockquote>
+<sub>
+    <img src='/images/contents/20180404/algo/Big-O.jpg' width='100%' height='100%'>
+    - [Big-O.jpg](https://joshuajangblog.wordpress.com/2016/09/21/time_complexity_big_o_in_easy_explanation/)
+</sub>
+<h4>- 대표적인 시간 복잡도</h4>
+<ol>
+<li>O(1) – 상수 시간 : 입력값 n 이 주어졌을 때, 알고리즘이 문제를 해결하는데 오직 한 단계만 거칩니다.</li>
+<li>O(log n) – 로그 시간 : 입력값 n 이 주어졌을 때, 문제를 해결하는데 필요한 단계들이 연산마다 특정 요인에 의해 줄어듭니다.</li>
+<li>O(n) – 직선적 시간 : 문제를 해결하기 위한 단계의 수와 입력값 n이 1:1 관계를 가집니다.</li>
+<li>O(n^2) – 2차 시간 : 문제를 해결하기 위한 단계의 수는 입력값 n의 제곱입니다.</li>
+<li>O(C^n) – 지수 시간 : 문제를 해결하기 위한 단계의 수는 주어진 상수값 C 의 n 제곱입니다.</li>
+</ol>
+<h5>1. O(1) — CONSTANT TIME (상수 시간)</h5>
+<ul>
+<li>값을 검색할 때, 객체에서 Key를 알거나 배열에서 Index를 알고 있으면 언제나 한 단계만 걸립니다.</li>
+</ul>
+<div class="gatsby-highlight" data-language="tsx">
+      <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">const</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> findNumber <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> array<span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 1</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+      </div>
+<h5>2. O(LOG n) — LOGARITHMIC TIME (로그 시간)</h5>
+<ul>
+<li>n의 개수가 늘어나면, n이 늘어난 개수보다 조금 더 연산량이 증가하고 2배를 넘지 않습니다.</li>
+<li>
+<p>배열에서 값을 찾을 때, 어느 쪽에서 시작할지를 알고 있으면 검색하는 시간이 두배로 줄어듭니다.</p>
+<ul>
+<li>ex) Binary Search</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="tsx">
+      <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">const</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span> <span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> binarySearch <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>array<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> guess<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> min <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> max <span class="token operator">=</span> array<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>min <span class="token operator">&lt;=</span> max<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        guess <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>min <span class="token operator">+</span> max<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	    <span class="token keyword">if</span> <span class="token punctuation">(</span>array<span class="token punctuation">[</span>guess<span class="token punctuation">]</span> <span class="token operator">===</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> guess<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>array<span class="token punctuation">[</span>guess<span class="token punctuation">]</span> <span class="token operator">&lt;</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            min <span class="token operator">=</span> guess <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+	        max <span class="token operator">=</span> guess <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> guess<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+      </div>
+<h5>3. O(n²) — Quadratic Time</h5>
+<ul>
+<li>중복된 반복문을 사용했을 때 걸리는 시간을 의미합니다, n의 개수의 최악 n^2 연산량을 요구합니다.</li>
+</ul>
+<div class="gatsby-highlight" data-language="tsx">
+      <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">const</span> nestedLoopFunction <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> sum_array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> array<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>j <span class="token operator">&lt;</span> array<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            sum_array<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>array<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> array<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> sum_array<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+      </div>
+<h5>4. O(2^n) — EXPONENTIAL TIME (지수 시간)</h5>
+<ul>
+<li>
+<p>지수 시간은 보통 문제를 풀기 위해 모든 조합과 방법을 시도할 때 사용됩니다.</p>
+<ul>
+<li>ex) 길이가 n인 비밀번호를 찾아야 할 경우</li>
+</ul>
+</li>
+</ul>
+<h2>Outro</h2>
+<p>이번 시간을 통해 <code class="language-text">시간 복잡도</code>를 간단하게 공부해보았습니다. 알고리즘을 풀면서 시간 복잡도를 계산하는 훈련을 하는 것은 상당히 좋은 훈련으로 보입니다. 왜냐하면, 지금 제가 프로그래밍 하는 알고리즘에 대한 절차를 생각하며 이해하고 있다는 방증이기도 하기 때문입니다. 간단하게 작성된 글이고, 좋은 글들을 참조하여 작성된 글로서 다른 분들에게도 도움이 되기를 바랍니다.</p>
+<p>앞으로 개인적으로도 알고리즘을 풀어볼 때마다 시간 복잡도를 개선하기 위한 사고로 알고리즘을 접근해볼까 합니다. 그리고, 앞으로 작성 될 알고리즘 관련 내용에 시간복잡도도 계산하여 공유하도록 노력하겠습니다.
+감사합니다.</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://ko.wikipedia.org/wiki/%EC%8B%9C%EA%B0%84_%EB%B3%B5%EC%9E%A1%EB%8F%84">Wiki - 시간복잡도</a></li>
+<li><a href="https://medium.freecodecamp.org/time-is-complex-but-priceless-f0abd015063c">Medium - Algorithms in plain English: time complexity and Big-O notation</a></li>
+</ul></div><footer class="jss11"><div>Loading...</div><div class="jss12"><div class="jss15 jss13"><img alt="Seolhun" src="https://avatars.githubusercontent.com/Seolhun" class="jss17"/></div><div class="jss14"><p>코드로 세상에 기여하고 싶은 개발자 설훈입니다. JavaScript와 TypeScript, React, Vue를 좋아하며 재사용할 수 있는 코드에 지대한 관심을 가지고 있습니다. 현재 TypeScript를 기반으로 React-Component를 만들고 있으며, Github 기반의 개발자 커뮤니티를 구축하고 있습니다..</p></div></div><div id="post-comments" class="jss18"><div><div class="fb-comments" data-colorscheme="light" data-href="https://seolhun.github.io/How-to-calculate-algorithm-time/" data-width="100%" data-skin="light"></div></div></div></footer></article><footer class="jss19"><div class="jss20"><ul>
+<li>This is Seolhun Tech blog : <a href="https://seolhun.github.io/">Seolhun - Tech Blog</a></li>
+<li>Built by <a href="https://github.com/Seolhun">Seolhun</a></li>
+<li>contact : <a href="mailto:shun10116@gmail.com">shun10116@gmail.com</a></li>
+</ul></div></footer></div><div style="position:absolute;height:6px;transition:opacity 200ms;opacity:0;display:none;right:2px;bottom:2px;left:2px;border-radius:3px"><div style="position:relative;display:block;height:100%;cursor:pointer;border-radius:inherit;background-color:rgba(0,0,0,.2)"></div></div><div style="position:absolute;width:6px;transition:opacity 200ms;opacity:0;display:none;right:2px;bottom:2px;top:2px;border-radius:3px"><div style="position:relative;display:block;width:100%;cursor:pointer;border-radius:inherit;background-color:rgba(0,0,0,.2)"></div></div></div></main><nav class="jss21 is-aside open "><div class="jss22"><div style="position:relative;overflow:hidden;width:100%;height:100%"><div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;-webkit-overflow-scrolling:touch;margin-right:0;margin-bottom:0"><div class="jss23"><header></header><ul class="jss24"><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Diary-WhatIstheProblem/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Diary] 문제란 무엇인가? 어떻게 문제를 바라봐야할 것인가?</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/React-ReactComponentComparison/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[React/Component] React Component 종류와 차이점</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Network-udp-tcp/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Network] IP, UDP, TCP란 무엇인가?</h1><h2>HTTP 이해를 위한 기본 네트워크 지식, IP, UDP, TCP</h2></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-Weeks3AlgorithmStep8/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] BAEKJOON - Study Weeks 3 : 규칙찾기 Step8</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-SupplyRoute/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] SWexpertAcademy 보급로(SupplyRoute)</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-StackImplement2/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] BAEKJOON - 스택으로 CheckBracketValidation</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-Weeks1MustSolveLinear/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm] 알고리즘 문제 해결전략 - 무식하게 풀기 - Weeks 1</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Spring-SpringBeanScope/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Spring/Java] Spring Bean Scope는 무엇인가?</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Web-HowToOptimizeWeb1/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Web] 웹사이트의 속도를 개선할 수 있는 방법 9가지 정리 - Part 1</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Web-HowToOptimizeWeb2/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Web] 웹사이트의 속도를 개선할 수 있는 방법 9가지 정리 - Part 2</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-AllAboutSort1/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] 자주 언급되는 Sort Algorithm 자바로 구현해보기 - Part 1</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-AllAboutSort2/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] 자주 언급되는 Sort Algorithm 자바로 구현해보기 - Part 2</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-GNS/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] SWexpertAcademy GNS</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-ArratListLinkedList/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[DataStructure/Java] ArrayList vs LinkedList에 대해서 간단히 정리하기</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-Dallant2/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] SWexpertAcademy Dallant2</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-Password/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] SWexpertAcademy 비밀번호</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-Maze/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] SWexpertAcademy 미로 Part 1</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Network-WhatIsTheWebSocket/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Network/Socket] WebSocket이란 무엇인가? 어떻게 사용하는가?</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-PerfectShuffle/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] SWexpertAcademy PerfectShuffle</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-BeginnersCrossSameVoca/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] SWexpertAcademy BeginnersCrossSameVoca</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-GetMidNumAvg/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] SWexpertAcademy GetMidNumAvg</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-ManagementExercise/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] SWexpertAcademy ManagementExercise</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-ZigzagNumbers/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] SWexpertAcademy ZigzagNumber</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-LonelyInteger/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Javascript] HackerRank - LonelyInterger Algorithm</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-Elevators/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] Codility - Counting Elevator Movements</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-FindSteps/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] Codility - FindSteps Algorithm</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-ES6 Featured2/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Javascript/ES6] ES6부터 등장하는 개발자가 알아야 할 특징 - Part 2</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-GoodArrayMethods/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/JS] 배열에서 사용하면 좋을 Javascript 메소드들</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-SearchNotExistSmallest/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Javascript] Programmers Algorithm 야근지수</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-ArrayFlatten/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Javascript] 모든 배열의 값을 가져오는 Algorithm(Flatten)</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-ES6-Featured1/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Javascript/ES6] ES6부터 등장하는 개발자가 알아야 할 특징 - Part 1</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-BinarySearch/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Javascript] Binary Search(이진탐색) Algorithm</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30 active" aria-current="true" href="/How-to-calculate-algorithm-time/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm] 알고리즘을 위한 시간복잡도 계산 방법 - Big-O 표기</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-BitWiseOperators/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Javascript] 비트연산자를 이용하여 간단한 알고리즘 및 예제 만들어보기</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-SingleThreadJS/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[JS] JS는 어떻게 싱글스레드로 작동되는가?</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/TS-InitGraphQL/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[JS/TS/GraphQL] GraphQL 시작해보기 - Part 1</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-FindTheMedian/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/JavaScript] HackerRank - FindTheMedian</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-ClosestNumbers/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/JavaScript] HackerRank - ClosestNumbers</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-CountingSort1/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/JavaScript] HackerRank - CountingSort Part 1</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-CountingSort2/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/JavaScript] HackerRank - CountingSort Part 2</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-Thread-Produce&amp;Consumer/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Java/Thread/DataStructure] Java Thread와 Queue를 이용여 Producer &amp; Consumer 패턴 구현하기: Part1</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-InsertionSort2/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/JavaScript] HackerRank - InsertionSort Part 2</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-InsertionSort1/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/JavaScript] HackerRank - InsertionSort Part 1</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-Jumpcase/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] Programmers - 멀리뛰기</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-NoOvertime/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] Programmers - 야근지수</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-Promise/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Javascript/Typescript] Promise에 대해서 알아보고 예제 작성하기 - 1</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/TS-Namespace/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Typescript] Namespace란?</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-Prototype/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Javascript/Typescript] Prototype이란?</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-module-pattern/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Javascript/Typescript] Module Pattern이란?</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/CI-jenkins-with-github/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Jenkins/CI] Continuous Integration with Jenkins and Github 알아보고 예제 작성하기 - 1</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-new-operators/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Javascript/Typescript] JavaScript new, constructor란?</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-singleton-pattern/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Typescript] Singleton Pattern이란?</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/JS-static/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Javascript/Typescript] Static이란?</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Vue-basic-vue-1/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[JS/Vue] Vue Study를 통한 문법 및 예제 만들기 - Part 1</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/devops-aws-products/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[AWS] AWS Products에 대한 내용 간단히 정리하기</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-quick-sort/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Sort] QuickSort 자바로 구현해보기</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-collection-framework/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Java/Collection] Java Collection Framework에 대한 이해를 통해 Data Structure 이해하기</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/Java-thread1/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Java/Thread] Java Thread Pool을 이용한 Thread를 이해하기(Thread, Runnable)</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/DB-mariadb-reset-auth/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[DB/MariaDB] 분실한 mysql root password 재설정하기</h1><h2>MariaDB에 root password 초기화</h2></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/DB-mariadb-grant-auth/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[DB/MariaDB] MariaDB에 사용자 권한주기</h1><h2>MariaDB에 사용자 권한주기</h2></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/2018-04-20-Network-Http-Https/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Network/Http] Http vs Https의 차이? 그리고 Packet과 TSL, SSL</h1></div></a></li><li class="jss29 undefined" style="display:block"><a class="jss30" aria-current="false" href="/2018-05-02-Java-StackImplement1/"><div class="jss31 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss32"><h1>[Algorithm/Java] BAEKJOON - 스택구현하기</h1></div></a></li></ul></div></div><div style="position:absolute;height:6px;transition:opacity 200ms;opacity:0;display:none;right:2px;bottom:2px;left:2px;border-radius:3px"><div style="position:relative;display:block;height:100%;cursor:pointer;border-radius:inherit;background-color:rgba(0,0,0,.2)"></div></div><div style="position:absolute;width:6px;transition:opacity 200ms;opacity:0;display:none;right:2px;bottom:2px;top:2px;border-radius:3px"><div style="position:relative;display:block;width:100%;cursor:pointer;border-radius:inherit;background-color:rgba(0,0,0,.2)"></div></div></div></div></nav><div class="jss33"><div class="jss34"><button tabindex="0" class="jss42 jss36 jss35" type="button" aria-label="Back to list" title="Back to the list"><span class="jss41"><svg class="jss45" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></g></svg></span><span class="jss52"></span></button></div><div class="jss34"><nav class="jss59"><div><div><button tabindex="0" class="jss42 jss36 jss60" type="button" aria-label="Increase font size" aria-haspopup="true" title="Change font size"><span class="jss41"><svg class="jss45" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M9 4v3h5v12h3V7h5V4H9zm-6 8h3v7h3v-7h3V9H3v3z"></path></g></svg></span><span class="jss52"></span></button></div><div class="jss61" style="position:absolute;pointer-events:none;opacity:0"><div class="jss62 jss66 jss63" style="opacity:0;transform:scale(0.75, 0.5625);transform-origin:0 0 0" id="font-menu-list"><ul class="jss89 jss90" role="menu"><li tabindex="-1" class="jss42 jss95 jss98 jss102 jss103 jss93" role="menuitem">150%<span class="jss52"></span></li><li tabindex="-1" class="jss42 jss95 jss98 jss102 jss103 jss93" role="menuitem">125%<span class="jss52"></span></li><li tabindex="-1" class="jss42 jss95 jss98 jss102 jss103 jss93" role="menuitem">100%<span class="jss52"></span></li></ul></div></div></div></nav><button tabindex="0" class="jss42 jss36" type="button" aria-label="Back to top" title="Scroll to top"><span class="jss41"><svg class="jss45 jss35" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"></path></g></svg></span><span class="jss52"></span></button></div></div><aside class="jss105"><a class="jss107" href="/"><div class="jss15 jss108"><img alt="Seolhun" src="https://avatars.githubusercontent.com/Seolhun" class="jss17"/></div></a><h3 class="jss106">Seolhun<small>TechBlog</small></h3><nav class="jss109"><div><div><button tabindex="0" class="jss42 jss36 jss110" type="button" aria-label="More" aria-haspopup="true"><span class="jss41"><svg class="jss45" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></g></svg></span><span class="jss52"></span></button></div><div class="jss111" style="position:absolute;pointer-events:none;opacity:0"><div class="jss62 jss66 jss63" style="opacity:0;transform:scale(0.75, 0.5625);transform-origin:0 0 0" id="menu-list"><ul class="jss89 jss90" role="menu"><li tabindex="-1" class="jss42 jss95 jss98 jss102 jss103 jss93" role="menuitem">Home<span class="jss52"></span></li><a style="display:block" tabindex="-1" href="/about/"><li tabindex="-1" class="jss42 jss95 jss98 jss102 jss103 jss93" role="menuitem">About Me<span class="jss52"></span></li></a><a style="display:block" tabindex="-1" href="/contact/"><li tabindex="-1" class="jss42 jss95 jss98 jss102 jss103 jss93" role="menuitem">Contact<span class="jss52"></span></li></a></ul></div></div></div></nav></aside></div></div><script id="webpack-manifest">/*<![CDATA[*/window.webpackManifest={"0":"0-7c366b873efeb9f8d757.js","1":"1-dc204b47bf4acedbfa40.js","231608221292675":"app-af17c81c7d6ceab490ca.js","99219681209289":"component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js","198517197184460":"component---src-templates-post-template-js-08c924998ac11c3fe5b5.js","235131596041995":"component---src-templates-page-template-js-e974d82127a113441ebf.js","70144966829960":"component---src-pages-contact-js-08badf18b242f8a73418.js","35783957827783":"component---src-pages-index-js-dd4a84dfad9debe80ef0.js","142807904292071":"component---src-pages-search-js-ecd99ca1173c6bf70ad1.js","60335399758886":"path----f179d64bb4e59929ed87.js","210333531512890":"path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js","74936217677617":"path---db-mariadb-grant-auth-6faf87aed96575c9d9c7.js","214230503851744":"path---db-mariadb-reset-auth-f30bc9da44d11bbaac1b.js","43403468993740":"path---java-collection-framework-9ba4cf84c5ced2209169.js","280116536026468":"path---java-thread-1-4efbcf6326c5486d4a5d.js","16848618695928":"path---java-quick-sort-cdab7fd4b521c0b78c98.js","137750973331821":"path---devops-aws-products-086a4c7dbd1a78afd30d.js","88313148896211":"path---vue-basic-vue-1-31bfa7a63d18c208975c.js","239819755395379":"path---js-new-operators-f81a274255c3ea805137.js","27448177207889":"path---js-singleton-pattern-6717e2d2da35834425aa.js","275942580330690":"path---js-static-208cd12ae99068b3a5bb.js","273412296804218":"path---ci-jenkins-with-github-0e09e891e15641c2e7aa.js","134675448990564":"path---js-prototype-682430dfaf4574f2ae0f.js","37197492418689":"path---ts-namespace-df7ceb14d7a7ad7613a3.js","170500692754884":"path---js-module-pattern-38458e3bac2bddc82ac6.js","21867697855891":"path---js-promise-78622b6e31a7cc07be77.js","17544140196473":"path---java-jumpcase-63bde1fee14e94ec3864.js","34202955771675":"path---java-no-overtime-09ed01fcf79946c93eaf.js","203609798636730":"path---js-insertion-sort-1-fce77b2b93bd65939a91.js","59490244924173":"path---js-insertion-sort-2-507e99b743d68df5e720.js","27423486472826":"path---java-thread-produce-consumer-94de61fe2d97525dd43b.js","190620469120990":"path---js-counting-sort-1-8967d2fe2a000688ab89.js","264723780907117":"path---js-counting-sort-2-86dadbf392d1dfe2e596.js","28314697101136":"path---js-closest-numbers-9b80029d4e369cf5a457.js","12169737975783":"path---js-find-the-median-810087a8d2fc42cdc257.js","272097635495846":"path---ts-init-graph-ql-a3722bc3a17b864fc07a.js","42467851757334":"path---js-single-thread-js-b642e3e1131b8016ce2a.js","280285509671999":"path---js-binary-search-78b72c4330b82c7f5ef2.js","139068673239521":"path---how-to-calculate-algorithm-time-ed22955c1742716d8fde.js","151114574777384":"path---js-bit-wise-operators-8674da225b310d8facb9.js","276784737568161":"path---js-array-flatten-5fb73df22f2abebb2a9c.js","88541353048229":"path---js-es-6-featured-1-16defaa5ffed2546ec5d.js","54651817163960":"path---js-es-6-featured-2-4d1a05ab19d0f2c60c64.js","136399349542920":"path---js-good-array-methods-ec7b22cf0bc91f039301.js","203947067808603":"path---js-search-not-exist-smallest-d7481b0e59dae680a9ea.js","202986977331321":"path---java-elevators-764b3a70e5d188fa89a3.js","92437892893342":"path---java-find-steps-14304251aaa7751271fa.js","13160554862933":"path---js-lonely-integer-ae1eff92407e86b9a6d4.js","279412982539779":"path---java-beginners-cross-same-voca-0b2c9401b75b629a92ea.js","136252696975420":"path---java-get-mid-num-avg-b2cebce924082c61f651.js","157885249887816":"path---java-management-exercise-7209b1b4d27b697303e1.js","130349358063879":"path---java-perfect-shuffle-9be3bddef3697666f60b.js","262518608295866":"path---java-zigzag-numbers-4ff0ee3f60be19678677.js","269045282608079":"path---network-what-is-the-web-socket-38f134cd7d26a2e16229.js","20496543127725":"path---java-maze-fb7a4a037c2ea5256702.js","269215763699799":"path---java-password-6dd635d7c868acbb81a5.js","194193916357738":"path---java-arrat-list-linked-list-b22dfdd547ade2d0390a.js","131710867777195":"path---java-dallant-2-7382460d43fa391603f3.js","71275676137236":"path---java-gns-8526fd48f8ed1a958d51.js","84272873835096":"path---java-all-about-sort-1-386e719368ff14f47746.js","10143789196530":"path---2018-04-20-network-http-https-43986ceca680723a07e2.js","66469997326313":"path---web-how-to-optimize-web-1-553e30b4eaaec0152196.js","58672874819922":"path---java-all-about-sort-2-4446a66560fe5537f41e.js","206620089929285":"path---web-how-to-optimize-web-2-f15711a7a7815440cdf3.js","36330419407463":"path---spring-spring-bean-scope-6e7aeee6a84101a32331.js","101192157967676":"path---java-stack-implement-2-ae1d8c41dc4d1efea883.js","106143620851467":"path---java-weeks-1-must-solve-linear-14ba0b46e992a505f087.js","242688632435117":"path---2018-05-02-java-stack-implement-1-00579cdba86554029f10.js","213408607136486":"path---java-supply-route-e8bead20d7ee7109e632.js","187279197728603":"path---java-weeks-3-algorithm-step-8-a55a6c2c1294e26a0539.js","47516194523176":"path---network-udp-tcp-f4cb3ee2fde02387dacd.js","31793589569236":"path---react-react-component-comparison-ba8637e7f46acedac1ff.js","170786371021445":"path---success-6c9aefa006be1947211f.js","273950069227526":"path---about-9a4b3694972e130418f0.js","257584548540049":"path---diary-what-isthe-problem-df4c1340230f092ebcab.js","184662623972074":"path---contact-a0e39f21c11f6a62c5ab.js","142629428675168":"path---index-846d0c7afe53a92ffb0c.js","254572558124955":"path---search-8fd8f423ad64b52b2482.js","114276838955818":"component---src-layouts-index-js-90210daba0b1115d67b6.js"}/*]]>*/</script><script>
+            
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', '115545667', 'auto');
+      }
+      </script><script>
+        WebFontConfig = {
+          google: {
+            families: ["Open Sans:300,400,600"]
+          }
+        };
+
+        (function(d) {
+            var wf = d.createElement('script'), s = d.scripts[0];
+            wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+            wf.async = true;
+            s.parentNode.insertBefore(wf, s);
+        })(document);</script><script>/*<![CDATA[*/["/commons-b713904dd0d0c99e9639.js","/app-af17c81c7d6ceab490ca.js","/path---how-to-calculate-algorithm-time-ed22955c1742716d8fde.js","/component---src-templates-post-template-js-08c924998ac11c3fe5b5.js","/component---src-layouts-index-js-90210daba0b1115d67b6.js"].forEach(function(s){document.write('<script src="'+s+'" defer></'+'script>')})/*]]>*/</script></body></html>
