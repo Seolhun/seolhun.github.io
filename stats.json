@@ -85,8 +85,8 @@
       "path---js-insertion-sort-2-848fad759f71ae6ebb0c.js.map"
     ],
     "path---": [
-      "path----31878d2e9c890ed659a9.js",
-      "path----31878d2e9c890ed659a9.js.map"
+      "path----e0f39824b4b629e12221.js",
+      "path----e0f39824b4b629e12221.js.map"
     ],
     "path---web-how-to-optimize-web-1": [
       "path---web-how-to-optimize-web-1-e4bc5ef21c059dd7565b.js",
@@ -133,8 +133,8 @@
       "path---java-weeks-1-must-solve-linear-3ab676012a17995a0c68.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-b5edb1293b313ac22ac2.js",
-      "component---src-layouts-index-js-b5edb1293b313ac22ac2.js.map"
+      "component---src-layouts-index-js-283094b640086163cd00.js",
+      "component---src-layouts-index-js-283094b640086163cd00.js.map"
     ],
     "path---java-perfect-shuffle": [
       "path---java-perfect-shuffle-3d370973ff7ccd893865.js",
@@ -247,9 +247,9 @@
       "path---db-mariadb-reset-auth-d532231c7d76cb386994.js.map"
     ],
     "app": [
-      "app-6f98f37c3b0fc83fd3ce.js",
+      "app-62fc46007f07144a102e.js",
       "build-js-styles.css",
-      "app-6f98f37c3b0fc83fd3ce.js.map",
+      "app-62fc46007f07144a102e.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-templates-page-template-js": [
@@ -259,6 +259,10 @@
     "path---js-new-operators": [
       "path---js-new-operators-a411971dca7890b08dd1.js",
       "path---js-new-operators-a411971dca7890b08dd1.js.map"
+    ],
+    "path---js-functional-curry-in-js": [
+      "path---js-functional-curry-in-js-e9d5455423fd12580f12.js",
+      "path---js-functional-curry-in-js-e9d5455423fd12580f12.js.map"
     ],
     "path---search": [
       "path---search-8fd8f423ad64b52b2482.js",
