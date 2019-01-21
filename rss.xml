@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[SeolHun TechBlog]]></title><description><![CDATA[The Dreamer through the Programming]]></description><link>https://seolhun.github.io</link><generator>RSS for Node</generator><lastBuildDate>Mon, 21 Jan 2019 16:45:31 GMT</lastBuildDate><item><title><![CDATA[[JS/Functional] Currying으로 알아보는 Functional Programming]]></title><description><![CDATA[What is currying 은 함수를 하나의 인수로 취하여 일련의 함수로 분해하는 프로세스입니다. sum3은 하나의 함수에 1개의 argument를 받아서 처리하는 함수입니다. 더 나아가보겠습니다. 그에 반하여 sumFn3은 js…]]></description><link>https://seolhun.github.io/JS-FunctionalCurryInJS/</link><guid isPermaLink="false">https://seolhun.github.io/JS-FunctionalCurryInJS/</guid><content:encoded>&lt;h2&gt;What is currying&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[SeolHun TechBlog]]></title><description><![CDATA[The Dreamer through the Programming]]></description><link>https://seolhun.github.io</link><generator>RSS for Node</generator><lastBuildDate>Mon, 21 Jan 2019 16:53:51 GMT</lastBuildDate><item><title><![CDATA[[JS/Functional] Currying으로 알아보는 Functional Programming]]></title><description><![CDATA[What is currying 은 함수를 하나의 인수로 취하여 일련의 함수로 분해하는 프로세스입니다. sum3은 하나의 함수에 1개의 argument를 받아서 처리하는 함수입니다. 더 나아가보겠습니다. 그에 반하여 sumFn3은 js…]]></description><link>https://seolhun.github.io/JS-FunctionalCurryInJS/</link><guid isPermaLink="false">https://seolhun.github.io/JS-FunctionalCurryInJS/</guid><content:encoded>&lt;h2&gt;What is currying&lt;/h2&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;currying&lt;/code&gt;은 함수를 하나의 인수로 취하여 일련의 함수로 분해하는 프로세스입니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;
       &lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sum3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; y&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; z&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -4392,72 +4392,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;h2&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://es6-features.org/&quot;&gt;ES6-features.org/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Javascript] Programmers Algorithm 야근지수]]></title><description><![CDATA[이번에는 Java로 000 문제 야근지수를 구현해보도록 하겠습니다.
- 1. Question function solution(A);
-that, given an array A of N integers, returns the smallest positive…]]></description><link>https://seolhun.github.io/JS-SearchNotExistSmallest/</link><guid isPermaLink="false">https://seolhun.github.io/JS-SearchNotExistSmallest/</guid><content:encoded>&lt;p&gt;이번에는 Java로 000 문제 야근지수를 구현해보도록 하겠습니다.
-&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;1. Question&lt;/h2&gt;
-&lt;p&gt;function solution(A);
-that, given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.&lt;/p&gt;
-&lt;p&gt;For example, given A = [1, 3, 6, 4, 1, 2], the function should return 5.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Given A = [1, 2, 3], the function should return 4.&lt;/li&gt;
-&lt;li&gt;Given A = [−1, −3], the function should return 1.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Assume that:&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;N is an integer within the range [1..100,000];&lt;/li&gt;
-&lt;li&gt;each element of array A is an integer within the range [−1,000,000..1,000,000].&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Complexity:&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;expected worst-case time complexity is O(N);&lt;/li&gt;
-&lt;li&gt;expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;2. Process&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;음수만 있을 때&lt;/code&gt;와 아닐 때의 2가지 경우의 수&lt;/li&gt;
-&lt;li&gt;음수만 있는 경우 1 정답 처리&lt;/li&gt;
-&lt;li&gt;음수는 무조건 1이 정답이므로, 음수만 있을 때를 제외하고는 음수 무시&lt;/li&gt;
-&lt;li&gt;min 값을 활용하여 해당 값보다 작지만 존재하지 않는 값이 있을 경우 min 값에 할당.&lt;/li&gt;
-&lt;li&gt;0보다 크고 min 값보다 작은 모든 경우의 수를 확인하여 정답을 확인한다.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;3. Code&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;
-      &lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// you can write to stdout for debugging purposes, e.g.&lt;/span&gt;
-&lt;span class=&quot;token comment&quot;&gt;// console.log(&apos;this is a debug message&apos;);&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token comment&quot;&gt;// write your code in JavaScript (Node.js 8.9.4)&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; min&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; exist_negative &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; exist_positive &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; i &lt;span class=&quot;token keyword&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;exist_negative &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            exist_negative &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;exist_positive &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            exist_positive &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;min&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            min &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; min&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;indexOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-                min &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;exist_positive &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; exist_negative&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; min&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/JS] 배열에서 사용하면 좋을 Javascript 메소드들]]></title><description><![CDATA[이번에는 알고리즘을 풀 때, 배열에 필요한 메소드들을 정리해볼까 합니다. 이러한 메소드들을 숙지하면 안티패턴으로 또 구성할 필요없이 잘 짜여진 코드들을 이용할 수 있습니다. Intro…]]></description><link>https://seolhun.github.io/JS-GoodArrayMethods/</link><guid isPermaLink="false">https://seolhun.github.io/JS-GoodArrayMethods/</guid><content:encoded>&lt;p&gt;이번에는 알고리즘을 풀 때, 배열에 필요한 메소드들을 정리해볼까 합니다. 이러한 메소드들을 숙지하면 안티패턴으로 또 구성할 필요없이 잘 짜여진 코드들을 이용할 수 있습니다.&lt;/p&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/JS] 배열에서 사용하면 좋을 Javascript 메소드들]]></title><description><![CDATA[이번에는 알고리즘을 풀 때, 배열에 필요한 메소드들을 정리해볼까 합니다. 이러한 메소드들을 숙지하면 안티패턴으로 또 구성할 필요없이 잘 짜여진 코드들을 이용할 수 있습니다. Intro…]]></description><link>https://seolhun.github.io/JS-GoodArrayMethods/</link><guid isPermaLink="false">https://seolhun.github.io/JS-GoodArrayMethods/</guid><content:encoded>&lt;p&gt;이번에는 알고리즘을 풀 때, 배열에 필요한 메소드들을 정리해볼까 합니다. 이러한 메소드들을 숙지하면 안티패턴으로 또 구성할 필요없이 잘 짜여진 코드들을 이용할 수 있습니다.&lt;/p&gt;
 &lt;h2&gt;Intro&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;배열 메소드에는 사용하면 생산성이 많이 올라가는 메소드가 많습니다. 특히, 배열은 알고리즘 문제에서 기본적으로 주어지는 문제타입입니다. 그렇기에 배열 관련 메소드를 이해하면 문제를 알고리즘을 푸는데 많은 도움을 받을 수 있습니다. 이번 시간을 통해 배열에 기본 내장된 메소드를 숙지하여 생산성과 가독성을 높이면 좋을 것 같습니다.&lt;/li&gt;
@@ -4611,7 +4546,72 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;h2&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array&quot;&gt;Mozilla - Javascript&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Javascript] 모든 배열의 값을 가져오는 Algorithm(Flatten)]]></title><description><![CDATA[이번에 렌딧 면접간 모든 배열의 값을 출력하는 알고리즘이었습니다. 어려운 문제는 아니었으나 제가 넓은 사고를 하지 못해 쉽게는 풀지 못했던 것 같습니다. 이번 알고리즘을 통해 ES6의 Rest…]]></description><link>https://seolhun.github.io/JS-ArrayFlatten/</link><guid isPermaLink="false">https://seolhun.github.io/JS-ArrayFlatten/</guid><content:encoded>&lt;p&gt;이번에 렌딧 면접간 모든 배열의 값을 출력하는 알고리즘이었습니다. 어려운 문제는 아니었으나 제가 넓은 사고를 하지 못해 쉽게는 풀지 못했던 것 같습니다. 이번 알고리즘을 통해 ES6의 Rest 기능으로 더 많은 알고리즘의 기회가 생겼음을 알았고 이와 관련하여 글을 작성해보고자 합니다.&lt;/p&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Javascript] Programmers Algorithm 야근지수]]></title><description><![CDATA[이번에는 Java로 000 문제 야근지수를 구현해보도록 하겠습니다.
+ 1. Question function solution(A);
+that, given an array A of N integers, returns the smallest positive…]]></description><link>https://seolhun.github.io/JS-SearchNotExistSmallest/</link><guid isPermaLink="false">https://seolhun.github.io/JS-SearchNotExistSmallest/</guid><content:encoded>&lt;p&gt;이번에는 Java로 000 문제 야근지수를 구현해보도록 하겠습니다.
+&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;1. Question&lt;/h2&gt;
+&lt;p&gt;function solution(A);
+that, given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.&lt;/p&gt;
+&lt;p&gt;For example, given A = [1, 3, 6, 4, 1, 2], the function should return 5.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Given A = [1, 2, 3], the function should return 4.&lt;/li&gt;
+&lt;li&gt;Given A = [−1, −3], the function should return 1.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Assume that:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;N is an integer within the range [1..100,000];&lt;/li&gt;
+&lt;li&gt;each element of array A is an integer within the range [−1,000,000..1,000,000].&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Complexity:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;expected worst-case time complexity is O(N);&lt;/li&gt;
+&lt;li&gt;expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. Process&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;음수만 있을 때&lt;/code&gt;와 아닐 때의 2가지 경우의 수&lt;/li&gt;
+&lt;li&gt;음수만 있는 경우 1 정답 처리&lt;/li&gt;
+&lt;li&gt;음수는 무조건 1이 정답이므로, 음수만 있을 때를 제외하고는 음수 무시&lt;/li&gt;
+&lt;li&gt;min 값을 활용하여 해당 값보다 작지만 존재하지 않는 값이 있을 경우 min 값에 할당.&lt;/li&gt;
+&lt;li&gt;0보다 크고 min 값보다 작은 모든 경우의 수를 확인하여 정답을 확인한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;3. Code&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;
+      &lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// you can write to stdout for debugging purposes, e.g.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// console.log(&apos;this is a debug message&apos;);&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// write your code in JavaScript (Node.js 8.9.4)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; min&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; exist_negative &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; exist_positive &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; i &lt;span class=&quot;token keyword&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;exist_negative &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            exist_negative &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;exist_positive &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            exist_positive &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;min&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            min &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; min&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;indexOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                min &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;exist_positive &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; exist_negative&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; min&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Javascript] 모든 배열의 값을 가져오는 Algorithm(Flatten)]]></title><description><![CDATA[이번에 렌딧 면접간 모든 배열의 값을 출력하는 알고리즘이었습니다. 어려운 문제는 아니었으나 제가 넓은 사고를 하지 못해 쉽게는 풀지 못했던 것 같습니다. 이번 알고리즘을 통해 ES6의 Rest…]]></description><link>https://seolhun.github.io/JS-ArrayFlatten/</link><guid isPermaLink="false">https://seolhun.github.io/JS-ArrayFlatten/</guid><content:encoded>&lt;p&gt;이번에 렌딧 면접간 모든 배열의 값을 출력하는 알고리즘이었습니다. 어려운 문제는 아니었으나 제가 넓은 사고를 하지 못해 쉽게는 풀지 못했던 것 같습니다. 이번 알고리즘을 통해 ES6의 Rest 기능으로 더 많은 알고리즘의 기회가 생겼음을 알았고 이와 관련하여 글을 작성해보고자 합니다.&lt;/p&gt;
 &lt;h2&gt;1. Question&lt;/h2&gt;
 &lt;p&gt;주어진 배열 안에 존재하는 배열 값 모두를 1차원 배열에 값으로 만드는 문제입니다.&lt;/p&gt;
 &lt;p&gt;해결방법의 시간 복잡도는 &lt;code class=&quot;language-text&quot;&gt;n log n&lt;/code&gt;이다. 주어진 배열 값을 모두 확인하며 처리 한후, 하나의 값으로 모으면서 &lt;code class=&quot;language-text&quot;&gt;n log n&lt;/code&gt;의 복잡도를 갖게 된다.&lt;/p&gt;
