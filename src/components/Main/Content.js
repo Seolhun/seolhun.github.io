@@ -27,6 +27,14 @@ const styles = (theme) => ({
         margin: '2.5em -3.5rem',
       },
     },
+    '& h1': {
+      color: theme.main.colors.contentHeading,
+      fontSize: `${theme.main.fonts.contentHeading.h1Size}em`,
+      fontWeight: theme.main.fonts.contentHeading.weight,
+      lineHeight: theme.main.fonts.contentHeading.lineHeight,
+      margin: '2em 0 1em',
+      letterSpacing: '-0.02em',
+    },
     '& h2, & h3': {
       color: theme.main.colors.contentHeading,
       fontSize: `${theme.main.fonts.contentHeading.h2Size}em`,
@@ -34,6 +42,8 @@ const styles = (theme) => ({
       lineHeight: theme.main.fonts.contentHeading.lineHeight,
       margin: '2em 0 1em',
       letterSpacing: '-0.02em',
+      borderLeft: `0.2em solid ${theme.main.fonts.contentHeading.accent}`,
+      paddingLeft: '8px',
     },
     '& h3': {
       fontSize: `${theme.main.fonts.contentHeading.h3Size}em`,

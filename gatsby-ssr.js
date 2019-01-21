@@ -51,7 +51,7 @@ exports.onRenderBody = ({ setHeadComponents }) => {
 exports.onRenderBody = ({ setPostBodyComponents }) => {
   return setPostBodyComponents([
     <script
-      key={`webfontsloader-setup`}
+      key="webfontsloader-setup"
       dangerouslySetInnerHTML={{
         __html: `
         WebFontConfig = {
@@ -62,12 +62,18 @@ exports.onRenderBody = ({ setPostBodyComponents }) => {
           }
         };
 
-        (function(d) {
-            var wf = d.createElement('script'), s = d.scripts[0];
-            wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
-            wf.async = true;
-            s.parentNode.insertBefore(wf, s);
-        })(document);`,
+        <script
+          async
+          src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        >
+        </script>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-2426948628431849",
+            enable_page_level_ads: true
+          });
+        </script>
+      `,
       }}
     />,
   ]);
