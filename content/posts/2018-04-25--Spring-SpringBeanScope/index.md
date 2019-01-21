@@ -2,7 +2,7 @@
 title: "[Spring/Java] Spring Bean Scope는 무엇인가?"
 author:  Seolhun
 date:  2018-04-25
-categories: "Spring"
+category: "Spring"
 tags:  ['Spring', 'Java', 'Bean', 'Scope', 'Singleton', 'Prototype']
 cover: "spring.png"
 ---

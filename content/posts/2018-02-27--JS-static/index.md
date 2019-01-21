@@ -1,7 +1,7 @@
 ---
 title: "[Javascript/Typescript] Static이란?"
 author: Seolhun
-categories: "Javascript"
+category: "Javascript"
 tags: ['Prototype', 'Javascript', 'Typescript', 'Class', 'Module']
 cover: "javascript.jpeg"
 ---

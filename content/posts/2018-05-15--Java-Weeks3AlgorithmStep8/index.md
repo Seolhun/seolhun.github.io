@@ -2,7 +2,7 @@
 title: "[Algorithm/Java] BAEKJOON - Study Weeks 3 : 규칙찾기 Step8"
 author: Seolhun
 date: 2018-05-15
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'Java']
 cover: "java.jpg"
 ---

@@ -2,7 +2,7 @@
 title: "[Network/Http] Http vs Https의 차이? 그리고 Packet과 TSL, SSL"
 author: Seolhun
 date: 2018-04-20
-categories: "Network"
+category: "Network"
 tags: ['Network', 'Http', 'Https', 'Packet', 'TLS', 'SSL']
 cover: "http.png"
 ---

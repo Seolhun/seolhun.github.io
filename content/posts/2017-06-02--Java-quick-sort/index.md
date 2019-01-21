@@ -1,7 +1,7 @@
 ---
 title: "[Algorithm/Sort] QuickSort 자바로 구현해보기"
 author: Seolhun
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'Java', 'Sort', 'Quick']
 cover: "java.jpg"
 ---

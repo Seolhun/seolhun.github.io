@@ -2,7 +2,7 @@
 title: "[Algorithm/Java] SWexpertAcademy 비밀번호"
 author: Seolhun
 date: 2018-04-15
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'Java']
 cover: "java.jpg"
 ---

@@ -13,9 +13,12 @@ const query = `{
           content
         }
         frontmatter {
-          title
+          author
+          date
+          description
           subTitle
           tags
+          title
         }
       }
     }

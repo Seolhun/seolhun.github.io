@@ -70,6 +70,7 @@ class List extends React.Component {
               navigatorShape={navigatorShape}
               removeFilter={removeFilter}
             />
+            <div>Hello</div>
             <ul className={classes.list}>
               {posts &&
                 posts.map((post, i) => (

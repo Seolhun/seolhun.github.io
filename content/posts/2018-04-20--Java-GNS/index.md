@@ -2,7 +2,7 @@
 title: "[Algorithm/Java] SWexpertAcademy GNS"
 author: Seolhun
 date: 2018-04-20
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'Java', 'Enum']
 cover: "java.jpg"
 ---

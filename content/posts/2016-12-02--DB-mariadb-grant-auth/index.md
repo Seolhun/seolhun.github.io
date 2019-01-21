@@ -2,7 +2,7 @@
 title: "[DB/MariaDB] MariaDB에 사용자 권한주기"
 subTitle: "MariaDB에 사용자 권한주기"
 author: "Seolhun"
-categories:  "Database"
+category: "Database"
 tags: ['Database', 'Mariadb', 'Auth']
 cover: "mariadb.png"
 ---

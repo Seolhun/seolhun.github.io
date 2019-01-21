@@ -2,7 +2,7 @@
 title: "[Algorithm/Java] 자주 언급되는 Sort Algorithm 자바로 구현해보기 - Part 2"
 author: Seolhun
 date: 2018-04-22
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'Java', 'Sort', 'Quick', 'Merge', 'Insertion', 'Selection', 'Bubble', 'Counting']
 cover: "java.jpg"
 ---

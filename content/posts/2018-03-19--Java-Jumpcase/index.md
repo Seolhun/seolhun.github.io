@@ -2,7 +2,7 @@
 title: "[Algorithm/Java] Programmers - 멀리뛰기"
 author: Seolhun
 date: 2018-03-19
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Java', 'Algorithm', 'Programmers', '야근지수']
 cover: "java.jpg"
 ---

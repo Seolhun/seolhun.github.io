@@ -2,7 +2,7 @@
 title: "[Algorithm] 알고리즘을 위한 시간복잡도 계산 방법 - Big-O 표기"
 author: Seolhun
 date: 2018-04-05
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'Big-O']
 cover: "algorithm.jpeg"
 ---

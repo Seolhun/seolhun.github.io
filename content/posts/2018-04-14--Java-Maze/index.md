@@ -2,7 +2,7 @@
 title: "[Algorithm/Java] SWexpertAcademy 미로 Part 1"
 author: Seolhun
 date: 2018-04-14
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'Java']
 cover: "java.jpg"
 ---

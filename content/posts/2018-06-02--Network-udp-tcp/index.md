@@ -2,7 +2,7 @@
 title: "[Network] IP, UDP, TCP란 무엇인가?"
 subTitle: "HTTP 이해를 위한 기본 네트워크 지식, IP, UDP, TCP"
 author: Seolhun
-categories: "Network"
+category: "Network"
 cover: "ip.jpg"
 ---
 

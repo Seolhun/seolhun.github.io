@@ -1,7 +1,8 @@
 import React from 'react';
 import injectSheet from 'react-jss';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
+import PropTypes from 'prop-types';
 
 import withRoot from '../withRoot';
 
@@ -40,6 +41,20 @@ class Layout extends React.Component {
   timeouts = {};
   categories = [];
 
+  constructor(props) {
+    super(props);
+    console.error('@@@', props.data);
+
+    if (typeof localStorage !== 'undefined') {
+      const inLocal = +localStorage.getItem('font-size-increase');
+      const inStore = this.props.fontSizeIncrease;
+      if (inLocal && inLocal !== inStore && inLocal >= 1 && inLocal <= 1.5) {
+        this.props.setFontSizeIncrease(inLocal);
+      }
+    }
+    this.getCategories();
+  }
+
   componentDidMount() {
     this.props.setIsWideScreen(isWideScreen());
     if (typeof window !== 'undefined') {
@@ -47,22 +62,12 @@ class Layout extends React.Component {
     }
   }
 
-  componentWillMount() {
-    if (typeof localStorage !== 'undefined') {
-      const inLocal = +localStorage.getItem('font-size-increase');
-
-      const inStore = this.props.fontSizeIncrease;
-
-      if (inLocal && inLocal !== inStore && inLocal >= 1 && inLocal <= 1.5) {
-        this.props.setFontSizeIncrease(inLocal);
-      }
-    }
-
-    this.getCategories();
-  }
-
   getCategories = () => {
-    this.categories = this.props.data.posts.edges.reduce((list, edge, i) => {
+    const {
+      data: { posts },
+    } = this.props;
+
+    this.categories = posts.edges.reduce((list, edge, i) => {
       const category = edge.node.frontmatter.category;
       if (category && !~list.indexOf(category)) {
         return list.concat(edge.node.frontmatter.category);
@@ -147,6 +152,7 @@ export const guery = graphql`
           frontmatter {
             title
             subTitle
+            description
             # category
             cover {
               children {

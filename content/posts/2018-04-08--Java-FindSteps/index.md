@@ -2,7 +2,7 @@
 title: "[Algorithm/Java] Codility - FindSteps Algorithm"
 author: Seolhun
 date: 2018-04-08
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'Java']
 cover: "java.jpg"
 ---

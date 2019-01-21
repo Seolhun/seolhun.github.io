@@ -2,7 +2,7 @@
 title: "[Algorithm/Java] SWexpertAcademy 보급로(SupplyRoute)"
 author: Seolhun
 date: 2018-05-03
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'Java']
 cover: "java.jpg"
 ---

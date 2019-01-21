@@ -2,7 +2,7 @@
 title: "[Algorithm/Java] SWexpertAcademy GetMidNumAvg"
 author: Seolhun
 date: 2018-04-10
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'Java']
 cover: "java.jpg"
 ---

@@ -2,7 +2,7 @@
 title: "[Javascript/Typescript] Module Pattern이란?"
 author: Seolhun
 date: 2018-03-05
-categories: "Javascript"
+category: "Javascript"
 tags: ['Javascript', 'Typescript', 'Module', 'Pattern']
 cover: "javascript.jpeg"
 ---

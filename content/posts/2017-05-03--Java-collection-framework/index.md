@@ -1,7 +1,7 @@
 ---
 title: "[Java/Collection] Java Collection Framework에 대한 이해를 통해 Data Structure 이해하기"
 author: Seolhun
-categories: "Datastructure"
+category: "Datastructure"
 tags:  ['Datastructure', 'Java', 'Collection']
 cover: "java.jpg"
 ---

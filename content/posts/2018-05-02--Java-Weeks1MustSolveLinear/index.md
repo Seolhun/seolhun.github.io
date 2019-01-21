@@ -2,7 +2,7 @@
 title: "[Algorithm] 알고리즘 문제 해결전략 - 무식하게 풀기 - Weeks 1"
 author: Seolhun
 date: 2018-05-02
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'Reculsive', 'Exhaustive', 'Linear']
 cover: "java.jpg"
 ---

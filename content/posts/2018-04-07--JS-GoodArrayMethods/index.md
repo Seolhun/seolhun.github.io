@@ -2,7 +2,7 @@
 title: "[Algorithm/JS] 배열에서 사용하면 좋을 Javascript 메소드들"
 author: Seolhun
 date: 2018-04-07
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'JS', 'Anti Pattern', 'Methods']
 cover: "javascript.jpeg"
 ---

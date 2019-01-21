@@ -1,7 +1,7 @@
 ---
 title: "[JS/Vue] Vue Study를 통한 문법 및 예제 만들기 - Part 1"
 author: Seolhun
-categories: "Javascript"
+category: "Javascript"
 tags: ['Javascript', 'Vue']
 cover: "vue.png"
 ---

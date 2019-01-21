@@ -5,6 +5,9 @@ import config from '../../../content/meta/config';
 
 const Seo = (props) => {
   const { data, facebook } = props;
+
+  console.error('@@@', data);
+
   const postTitle = ((data || {}).frontmatter || {}).title;
   const postDescription = ((data || {}).frontmatter || {}).description;
   const postCover = ((data || {}).frontmatter || {}).cover;

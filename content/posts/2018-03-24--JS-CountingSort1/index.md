@@ -2,7 +2,7 @@
 title: "[Algorithm/JavaScript] HackerRank - CountingSort Part 1"
 author: Seolhun
 date: 2018-03-24
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'JavaScript', 'HackerRank', 'Sort', 'Counting']
 cover: "javascript.jpeg"
 ---

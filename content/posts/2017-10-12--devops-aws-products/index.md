@@ -1,7 +1,7 @@
 ---
 title: "[AWS] AWS Products에 대한 내용 간단히 정리하기"
 author: Seolhun
-categories: "AWS"
+category: "AWS"
 tags: ['AWS', 'EC2', 'S3', 'Kinesis', 'Products']
 cover: "aws.png"
 ---

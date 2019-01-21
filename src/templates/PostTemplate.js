@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Main from '../components/Main/';
 import { connect } from 'react-redux';
-require('core-js/fn/array/find');
-require('prismjs/themes/prism-okaidia.css');
 
 import { setNavigatorPosition, setNavigatorShape } from '../state/store';
 import { moveNavigatorAside } from '../utils/shared';
@@ -11,7 +9,10 @@ import Post from '../components/Post/';
 import Footer from '../components/Footer/';
 import Seo from '../components/Seo';
 
-class PostTemplate extends React.Component {
+require('core-js/fn/array/find');
+require('prismjs/themes/prism-okaidia.css');
+
+class PostTemplate extends Component {
   moveNavigatorAside = moveNavigatorAside.bind(this);
 
   componentDidMount() {
@@ -76,8 +77,8 @@ export const postQuery = graphql`
         prefix
       }
       frontmatter {
-        title
-        subTitle
+        author
+        category
         cover {
           childImageSharp {
             resize(width: 300) {
@@ -85,6 +86,10 @@ export const postQuery = graphql`
             }
           }
         }
+        description
+        subTitle
+        tags
+        title
       }
     }
     author: markdownRemark(id: { regex: "/author/" }) {

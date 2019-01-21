@@ -1,7 +1,7 @@
 ---
 title: "[Javascript/Typescript] JavaScript new, constructor란?"
 author: Seolhun
-categories: "Javascript"
+category: "Javascript"
 tags: ['New', 'Constructor', 'Singleton']
 cover: "javascript.jpeg"
 ---
