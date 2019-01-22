@@ -2,7 +2,7 @@
 title : "[Algorithm/Java] BAEKJOON - 스택으로 CheckBracketValidation"
 author: Seolhun
 date : 2018-05-02
-categories: "Algorithm"
+category: "Algorithm"
 tags : ['Algorithm', 'Java']
 cover: "java.jpg"
 ---

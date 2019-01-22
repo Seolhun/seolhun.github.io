@@ -2,7 +2,7 @@
 title: "[Algorithm/Javascript] 모든 배열의 값을 가져오는 Algorithm(Flatten)"
 author: Seolhun
 date: 2018-04-06
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'Javascript', 'Javascript']
 cover: "javascript.jpeg"
 ---

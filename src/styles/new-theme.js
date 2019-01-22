@@ -101,9 +101,11 @@ const theme = createMuiTheme({
         lineHeight: 1.6,
       },
       contentHeading: {
+        h1Size: 2,
         h2Size: 1.5,
         h3Size: 1.3,
         weight: 600,
+        accent: '#2196f3',
         lineHeight: 1.3,
       },
       footer: {

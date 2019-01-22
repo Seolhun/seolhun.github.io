@@ -2,7 +2,7 @@
 title: "[Algorithm/JavaScript] HackerRank - InsertionSort Part 2"
 author: Seolhun
 date: 2018-03-22
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'JavaScript', 'HackerRank', 'InsertionSort']
 cover: "javascript.jpeg"
 ---

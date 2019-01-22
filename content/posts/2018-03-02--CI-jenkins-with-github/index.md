@@ -2,7 +2,7 @@
 title: "[Jenkins/CI] Continuous Integration with Jenkins and Github 알아보고 예제 작성하기 - 1"
 author: Seolhun
 date: 2018-03-02
-categories: "Jenkins"
+category: "Jenkins"
 tags: ['CI', 'Jenkins', 'Test', 'Pipeline', 'Devops']
 cover: "jenkins.png"
 ---

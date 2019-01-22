@@ -2,7 +2,7 @@
 title: "[Network/Socket] WebSocket이란 무엇인가? 어떻게 사용하는가?"
 author: Seolhun
 date: 2018-04-12
-categories: "WebSocket"
+category: "WebSocket"
 tags: ['Network', 'Socket', 'WebSocket', 'SocketIO']
 cover: "websocket.png"
 ---

@@ -2,7 +2,7 @@
 title : "[Web] 웹사이트의 속도를 개선할 수 있는 방법 9가지 정리 - Part 2"
 author: Seolhun
 date : 2018-04-23
-categories: "Web"
+category: "Web"
 tags : ['Web', 'Optimization', 'Cache', 'HTTP', 'gzip', 'Priority']
 cover: "http.png"
 ---

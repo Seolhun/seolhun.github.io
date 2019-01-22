@@ -1,6 +1,6 @@
-import { createMuiTheme } from "@material-ui/core/styles";
-import Color from "color";
-import colors from "./colors";
+import { createMuiTheme } from '@material-ui/core/styles';
+import Color from 'color';
+import colors from './colors';
 
 const theme = createMuiTheme({
   base: {
@@ -12,16 +12,16 @@ const theme = createMuiTheme({
         .lighten(0.1)
         .string(),
       accent: colors.accent,
-      lines: colors.superLightGray
+      lines: colors.superLightGray,
     },
     sizes: {
-      linesMargin: "20px"
+      linesMargin: '20px',
     },
     fonts: {
       unstyledFamily: `Arial`,
-      styledFamily: "Open Sans",
-      styledFonts: "300,400,600"
-    }
+      styledFamily: 'Open Sans',
+      styledFonts: '300,400,600',
+    },
   },
   info: {
     colors: {
@@ -30,32 +30,32 @@ const theme = createMuiTheme({
       socialIcons: colors.lightGray,
       socialIconsHover: colors.accent,
       menuLink: colors.gray,
-      menuLinkHover: colors.accent
+      menuLinkHover: colors.accent,
     },
     sizes: {
       width: 320,
-      headerHeight: 170
+      headerHeight: 170,
     },
     fonts: {
       boxTitleSize: 1.3,
       boxTitleSizeM: 1.5,
-      boxTitleSizeL: 1.7
-    }
+      boxTitleSizeL: 1.7,
+    },
   },
   navigator: {
     colors: {
       background: colors.background,
       postsListItemLink: colors.gray,
       postsListItemLinkHover: colors.accent,
-      postsHeader: colors.gray
+      postsHeader: colors.gray,
     },
     sizes: {
       closedHeight: 80,
       postsListItemH1Font: 1.3,
       postsListItemH2Font: 1.1,
       fontIncraseForM: 1.15,
-      fontIncraseForL: 1.3
-    }
+      fontIncraseForL: 1.3,
+    },
   },
   main: {
     colors: {
@@ -69,10 +69,10 @@ const theme = createMuiTheme({
       blockquoteFrame: colors.lightGray,
       link: colors.accent,
       linkHover: colors.dark,
-      fbCommentsColorscheme: "light"
+      fbCommentsColorscheme: 'light',
     },
     sizes: {
-      articleMaxWidth: "50em"
+      articleMaxWidth: '50em',
     },
     fonts: {
       title: {
@@ -80,36 +80,38 @@ const theme = createMuiTheme({
         sizeM: 2.5,
         sizeL: 2.7,
         weight: 600,
-        lineHeight: 1.1
+        lineHeight: 1.1,
       },
       subTitle: {
         size: 1.5,
         sizeM: 1.8,
         sizeL: 1.95,
         weight: 300,
-        lineHeight: 1.1
+        lineHeight: 1.1,
       },
       meta: {
         size: 0.9,
-        weight: 600
+        weight: 600,
       },
       content: {
         size: 1.0,
         sizeM: 1.15,
         sizeL: 1.1,
-        lineHeight: 1.6
+        lineHeight: 1.6,
       },
       contentHeading: {
+        h1Size: 2,
         h2Size: 1.5,
         h3Size: 1.3,
         weight: 600,
-        lineHeight: 1.3
+        accent: '#2196f3',
+        lineHeight: 1.3,
       },
       footer: {
         size: 1,
-        lineHeight: 1.4
-      }
-    }
+        lineHeight: 1.4,
+      },
+    },
   },
   footer: {
     colors: {
@@ -119,42 +121,42 @@ const theme = createMuiTheme({
       link: colors.accent,
       linkHover: Color(colors.accent)
         .lighten(0.2)
-        .string()
+        .string(),
     },
     fonts: {
       footnote: {
         size: 0.8,
-        lineHeight: 1.4
-      }
-    }
+        lineHeight: 1.4,
+      },
+    },
   },
   bars: {
     colors: {
       background: colors.background,
       icon: colors.gray,
-      text: colors.gray
+      text: colors.gray,
     },
     sizes: {
       actionsBar: 60,
-      infoBar: 60
-    }
+      infoBar: 60,
+    },
   },
   mediaQueryTresholds: {
     M: 600,
-    L: 1024
+    L: 1024,
   },
   palette: {
     primary: {
-      main: colors.accent
+      main: colors.accent,
     },
     action: {
-      hover: "rgba(0, 0, 0, 0.01)"
-    }
+      hover: 'rgba(0, 0, 0, 0.01)',
+    },
   },
   typography: {
     fontFamily: `Arial, sans-serif`,
-    fontSize: 16
-  }
+    fontSize: 16,
+  },
 });
 
 export default theme;

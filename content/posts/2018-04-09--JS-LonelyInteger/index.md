@@ -2,7 +2,7 @@
 title: "[Algorithm/Javascript] HackerRank - LonelyInterger Algorithm"
 author: Seolhun
 date: 2018-04-09
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'Javascript', 'Search', 'Binary','Tree']
 cover: "javascript.jpeg"
 ---

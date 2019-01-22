@@ -2,7 +2,7 @@
 title: "[DataStructure/Java] ArrayList vs LinkedList에 대해서 간단히 정리하기"
 author: Seolhun
 date: 2018-04-19
-categories: "DataStructure"
+category: "DataStructure"
 tags: ['DataStructure', 'Java', 'ArrayList', 'LinkedList']
 cover: "java.jpg"
 ---

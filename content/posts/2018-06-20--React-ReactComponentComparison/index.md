@@ -2,7 +2,7 @@
 title: "[React/Component] React Component 종류와 차이점"
 author: Seolhun
 date: 2018-06-20
-categories: "React"
+category: "React"
 tags: ['JavaScript', 'React', 'Component']
 cover: "react.png"
 ---

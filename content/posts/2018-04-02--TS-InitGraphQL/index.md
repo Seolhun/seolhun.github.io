@@ -2,7 +2,7 @@
 title: "[JS/TS/GraphQL] GraphQL 시작해보기 - Part 1"
 author: Seolhun
 date: 2018-04-03
-categories: "GraphQL"
+category: "GraphQL"
 tags: ['Javascript', 'Typescript', 'NodeJS', 'GraphQL']
 cover: "javascript.jpeg"
 ---

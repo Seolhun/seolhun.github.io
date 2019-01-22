@@ -1,7 +1,7 @@
 ---
 title: "[Typescript] Singleton Pattern이란?"
 author: Seolhun
-categories: "Javascript"
+category: "Javascript"
 tags: ['Typescript', 'Singleton', 'Static', 'Private']
 cover: "javascript.jpeg"
 ---

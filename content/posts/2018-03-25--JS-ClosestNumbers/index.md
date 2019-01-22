@@ -2,7 +2,7 @@
 title: "[Algorithm/JavaScript] HackerRank - ClosestNumbers"
 author: Seolhun
 date: 2018-03-25
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'JavaScript', 'HackerRank', 'Sort', 'ClosestNumbers']
 cover: "javascript.jpeg"
 ---

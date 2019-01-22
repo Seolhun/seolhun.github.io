@@ -2,7 +2,7 @@
 title: "[JS] JS는 어떻게 싱글스레드로 작동되는가?"
 author: Seolhun
 date: 2018-04-04
-categories: "Javascript"
+category: "Javascript"
 tags: ['Javascript', 'JS', 'EventLoop', 'Web Worker', 'Stack']
 cover: "javascript.jpeg"
 ---

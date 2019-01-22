@@ -2,7 +2,7 @@
 title: "[Diary] 문제란 무엇인가? 어떻게 문제를 바라봐야할 것인가?"
 author: Seolhun
 date: 2018-09-09
-categories: "Diary"
+category: "Diary"
 tags: ['Diary', 'Solution', 'Retrospect']
 cover: "logo.png"
 ---

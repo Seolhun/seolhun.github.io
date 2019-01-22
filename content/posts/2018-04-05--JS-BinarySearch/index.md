@@ -2,7 +2,7 @@
 title: "[Algorithm/Javascript] Binary Search(이진탐색) Algorithm"
 author: Seolhun
 date: 2018-04-05
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'Javascript', 'Search', 'Binary']
 cover: "javascript.jpeg"
 ---

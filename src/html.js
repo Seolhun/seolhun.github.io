@@ -34,7 +34,11 @@ module.exports = class HTML extends React.Component {
             name="apple-mobile-web-app-status-bar-style"
             content="#D0E0D8"
           />
-          <meta name="apple-mobile-web-app-title" content="Lazywill" />
+          <meta name="apple-mobile-web-app-title" content="Hi-Cord" />
+          <meta
+            name="google-site-verification"
+            content="_LEDfKDkDFCcjJ1FsZtVZJHFReQCe_8pJaVgxv053GQ"
+          />
           <link
             rel="apple-touch-icon"
             href="/icons/app-icon-57x57.png"

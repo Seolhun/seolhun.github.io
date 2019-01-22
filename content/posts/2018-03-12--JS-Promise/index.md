@@ -2,7 +2,7 @@
 title: "[Javascript/Typescript] Promise에 대해서 알아보고 예제 작성하기 - 1"
 author: Seolhun
 date: 2018-03-12
-categories: "TypeScript"
+category: "TypeScript"
 tags: ['Promise', 'Async']
 cover: "javascript.jpeg"
 ---

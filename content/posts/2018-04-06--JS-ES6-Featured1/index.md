@@ -2,7 +2,7 @@
 title: "[Javascript/ES6] ES6부터 등장하는 개발자가 알아야 할 특징 - Part 1"
 author: Seolhun
 date: 2018-04-06
-categories: "Javascript"
+category: "Javascript"
 tags: ['Javascript', 'ES6', 'Feature']
 cover: "javascript.jpeg"
 ---

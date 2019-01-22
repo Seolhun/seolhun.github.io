@@ -6,14 +6,11 @@ import PostHeader from './PostHeader';
 import Content from '../Main/Content';
 import PostFooter from './PostFooter';
 
-const Post = (props) => {
-  const { post, author, slug, facebook } = props;
+const Post = ({ post, author, slug, facebook }) => {
   const title = ((post || {}).frontmatter || {}).title;
   const subTitle = ((post || {}).frontmatter || {}).subTitle;
   const date = ((post || {}).fields || {}).prefix;
   const html = (post || {}).html;
-
-  //console.log(htmlAst);
 
   return (
     <Article>
@@ -25,7 +22,12 @@ const Post = (props) => {
 };
 
 Post.propTypes = {
-  post: PropTypes.object.isRequired,
+  post: PropTypes.shape({
+    post: PropTypes.string,
+    author: PropTypes.string,
+    slug: PropTypes.string,
+    facebook: PropTypes.string,
+  }).isRequired,
   author: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
   facebook: PropTypes.object.isRequired,

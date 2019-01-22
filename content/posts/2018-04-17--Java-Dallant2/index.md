@@ -2,7 +2,7 @@
 title: "[Algorithm/Java] SWexpertAcademy Dallant2"
 author: Seolhun
 date: 2018-04-17
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'Java']
 cover: "java.jpg"
 ---

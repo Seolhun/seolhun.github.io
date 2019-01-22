@@ -2,7 +2,7 @@
 title: "[Algorithm/Javascript] 비트연산자를 이용하여 간단한 알고리즘 및 예제 만들어보기"
 author: Seolhun
 date: 2018-04-05
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'Javascript', 'Bit', 'Operators']
 cover: "javascript.jpeg"
 ---

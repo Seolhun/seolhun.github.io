@@ -2,7 +2,7 @@
 title: "[Algorithm/JavaScript] HackerRank - FindTheMedian"
 author: Seolhun
 date: 2018-03-26
-categories: "Algorithm"
+category: "Algorithm"
 tags: ['Algorithm', 'JavaScript', 'HackerRank', 'Sort', 'FindTheMedian']
 cover: "javascript.jpeg"
 ---
