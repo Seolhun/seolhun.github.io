@@ -43,8 +43,6 @@ class Layout extends React.Component {
 
   constructor(props) {
     super(props);
-    console.error('@@@', props.data);
-
     if (typeof localStorage !== 'undefined') {
       const inLocal = +localStorage.getItem('font-size-increase');
       const inStore = this.props.fontSizeIncrease;

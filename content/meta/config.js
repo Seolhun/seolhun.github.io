@@ -25,6 +25,7 @@ module.exports = {
   // contact
   contactEmail: 'shun10116@gamil.com',
   // social
+  github: 'https://github.com/Seolhun',
   authorSocialLinks: [
     { name: 'github', url: 'https://github.com/Seolhun' },
     { name: 'twitter', url: 'https://twitter.com/seol_hooney' },

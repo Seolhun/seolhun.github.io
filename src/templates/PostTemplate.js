@@ -28,10 +28,10 @@ class PostTemplate extends Component {
     return (
       <Main>
         <Post
-          post={data.post}
-          slug={pathContext.slug}
           author={data.author}
           facebook={facebook}
+          post={data.post}
+          slug={pathContext.slug}
         />
         <Footer footnote={data.footnote} />
         <Seo data={data.post} facebook={facebook} />

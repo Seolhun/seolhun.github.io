@@ -1,13 +1,13 @@
+import React from 'react';
 import { JssProvider } from 'react-jss';
 import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
-import React from 'react';
-
-require('dotenv').config();
 
 import getPageContext from './src/getPageContext';
 import createStore from './src/state/store';
 import theme from './src/styles/theme';
+
+require('dotenv').config();
 
 exports.replaceRenderer = ({
   bodyComponent,
