@@ -28,18 +28,23 @@ const Seo = ({ data, facebook }) => {
     >
       {/* General tags */}
       <title>{metaTitle}</title>
+      <meta name="title" content={metaTitle} />
       <meta name="description" content={metaDescription} />
       <meta name="author" content={metaAuthors} />
       <meta name="keywords" content={metaTags} />
       {/* OpenGraph tags */}
+      <meta property="fb:app_id" content={facebook.appId} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={metaImage} />
+      <meta property="og:site_name" content={metaTitle} />
       <meta property="og:title" content={metaTitle} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={metaUrl} />
-      <meta property="fb:app_id" content={facebook.appId} />
       {/* Twitter Card tags */}
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={metaTitle} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image:src" content={metaImage} />
       <meta
         name="twitter:creator"
         content={config.authorTwitterAccount ? config.authorTwitterAccount : ''}
