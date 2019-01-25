@@ -85,8 +85,8 @@
       "path---js-insertion-sort-2-725cb88587657ebccb05.js.map"
     ],
     "path---": [
-      "path----4d11c90ed86e385112c6.js",
-      "path----4d11c90ed86e385112c6.js.map"
+      "path----ffe01f85a1302ba87ff3.js",
+      "path----ffe01f85a1302ba87ff3.js.map"
     ],
     "path---web-how-to-optimize-web-1": [
       "path---web-how-to-optimize-web-1-3b961f7d526b71d00447.js",
@@ -120,10 +120,6 @@
       "path---java-find-steps-df3ed371ad82a8acb52e.js",
       "path---java-find-steps-df3ed371ad82a8acb52e.js.map"
     ],
-    "path---js-build-form-gorup-md": [
-      "path---js-build-form-gorup-md-c7507628c80d0af36020.js",
-      "path---js-build-form-gorup-md-c7507628c80d0af36020.js.map"
-    ],
     "component---node-modules-gatsby-plugin-offline-app-shell-js": [
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js",
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
@@ -137,8 +133,8 @@
       "path---java-weeks-1-must-solve-linear-74eb151e2042549c567c.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-39f6ab1acde73f4bcf3d.js",
-      "component---src-layouts-index-js-39f6ab1acde73f4bcf3d.js.map"
+      "component---src-layouts-index-js-86f6a8f6aa85a404b345.js",
+      "component---src-layouts-index-js-86f6a8f6aa85a404b345.js.map"
     ],
     "path---java-perfect-shuffle": [
       "path---java-perfect-shuffle-3c533123133dd658b827.js",
@@ -184,10 +180,14 @@
       "path---java-management-exercise-0a725ae9d1aae47c5593.js",
       "path---java-management-exercise-0a725ae9d1aae47c5593.js.map"
     ],
+    "path---js-build-form-gorup-part-2": [
+      "path---js-build-form-gorup-part-2-f34f2ebddbfb7efbc531.js",
+      "path---js-build-form-gorup-part-2-f34f2ebddbfb7efbc531.js.map"
+    ],
     "commons": [
-      "commons-7b95ccae99476c83985f.js",
+      "commons-866e698d14945edc80b6.js",
       "build-js-styles.css",
-      "commons-7b95ccae99476c83985f.js.map",
+      "commons-866e698d14945edc80b6.js.map",
       "build-js-styles.css.map"
     ],
     "path---js-module-pattern": [
@@ -217,6 +217,10 @@
     "component---src-templates-post-template-js": [
       "component---src-templates-post-template-js-dcfc5664ee964536a607.js",
       "component---src-templates-post-template-js-dcfc5664ee964536a607.js.map"
+    ],
+    "path---js-build-form-gorup-part-1-md": [
+      "path---js-build-form-gorup-part-1-md-c609d5e53496d985aad8.js",
+      "path---js-build-form-gorup-part-1-md-c609d5e53496d985aad8.js.map"
     ],
     "path---java-elevators": [
       "path---java-elevators-4a34ec56217cefe7d9f3.js",
@@ -251,9 +255,9 @@
       "path---db-mariadb-reset-auth-ef25a4a94eb4f46a53fe.js.map"
     ],
     "app": [
-      "app-a3be0bbaa339b625aa0c.js",
+      "app-84d118b4fd76f714241c.js",
       "build-js-styles.css",
-      "app-a3be0bbaa339b625aa0c.js.map",
+      "app-84d118b4fd76f714241c.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-templates-page-template-js": [

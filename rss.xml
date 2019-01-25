@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[SeolHun TechBlog]]></title><description><![CDATA[The Dreamer through the Programming]]></description><link>https://seolhun.github.io</link><generator>RSS for Node</generator><lastBuildDate>Tue, 22 Jan 2019 22:06:56 GMT</lastBuildDate><item><title><![CDATA[[JS/Functional] Funtional하고 Reactive한 FormGroup Builder 만들어보기]]></title><description><![CDATA[Intro 웹 개발을 하다보면 가장 기본적으로 사용되는 것은 Form…]]></description><link>https://seolhun.github.io/JS-BuildFormGorup.md/</link><guid isPermaLink="false">https://seolhun.github.io/JS-BuildFormGorup.md/</guid><content:encoded>&lt;h2&gt;Intro&lt;/h2&gt;
-&lt;p&gt;웹 개발을 하다보면 가장 기본적으로 사용되는 것은 Form이라는 것을 알게된다.
-대부분의 웹 사이트에 방문하면 회원가입, 로그인이 없는 사이트는 거의 없을 것이며, 최소한 고객문의 등에 대한 공간은 어느 사이트에나 있을 것이다.
-그렇다면, 개발자로서 이렇게 대중적으로 사용되는 Form을 구현하기 위해서는 어떻게 접근하는 것이 가장 좋을까?&lt;/p&gt;
-&lt;p&gt;먼저, 현재 JS 생태계를 지배하고 있는 React와 Vue, Agnular(?)의 입장에서 JS 코드를 바라보아야 한다.
-특히, UI와 관련된 모든 JS는 현재 3개의 Library(혹은 Framework)에 영향이 너무나 지대하므로, 이점을 간과해서는 안된다.
-결국, 이번에 만들게 될 값들도 결국, UI에서 필요로하는 값들로 구현될 예정이기 때문이다.&lt;/p&gt;
-&lt;p&gt;둘째, 우리가 사용하는 UI는 결국 HTML과 CSS, JS의 결합이다. 그 중 이번 FormBuilder는 UI와 결합되기 전까지의 JS로 구성할 수 있는 독립적인 부분을 고려하여 설계할 것이다.
-너무 추상적이라고 느낄 수 있다. 간단하게 얘기하면, HTML과 CSS에 사용될 값들을 JS에서 모두 다룰 수 있도록 할 예정이다. 이 부분은 앞으로 코드로 알아보자.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[SeolHun TechBlog]]></title><description><![CDATA[The Dreamer through the Programming]]></description><link>https://seolhun.github.io</link><generator>RSS for Node</generator><lastBuildDate>Fri, 25 Jan 2019 15:04:48 GMT</lastBuildDate><item><title><![CDATA[[JS/Functional] Funtional하고 Reactive한 FormGroup Builder 만들어보기 - Part 1]]></title><description><![CDATA[Intro 웹 개발을 하다보면 가장 기본적으로 사용되는 것은 Form…]]></description><link>https://seolhun.github.io/JS-BuildFormGorup-Part1.md/</link><guid isPermaLink="false">https://seolhun.github.io/JS-BuildFormGorup-Part1.md/</guid><content:encoded>&lt;h2&gt;Intro&lt;/h2&gt;
+&lt;p&gt;웹 개발을 하다보면 가장 기본적으로 사용되는 것은 Form이라는 것을 알게됩니다.
+대부분의 웹 사이트에 방문하면 회원가입, 로그인이 없는 사이트는 거의 없을 것이며, 최소한 고객문의 등에 대한 공간은 어느 사이트에나 있습니다.
+그렇다면, 개발자로서 이렇게 대중적으로 사용되는 Form을 구현하기 위해서는 어떻게 접근하는 것이 가장 좋을까요?&lt;/p&gt;
+&lt;p&gt;먼저, 현재 JS 생태계를 지배하고 있는 React와 Vue, Agnular(?)의 입장에서 JS 코드를 바라보아야 합니다.
+특히, UI와 관련된 모든 JS는 현재 3개의 Library(혹은 Framework)에 영향이 너무나 지대하므로, 이점을 간과할 수 없습니다.
+또한, FormBuilder를 통해 만들게 될 값도 UI에서 필요로하는 값으로만 구현될 예정이기에 어느 Library(혹은 Framework)에서도 작동해야 합니다.&lt;/p&gt;
+&lt;p&gt;둘째, 우리가 사용하는 UI는 결국 HTML과 CSS, JS의 결합입니다. 그 중 이번 FormBuilder는 UI와 결합되기 전까지의 JS로 구성할 수 있는 독립적인 부분을 고려하여 설계할 것입니다.
+너무 추상적이라고 느낄 수 있습니다. 그래서 더 간단하게 얘기하면, HTML과 CSS에 사용될 값들을 JS에서 모두 다룰 수 있도록 할 예정입니다. 이 부분은 앞으로 코드로 알아보도록 하겠습니다.&lt;/p&gt;
 &lt;h2&gt;Pre-requirement&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -16,23 +16,24 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;JS로만 코드를 짤 예정이며, Jest를 이용하여 테스트로 코드의 유효성을 확인해볼 것이다.&lt;/p&gt;
+&lt;p&gt;JS로만 코드를 짤 예정이며, Jest를 이용하여 테스트로 코드의 유효성을 확인해볼 것입니다.&lt;/p&gt;
 &lt;h2&gt;Goals&lt;/h2&gt;
-&lt;p&gt;먼저, 이번 FromGroup을 만들기 위한 3가지 목표를 세웠다.&lt;/p&gt;
-&lt;ul&gt;
+&lt;p&gt;먼저, 이번 FromGroup을 만들기 위한 3가지 목표를 세웠습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Form Attribution 값을 호환시켜야 합니다. 간단한 속성값으로는 아래와 같습니다.&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Form Attributes&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;disabled&lt;/li&gt;
 &lt;li&gt;reqired&lt;/li&gt;
-&lt;li&gt;readonly&lt;/li&gt;
 &lt;li&gt;…&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Form 관련 Attributes의 값을 JS에서 다룰 예정이다. 특히, disabled와 requried는 필수로 다룰 에정이다.
-이유는 아래 항목인 Validation 항목과 아주 연관이 된 값이기 떄문이다.&lt;/p&gt;
-&lt;ul&gt;
+&lt;/ol&gt;
+&lt;p&gt;Form 관련 Attributes의 값을 JS에서 다룰 예정이며, 특히, disabled와 requried는 필수로 다룰 에정입니다.
+이유는 아래 항목인 Validation 항목과 아주 연관이 된 값이기 떄문입니다.&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Form에 들어가는 값들에 유효성 검사가 원활해야 합니다. 메세지도 포함해서요~&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Validation&lt;/p&gt;
 &lt;ul&gt;
@@ -41,18 +42,131 @@
 &lt;li&gt;Message&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Form의 핵심은 Validation에 있다고 생각한다. 당연히, 편리하게 UI를 만들어주는 것도 중요하다.
-하지만, 서버로 전송되기전에 데이터 형식에 어긋나는 부분들을 알기 쉽고, 정확하게 알려주어 데이터의 정합성을 높이는 것이 더 바람직하다.
-이러한 부분들로 UI에 필요한 3개의 기능을 이번에 만들것이다.&lt;/p&gt;
-&lt;ul&gt;
+&lt;/ol&gt;
+&lt;p&gt;Form의 핵심은 Validation에 있다고 생각하며, 편리하게 UI를 만들어주는 것이 중요합니다.
+하지만, 서버로 전송되기전에 데이터 형식에 어긋나는 부분들을 알기 쉽고, 정확하게 알려주어 데이터의 정합성을 높이는 것이 더 바람직합니다.
+이러한 부분들로 UI에 필요한 3개의 기능을 이번에 만들것입니다.&lt;/p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;Library(혹은 Framework)에 상관없는 값의 Observable한 코드&lt;/li&gt;
 &lt;li&gt;Reactive &amp;#x26; Functional&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Reactive &amp;#x26; Functional은 코드로 보는 것이 가장 빠른 방법이다.
-당연히 UI에 Reactive함은 State(React), data(Vue)… 등의 바인딩을 통해서 쉽게 해결할 수 있다.
-하지만, JS근본적으로 Reactive &amp;#x26; Functional한 코드를 통해 우리는 이를 Library(혹은 Framework)에 상관없이 독립적으로 만들 예정이다.&lt;/p&gt;
+&lt;/ol&gt;
+&lt;p&gt;Reactive &amp;#x26; Functional은 코드로 보는 것이 가장 빠른 방법입니다.
+당연히 UI에 Reactive함은 State(React), data(Vue)… 등을 이용하여 쉽게 해결할 수 있습니다.(랜더링 이슈)
+하지만, JS는 Reactive &amp;#x26; Functional한 코드를 통해 Library(혹은 Framework)에 상관없이 이를 쉽게 값이 변하는 것을 구현할 수 있습니다.&lt;/p&gt;
 &lt;h2&gt;Code &amp;#x26; Description&lt;/h2&gt;
-&lt;h3&gt;Form&lt;/h3&gt;
+&lt;p&gt;이제 코드로 알아 볼 시간입니다. 위의 목적을 달성하는 것을 차례로 코드를 작성해 봅시다.&lt;/p&gt;
+&lt;p&gt;FormGroup을 만들기 위해서는 먼저, Group안에 들어가는 Form의 input을 이용하여 진행 할 예정입니다.
+input에는 text, checkbox 등이 있습니다. 먼저, text로 간단한 양식을 만들어보는 것을 진행해보겠습니다.&lt;/p&gt;
+&lt;p&gt;FormBuilder를 먼저 만들어봅시다. 이후에 FormGroupBuilder를 만들어봅시다.&lt;/p&gt;
+&lt;h2&gt;FormBuilder&lt;/h2&gt;
+&lt;p&gt;이제 FormBuilder를 만들어 봅시다.&lt;/p&gt;
+&lt;p&gt;위에서 언급했듯이 우리에게 필요한 Goal을 보면, &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Form Attributes&lt;/li&gt;
+&lt;li&gt;Validation&lt;/li&gt;
+&lt;li&gt;Reactive Code
+입니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이 3개를 채우기 위한 변수로 무엇이 있을까요? 한번 생각해봅시다. &lt;/p&gt;
+&lt;h4&gt;1. Build &amp;#x26; Set Properties&lt;/h4&gt;
+&lt;p&gt;음. 생각해보셨나요?, 제가 선정한 값은 아래와 같습니다. 어떻게 이렇게 생각했냐구요? 당연히, 모든 값을 뚝딱하고 한번에 생각하진 못했습니다.
+한 눈에 보이는 변수들은 생각한 것이 있지만, 그 외 여러가지 사항들은 과정 속에서 혹은 어떻게 구현할지를 고민 고민 끝에 넣은 값들입니다.&lt;/p&gt;
+&lt;p&gt;한번에 생각하셨다면, 여러분들은 정말 👍&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;
+      &lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;FORM_PROPERTIES&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// Values&lt;/span&gt;
+  value&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;value&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  hasError&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;hasError&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;message&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  isRequired&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;isRequired&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  requiredMessage&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;requiredMessage&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  onValidation&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;onValidation&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// Options&lt;/span&gt;
+  isOnCreatedValidation&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;isOnCreatedValidation&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  isOnChangeValidation&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;isOnChangeValidation&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  onGroupValidation&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;onGroupValidation&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;p&gt;Object에 담은 이유는 2가지 입니다.&lt;/p&gt;
+&lt;p&gt;첫 째, 정의 된 값만을 사용하기 위함입니다. 이는 나중에 어떠한 값이 Props에 있고 유효하게 사용할 수 있는지 쉽게 알게해줍니다.
+둘 째, 나중에 해당 값이 생성될 때 키 값을 이용하여 Props의 타입을 체크할 예정이기 때문입니다.
+올바른 값이 오지 않았을 때 생성되면 컨트롤 할수 없는 버그를 만들 수 있기 때문에, 해당 값의 타입이 잘못되었음을 미리 알려주는 것이 제일 좋습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;
+      &lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FormBuilder&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;properties&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; options&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;_checkPropertiesValidation&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;properties&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Properties type is not right&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;properties &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;_buildFormProperties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;properties&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; options&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token function-variable function&quot;&gt;_checkPropertiesValidation&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;properties&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; isValidProperty &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Object&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;REQUIRED_CHECKING_TYPES&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;every&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;key&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;properties&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;key&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+            key &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;FORM_PROPERTIES&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;isRequired &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+            &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;properties&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;FORM_PROPERTIES&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;requiredMessage&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; propertyType &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; properties&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;key&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; validType &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;REQUIRED_CHECKING_TYPES&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;key&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; validType &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; propertyType&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; isValidProperty&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  _buildFormProperties &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// Values&lt;/span&gt;
+      value&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      hasError &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      message &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      isRequired &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      requiredMessage&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// Events&lt;/span&gt;
+      &lt;span class=&quot;token function-variable function&quot;&gt;onValidation&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        hasError&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// Options&lt;/span&gt;
+      isOnCreatedValidation &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      isOnChangeValidation &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      onGroupValidation&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; isValidObject &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      hasError&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      message&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;isOnCreatedValidation&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      isValidObject &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;onValidation&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      value&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      hasError&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; isValidObject&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;hasError&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; isValidObject&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;message&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      isRequired&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      requiredMessage&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      onValidation&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      isOnCreatedValidation&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      isOnChangeValidation&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      onGroupValidation&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;h4&gt;2. Set - Get : Properties &amp;#x26; Values&lt;/h4&gt;
+&lt;h4&gt;3. HandleValidation&lt;/h4&gt;
+&lt;h4&gt;4. Options&lt;/h4&gt;
+&lt;h4&gt;5. FormBuilder Completedtion&lt;/h4&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;
       &lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/* eslint-disable no-underscore-dangle */&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;FORM_PROPERTIES&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -61,7 +175,6 @@
   message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;message&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
   isRequired&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;isRequired&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
   requiredMessage&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;requiredMessage&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token comment&quot;&gt;// Event/s&lt;/span&gt;
   onValidation&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;onValidation&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;token comment&quot;&gt;// Options&lt;/span&gt;
   isOnCreatedValidation&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;isOnCreatedValidation&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
@@ -91,6 +204,26 @@
     &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;properties &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;_buildFormProperties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;properties&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; options&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 
+  &lt;span class=&quot;token function-variable function&quot;&gt;_checkPropertiesValidation&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;properties&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; isValidProperty &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Object&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;REQUIRED_CHECKING_TYPES&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;every&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;key&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;properties&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;key&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+            key &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;FORM_PROPERTIES&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;isRequired &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+            &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;properties&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;FORM_PROPERTIES&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;requiredMessage&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; propertyType &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; properties&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;key&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; validType &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;REQUIRED_CHECKING_TYPES&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;key&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; validType &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; propertyType&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; isValidProperty&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
   _buildFormProperties &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;token comment&quot;&gt;// Values&lt;/span&gt;
@@ -105,8 +238,8 @@
         message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
       &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token comment&quot;&gt;// Options&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// Options&lt;/span&gt;
       isOnCreatedValidation &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
       isOnChangeValidation &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
       onGroupValidation&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
@@ -131,26 +264,6 @@
       isOnChangeValidation&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
       onGroupValidation&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;token function-variable function&quot;&gt;_checkPropertiesValidation&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;properties&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; isValidProperty &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Object&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;REQUIRED_CHECKING_TYPES&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;every&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;key&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;properties&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;key&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
-            key &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;FORM_PROPERTIES&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;isRequired &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
-            &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;properties&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;FORM_PROPERTIES&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;requiredMessage&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-          &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-          &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; propertyType &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; properties&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;key&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-          &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; validType &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;REQUIRED_CHECKING_TYPES&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;key&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-          &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; validType &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; propertyType&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; isValidProperty&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 
   &lt;span class=&quot;token function-variable function&quot;&gt;_handleOnValidation&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;properties&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -276,7 +389,12 @@
 &lt;h2&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.w3schools.com/html/html_form_attributes.asp&quot;&gt;Form Attributes - w3schools&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[JS/Functional] Currying으로 알아보는 Functional Programming]]></title><description><![CDATA[What is currying 은 함수를 하나의 인수로 취하여 일련의 함수로 분해하는 프로세스입니다. sum3은 하나의 함수에 1개의 argument를 받아서 처리하는 함수입니다. 더 나아가보겠습니다. 그에 반하여 sumFn3은 js…]]></description><link>https://seolhun.github.io/JS-FunctionalCurryInJS/</link><guid isPermaLink="false">https://seolhun.github.io/JS-FunctionalCurryInJS/</guid><content:encoded>&lt;h2&gt;What is currying&lt;/h2&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[JS/Functional] Funtional하고 Reactive한 FormGroup Builder 만들어보기 - Part 2]]></title><description><![CDATA[Intro Pre-requirement Goals Code & Description Outro References]]></description><link>https://seolhun.github.io/JS-BuildFormGorup-Part2/</link><guid isPermaLink="false">https://seolhun.github.io/JS-BuildFormGorup-Part2/</guid><content:encoded>&lt;h2&gt;Intro&lt;/h2&gt;
+&lt;h2&gt;Pre-requirement&lt;/h2&gt;
+&lt;h2&gt;Goals&lt;/h2&gt;
+&lt;h2&gt;Code &amp;#x26; Description&lt;/h2&gt;
+&lt;h2&gt;Outro&lt;/h2&gt;
+&lt;h2&gt;References&lt;/h2&gt;</content:encoded></item><item><title><![CDATA[[JS/Functional] Currying으로 알아보는 Functional Programming]]></title><description><![CDATA[What is currying 은 함수를 하나의 인수로 취하여 일련의 함수로 분해하는 프로세스입니다. sum3은 하나의 함수에 1개의 argument를 받아서 처리하는 함수입니다. 더 나아가보겠습니다. 그에 반하여 sumFn3은 js…]]></description><link>https://seolhun.github.io/JS-FunctionalCurryInJS/</link><guid isPermaLink="false">https://seolhun.github.io/JS-FunctionalCurryInJS/</guid><content:encoded>&lt;h2&gt;What is currying&lt;/h2&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;currying&lt;/code&gt;은 함수를 하나의 인수로 취하여 일련의 함수로 분해하는 프로세스입니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;
       &lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sum3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; y&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; z&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -1353,7 +1471,138 @@ X가 주어졌을 때, X번째 분수를 구하는 프로그램을 작성하시�
 &lt;li&gt;해당 거리간의 최소거리를 계산하면 쉽게 풀것을 완전탐색을 통해 하나하나 값을 가지고 전체 값을 비교하여 출력하였습니다.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;위와 같은 해결방법을 찾지 않으면 정답을 쉽게 찾을 수 있습니다. 각각의 거리에서 최소거리의 합을 구하면서 나아가면 쉽게 문제를 해결해 나갈 수 있습니다. 중요한 포인트는 기존에 계산된 거리를 이동할 때, 기존 값보다 작을때만 이동하여 해당 경우의 수를 줄여나가는 것입니다. 코드로는 &lt;code class=&quot;language-text&quot;&gt;if (times[y][x] + map[moveY][moveX] &amp;lt; times[moveY][moveX])&lt;/code&gt; 여기에 해당합니다.
-이상 문제를 마치겠습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Java] BAEKJOON - 스택구현하기]]></title><description><![CDATA[이번에는 백준 알고리즘의 단계별 풀어보기를 각각 풀어볼 예정입니다. Step 11에 해당하는 Stack부분부터 시작하여 차례차례 책과 함께 정리해나가겠습니다. BAEKJOON Algorithm - 스택구현하기 Question…]]></description><link>https://seolhun.github.io/Java-StackImplement1/</link><guid isPermaLink="false">https://seolhun.github.io/Java-StackImplement1/</guid><content:encoded>&lt;p&gt;이번에는 백준 알고리즘의 단계별 풀어보기를 각각 풀어볼 예정입니다. Step 11에 해당하는 Stack부분부터 시작하여 차례차례 책과 함께 정리해나가겠습니다.&lt;/p&gt;
+이상 문제를 마치겠습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Java] BAEKJOON - 스택으로 CheckBracketValidation]]></title><description><![CDATA[이번에는 중첩된 괄호가 유효한지 안한지를 체크하는 알고리즘을 풀어보겠습니다. BAEKJOON Algorithm - 괄호 유효성 검사하기 Question 문제 괄호 문자열(Parenthesis String, PS…]]></description><link>https://seolhun.github.io/Java-StackImplement2/</link><guid isPermaLink="false">https://seolhun.github.io/Java-StackImplement2/</guid><content:encoded>&lt;p&gt;이번에는 중첩된 괄호가 유효한지 안한지를 체크하는 알고리즘을 풀어보겠습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/9012&quot;&gt;BAEKJOON Algorithm - 괄호 유효성 검사하기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Question&lt;/h2&gt;
+&lt;h4&gt;문제&lt;/h4&gt;
+&lt;p&gt;괄호 문자열(Parenthesis String, PS)은 두 개의 괄호 기호인 ‘(’ 와 ‘)’ 만으로 구성되어 있는 문자열이다. 그 중에서 괄호의 모양이 바르게 구성된 문자열을 올바른 괄호 문자열(Valid PS, VPS)이라고 부른다. 한 쌍의 괄호 기호로 된 “( )” 문자열은 기본 VPS 이라고 부른다. 만일 x 가 VPS 라면 이것을 하나의 괄호에 넣은 새로운 문자열 “(x)”도 VPS 가 된다. 그리고 두 VPS x 와 y를 접합(concatenation)시킨 새로운 문자열 xy도 VPS 가 된다. 예를 들어 “(())()”와 “((()))” 는 VPS 이지만 “(()(”, “(())()))” , 그리고 “(()” 는 모두 VPS 가 아닌 문자열이다.&lt;/p&gt;
+&lt;p&gt;여러분은 입력으로 주어진 괄호 문자열이 VPS 인지 아닌지를 판단해서 그 결과를 YES 와 NO 로 나타내어야 한다.&lt;/p&gt;
+&lt;h4&gt;입력&lt;/h4&gt;
+&lt;p&gt;입력 데이터는 표준 입력을 사용한다. 입력은 T개의 테스트 데이터로 주어진다. 입력의 첫 번째 줄에는 입력 데이터의 수를 나타내는 정수 T가 주어진다. 각 테스트 데이터의 첫째 줄에는 괄호 문자열이 한 줄에 주어진다. 하나의 괄호 문자열의 길이는 2 이상 50 이하이다.&lt;/p&gt;
+&lt;h4&gt;출력&lt;/h4&gt;
+&lt;p&gt;출력은 표준 출력을 사용한다. 만일 입력 괄호 문자열이 올바른 괄호 문자열(VPS)이면 “YES”, 아니면 “NO”를 한 줄에 하나씩 차례대로 출력해야 한다.&lt;/p&gt;
+&lt;h4&gt;예제입력&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
+      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;6
+(())())
+(((()())()
+(()())((()))
+((()()(()))(((())))()
+()()()()(()()())()
+(()((())()(&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;h4&gt;예제출력&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
+      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;NO
+NO
+YES
+NO
+YES
+NO&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;h2&gt;Code&lt;/h2&gt;
+&lt;h4&gt;1. Stack 이용해서 풀기&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;
+      &lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/**
+ * @author HunSeol
+ * @see https://www.acmicpc.net/problem/9012
+ */&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;io&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;BufferedReader&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;io&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;IOException&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;io&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;InputStreamReader&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;util&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Stack&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;/*
+6
+(())())
+(((()())()
+(()())((()))
+((()()(()))(((())))()
+()()()()(()()())()
+(()((())()(
+ */&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Testcase&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; T&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; Stack&lt;span class=&quot;token generics function&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;Character&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; stack&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;String args&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;throws&lt;/span&gt; IOException &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        BufferedReader bf &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BufferedReader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;InputStreamReader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;System&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;in&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        T &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Integer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;bf&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; T&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            String Q &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; bf&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            stack &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Stack&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            System&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Q&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; stack&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; String &lt;span class=&quot;token function&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;String Q&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Stack&lt;span class=&quot;token generics function&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;Character&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; stack&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; Q&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;char&lt;/span&gt; q &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Q&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;q &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;(&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                stack&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;q&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;stack&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;NO&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    stack&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; stack&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;YES&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;NO&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;h4&gt;2. String 이용해서 풀기&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;
+      &lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/**
+ * @author HunSeol
+ * @see https://www.acmicpc.net/problem/9012
+ */&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;io&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;BufferedReader&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;io&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;IOException&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;io&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;InputStreamReader&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;/*
+6
+(())())
+(((()())()
+(()())((()))
+((()()(()))(((())))()
+()()()()(()()())()
+(()((())()(
+ */&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Testcase&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; T&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;String args&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;throws&lt;/span&gt; IOException &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        BufferedReader bf &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BufferedReader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;InputStreamReader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;System&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;in&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        T &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Integer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;bf&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; T&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            String Q &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; bf&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            System&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Q&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; String &lt;span class=&quot;token function&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;String q&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;q&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;contains&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;()&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            q &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; q&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;()&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;q&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; q&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;NO&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;YES&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;h2&gt;Outro&lt;/h2&gt;
+&lt;p&gt;Stack에 해당되는 문제로서 간단하게 스택을 이용해서 풀어보았습니다. String을 이용해서도 풀수 있을 것으로 판단되어 2개의 코드를 같이 넣어봤습니다.&lt;/p&gt;
+&lt;p&gt;먼저, 스택을 이용하는 방법은, 먼저, &lt;code class=&quot;language-text&quot;&gt;괄호가 열리면 무조건 닫혀야하기 때문에 해당 조건을 이용하여 문제를 해결&lt;/code&gt;했습니다. 열린 것이 없거나(isEmptry()), 열린 것만 존재했을 경우 NO를 출력하게 만들었습니다.&lt;/p&gt;
+&lt;p&gt;String방법은 재귀호출을 이용하여 ()를 계속 제거하는 방법을 선택하였습니다. 아마 시간복잡도로는 Stack을 이용하는 것이 더 빠를 것입니다. 정답인 경우 모든 괄호를 확인해야 되기때문에 O(N)의 복잡도로 예상됩니다. 각각의 루프문을 확인하면서 유효성을 검사할 수 있기 때문입니다.&lt;/p&gt;
+&lt;p&gt;String은 contain() 메소드를 이용하면 Search(Log N) 검색이 들어가며 replace()의 경우에도 문자 길이만큼 반복(N)하며, 재귀호출의 복잡도도 추가해줘야합니다. 이미 replace에서 O(N)의 복잡도가 사용되므로 Stack보다 더 복잡할 것으로 예상합니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Java] BAEKJOON - 스택구현하기]]></title><description><![CDATA[이번에는 백준 알고리즘의 단계별 풀어보기를 각각 풀어볼 예정입니다. Step 11에 해당하는 Stack부분부터 시작하여 차례차례 책과 함께 정리해나가겠습니다. BAEKJOON Algorithm - 스택구현하기 Question…]]></description><link>https://seolhun.github.io/Java-StackImplement1/</link><guid isPermaLink="false">https://seolhun.github.io/Java-StackImplement1/</guid><content:encoded>&lt;p&gt;이번에는 백준 알고리즘의 단계별 풀어보기를 각각 풀어볼 예정입니다. Step 11에 해당하는 Stack부분부터 시작하여 차례차례 책과 함께 정리해나가겠습니다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/10828&quot;&gt;BAEKJOON Algorithm - 스택구현하기&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -1497,138 +1746,7 @@ top&lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;Outro&lt;/h2&gt;
 &lt;p&gt;스택을 간단하게 구현해보았습니다. 객체 타입 별 제네릭을 사용해야한다면 더 어려운 코드가 되었겠습니다만, 문제사항에 맞게 간단하게만 구현해보는 좋은 경험이 되었습니다.&lt;/p&gt;
 &lt;p&gt;개인적으로 가장 어려웠던 부분은 &lt;code class=&quot;language-text&quot;&gt;push&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;pop&lt;/code&gt;입니다. 배열을 사용하면, 배열은 동적으로 할당되지 않기때문에, 동적으로 할당되는 부분도 직접 구현해야했기 때문입니다. 해결책으로는 &lt;code class=&quot;language-text&quot;&gt;helperArray&lt;/code&gt; 배열을 새로 생성하여 기존의 값을 복사하고 추가/삭제하였습니다. 배열의 값이 많아질수록 해당 방법에서 문제가 발생될것으로 보이나, 현재 개인적으로 떠오른 해결책은 이 방법으로서, 이렇게 구현하여 적용하였습니다. 나중에 더 좋은 아이디어가 있으면 해결해보도록 하겠습니다.&lt;/p&gt;
-&lt;p&gt;추가적으로 문제를 풀고 다른 사항들을 비교 학습을하려했지만, 신기하게도 대부분이 자바에서 이미 구현된 스택을 사용하거나, 스택의 메소드를 구현하는 것이 아닌 결과에 맞는 출력을 할 수 있는 메소드만을 구성하는 등 의도와 맞지 않는 방법들을 봤습니다. 답을 쉽고 빠르게 찾아가는 방법은 좋았으나, 목적에 맞지 않는 코드들을 참조해야한다는 것이 아쉬움이 있었습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Java] BAEKJOON - 스택으로 CheckBracketValidation]]></title><description><![CDATA[이번에는 중첩된 괄호가 유효한지 안한지를 체크하는 알고리즘을 풀어보겠습니다. BAEKJOON Algorithm - 괄호 유효성 검사하기 Question 문제 괄호 문자열(Parenthesis String, PS…]]></description><link>https://seolhun.github.io/Java-StackImplement2/</link><guid isPermaLink="false">https://seolhun.github.io/Java-StackImplement2/</guid><content:encoded>&lt;p&gt;이번에는 중첩된 괄호가 유효한지 안한지를 체크하는 알고리즘을 풀어보겠습니다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/9012&quot;&gt;BAEKJOON Algorithm - 괄호 유효성 검사하기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Question&lt;/h2&gt;
-&lt;h4&gt;문제&lt;/h4&gt;
-&lt;p&gt;괄호 문자열(Parenthesis String, PS)은 두 개의 괄호 기호인 ‘(’ 와 ‘)’ 만으로 구성되어 있는 문자열이다. 그 중에서 괄호의 모양이 바르게 구성된 문자열을 올바른 괄호 문자열(Valid PS, VPS)이라고 부른다. 한 쌍의 괄호 기호로 된 “( )” 문자열은 기본 VPS 이라고 부른다. 만일 x 가 VPS 라면 이것을 하나의 괄호에 넣은 새로운 문자열 “(x)”도 VPS 가 된다. 그리고 두 VPS x 와 y를 접합(concatenation)시킨 새로운 문자열 xy도 VPS 가 된다. 예를 들어 “(())()”와 “((()))” 는 VPS 이지만 “(()(”, “(())()))” , 그리고 “(()” 는 모두 VPS 가 아닌 문자열이다.&lt;/p&gt;
-&lt;p&gt;여러분은 입력으로 주어진 괄호 문자열이 VPS 인지 아닌지를 판단해서 그 결과를 YES 와 NO 로 나타내어야 한다.&lt;/p&gt;
-&lt;h4&gt;입력&lt;/h4&gt;
-&lt;p&gt;입력 데이터는 표준 입력을 사용한다. 입력은 T개의 테스트 데이터로 주어진다. 입력의 첫 번째 줄에는 입력 데이터의 수를 나타내는 정수 T가 주어진다. 각 테스트 데이터의 첫째 줄에는 괄호 문자열이 한 줄에 주어진다. 하나의 괄호 문자열의 길이는 2 이상 50 이하이다.&lt;/p&gt;
-&lt;h4&gt;출력&lt;/h4&gt;
-&lt;p&gt;출력은 표준 출력을 사용한다. 만일 입력 괄호 문자열이 올바른 괄호 문자열(VPS)이면 “YES”, 아니면 “NO”를 한 줄에 하나씩 차례대로 출력해야 한다.&lt;/p&gt;
-&lt;h4&gt;예제입력&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;6
-(())())
-(((()())()
-(()())((()))
-((()()(()))(((())))()
-()()()()(()()())()
-(()((())()(&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-&lt;h4&gt;예제출력&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;NO
-NO
-YES
-NO
-YES
-NO&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-&lt;h2&gt;Code&lt;/h2&gt;
-&lt;h4&gt;1. Stack 이용해서 풀기&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;
-      &lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/**
- * @author HunSeol
- * @see https://www.acmicpc.net/problem/9012
- */&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;io&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;BufferedReader&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;io&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;IOException&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;io&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;InputStreamReader&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;util&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Stack&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;token comment&quot;&gt;/*
-6
-(())())
-(((()())()
-(()())((()))
-((()()(()))(((())))()
-()()()()(()()())()
-(()((())()(
- */&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token comment&quot;&gt;// Testcase&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; T&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; Stack&lt;span class=&quot;token generics function&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;Character&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; stack&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;String args&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;throws&lt;/span&gt; IOException &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        BufferedReader bf &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BufferedReader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;InputStreamReader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;System&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;in&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        T &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Integer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;bf&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; T&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            String Q &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; bf&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            stack &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Stack&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            System&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Q&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; stack&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; String &lt;span class=&quot;token function&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;String Q&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Stack&lt;span class=&quot;token generics function&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;Character&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; stack&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; Q&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;char&lt;/span&gt; q &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Q&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;q &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;(&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-                stack&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;q&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;stack&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-                    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;NO&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-                    stack&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; stack&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;YES&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;NO&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-&lt;h4&gt;2. String 이용해서 풀기&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;
-      &lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/**
- * @author HunSeol
- * @see https://www.acmicpc.net/problem/9012
- */&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;io&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;BufferedReader&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;io&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;IOException&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;io&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;InputStreamReader&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;token comment&quot;&gt;/*
-6
-(())())
-(((()())()
-(()())((()))
-((()()(()))(((())))()
-()()()()(()()())()
-(()((())()(
- */&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token comment&quot;&gt;// Testcase&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; T&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;String args&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;throws&lt;/span&gt; IOException &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        BufferedReader bf &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BufferedReader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;InputStreamReader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;System&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;in&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        T &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Integer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;bf&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; T&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            String Q &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; bf&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            System&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Q&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; String &lt;span class=&quot;token function&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;String q&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;q&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;contains&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;()&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            q &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; q&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;()&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;q&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; q&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;NO&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;YES&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-&lt;h2&gt;Outro&lt;/h2&gt;
-&lt;p&gt;Stack에 해당되는 문제로서 간단하게 스택을 이용해서 풀어보았습니다. String을 이용해서도 풀수 있을 것으로 판단되어 2개의 코드를 같이 넣어봤습니다.&lt;/p&gt;
-&lt;p&gt;먼저, 스택을 이용하는 방법은, 먼저, &lt;code class=&quot;language-text&quot;&gt;괄호가 열리면 무조건 닫혀야하기 때문에 해당 조건을 이용하여 문제를 해결&lt;/code&gt;했습니다. 열린 것이 없거나(isEmptry()), 열린 것만 존재했을 경우 NO를 출력하게 만들었습니다.&lt;/p&gt;
-&lt;p&gt;String방법은 재귀호출을 이용하여 ()를 계속 제거하는 방법을 선택하였습니다. 아마 시간복잡도로는 Stack을 이용하는 것이 더 빠를 것입니다. 정답인 경우 모든 괄호를 확인해야 되기때문에 O(N)의 복잡도로 예상됩니다. 각각의 루프문을 확인하면서 유효성을 검사할 수 있기 때문입니다.&lt;/p&gt;
-&lt;p&gt;String은 contain() 메소드를 이용하면 Search(Log N) 검색이 들어가며 replace()의 경우에도 문자 길이만큼 반복(N)하며, 재귀호출의 복잡도도 추가해줘야합니다. 이미 replace에서 O(N)의 복잡도가 사용되므로 Stack보다 더 복잡할 것으로 예상합니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Algorithm] 알고리즘 문제 해결전략 - 무식하게 풀기 - Weeks 1]]></title><description><![CDATA[알고리즘 문제해결 전략을 정리하면서 간단한 문제도 함께 풀어보고자 합니다. 이번에는 알고리즘 문제해결 전략의 142 ~ 172 Page 에 해당되며, 필요한 부분을 정리하고 관련된 문제를 코드와 함께 공유해보고자 합니다. Into…]]></description><link>https://seolhun.github.io/Java-Weeks1MustSolveLinear/</link><guid isPermaLink="false">https://seolhun.github.io/Java-Weeks1MustSolveLinear/</guid><content:encoded>&lt;p&gt;알고리즘 문제해결 전략을 정리하면서 간단한 문제도 함께 풀어보고자 합니다. 이번에는 알고리즘 문제해결 전략의 142 ~ 172 Page 에 해당되며, 필요한 부분을 정리하고 관련된 문제를 코드와 함께 공유해보고자 합니다.&lt;/p&gt;
+&lt;p&gt;추가적으로 문제를 풀고 다른 사항들을 비교 학습을하려했지만, 신기하게도 대부분이 자바에서 이미 구현된 스택을 사용하거나, 스택의 메소드를 구현하는 것이 아닌 결과에 맞는 출력을 할 수 있는 메소드만을 구성하는 등 의도와 맞지 않는 방법들을 봤습니다. 답을 쉽고 빠르게 찾아가는 방법은 좋았으나, 목적에 맞지 않는 코드들을 참조해야한다는 것이 아쉬움이 있었습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Algorithm] 알고리즘 문제 해결전략 - 무식하게 풀기 - Weeks 1]]></title><description><![CDATA[알고리즘 문제해결 전략을 정리하면서 간단한 문제도 함께 풀어보고자 합니다. 이번에는 알고리즘 문제해결 전략의 142 ~ 172 Page 에 해당되며, 필요한 부분을 정리하고 관련된 문제를 코드와 함께 공유해보고자 합니다. Into…]]></description><link>https://seolhun.github.io/Java-Weeks1MustSolveLinear/</link><guid isPermaLink="false">https://seolhun.github.io/Java-Weeks1MustSolveLinear/</guid><content:encoded>&lt;p&gt;알고리즘 문제해결 전략을 정리하면서 간단한 문제도 함께 풀어보고자 합니다. 이번에는 알고리즘 문제해결 전략의 142 ~ 172 Page 에 해당되며, 필요한 부분을 정리하고 관련된 문제를 코드와 함께 공유해보고자 합니다.&lt;/p&gt;
 &lt;h2&gt;Into&lt;/h2&gt;
 &lt;p&gt;알고리즘 문제 해결 전략의 첫 도입이며, 시간복잡도 계산과 관련된 내용은 좋은 글들이 많고, 책에서 더 자세히 설명해있어서 넘어가고, 3 번 알고리즘 설계 패러다임부터 정리하는 것이 더 좋을것으로 판단하였습니다. 그리고, 알고리즘이라는 것이 꾸준히 하지 않으면 어렵고, 처음이 특히, 더 어렵기 때문에 가장 손쉽게 들어갈 수 있는 부분을 선택했습니다. 간단하게 정리하겠습니다.&lt;/p&gt;
 &lt;h4&gt;03. 알고리즘 설계 패러다임&lt;/h4&gt;
@@ -4014,93 +4132,7 @@ ALAKIR ALEXSTRASZA DR-BOOM LORD-JARAXXUS AVIANA	&lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;4. Outro&lt;/h2&gt;
 &lt;p&gt;결과 값 출력에서 (double) 캐스팅을 해주지 않으면 자동으로 int로 캐스팅되어 round 파라미터의 double로 들어가지 않아 저희가 원하는 결과로 출력되지 않습니다. 이를 위해 double로 캐스팅하여 평균 값을 구하기 위한 소수점 값 형태로 받은 후 반올림 처리를 해주어야 합니다. 마지막에 (int)로 캐스팅하는 이유는 round 리턴 타입이 long이기 때문입니다.&lt;/p&gt;
 &lt;p&gt;printResult나 getResult로 만들어서 푸는 이유는 Samsung SWexpersAcademy 결과 값 포맷이 고정적으로 정해져있어서 이를 효율적으로 분리하여 만들기 위함입니다. getResult로 받는 것은 문제 값을 받는 부분과 풀이가 분리되어야 한다고 생각하기 때문입니다. 특히, 재귀가 필요할 시 해당 메소드만 재귀해야 되기때문에 확장성을 고려하여 이렇게 정의하였습니다.&lt;/p&gt;
-&lt;p&gt;다음에는 여러가지 문제를 풀어보겠습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Java] SWexpertAcademy ZigzagNumber]]></title><description><![CDATA[이번에는  삼성소프트웨어 아카데미 사이트 에 있는 알고리즘을 풀어볼까 합니다. 문제와 설명 등 모든 것이 잘 되어있고 한국어로 큰 어려움없이 읽을 수 있습니다. SWexpertAcademy ZigzagNumber Algorithm 난이도 :…]]></description><link>https://seolhun.github.io/Java-ZigzagNumbers/</link><guid isPermaLink="false">https://seolhun.github.io/Java-ZigzagNumbers/</guid><content:encoded>&lt;p&gt;이번에는 &lt;a href=&quot;https://www.swexpertacademy.com/main/main.do&quot;&gt;삼성소프트웨어 아카데미 사이트&lt;/a&gt;에 있는 알고리즘을 풀어볼까 합니다. 문제와 설명 등 모든 것이 잘 되어있고 한국어로 큰 어려움없이 읽을 수 있습니다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PxmBqAe8DFAUq&amp;#x26;categoryId=AV5PxmBqAe8DFAUq&amp;#x26;categoryType=CODE&quot;&gt;SWexpertAcademy ZigzagNumber Algorithm&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;난이도 : 2&lt;/li&gt;
-&lt;li&gt;정답률 : 86%&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;1. Question&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;[예제 풀이]&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;N이 5일 경우,&lt;/li&gt;
-&lt;li&gt;1 – 2 + 3 – 4 + 5 = 3&lt;/li&gt;
-&lt;li&gt;N이 6일 경우,&lt;/li&gt;
-&lt;li&gt;1 – 2 + 3 – 4 + 5 – 6 = -3&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;[제약사항]&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;N은 1 이상 10 이하의 정수이다. (1 ≤ N ≤ 10)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;[입력]&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;가장 첫 줄에는 테스트 케이스의 개수 T가 주어지고, 그 아래로 각 테스트 케이스가 주어진다. 각 테스트 케이스에는 N이 주어진다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;[출력]&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;각 줄은 ‘#t’로 시작하고, 공백을 한 칸 둔 다음 누적된 값을 출력한다. (t는 테스트 케이스의 번호를 의미하며 1부터 시작한다.)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;2. Process&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;T라는 테스트케이스 만큼 루프문을 만듭니다.&lt;/li&gt;
-&lt;li&gt;메소드를 정의하여 1부터 해당숫자까지 포문을 만듭니다.&lt;/li&gt;
-&lt;li&gt;홀수는 -, 짝수는+ 연산을 처리하여 결과값 메소드를 만듭니다.&lt;/li&gt;
-&lt;li&gt;출력 포맷에 맞게 출력합니다.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;3. Code&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;
-      &lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;util&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Scanner&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;String arg&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token function&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        Scanner sc &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Scanner&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;System&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;in&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; T &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; sc&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;nextInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        StringBuilder sb &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;StringBuilder&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; T&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;token function&quot;&gt;printResult&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;sb&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getResult&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;sc&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;nextInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getResult&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; question&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; sum &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;=&lt;/span&gt; question&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-                sum &lt;span class=&quot;token operator&quot;&gt;-=&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-                sum &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; sum&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;printResult&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;StringBuilder sb&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; index&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; result&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        sb&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setLength&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        sb&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;#&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        sb&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;index&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        sb&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        sb&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        System&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;sb&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-&lt;h2&gt;4. Outro&lt;/h2&gt;
-&lt;p&gt;간단히 삼성 SWexpertAcademy를 이용해보았는데 깔끔하고 좋았습니다. 특히, 메모리와 실행시간 등 세세한 정보들을 비교하여 볼 수 있고, 어렵지 않게 다른 사람의 코드를 확인할 수 있어 학습하는데 큰 도움이 됩니다.&lt;/p&gt;
-&lt;p&gt;이번 과정을 통해 알게된 것은 얼마안되는 로직이었지만, String 연산과 StringBuilder 연산의 차이가 최대 6ms로 차이가 낫다는 점입니다. 다른 문제도 풀어보겠습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Java] SWexpertAcademy ManagementExercise]]></title><description><![CDATA[SWexpertAcademy ManagementExercise Algorithm 난이도 : 3 정답률 : 86% 1. Question 최근 경도비만 판정을 받은 준환이는 적절한 몸을 유지하기 위하여 1주일에 L분 이상 U…]]></description><link>https://seolhun.github.io/Java-ManagementExercise/</link><guid isPermaLink="false">https://seolhun.github.io/Java-ManagementExercise/</guid><content:encoded>&lt;ul&gt;
+&lt;p&gt;다음에는 여러가지 문제를 풀어보겠습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Java] SWexpertAcademy ManagementExercise]]></title><description><![CDATA[SWexpertAcademy ManagementExercise Algorithm 난이도 : 3 정답률 : 86% 1. Question 최근 경도비만 판정을 받은 준환이는 적절한 몸을 유지하기 위하여 1주일에 L분 이상 U…]]></description><link>https://seolhun.github.io/Java-ManagementExercise/</link><guid isPermaLink="false">https://seolhun.github.io/Java-ManagementExercise/</guid><content:encoded>&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWE_ZXcqAAMDFAV2&amp;#x26;categoryId=AWE_ZXcqAAMDFAV2&amp;#x26;categoryType=CODE&quot;&gt;SWexpertAcademy ManagementExercise Algorithm&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;난이도 : 3&lt;/li&gt;
 &lt;li&gt;정답률 : 86%&lt;/li&gt;
@@ -4193,7 +4225,93 @@ ALAKIR ALEXSTRASZA DR-BOOM LORD-JARAXXUS AVIANA	&lt;/code&gt;&lt;/pre&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
       &lt;/div&gt;
 &lt;h2&gt;4. Outro&lt;/h2&gt;
-&lt;p&gt;이번에는 perfectShuffle 문제를 풀기전 몸풀기로 풀어보았습니다. 다음 레벨 3의 50% 난이도로 들어가겠습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Javascript] HackerRank - LonelyInterger Algorithm]]></title><description><![CDATA[이번에는 저번 블로그에 작성한 Bit연산자를 이용하여  LonelyInteger  알고리즘을 풀어볼까 합니다.
+&lt;p&gt;이번에는 perfectShuffle 문제를 풀기전 몸풀기로 풀어보았습니다. 다음 레벨 3의 50% 난이도로 들어가겠습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Java] SWexpertAcademy ZigzagNumber]]></title><description><![CDATA[이번에는  삼성소프트웨어 아카데미 사이트 에 있는 알고리즘을 풀어볼까 합니다. 문제와 설명 등 모든 것이 잘 되어있고 한국어로 큰 어려움없이 읽을 수 있습니다. SWexpertAcademy ZigzagNumber Algorithm 난이도 :…]]></description><link>https://seolhun.github.io/Java-ZigzagNumbers/</link><guid isPermaLink="false">https://seolhun.github.io/Java-ZigzagNumbers/</guid><content:encoded>&lt;p&gt;이번에는 &lt;a href=&quot;https://www.swexpertacademy.com/main/main.do&quot;&gt;삼성소프트웨어 아카데미 사이트&lt;/a&gt;에 있는 알고리즘을 풀어볼까 합니다. 문제와 설명 등 모든 것이 잘 되어있고 한국어로 큰 어려움없이 읽을 수 있습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PxmBqAe8DFAUq&amp;#x26;categoryId=AV5PxmBqAe8DFAUq&amp;#x26;categoryType=CODE&quot;&gt;SWexpertAcademy ZigzagNumber Algorithm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;난이도 : 2&lt;/li&gt;
+&lt;li&gt;정답률 : 86%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;1. Question&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[예제 풀이]&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;N이 5일 경우,&lt;/li&gt;
+&lt;li&gt;1 – 2 + 3 – 4 + 5 = 3&lt;/li&gt;
+&lt;li&gt;N이 6일 경우,&lt;/li&gt;
+&lt;li&gt;1 – 2 + 3 – 4 + 5 – 6 = -3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[제약사항]&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;N은 1 이상 10 이하의 정수이다. (1 ≤ N ≤ 10)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[입력]&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;가장 첫 줄에는 테스트 케이스의 개수 T가 주어지고, 그 아래로 각 테스트 케이스가 주어진다. 각 테스트 케이스에는 N이 주어진다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[출력]&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;각 줄은 ‘#t’로 시작하고, 공백을 한 칸 둔 다음 누적된 값을 출력한다. (t는 테스트 케이스의 번호를 의미하며 1부터 시작한다.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. Process&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;T라는 테스트케이스 만큼 루프문을 만듭니다.&lt;/li&gt;
+&lt;li&gt;메소드를 정의하여 1부터 해당숫자까지 포문을 만듭니다.&lt;/li&gt;
+&lt;li&gt;홀수는 -, 짝수는+ 연산을 처리하여 결과값 메소드를 만듭니다.&lt;/li&gt;
+&lt;li&gt;출력 포맷에 맞게 출력합니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;3. Code&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;
+      &lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;util&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Scanner&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;String arg&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        Scanner sc &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Scanner&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;System&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;in&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; T &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; sc&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;nextInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        StringBuilder sb &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;StringBuilder&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; T&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token function&quot;&gt;printResult&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;sb&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getResult&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;sc&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;nextInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getResult&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; question&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; sum &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;=&lt;/span&gt; question&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                sum &lt;span class=&quot;token operator&quot;&gt;-=&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                sum &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; sum&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;printResult&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;StringBuilder sb&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; index&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; result&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        sb&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setLength&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        sb&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;#&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        sb&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;index&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        sb&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        sb&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        System&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;sb&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;h2&gt;4. Outro&lt;/h2&gt;
+&lt;p&gt;간단히 삼성 SWexpertAcademy를 이용해보았는데 깔끔하고 좋았습니다. 특히, 메모리와 실행시간 등 세세한 정보들을 비교하여 볼 수 있고, 어렵지 않게 다른 사람의 코드를 확인할 수 있어 학습하는데 큰 도움이 됩니다.&lt;/p&gt;
+&lt;p&gt;이번 과정을 통해 알게된 것은 얼마안되는 로직이었지만, String 연산과 StringBuilder 연산의 차이가 최대 6ms로 차이가 낫다는 점입니다. 다른 문제도 풀어보겠습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Javascript] HackerRank - LonelyInterger Algorithm]]></title><description><![CDATA[이번에는 저번 블로그에 작성한 Bit연산자를 이용하여  LonelyInteger  알고리즘을 풀어볼까 합니다.
  Bit 연산자 를 읽어보면 해당 알고리즘을 언급하였습니다. 읽어보시고 풀어보면 좋을 것 같습니다. 1. Question HackerRank…]]></description><link>https://seolhun.github.io/JS-LonelyInteger/</link><guid isPermaLink="false">https://seolhun.github.io/JS-LonelyInteger/</guid><content:encoded>&lt;p&gt;이번에는 저번 블로그에 작성한 Bit연산자를 이용하여 &lt;a href=&quot;https://www.hackerrank.com/challenges/lonely-integer/problem&quot;&gt;LonelyInteger&lt;/a&gt; 알고리즘을 풀어볼까 합니다.
 &lt;a href=&quot;/posts/javascript/operators/20180405-js-bitwiseoperators/&quot;&gt;Bit 연산자&lt;/a&gt;를 읽어보면 해당 알고리즘을 언급하였습니다. 읽어보시고 풀어보면 좋을 것 같습니다.&lt;/p&gt;
 &lt;h2&gt;1. Question&lt;/h2&gt;
@@ -5164,7 +5282,71 @@ es6_spread &lt;span class=&quot;token comment&quot;&gt;// [ 1, 2, &apos;Seolhun&
 &lt;h2&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://es6-features.org/&quot;&gt;ES6-features.org/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[Algorithm] 알고리즘을 위한 시간복잡도 계산 방법 - Big-O 표기]]></title><description><![CDATA[이번에는 알고리즘을 풀면서 시간복잡도를 표기하는 Big-O 표기법에 대해 잘 알지 못해 이를 정리해보고자 합니다. Intro 개발자들을 면접보는 방법에는 여러가지가 있습니다. 그 중 가장 보편적인 것은 알고리즘 풀기 간단한 프로젝트 만들기 위…]]></description><link>https://seolhun.github.io/How-to-calculate-algorithm-time/</link><guid isPermaLink="false">https://seolhun.github.io/How-to-calculate-algorithm-time/</guid><content:encoded>&lt;p&gt;이번에는 알고리즘을 풀면서 시간복잡도를 표기하는 Big-O 표기법에 대해 잘 알지 못해 이를 정리해보고자 합니다.&lt;/p&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Javascript] Binary Search(이진탐색) Algorithm]]></title><description><![CDATA[이번에는 검색 시 자주 사용되는 이진검색에 대해서 알고리즘을 작성해볼까 합니다.
+이진검색은 배열 안에서 중간 값을 기준으로 계속 나누어 근사 값으로 찾아가는 알고리즘입니다. 1. Contents 이진 검색 알고리즘(binary search…]]></description><link>https://seolhun.github.io/JS-BinarySearch/</link><guid isPermaLink="false">https://seolhun.github.io/JS-BinarySearch/</guid><content:encoded>&lt;p&gt;이번에는 검색 시 자주 사용되는 이진검색에 대해서 알고리즘을 작성해볼까 합니다.
+이진검색은 배열 안에서 중간 값을 기준으로 계속 나누어 근사 값으로 찾아가는 알고리즘입니다.&lt;/p&gt;
+&lt;h2&gt;1. Contents&lt;/h2&gt;
+&lt;p&gt;이진 검색 알고리즘(binary search algorithm)은 오름차순으로 정렬된 리스트에서 특정한 값의 위치를 찾는 알고리즘입니다.&lt;/p&gt;
+&lt;p&gt;처음 중간의 값을 임의의 값으로 선택하여, 그 값과 찾고자 하는 값의 크고 작음을 비교하는 방식을 채택하고 있습니다.  &lt;strong&gt;처음 선택한 중앙값이 만약 찾는 값보다 크면 그 값은 새로운 최고값이 되며, 작으면 그 값은 새로운 최하값이 된다.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;주의사항&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;검색 원리상 정렬된 리스트에만 사용이 가능하다,&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;특징&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;검색이 반복될 때마다 목표값을 찾을 확률은 두 배가 되므로 속도가 빠릅니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;시간 복잡도&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;O(log n)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. Code&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;While을 사용하여 이진탐색 만들어보기&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;
+      &lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; arr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; binarySearch &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;arr&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; mid&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; min &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; max &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; arr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;  while (min &amp;#x3C;= max) {
+// floor을 쓰는 이유는 배열의 index가 0으로 시작하여 내림으로 값을 구해준다.
+mid = Math.floor((min + max) / 2);
+let result = arr[mid];
+if (result === value) {
+return mid;
+}
+// mid에 1을 더해주는 이유는 배열의 index는 0에서 시작하여 원래 길이의 값은 다시 1을 더해주어야 한다.
+if (result &amp;#x3C; value) {
+min = mid + 1;
+}
+if (result &gt; value) {
+max = mid - 1;
+}
+}
+return -1;
+});&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
+      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;## 3. Outro
+이진 탐색은 기본적으로 n의 개수를 줄여나감으로써 시간 복잡도를 개선해나가는 알고리즘입니다. 대부분의 탐색은 해당 값의 위치를 알고 있으면 이를 줄여나갈 수 있습니다. 하지만, 값을 알지 못할 때에는 확률적으로 이를 줄여나가는 방법밖에 없는데, 이진탐색이 이를 기본적으로 이용하는 알고리즘이라고 할 수 있습니다.
+
+다음에는 **이진 탐색 트리 알고리즘**을 알아보겠습니다.
+
+## 4. References
+- [Wiki - 이진탐색 알고리즘](https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%A7%84_%EA%B2%80%EC%83%89_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;</content:encoded></item><item><title><![CDATA[[Algorithm] 알고리즘을 위한 시간복잡도 계산 방법 - Big-O 표기]]></title><description><![CDATA[이번에는 알고리즘을 풀면서 시간복잡도를 표기하는 Big-O 표기법에 대해 잘 알지 못해 이를 정리해보고자 합니다. Intro 개발자들을 면접보는 방법에는 여러가지가 있습니다. 그 중 가장 보편적인 것은 알고리즘 풀기 간단한 프로젝트 만들기 위…]]></description><link>https://seolhun.github.io/How-to-calculate-algorithm-time/</link><guid isPermaLink="false">https://seolhun.github.io/How-to-calculate-algorithm-time/</guid><content:encoded>&lt;p&gt;이번에는 알고리즘을 풀면서 시간복잡도를 표기하는 Big-O 표기법에 대해 잘 알지 못해 이를 정리해보고자 합니다.&lt;/p&gt;
 &lt;h2&gt;Intro&lt;/h2&gt;
 &lt;p&gt;개발자들을 면접보는 방법에는 여러가지가 있습니다. 그 중 가장 보편적인 것은&lt;/p&gt;
 &lt;ol&gt;
@@ -5277,71 +5459,7 @@ Big-O 표기법은 계수와 낮은 차수의 항을 제외시키는 방법입�
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%8B%9C%EA%B0%84_%EB%B3%B5%EC%9E%A1%EB%8F%84&quot;&gt;Wiki - 시간복잡도&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://medium.freecodecamp.org/time-is-complex-but-priceless-f0abd015063c&quot;&gt;Medium - Algorithms in plain English: time complexity and Big-O notation&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Javascript] Binary Search(이진탐색) Algorithm]]></title><description><![CDATA[이번에는 검색 시 자주 사용되는 이진검색에 대해서 알고리즘을 작성해볼까 합니다.
-이진검색은 배열 안에서 중간 값을 기준으로 계속 나누어 근사 값으로 찾아가는 알고리즘입니다. 1. Contents 이진 검색 알고리즘(binary search…]]></description><link>https://seolhun.github.io/JS-BinarySearch/</link><guid isPermaLink="false">https://seolhun.github.io/JS-BinarySearch/</guid><content:encoded>&lt;p&gt;이번에는 검색 시 자주 사용되는 이진검색에 대해서 알고리즘을 작성해볼까 합니다.
-이진검색은 배열 안에서 중간 값을 기준으로 계속 나누어 근사 값으로 찾아가는 알고리즘입니다.&lt;/p&gt;
-&lt;h2&gt;1. Contents&lt;/h2&gt;
-&lt;p&gt;이진 검색 알고리즘(binary search algorithm)은 오름차순으로 정렬된 리스트에서 특정한 값의 위치를 찾는 알고리즘입니다.&lt;/p&gt;
-&lt;p&gt;처음 중간의 값을 임의의 값으로 선택하여, 그 값과 찾고자 하는 값의 크고 작음을 비교하는 방식을 채택하고 있습니다.  &lt;strong&gt;처음 선택한 중앙값이 만약 찾는 값보다 크면 그 값은 새로운 최고값이 되며, 작으면 그 값은 새로운 최하값이 된다.&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;주의사항&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;검색 원리상 정렬된 리스트에만 사용이 가능하다,&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;특징&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;검색이 반복될 때마다 목표값을 찾을 확률은 두 배가 되므로 속도가 빠릅니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;시간 복잡도&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;O(log n)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;2. Code&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;While을 사용하여 이진탐색 만들어보기&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;
-      &lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; arr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; binarySearch &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;arr&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; mid&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; min &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; max &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; arr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;  while (min &amp;#x3C;= max) {
-// floor을 쓰는 이유는 배열의 index가 0으로 시작하여 내림으로 값을 구해준다.
-mid = Math.floor((min + max) / 2);
-let result = arr[mid];
-if (result === value) {
-return mid;
-}
-// mid에 1을 더해주는 이유는 배열의 index는 0에서 시작하여 원래 길이의 값은 다시 1을 더해주어야 한다.
-if (result &amp;#x3C; value) {
-min = mid + 1;
-}
-if (result &gt; value) {
-max = mid - 1;
-}
-}
-return -1;
-});&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;## 3. Outro
-이진 탐색은 기본적으로 n의 개수를 줄여나감으로써 시간 복잡도를 개선해나가는 알고리즘입니다. 대부분의 탐색은 해당 값의 위치를 알고 있으면 이를 줄여나갈 수 있습니다. 하지만, 값을 알지 못할 때에는 확률적으로 이를 줄여나가는 방법밖에 없는데, 이진탐색이 이를 기본적으로 이용하는 알고리즘이라고 할 수 있습니다.
-
-다음에는 **이진 탐색 트리 알고리즘**을 알아보겠습니다.
-
-## 4. References
-- [Wiki - 이진탐색 알고리즘](https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%A7%84_%EA%B2%80%EC%83%89_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Javascript] 비트연산자를 이용하여 간단한 알고리즘 및 예제 만들어보기]]></title><description><![CDATA[이번에는 Javascript에 Bit Operators를 이용하여 다양한 예제를 만들어볼까 합니다. 예를들어, * 이용하지 않고 곱셈하기, 외로운 수 찾기 알고리즘 등을 풀어볼까 합니다.
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[Algorithm/Javascript] 비트연산자를 이용하여 간단한 알고리즘 및 예제 만들어보기]]></title><description><![CDATA[이번에는 Javascript에 Bit Operators를 이용하여 다양한 예제를 만들어볼까 합니다. 예를들어, * 이용하지 않고 곱셈하기, 외로운 수 찾기 알고리즘 등을 풀어볼까 합니다.
 더 좋은 내용과 참고사항 있으시면 알려주세요. :) Intro…]]></description><link>https://seolhun.github.io/JS-BitWiseOperators/</link><guid isPermaLink="false">https://seolhun.github.io/JS-BitWiseOperators/</guid><content:encoded>&lt;p&gt;이번에는 Javascript에 Bit Operators를 이용하여 다양한 예제를 만들어볼까 합니다. 예를들어, * 이용하지 않고 곱셈하기, 외로운 수 찾기 알고리즘 등을 풀어볼까 합니다.
 더 좋은 내용과 참고사항 있으시면 알려주세요. :)&lt;/p&gt;
 &lt;h2&gt;Intro&lt;/h2&gt;
@@ -8149,61 +8267,6 @@ GIT_AUTHOR_EMAIL &lt;span class=&quot;token keyword&quot;&gt;:&lt;/span&gt; test
 &lt;li&gt;&lt;a href=&quot;https://www.infoworld.com/article/3239666/devops/what-is-jenkins-the-ci-server-explained.html&quot;&gt;What is Jenkins from InfoWorld&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.atlassian.com/continuous-delivery/ci-vs-ci-vs-cd&quot;&gt;Continuouse Integration vs Continuouse Delivery&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.thoughtworks.com/continuous-integration&quot;&gt;Thoughtworks - CI&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[Typescript] Singleton Pattern이란?]]></title><description><![CDATA[디자인 패턴의 Singleton Pattern에 대해서 간단히 정리해보았습니다. Singleton이란 싱글턴 패턴(Singleton pattern…]]></description><link>https://seolhun.github.io/JS-singleton-pattern/</link><guid isPermaLink="false">https://seolhun.github.io/JS-singleton-pattern/</guid><content:encoded>&lt;p&gt;디자인 패턴의 Singleton Pattern에 대해서 간단히 정리해보았습니다.&lt;/p&gt;
-&lt;h2&gt;Singleton이란&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;싱글턴 패턴(Singleton pattern)을 따르는 클래스는, 생성자가 여러 차례 호출되더라도 실제로 생성되는 객체는 하나이고 최초 생성 이후에 호출된 생성자는 최초의 생성자가 생성한 객체를 리턴한다. 이와 같은 디자인 유형을 싱글턴 패턴이라고 한다. 주로 공통된 객체를 여러개 생성해서 사용하는 DBCP(DataBase Connection Pool)와 같은 상황에서 많이 사용된다.&lt;/li&gt;
-&lt;li&gt;싱글톤 패턴은 가장 단순한 디자인 패턴 중 하나입니다. 이 유형의 디자인 패턴은 오브젝트를 생성하는 가장 좋은 방법 중 하나를 제공하므로이 패턴은 Creational Patterns에 속해 있습니다. &lt;strong&gt;이 패턴은 단일 객체 만 생성되도록하면서 객체를 만드는 단일 클래스를 포함합니다. 이 클래스는 클래스 객체를 인스턴스화하지 않고 직접 액세스 할 수있는 유일한 객체에 접근하는 방법을 제공합니다.&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;
-      &lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Singleton&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; instance&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Singleton&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    Singleton&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;instance &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;Singleton&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;instance&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      Singleton&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;instance &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Singleton&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;instance&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; Singleton&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-&lt;h2&gt;내용&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;객체를 생성하지 않고 같은 객체로 메소드와 변수를 사용할 수 있다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;this&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;instance&lt;/code&gt;는 &lt;strong&gt;같은 값을 갖고 있지만, 항상 같진 않다.&lt;/strong&gt; (3번과 연관)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;생성자를 사용하면 결국 다른 주소값을 반환한다. 즉, 생성자를 사용하여 값을 비교하면 결코 같을 수 없다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;즉, 1개의 주소값을 갖고 있기때문에, 생성된 값과 비교하면 항상 같은 값을 얻을 수 있다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;static&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;동일한 클래스 내의 다른 정적 메서드 내에서 정적 메서드를 호출하는 경우 키워드 &lt;code class=&quot;language-text&quot;&gt;this&lt;/code&gt;를 사용할 수 있다&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;Reference&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes/static&quot;&gt;Mozila - Static&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;정적 메서드는 클래스의 인스턴스 없이 호출이 가능하며 클래스가 인스턴스화되면 호출할 수 없다. 정적 메서드는 종종 어플리케이션의 유틸리티 함수를 만드는데 사용된다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/JavaScript/Equality_comparisons_and_sameness&quot;&gt;Mozila - Equality&lt;em&gt;comparisons&lt;/em&gt;and_sameness&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://hashnode.com/post/does-javascript-use-stack-or-heap-for-memory-allocation-or-both-cj5jl90xl01nh1twuv8ug0bjk&quot;&gt;Does JavaScript use stack or heap for memory allocation or both?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[Javascript/Typescript] JavaScript new, constructor란?]]></title><description><![CDATA[Singleton 디자인 패턴을 사용하면서 Javascript의 new에 대한 개념을 더 정확히 알아야된다고 생각하여 작성하게 되었습니다. Goal  생성자의 작동원리와 활용법 이해 TypeScript와 JavaScript…]]></description><link>https://seolhun.github.io/JS-new-operators/</link><guid isPermaLink="false">https://seolhun.github.io/JS-new-operators/</guid><content:encoded>&lt;p&gt;Singleton 디자인 패턴을 사용하면서 Javascript의 new에 대한 개념을 더 정확히 알아야된다고 생각하여 작성하게 되었습니다.&lt;/p&gt;
 &lt;h2&gt;Goal&lt;/h2&gt;
 &lt;ul&gt;
@@ -8262,6 +8325,61 @@ car1&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;color &lt;span
 &lt;h2&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/new&quot;&gt;https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/new&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[Typescript] Singleton Pattern이란?]]></title><description><![CDATA[디자인 패턴의 Singleton Pattern에 대해서 간단히 정리해보았습니다. Singleton이란 싱글턴 패턴(Singleton pattern…]]></description><link>https://seolhun.github.io/JS-singleton-pattern/</link><guid isPermaLink="false">https://seolhun.github.io/JS-singleton-pattern/</guid><content:encoded>&lt;p&gt;디자인 패턴의 Singleton Pattern에 대해서 간단히 정리해보았습니다.&lt;/p&gt;
+&lt;h2&gt;Singleton이란&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;싱글턴 패턴(Singleton pattern)을 따르는 클래스는, 생성자가 여러 차례 호출되더라도 실제로 생성되는 객체는 하나이고 최초 생성 이후에 호출된 생성자는 최초의 생성자가 생성한 객체를 리턴한다. 이와 같은 디자인 유형을 싱글턴 패턴이라고 한다. 주로 공통된 객체를 여러개 생성해서 사용하는 DBCP(DataBase Connection Pool)와 같은 상황에서 많이 사용된다.&lt;/li&gt;
+&lt;li&gt;싱글톤 패턴은 가장 단순한 디자인 패턴 중 하나입니다. 이 유형의 디자인 패턴은 오브젝트를 생성하는 가장 좋은 방법 중 하나를 제공하므로이 패턴은 Creational Patterns에 속해 있습니다. &lt;strong&gt;이 패턴은 단일 객체 만 생성되도록하면서 객체를 만드는 단일 클래스를 포함합니다. 이 클래스는 클래스 객체를 인스턴스화하지 않고 직접 액세스 할 수있는 유일한 객체에 접근하는 방법을 제공합니다.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;
+      &lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Singleton&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; instance&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Singleton&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    Singleton&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;instance &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;Singleton&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;instance&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      Singleton&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;instance &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Singleton&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;instance&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; Singleton&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;h2&gt;내용&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;객체를 생성하지 않고 같은 객체로 메소드와 변수를 사용할 수 있다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;this&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;instance&lt;/code&gt;는 &lt;strong&gt;같은 값을 갖고 있지만, 항상 같진 않다.&lt;/strong&gt; (3번과 연관)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;생성자를 사용하면 결국 다른 주소값을 반환한다. 즉, 생성자를 사용하여 값을 비교하면 결코 같을 수 없다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;즉, 1개의 주소값을 갖고 있기때문에, 생성된 값과 비교하면 항상 같은 값을 얻을 수 있다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;static&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;동일한 클래스 내의 다른 정적 메서드 내에서 정적 메서드를 호출하는 경우 키워드 &lt;code class=&quot;language-text&quot;&gt;this&lt;/code&gt;를 사용할 수 있다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes/static&quot;&gt;Mozila - Static&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;정적 메서드는 클래스의 인스턴스 없이 호출이 가능하며 클래스가 인스턴스화되면 호출할 수 없다. 정적 메서드는 종종 어플리케이션의 유틸리티 함수를 만드는데 사용된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/JavaScript/Equality_comparisons_and_sameness&quot;&gt;Mozila - Equality&lt;em&gt;comparisons&lt;/em&gt;and_sameness&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://hashnode.com/post/does-javascript-use-stack-or-heap-for-memory-allocation-or-both-cj5jl90xl01nh1twuv8ug0bjk&quot;&gt;Does JavaScript use stack or heap for memory allocation or both?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[Javascript/Typescript] Static이란?]]></title><description><![CDATA[Singleton Pattern을 구현하면서 static이 Javascript에서는 어떻게 작동되는지 궁금하여 간단히 알아보았습니다. Goal 의 작동원리와 활용법 이해 TypeScript와 JavaScript의 코드 차이를 이해한다. Overview…]]></description><link>https://seolhun.github.io/JS-static/</link><guid isPermaLink="false">https://seolhun.github.io/JS-static/</guid><content:encoded>&lt;p&gt;Singleton Pattern을 구현하면서 static이 Javascript에서는 어떻게 작동되는지 궁금하여 간단히 알아보았습니다.&lt;/p&gt;
 &lt;h2&gt;Goal&lt;/h2&gt;
 &lt;ul&gt;
