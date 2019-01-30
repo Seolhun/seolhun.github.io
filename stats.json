@@ -85,8 +85,8 @@
       "path---js-insertion-sort-2-725cb88587657ebccb05.js.map"
     ],
     "path---": [
-      "path----ffe01f85a1302ba87ff3.js",
-      "path----ffe01f85a1302ba87ff3.js.map"
+      "path----68e911468a8efd38d707.js",
+      "path----68e911468a8efd38d707.js.map"
     ],
     "path---web-how-to-optimize-web-1": [
       "path---web-how-to-optimize-web-1-3b961f7d526b71d00447.js",
@@ -133,8 +133,8 @@
       "path---java-weeks-1-must-solve-linear-74eb151e2042549c567c.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-86f6a8f6aa85a404b345.js",
-      "component---src-layouts-index-js-86f6a8f6aa85a404b345.js.map"
+      "component---src-layouts-index-js-7b91b53d189383c2b73c.js",
+      "component---src-layouts-index-js-7b91b53d189383c2b73c.js.map"
     ],
     "path---java-perfect-shuffle": [
       "path---java-perfect-shuffle-3c533123133dd658b827.js",
@@ -180,10 +180,6 @@
       "path---java-management-exercise-0a725ae9d1aae47c5593.js",
       "path---java-management-exercise-0a725ae9d1aae47c5593.js.map"
     ],
-    "path---js-build-form-gorup-part-2": [
-      "path---js-build-form-gorup-part-2-f34f2ebddbfb7efbc531.js",
-      "path---js-build-form-gorup-part-2-f34f2ebddbfb7efbc531.js.map"
-    ],
     "commons": [
       "commons-866e698d14945edc80b6.js",
       "build-js-styles.css",
@@ -219,8 +215,8 @@
       "component---src-templates-post-template-js-dcfc5664ee964536a607.js.map"
     ],
     "path---js-build-form-gorup-part-1-md": [
-      "path---js-build-form-gorup-part-1-md-c609d5e53496d985aad8.js",
-      "path---js-build-form-gorup-part-1-md-c609d5e53496d985aad8.js.map"
+      "path---js-build-form-gorup-part-1-md-1faae0335973c09b8070.js",
+      "path---js-build-form-gorup-part-1-md-1faae0335973c09b8070.js.map"
     ],
     "path---java-elevators": [
       "path---java-elevators-4a34ec56217cefe7d9f3.js",
@@ -255,9 +251,9 @@
       "path---db-mariadb-reset-auth-ef25a4a94eb4f46a53fe.js.map"
     ],
     "app": [
-      "app-84d118b4fd76f714241c.js",
+      "app-55d48e8e6f19f19d4250.js",
       "build-js-styles.css",
-      "app-84d118b4fd76f714241c.js.map",
+      "app-55d48e8e6f19f19d4250.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-templates-page-template-js": [
