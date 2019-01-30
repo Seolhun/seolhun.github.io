@@ -41,7 +41,7 @@ class FormGroupBuilder {
     this.isDisabled = Object.keys(this.group).some((key) =>
       this.group[key]
         ._handleOnValidation()
-        .getPropertyValueBy(FORM_PROPERTIES.hasError)
+        .getPropertyBy(FORM_PROPERTIES.hasError)
     );
     return this;
   };
