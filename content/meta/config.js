@@ -1,8 +1,8 @@
 const colors = require('../../src/styles/colors');
 
 module.exports = {
-  siteTitle: 'SeolHun TechBlog', // <title>
-  shortSiteTitle: 'SeolHun TechBlog', // <title> ending for posts and pages
+  siteTitle: 'SeolHun TechBlog',
+  shortSiteTitle: 'SeolHun TechBlog',
   siteDescription: 'The Dreamer through the Programming',
   siteUrl: 'https://seolhun.github.io',
   pathPrefix: '',
