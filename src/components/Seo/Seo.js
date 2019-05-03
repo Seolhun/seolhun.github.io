@@ -1,24 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+
 import config from '../../../content/meta/config';
 
 const Seo = ({ data, facebook }) => {
-  const postTitle = ((data || {}).frontmatter || {}).title;
-  const postDescription = ((data || {}).frontmatter || {}).description;
-  const postCover = ((data || {}).frontmatter || {}).cover;
-  const postSlug = ((data || {}).fields || {}).slug;
+  const { author, cover, description, tags, title } =
+    (data || {}).frontmatter || {};
+  const { slug } = (data || {}).fields || {};
 
-  const title = postTitle
-    ? `${postTitle} - ${config.shortSiteTitle}`
+  // MetaTags
+  const metaTags = tags && tags.length ? tags.join(',') : config.shortSiteTitle;
+  const metaAuthors = author ? author : config.authorName;
+  const metaTitle = title
+    ? `${title} - ${config.shortSiteTitle}`
     : config.siteTitle;
-  const description = postDescription
-    ? postDescription
-    : config.siteDescription;
-  const image = postCover
-    ? postCover.childImageSharp.resize.src
-    : config.siteImage;
-  const url = config.siteUrl + config.pathPrefix + postSlug;
+  const metaDescription = description ? description : config.siteDescription;
+  const metaImage = cover ? cover.childImageSharp.resize.src : config.siteImage;
+  const metaUrl = config.siteUrl + config.pathPrefix + slug;
 
   return (
     <Helmet
@@ -28,17 +27,24 @@ const Seo = ({ data, facebook }) => {
       }}
     >
       {/* General tags */}
-      <title>{title}</title>
-      <meta name="description" content={description} />
+      <title>{metaTitle}</title>
+      <meta name="title" content={metaTitle} />
+      <meta name="description" content={metaDescription} />
+      <meta name="author" content={metaAuthors} />
+      <meta name="keywords" content={metaTags} />
       {/* OpenGraph tags */}
-      <meta property="og:url" content={url} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
-      <meta property="og:type" content="website" />
       <meta property="fb:app_id" content={facebook.appId} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:image" content={metaImage} />
+      <meta property="og:site_name" content={metaTitle} />
+      <meta property="og:title" content={metaTitle} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={metaUrl} />
       {/* Twitter Card tags */}
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={metaTitle} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image:src" content={metaImage} />
       <meta
         name="twitter:creator"
         content={config.authorTwitterAccount ? config.authorTwitterAccount : ''}

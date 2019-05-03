@@ -39,9 +39,18 @@ const PostFooter = ({ classes, author, post, slug, facebook }) => {
 PostFooter.propTypes = {
   classes: PropTypes.object.isRequired,
   author: PropTypes.object.isRequired,
-  post: PropTypes.object.isRequired,
+  post: PropTypes.shape({
+    cover: PropTypes.object,
+    description: PropTypes.string,
+    post: PropTypes.string,
+    subTitle: PropTypes.string,
+    tags: PropTypes.arrayOf(PropTypes.string),
+    title: PropTypes.string,
+  }).isRequired,
   slug: PropTypes.string.isRequired,
-  facebook: PropTypes.object.isRequired,
+  facebook: PropTypes.shape({
+    appId: PropTypes.string,
+  }).isRequired,
 };
 
 export default injectSheet(styles)(PostFooter);
