@@ -1,193 +1,311 @@
 /* eslint-disable no-underscore-dangle */
-export const FORM_PROPERTIES = {
-  key: 'key',
+export const FORM_VALUES = {
+  /**
+   * @requires
+   * @type string
+   */
   value: 'value',
+  /**
+   * @requires
+   * @type string
+   */
+  htmlFor: 'htmlFor',
+  // isNotRequired
+  /**
+   * @default false
+   * @type boolean
+   */
   hasError: 'hasError',
-  message: 'message',
+  /**
+   * @default false
+   * @type boolean
+   */
+  isFocus: 'isFocus',
+  /**
+   * @default false
+   * @type boolean
+   */
   isRequired: 'isRequired',
+  /**
+   * @default false
+   * @type boolean
+   */
+  message: 'message',
+  /**
+   * @default 'text'
+   * @type string
+   */
+  type: 'type',
+};
+
+export const FORM_PROPERTIES = {
+  ...FORM_VALUES,
+  /**
+   * @default ''
+   * @type string
+   */
   requiredMessage: 'requiredMessage',
-  // Event/s
+  /**
+   * @default () => { hassError: false, message: '' }
+   * @type function
+   */
   onValidation: 'onValidation',
-  // Options
-  isOnCreatedValidation: 'isOnCreatedValidation',
-  isOnChangeValidation: 'isOnChangeValidation',
+  /**
+   * @default { hassError: false, message: '' }
+   * @type function
+   */
   onGroupValidation: 'onGroupValidation',
+  /**
+   * @default false
+   * @type boolean
+   */
+  isOnCreatedValidation: 'isOnCreatedValidation',
+  /**
+   * @default true
+   * @type boolean
+   */
+  isOnChangeValidation: 'isOnChangeValidation',
+  /**
+   * @default false
+   * @type boolean
+   */
 };
 
 // Will be improvement considering browser
 const REQUIRED_CHECKING_TYPES = {
-  key: 'string',
-  value: 'string',
   hasError: 'boolean',
-  message: 'string',
+  htmlFor: 'string',
+  isFocus: 'boolean',
   isRequired: 'boolean',
-  requiredMessage: 'string',
-  // Events
+  message: 'string',
   onValidation: 'function',
-  // Options
+  requiredMessage: 'string',
+  type: 'string',
+  // Group Options
+  onGroupValidation: 'function',
   isOnCreatedValidation: 'boolean',
   isOnChangeValidation: 'boolean',
-  onGroupValidation: 'function',
 };
 
 class FormBuilder {
-  constructor(properties, options) {
-    // 1. 함수를 생성할 때 가장 먼저 실행되는 것이 생성자이므로 생성자에서 유효성 검사를 실시합니다.
-    const validtionProperties = this._checkPropertiesValidation(properties);
-    if (!validtionProperties.hasError) {
-      throw new Error(
-        `Properties types('${validtionProperties.keys.join(', ')}') are invalid`
-      );
+  constructor(props, options) {
+    if (!this._checkPropertiesValidation(props)) {
+      throw new Error('Properties type is not right');
     }
-    this.properties = this._buildFormProperties(properties, options);
+    this.key = props.key;
+
+    const {
+      value,
+      hasError,
+      message,
+      isFocus,
+      isRequired,
+      requiredMessage,
+      htmlFor,
+      type,
+      onValidation,
+      // Group Options
+      onGroupValidation,
+      isOnCreatedValidation,
+      isOnChangeValidation,
+    } = this._buildFormProperties(props, options);
+
+    this.value = value;
+    this.hasError = hasError;
+    this.message = message;
+    this.isFocus = isFocus;
+    this.isRequired = isRequired;
+    this.requiredMessage = requiredMessage;
+    this.htmlFor = htmlFor;
+    this.type = type;
+    this.onValidation = onValidation;
+    // Group Options
+    this.onGroupValidation = onGroupValidation;
+    this.isOnCreatedValidation = isOnCreatedValidation;
+    this.isOnChangeValidation = isOnChangeValidation;
   }
 
-  _checkPropertiesValidation = (properties) => {
-    // 2. 유효성 검사는 위에서 언급한 Object 값을 이용하여 실행시켜줍니다.
-    const invalidProperties = [];
-    const isInvalidProperty = Object.keys(REQUIRED_CHECKING_TYPES).every(
-      (key) => {
-        if (properties[key]) {
-          // 3. 주어진 변수에 값이 있다면, 해당 키를 이용하여 타입이 올바른지 확인합니다.
-          const propertyType = typeof properties[key];
-          const validType = REQUIRED_CHECKING_TYPES[key];
-          const isMatch = validType === propertyType;
-          if (!isMatch) {
-            invalidProperties.push(key);
-          }
-          return isMatch;
-        }
-        return true;
-      }
-    );
-    return {
-      hasError: isInvalidProperty,
-      keys: invalidProperties,
-    };
-  };
-
-  _buildFormProperties = (
-    {
-      // Values
-      value,
-      hasError = false,
-      message = '',
-      isRequired = false,
-      requiredMessage,
-      // Events
-      onValidation = () => ({
-        hasError: false,
-        message: '',
-      }),
-    },
-    // Options
-    {
-      isOnCreatedValidation = false,
-      isOnChangeValidation = false,
-      onGroupValidation = () => ({
-        hasError: false,
-        message: '',
-      }),
+  _buildFormProperties = ({
+    value = '',
+    htmlFor = '',
+    // isNotRequired
+    hasError = false,
+    message = '',
+    isFocus = false,
+    isRequired = false,
+    requiredMessage = '',
+    type = 'text',
+    onValidation = () => ({
+      hasError: false,
+      message: '',
+    }),
+  },
+  // Group Options
+  {
+    onGroupValidation = () => ({
+      hasError: false,
+      message: '',
+    }),
+    isOnCreatedValidation = false,
+    isOnChangeValidation = true,
+  }) => {
+    if (!htmlFor) {
+      throw new Error('htmlFor property is required. Set unique name to use Object key');
     }
-  ) => {
+
     let isValidObject = {
       hasError,
       message,
     };
     if (isOnCreatedValidation) {
-      isValidObject = onValidation(value);
+      const onValidationResult = onValidation(value);
+      isValidObject = {
+        ...onValidationResult,
+      };
     }
 
     return {
       value,
+      isFocus,
+      // isNotRequired
       hasError: isValidObject.hasError,
       message: isValidObject.message,
       isRequired,
       requiredMessage,
+      htmlFor,
+      type,
       onValidation,
+      // Group Options
+      onGroupValidation,
       isOnCreatedValidation,
       isOnChangeValidation,
-      onGroupValidation,
     };
-  };
+  }
 
-  _handleOnGroupValidation = () => {
-    const { key, hasError, message } = this.onGroupValidation();
-    if (key === this.key && hasError) {
-      this._setProperties({
-        key,
-        hasError,
-        message,
+  _checkPropertiesValidation = (properties) => {
+    const isValidProperty = Object
+      .keys(REQUIRED_CHECKING_TYPES)
+      .every((key) => {
+        if (properties[key]) {
+          const propertyType = typeof properties[key];
+          const validType = REQUIRED_CHECKING_TYPES[key];
+          return validType === propertyType;
+        }
+        return true;
       });
-    }
-    return this;
-  };
+    return isValidProperty;
+  }
 
-  // 7. 해당 값의 유효성 감사를 실행하여 줍니다.
-  _handleOnValidation = (value = this.properties.value) => {
-    // 필수 값의 옵션은 쉽게 체크할 수 있어 FomrBuilder 내에 구현해놓았습니다.
-    if (this.properties.isRequired && !value) {
+  _handleOnValidation = (value = this.value) => {
+    if (this.isRequired && !value) {
       this.setProperties({
         hasError: true,
-        message: this.properties.requiredMessage || 'Value is required',
+        message: this.requiredMessage,
       });
       return this;
     }
-    // onValidation의 외부 Props값을 받았다면 클로저로 함수를 이용하여 유효성 검사값을 반영합니다.
-    let isValidObject = this.onValidation(value);
-    // 에러가 없다면, 그룹 값과 비교한 유효성 검사를 한 번 더 실시합니다.
-    if (!isValidObject.hasError) {
-      this._setProperties({
-        ...isValidObject,
-      });
-      isValidObject = this._handleOnGroupValidation();
-    }
-    this._setProperties({
+
+    const isValidObject = this.onValidation(value);
+    this.setProperties({
       ...isValidObject,
     });
-    return this;
-  };
 
-  // 5. 새로운 newProperties의 있는 값만 기존 properties를 덮어줍니다.
-  setProperties(newProperties) {
-    this.properties = {
-      ...this.properties,
-      ...newProperties,
-    };
+    if (!this.hasError) {
+      this.handleOnGroupValidation(this.key);
+    }
+
     return this;
   }
 
-  // 6. 값을 바꿀 때, 유효성 감사를 할 것인지에 대한 Option이 true라면 유효성 검사를 합니다.
-  setValue(value) {
-    if (this.properties.isOnChangeValidation) {
-      this._handleOnValidation(value);
+  handleOnGroupValidation = (currentKey) => {
+    this.onGroupValidation(currentKey);
+    return this;
+  }
+
+  setProperties({
+    // Props
+    key = this.key,
+    value = this.value,
+    htmlFor = this.htmlFor,
+    // isNotRequired
+    hasError = this.hasError,
+    isFocus = this.isFocus,
+    isRequired = this.isRequired,
+    message = this.message,
+    requiredMessage = this.requiredMessage,
+    type = this.type,
+    // Events
+    onValidation = this.onValidation,
+    onGroupValidation = this.onGroupValidation,
+    // Options
+    isOnCreatedValidation = this.isOnCreatedValidation,
+    isOnChangeValidation = this.isOnChangeValidation,
+  }) {
+    // Props
+    this.key = key;
+    this.value = value;
+    this.htmlFor = htmlFor;
+    // isNotRequired
+    this.isFocus = isFocus;
+    this.type = type;
+    this.hasError = hasError;
+    this.message = message;
+    this.isRequired = isRequired;
+    this.requiredMessage = requiredMessage;
+    // Events
+    this.onValidation = onValidation;
+    this.onGroupValidation = onGroupValidation;
+    // Options
+    this.isOnCreatedValidation = isOnCreatedValidation;
+    this.isOnChangeValidation = isOnChangeValidation;
+    return this;
+  }
+
+  setRef = (ref = this.ref, isOverride = false) => {
+    if (isOverride || (ref && !this.ref)) {
+      this.ref = ref;
     }
+    return this;
+  }
+
+  setValue(value, ref) {
     this.setProperties({
       value,
-    });
+    }).setRef(ref);
+    if (this.isOnChangeValidation) {
+      this._handleOnValidation(value);
+    }
     return this;
   }
 
-  // 8. Properties 중 우리가 필요한 값만 가져오기 위함입니다.
-  getPropertyBy(propertyKey) {
-    return this.properties[propertyKey];
+  getValueBy(valueKey) {
+    return this[valueKey];
   }
 
-  // 9. 현재 갖고있는 모든 Properties를 가져오기 위함입니다.
-  getProperties() {
-    return this.properties;
-  }
-
-  // 9. Form에 필요한 Values만 가져오기 위함입니다.
   getValues() {
-    const { value, hasError, message, isRequired } = this.properties;
+    const {
+      value,
+      hasError,
+      message,
+    } = this;
 
     return {
       value,
       hasError,
       message,
-      isRequired,
     };
+  }
+
+  refFocus(ref) {
+    this.setRef(ref);
+    if (this.isFocus && this.ref) {
+      this.ref.focus();
+    }
+    return this;
+  }
+
+  runValidation(value = this.value) {
+    return this._handleOnValidation(value);
   }
 }
 

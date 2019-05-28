@@ -1,12 +1,12 @@
 ---
 author: Seolhun
-category: "JS"
-cover: "js.png"
+category: "TS"
+cover: "typescript.png"
 date: 2099-01-26
 title: ""
 description: ""
 subTitle: ""
-tags: ['js', 'ts', 'es5', es6', 'es7', 'javscript', 'how to']
+tags: ['ts', 'typescript', 'js', 'javscript', 'es5', es6', 'es7', 'how to']
 ---
 
 ## Table of Contents
