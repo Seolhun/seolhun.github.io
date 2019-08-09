@@ -101,21 +101,20 @@ const ListHeader = (props) => {
           </IconButton>
         </div>
       )}
-      {navigatorShape === 'open' &&
-        categoryFilter !== 'all posts' && (
-          <div className={classes.filter}>
-            <small>Active category filter:</small>{' '}
-            <strong>{categoryFilter}</strong>
-            <IconButton
-              aria-label="Remove filtering"
-              className={classes.clear}
-              onClick={removeFilter}
-              title="Clear filtering"
-            >
-              <CloseIcon />
-            </IconButton>
-          </div>
-        )}
+      {navigatorShape === 'open' && categoryFilter !== 'all posts' && (
+        <div className={classes.filter}>
+          <small>Active category filter:</small>{' '}
+          <strong>{categoryFilter}</strong>
+          <IconButton
+            aria-label="Remove filtering"
+            className={classes.clear}
+            onClick={removeFilter}
+            title="Clear filtering"
+          >
+            <CloseIcon />
+          </IconButton>
+        </div>
+      )}
     </header>
   );
 };

@@ -5,6 +5,9 @@ const Promise = require('bluebird');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const { store } = require(`./node_modules/gatsby/dist/redux`);
 
+const PostTemplate = path.resolve('./src/templates/PostTemplate.jsx');
+const PageTemplate = path.resolve('./src/templates/PageTemplate.jsx');
+
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators;
   if (node.internal.type === `MarkdownRemark`) {
@@ -28,8 +31,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
 
   return new Promise((resolve, reject) => {
-    const postTemplate = path.resolve('./src/templates/PostTemplate.js');
-    const pageTemplate = path.resolve('./src/templates/PageTemplate.js');
     resolve(
       graphql(
         `
@@ -62,7 +63,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
           createPage({
             path: slug,
-            component: isPost ? postTemplate : pageTemplate,
+            component: isPost ? PostTemplate : PageTemplate,
             context: {
               slug: slug,
             },

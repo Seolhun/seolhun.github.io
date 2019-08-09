@@ -17,32 +17,32 @@ const SET_CATEGORY_FILTER = 'SET_CATEGORY_FILTER';
  * action creators
  */
 
-export function setNavigatorPosition(val) {
-  return { type: SET_NAVIGATOR_POSITION, val };
+export function setNavigatorPosition(payload) {
+  return { type: SET_NAVIGATOR_POSITION, payload };
 }
 
-export function setNavigatorShape(val) {
-  return { type: SET_NAVIGATOR_SHAPE, val };
+export function setNavigatorShape(payload) {
+  return { type: SET_NAVIGATOR_SHAPE, payload };
 }
 
-export function setNavigatorFilter(val) {
-  return { type: SET_NAVIGATOR_FILTER, val };
+export function setNavigatorFilter(payload) {
+  return { type: SET_NAVIGATOR_FILTER, payload };
 }
 
-export function setIsWideScreen(val) {
-  return { type: SET_IS_WIDE_SCREEN, val };
+export function setIsWideScreen(payload) {
+  return { type: SET_IS_WIDE_SCREEN, payload };
 }
 
-export function setScrollToTop(val) {
-  return { type: SET_SCROLL_TO_TOP, val };
+export function setScrollToTop(payload) {
+  return { type: SET_SCROLL_TO_TOP, payload };
 }
 
-export function setFontSizeIncrease(val) {
-  return { type: SET_FONT_SIZE_INCREASE, val };
+export function setFontSizeIncrease(payload) {
+  return { type: SET_FONT_SIZE_INCREASE, payload };
 }
 
-export function setCategoryFilter(val) {
-  return { type: SET_CATEGORY_FILTER, val };
+export function setCategoryFilter(payload) {
+  return { type: SET_CATEGORY_FILTER, payload };
 }
 
 /*
@@ -53,43 +53,43 @@ const reducer = (state, action) => {
     case SET_NAVIGATOR_POSITION:
       return {
         ...state,
-        navigatorPosition: action.val,
+        navigatorPosition: action.payload,
       };
 
     case SET_NAVIGATOR_SHAPE:
       return {
         ...state,
-        navigatorShape: action.val,
+        navigatorShape: action.payload,
       };
 
     case SET_NAVIGATOR_FILTER:
       return {
         ...state,
-        navigatorFilter: action.val,
+        navigatorFilter: action.payload,
       };
 
     case SET_IS_WIDE_SCREEN:
       return {
         ...state,
-        isWideScreen: action.val,
+        isWideScreen: action.payload,
       };
 
     case SET_SCROLL_TO_TOP:
       return {
         ...state,
-        scrollToTop: action.val,
+        scrollToTop: action.payload,
       };
 
     case SET_FONT_SIZE_INCREASE:
       return {
         ...state,
-        fontSizeIncrease: action.val,
+        fontSizeIncrease: action.payload,
       };
 
     case SET_CATEGORY_FILTER:
       return {
         ...state,
-        categoryFilter: action.val,
+        categoryFilter: action.payload,
       };
 
     default:
