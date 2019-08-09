@@ -1,37 +1,5 @@
-require('dotenv').config();
 const config = require('./content/meta/config');
-
-const query = `{
-  allMarkdownRemark(filter: { id: { regex: "//posts|pages//" } }) {
-    edges {
-      node {
-        objectID: id
-        fields {
-          slug
-        }
-        internal {
-          content
-        }
-        frontmatter {
-          author
-          date
-          description
-          subTitle
-          tags
-          title
-        }
-      }
-    }
-  }
-}`;
-
-const queries = [
-  {
-    query,
-    transformer: ({ data }) =>
-      data.allMarkdownRemark.edges.map(({ node }) => node),
-  },
-];
+require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
@@ -54,20 +22,8 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-next`,
-    // {
-    //   resolve: `gatsby-plugin-algolia`,
-    //   options: {
-    //     appId: process.env.ALGOLIA_APP_ID ? process.env.ALGOLIA_APP_ID : '',
-    //     apiKey: process.env.ALGOLIA_ADMIN_API_KEY
-    //       ? process.env.ALGOLIA_ADMIN_API_KEY
-    //       : '',
-    //     indexName: process.env.ALGOLIA_INDEX_NAME
-    //       ? process.env.ALGOLIA_INDEX_NAME
-    //       : '',
-    //     queries,
-    //     chunkSize: 10000, // default: 1000
-    //   },
-    // },
+    `gatsby-plugin-typescript`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -182,7 +138,6 @@ module.exports = {
                 title
                 description
                 siteUrl
-                site_url: siteUrl
               }
             }
           }
@@ -204,7 +159,7 @@ module.exports = {
                 allMarkdownRemark(
                   limit: 1000,
                   sort: { order: DESC, fields: [fields___prefix] },
-                  filter: { id: { regex: "//posts//" } }
+                  filter: { id: { regex: "/posts/" } }
                 ) {
                   edges {
                     node {

@@ -2,7 +2,9 @@ import React from 'react';
 
 export default function asyncComponent(getComponent, loadingComponent) {
   class AsyncComponent extends React.Component {
-    state = { Component: null };
+    state = {
+      Component: null,
+    };
 
     componentDidMount() {
       if (!this.state.Component) {
@@ -11,6 +13,7 @@ export default function asyncComponent(getComponent, loadingComponent) {
         });
       }
     }
+
     render() {
       const { Component } = this.state;
       if (Component) {
@@ -19,5 +22,6 @@ export default function asyncComponent(getComponent, loadingComponent) {
       return loadingComponent ? loadingComponent : <div>Loading...</div>;
     }
   }
+
   return AsyncComponent;
 }

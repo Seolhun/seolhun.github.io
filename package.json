@@ -31,9 +31,12 @@
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.10.0",
     "gatsby-plugin-algolia": "^0.0.4",
+    "gatsby-plugin-sass": "^2.1.4",
+    "gatsby-plugin-typescript": "^2.1.2",
     "gh-pages": "^1.2.0",
     "prettier": "^1.13.7",
     "sharp-cli": "^1.7.0",
+    "typescript": "^3.5.3",
     "webpack-bundle-analyzer": "^2.13.1"
   },
   "dependencies": {

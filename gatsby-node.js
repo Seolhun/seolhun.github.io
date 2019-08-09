@@ -1,8 +1,7 @@
+const path = require('path');
 const webpack = require('webpack');
-//const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const _ = require('lodash');
 const Promise = require('bluebird');
-const path = require('path');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const { store } = require(`./node_modules/gatsby/dist/redux`);
 
@@ -36,7 +35,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         `
           {
             allMarkdownRemark(
-              filter: { id: { regex: "//posts|pages//" } }
+              filter: { id: { regex: "/posts|pages/" } }
               limit: 1000
             ) {
               edges {
@@ -57,7 +56,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           reject(result.errors);
         }
 
-        // Create posts and pages.
         _.each(result.data.allMarkdownRemark.edges, (edge) => {
           const slug = edge.node.fields.slug;
           const isPost = /posts/.test(edge.node.id);

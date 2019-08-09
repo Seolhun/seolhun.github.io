@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import { connect } from 'react-redux';
 
@@ -11,18 +11,18 @@ import globals from '../styles/globals';
 
 import { setFontSizeIncrease, setIsWideScreen } from '../state/store';
 
-import asyncComponent from '../components/common/AsyncComponent/';
-import Loading from '../components/common/Loading/';
-import Navigator from '../components/Navigator/';
-import ActionsBar from '../components/ActionsBar/';
-import InfoBar from '../components/InfoBar/';
+import asyncComponent from '../components/common/AsyncComponent';
+import Loading from '../components/common/Loading';
+import Navigator from '../components/Navigator';
+import ActionsBar from '../components/ActionsBar';
+import InfoBar from '../components/InfoBar';
 import LayoutWrapper from '../components/LayoutWrapper/';
 
 import { isWideScreen, timeoutThrottlerHandler } from '../utils/helpers';
 
 const InfoBox = asyncComponent(
   () =>
-    import('../components/InfoBox/')
+    import('../components/InfoBox')
       .then((module) => {
         return module;
       })
@@ -37,7 +37,7 @@ const InfoBox = asyncComponent(
   />
 );
 
-class Layout extends React.Component {
+class Layout extends Component {
   timeouts = {};
   categories = [];
 
@@ -75,14 +75,8 @@ class Layout extends React.Component {
     }, []);
   };
 
-  resizeThrottler = () => {
-    return timeoutThrottlerHandler(
-      this.timeouts,
-      'resize',
-      500,
-      this.resizeHandler
-    );
-  };
+  resizeThrottler = () =>
+    timeoutThrottlerHandler(this.timeouts, 'resize', 500, this.resizeHandler);
 
   resizeHandler = () => {
     this.props.setIsWideScreen(isWideScreen());
@@ -91,7 +85,6 @@ class Layout extends React.Component {
   render() {
     const { children, data } = this.props;
 
-    // TODO: dynamic management of tabindexes for keybord navigation
     return (
       <LayoutWrapper>
         {children()}
@@ -137,7 +130,7 @@ export default connect(
 export const guery = graphql`
   query LayoutQuery {
     posts: allMarkdownRemark(
-      filter: { id: { regex: "//posts//" } }
+      filter: { id: { regex: "/posts/" } }
       sort: { fields: [fields___prefix], order: DESC }
     ) {
       edges {
@@ -151,7 +144,6 @@ export const guery = graphql`
             title
             subTitle
             description
-            # category
             cover {
               children {
                 ... on ImageSharp {
@@ -166,7 +158,16 @@ export const guery = graphql`
       }
     }
     pages: allMarkdownRemark(
-      filter: { id: { regex: "//pages//" }, fields: { prefix: { regex: "/^\\d+$/" } } }
+      filter: {
+        id: {
+          regex: "//pages//"
+        },
+        fields: {
+          prefix: {
+            regex: "/^\\d+$/"
+          }
+        }
+      }
       sort: { fields: [fields___prefix], order: ASC }
     ) {
       edges {
@@ -182,7 +183,13 @@ export const guery = graphql`
         }
       }
     }
-    parts: allMarkdownRemark(filter: { id: { regex: "//parts//" } }) {
+    parts: allMarkdownRemark(
+      filter: {
+        id: {
+          regex: "/parts/"
+        }
+      }
+    ) {
       edges {
         node {
           html

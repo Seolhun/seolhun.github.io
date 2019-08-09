@@ -82,6 +82,7 @@ class TopMenu extends React.Component {
                 <Paper>
                   <MenuList role="menu">
                     <MenuItem
+                      to="/"
                       onClick={(e) => {
                         this.props.homeLinkOnClick(e);
                         this.handleClose();
