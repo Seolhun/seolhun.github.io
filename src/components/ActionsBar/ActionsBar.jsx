@@ -147,17 +147,6 @@ class ActionsBar extends React.Component {
               filterCategory={this.categoryFilterOnClick}
             />
           )}
-          {/* <IconButton
-            aria-label="Search"
-            onClick={this.searchOnClick}
-            component={Link}
-            data-shape="closed"
-            to="/search/"
-            title="Search"
-            className={classes.button}
-          >
-            <SearchIcon className={classes.button} />
-          </IconButton> */}
         </div>
         <div className={classes.group}>
           {navigatorPosition === 'is-aside' && (
