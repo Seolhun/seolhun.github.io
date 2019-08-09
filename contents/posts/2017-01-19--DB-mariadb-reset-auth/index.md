@@ -1,10 +1,11 @@
 ---
-title: "[DB/MariaDB] 분실한 mysql root password 재설정하기"
-subTitle: "MariaDB에 root password 초기화"
 author: "Seolhun"
-category: "Database"
-tags: ['Database', 'Mariadb', 'Auth']
 banner: "./assets/covers/mariadb.png"
+category: "Database"
+date: 2017-01-19
+subTitle: "MariaDB에 root password 초기화"
+tags: ['Database', 'Mariadb', 'Auth']
+title: "[DB/MariaDB] 분실한 mysql root password 재설정하기"
 ---
 
 안녕하세요, 설훈입니다.

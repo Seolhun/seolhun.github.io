@@ -1,27 +1,28 @@
 ---
-title: "[Javascript/ES6] ES6부터 등장하는 개발자가 알아야 할 특징 - Part 1"
 author: Seolhun
-date: 2018-04-06
-category: "Javascript"
-tags: ['Javascript', 'ES6', 'Feature']
 banner: "./assets/covers/js.png"
+category: "Javascript"
+date: 2018-04-06
+subTitle:  ""
+tags: ['Javascript', 'ES6', 'Feature']
+title: "[Javascript/ES6] ES6부터 등장하는 개발자가 알아야 할 특징 - Part 1"
 ---
 
-Javascript, TypeScript 등 다양한 Javascript를 번갈아 사용하면서, ES6의 새로운 기능이 무엇인지, TypeScript만의 기능이 무엇인지 잘 구분하지 않았던 것 같습니다.
-이번 시간을 계기로 ES6의 기능들과 TypeScript의 기능들을 구분하여 정리해보겠습니다.
+Javascript, Typescript 등 다양한 Javascript를 번갈아 사용하면서, ES6의 새로운 기능이 무엇인지, Typescript만의 기능이 무엇인지 잘 구분하지 않았던 것 같습니다.
+이번 시간을 계기로 ES6의 기능들과 Typescript의 기능들을 구분하여 정리해보겠습니다.
 
 ## Intro
 #### ECMAScript란?
 > 넷스케이프(Netscape)에서 1995년 개발한 자바스크립트(javascript)는 웹 브라우저에서 동적인 기능을 제공하기 위한 언어다. 현재는 대부분의 브라우저에서 이 언어를 제공하고 있다. 그런데 표준 규격없이 여러 브라우저에서 독자적인 특성이 추가되면서 호환성 문제가 발생하기 시작했다. 이에 ECMA 국제 기구에서 “ECMAScript Standard”라는 표준을 만들게 되었다. 정확히 이야기 하자면 현재의 자바스크립트는 ECMAScript와 BOM(Browser Object Model)와 DOM(Document Object Model)을 포괄하는 개념이다.
 
-그렇다면, 이번 주제인 TypeScript와 ES6의 특징들에 대해서 알아볼까 합니다.
+그렇다면, 이번 주제인 Typescript와 ES6의 특징들에 대해서 알아볼까 합니다.
 
-#### TypeScript vs ES6
+#### Typescript vs ES6
 <div class='text-center'>
   <img src="/images/contents/20180406/es6/ts-es6.png" width="40%" height="40%">
 </div>
 
-TypeScript에서 주로 사용되는 그림이다. 문제는 TypeScript를 사용하다보면, 해당 기능들이 ES6부터 제공된 기능인지 TypeScript에서 제공된 기능인지를 잘 모르고 사용할 때가 많았습니다. 특히, ES6부터는 Javascript의 격변이 시작되었고 상당히 중요한 기능들이 등장하기 시작했습니다. 가끔 누군가가 제게 이러한 기능들에 대해 물어보면 ES6의 기능인지 TypeScript의 기능인지, 정확히 어떤 내용인지를 잘 설명하지 못하는 자신을 보고 꼭 정리할 필요성이 있다고 생각했습니다.
+Typescript에서 주로 사용되는 그림이다. 문제는 Typescript를 사용하다보면, 해당 기능들이 ES6부터 제공된 기능인지 Typescript에서 제공된 기능인지를 잘 모르고 사용할 때가 많았습니다. 특히, ES6부터는 Javascript의 격변이 시작되었고 상당히 중요한 기능들이 등장하기 시작했습니다. 가끔 누군가가 제게 이러한 기능들에 대해 물어보면 ES6의 기능인지 Typescript의 기능인지, 정확히 어떤 내용인지를 잘 설명하지 못하는 자신을 보고 꼭 정리할 필요성이 있다고 생각했습니다.
 
 이번의 내용은 상당히 길어질 것으로 예상되어 2개로 나누어서 작성하겠습니다. 내용 목차는 아래와 같습니다. 연관성이 있는 것들을 묶으려고 노력했고, 작은 단위로 바로바로 알 수 있고, 알아야 할 것들로 순서를 정리했습니다.
 

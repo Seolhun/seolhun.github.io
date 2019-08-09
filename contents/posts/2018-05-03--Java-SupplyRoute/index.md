@@ -1,11 +1,13 @@
 ---
-title: "[Algorithm/Java] SWexpertAcademy 보급로(SupplyRoute)"
 author: Seolhun
-date: 2018-05-03
-category: "Algorithm"
-tags: ['Algorithm', 'Java']
 banner: "./assets/covers/java.png"
+category: "Algorithm"
+date: 2018-05-03
+subTitle:  ""
+tags: ['Algorithm', 'Java']
+title: "[Algorithm/Java] SWexpertAcademy 보급로(SupplyRoute)"
 ---
+
 - [SWexpertAcademy SupplyRoute](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV15QRX6APsCFAYD&categoryId=AV15QRX6APsCFAYD&categoryType=CODE)
 - 난이도 4
 - 정답률 70%

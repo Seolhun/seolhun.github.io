@@ -1,13 +1,14 @@
 ---
-title: "[Javascript/Typescript] Promise에 대해서 알아보고 예제 작성하기 - 1"
 author: Seolhun
-date: 2018-03-12
-category: "TypeScript"
-tags: ['Promise', 'Async']
 banner: "./assets/covers/js.png"
+category: "Typescript"
+date: 2018-03-12
+subTitle:  ""
+tags: ['Promise', 'Async']
+title: "[Javascript/Typescript] Promise에 대해서 알아보고 예제 작성하기 - 1"
 ---
 
-TypeScript 환경에서 Promise 사용법을 알아보고 테스트코드를 작성해보고자 합니다. 문제가 되는 부분이나, 도움이 되는 것을 알려주시면 감사합니다.
+Typescript 환경에서 Promise 사용법을 알아보고 테스트코드를 작성해보고자 합니다. 문제가 되는 부분이나, 도움이 되는 것을 알려주시면 감사합니다.
 
 ## Intro
 첫 시작을 Java 개발자로 시작하여, Javascript에서 Promise개념을 처음 사용할 때에는 상당히 어렵게 느껴졌습니다. 특히, jQuery 라이브러리를 이용하면서 Promise와 비슷한 jQuery, Defferred를 사용하고 멘붕을 겪었습니다. Promise가 어려웠던 점은 아마 기존 Java의 환경에서 Script의 언어를 바라보았기 때문이라고 생각합니다.
@@ -221,5 +222,5 @@ class PromiseTest {
 간단한 예제를 통해 Promise를 확인했으며, [BlueBird](http://bluebirdjs.com/docs/getting-started.html)와 Promise도 같이 확인하면 좋을 것 같습니다. Promise-based ORM Sequelize에 BlueBird로 구현되어있습니다. 앞으로 Promise를 마주치면, 안에 무엇인가 있구나로 생각하면 더 편한 개발이 될 것이라 생각합니다. 감사합니다.
 
 ## References
-- [JavaScript Mozila - Promise](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [Javascript Mozila - Promise](https://developer.mozilla.org/ko/docs/Web/Javascript/Reference/Global_Objects/Promise)
 - [감성프로그래밍 - 바보들을 위한 Promise 강의](http://programmingsummaries.tistory.com/325)

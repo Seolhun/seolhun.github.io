@@ -1,11 +1,13 @@
 ---
-title: "[Network/Http] Http vs Https의 차이? 그리고 Packet과 TSL, SSL"
 author: Seolhun
-date: 2018-04-20
-category: "Network"
-tags: ['Network', 'Http', 'Https', 'Packet', 'TLS', 'SSL']
 banner: "./assets/covers/http.png"
+category: "Network"
+date: 2018-04-20
+subTitle:  ""
+tags: ['Network', 'Http', 'Https', 'Packet', 'TLS', 'SSL']
+title: "[Network/Http] Http vs Https의 차이? 그리고 Packet과 TSL, SSL"
 ---
+
 이번에는 Http와 Https에 대한 정의와 간단한 차이점에 대해서 정리해보고자 합니다.
 
 ## Intro

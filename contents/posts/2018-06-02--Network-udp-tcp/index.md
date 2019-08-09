@@ -1,9 +1,10 @@
 ---
-title: "[Network] IP, UDP, TCP란 무엇인가?"
-subTitle: "HTTP 이해를 위한 기본 네트워크 지식, IP, UDP, TCP"
 author: Seolhun
-category: "Network"
 banner: "./assets/covers/network.png"
+category: "Network"
+date: 2018-06-02
+subTitle: "HTTP 이해를 위한 기본 네트워크 지식, IP, UDP, TCP"
+title: "[Network] IP, UDP, TCP란 무엇인가?"
 ---
 
 HTTP의 관심을 갖고 책을 읽으면서 학습을 하고 있지만, Network에 더 근본적인 IP와 UDP, TCP에 대해서 이해해야 할 필요가 있다고 생각하여 적게되었습니다. 관련 사항에 간단하게 읽어본적은 있지만 읽어보는 것과 이를 숙지하기 위해 반복적으로 학습하는 것은 큰차이가 있기에 이번 시간을 계기로 이와 관련한 내용을 숙지하고자 합니다.

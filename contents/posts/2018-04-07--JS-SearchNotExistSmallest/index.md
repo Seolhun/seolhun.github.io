@@ -1,10 +1,11 @@
 ---
-title: "[Algorithm/Javascript] Programmers Algorithm 야근지수"
 author: Seolhun
-date: 2018-04-07
-category: "Algorithm"
-tags: ['Algorithm', 'Javascript', 'Javascript']
 banner: "./assets/covers/js.png"
+category: "Algorithm"
+date: 2018-04-07
+subTitle:  ""
+tags: ['Algorithm', 'Javascript', 'Javascript']
+title: "[Algorithm/Javascript] Programmers Algorithm 야근지수"
 ---
 이번에는 Java로 000 문제 야근지수를 구현해보도록 하겠습니다.
 []()
@@ -39,7 +40,7 @@ For example, given A = [1, 3, 6, 4, 1, 2], the function should return 5.
 // console.log('this is a debug message');
 
 function solution(A) {
-    // write your code in JavaScript (Node.js 8.9.4)
+    // write your code in Javascript (Node.js 8.9.4)
     let min;
     let exist_negative = false;
     let exist_positive = false;

@@ -1,10 +1,11 @@
 ---
-title : "[Algorithm/JavaScript] HackerRank - CountingSort Part 2"
 author: Seolhun
-date : 2018-03-24
-category: "Algorithm"
-tags : ['Algorithm', 'JavaScript', 'HackerRank', 'Sort', 'Counting']
 banner: "./assets/covers/js.png"
+category: "Algorithm"
+date : 2018-03-24
+subTitle:  ""
+tags : ['Algorithm', 'Javascript', 'HackerRank', 'Sort', 'Counting']
+title : "[Algorithm/Javascript] HackerRank - CountingSort Part 2"
 ---
 
 저번 시간에 Counting Sort Part 1을 풀어보았습니다.

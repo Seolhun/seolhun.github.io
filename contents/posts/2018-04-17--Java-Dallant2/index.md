@@ -1,11 +1,13 @@
 ---
-title: "[Algorithm/Java] SWexpertAcademy Dallant2"
 author: Seolhun
-date: 2018-04-17
-category: "Algorithm"
-tags: ['Algorithm', 'Java']
 banner: "./assets/covers/java.png"
+category: "Algorithm"
+date: 2018-04-17
+subTitle:  ""
+tags: ['Algorithm', 'Java']
+title: "[Algorithm/Java] SWexpertAcademy Dallant2"
 ---
+
 - [SWexpertAcademy Dallant2](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV18R8FKIvoCFAZN&categoryId=AV18R8FKIvoCFAZN&categoryType=CODE)
 - 난이도 : 5
 - 정답률 : 75%

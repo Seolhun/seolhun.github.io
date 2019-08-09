@@ -1,10 +1,11 @@
 ---
-title: "[Javascript/ES6] ES6부터 등장하는 개발자가 알아야 할 특징 - Part 2"
 author: Seolhun
-date: 2018-04-07
-category: "Javascript"
-tags: ['Javascript', 'ES6', 'Feature']
 banner: "./assets/covers/js.png"
+category: "Javascript"
+date: 2018-04-07
+subTitle:  ""
+tags: ['Javascript', 'ES6', 'Feature']
+title: "[Javascript/ES6] ES6부터 등장하는 개발자가 알아야 할 특징 - Part 2"
 ---
 이번에는 저번 시간에 작성한 ES6 Featur Part1에 이어 Part 2에 해당되는 내용을 정리해볼까 합니다. 간단히 정리하였지만 필요한 기능들을 숙지하면 큰 도움이 될 것 같습니다.
 
@@ -183,7 +184,7 @@ console.log(`e^{π} = ${exp(pi)}`)
 ## Outro
 이렇게 ES6를 Part1, 2를 정리를 끝냈습니다. 이전에는 간단히 사용만 했지만 정리하면서 미쳐 알지 못한 사소한 정보들도 알게되면서 좋은 경험이 되었습니다. 특히, ES6를 잘 숙지하고 사용해야하는 이유는 브라우저 호환성 때문일 것입니다. 현대 표준으로 정의되어있지만 옛 브라우저(익스프롤러 9버전 등) 경우에서는 Babel과 같은 Polyfill을 사용해야하지만 브라우저가 인식하여 호환성을 고려한 개발에는 버전 별 기능을 잘 숙지해야 합니다.
 
-이번을 계기로 ES6의 새로운 기능의 대부분을 알게되었습니다. 다음 시간에는 TypeScript의 기능을 알아보겠습니다. 이제는 먼저 코드로 개발하는 것 보다 먼저, 문서와 명칭 기본적인 특징들을 숙지하고 개발에 들어갈 수 있는 습관을 더더욱 들이도록 노력해야겠습니다.
+이번을 계기로 ES6의 새로운 기능의 대부분을 알게되었습니다. 다음 시간에는 Typescript의 기능을 알아보겠습니다. 이제는 먼저 코드로 개발하는 것 보다 먼저, 문서와 명칭 기본적인 특징들을 숙지하고 개발에 들어갈 수 있는 습관을 더더욱 들이도록 노력해야겠습니다.
 
 ## References
 - [ES6-features.org/](http://es6-features.org/)

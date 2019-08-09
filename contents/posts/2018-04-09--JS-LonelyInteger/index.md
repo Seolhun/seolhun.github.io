@@ -1,10 +1,11 @@
 ---
-title: "[Algorithm/Javascript] HackerRank - LonelyInterger Algorithm"
 author: Seolhun
-date: 2018-04-09
-category: "Algorithm"
-tags: ['Algorithm', 'Javascript', 'Search', 'Binary','Tree']
 banner: "./assets/covers/js.png"
+category: "Algorithm"
+date: 2018-04-09
+subTitle:  ""
+tags: ['Algorithm', 'Javascript', 'Search', 'Binary','Tree']
+title: "[Algorithm/Javascript] HackerRank - LonelyInterger Algorithm"
 ---
 이번에는 저번 블로그에 작성한 Bit연산자를 이용하여 [LonelyInteger](https://www.hackerrank.com/challenges/lonely-integer/problem) 알고리즘을 풀어볼까 합니다.
 [Bit 연산자](/posts/javascript/operators/20180405-js-bitwiseoperators/)를 읽어보면 해당 알고리즘을 언급하였습니다. 읽어보시고 풀어보면 좋을 것 같습니다.

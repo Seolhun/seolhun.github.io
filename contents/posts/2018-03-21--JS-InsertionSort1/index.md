@@ -1,10 +1,11 @@
 ---
-title: "[Algorithm/JavaScript] HackerRank - InsertionSort Part 1"
 author: Seolhun
-date: 2018-03-21
-category: "Algorithm"
-tags: ['Algorithm', 'JavaScript', 'HackerRank', 'InsertionSort', '삽입정렬']
 banner: "./assets/covers/js.png"
+category: "Algorithm"
+date: 2018-03-21
+subTitle:  ""
+tags: ['Algorithm', 'Javascript', 'HackerRank', 'InsertionSort', '삽입정렬']
+title: "[Algorithm/Javascript] HackerRank - InsertionSort Part 1"
 ---
 
 안녕하세요, 설훈입니다.

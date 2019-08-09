@@ -1,9 +1,10 @@
 ---
-title: "[Java/Thread] Java Thread Pool을 이용한 Thread를 이해하기(Thread, Runnable)"
 author: Seolhun
-category: "Java"
-tags: ['Thread', 'Java', 'Task', 'Runnable']
 banner: "./assets/covers/java.png"
+category: "Java"
+date: 2017-04-22
+tags: ['Thread', 'Java', 'Task', 'Runnable']
+title: "[Java/Thread] Java Thread Pool을 이용한 Thread를 이해하기(Thread, Runnable)"
 ---
 
 안녕하세요, 설훈입니다.

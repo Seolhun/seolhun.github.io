@@ -1,9 +1,10 @@
 ---
-title: "[Algorithm/Sort] QuickSort 자바로 구현해보기"
 author: Seolhun
-category: "Algorithm"
-tags: ['Algorithm', 'Java', 'Sort', 'Quick']
 banner: "./assets/covers/java.png"
+category: "Algorithm"
+date: 2017-06-02
+tags: ['Algorithm', 'Java', 'Sort', 'Quick']
+title: "[Algorithm/Sort] QuickSort 자바로 구현해보기"
 ---
 
 이번에는 Java로 QuickSort를 구현해보도록 하겠습니다.

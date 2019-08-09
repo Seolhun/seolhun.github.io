@@ -1,10 +1,11 @@
 ---
-title: "[Algorithm/Javascript] Binary Search(이진탐색) Algorithm"
 author: Seolhun
-date: 2018-04-05
-category: "Algorithm"
-tags: ['Algorithm', 'Javascript', 'Search', 'Binary']
 banner: "./assets/covers/js.png"
+category: "Algorithm"
+date: 2018-04-05
+subTitle:  ""
+tags: ['Algorithm', 'Javascript', 'Search', 'Binary']
+title: "[Algorithm/Javascript] Binary Search(이진탐색) Algorithm"
 ---
 
 이번에는 검색 시 자주 사용되는 이진검색에 대해서 알고리즘을 작성해볼까 합니다.

@@ -1,10 +1,11 @@
 ---
-title: "[Javascript/Typescript] Prototype이란?"
 author: Seolhun
-date: 2018-03-05
-category: "Javascript"
-tags: ['Prototype', 'Javascript', 'Typescript', 'Class', 'Module']
 banner: "./assets/covers/js.png"
+category: "Javascript"
+date: 2018-03-05
+subTitle:  ""
+tags: ['Prototype', 'Javascript', 'Typescript', 'Class', 'Module']
+title: "[Javascript/Typescript] Prototype이란?"
 ---
 
 Typescript의 Class를 사용하면서 Javascript의 Prototype에 대한 개념이 중요할 것으로 판단했습니다. 그리고, Javascript의 Module Pattern을 공부하면서 Typescript의 접근제한자 개념이 어떻게 작동되는지에 대해서 알아보고자 합니다.
@@ -124,4 +125,4 @@ a.name // 설훈
 
 ## Reference
 - [[Javascript] 프로토타입 이해하기](https://medium.com/@bluesh55/javascript-prototype-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-f8e67c286b67)
-- [Mozilla - Prototype에 대해](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)
+- [Mozilla - Prototype에 대해](https://developer.mozilla.org/ko/docs/Web/Javascript/Guide/Inheritance_and_the_prototype_chain)

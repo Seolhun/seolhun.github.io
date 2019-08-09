@@ -1,10 +1,11 @@
 ---
-title: "[DB/MariaDB] MariaDB에 사용자 권한주기"
-subTitle: "MariaDB에 사용자 권한주기"
 author: "Seolhun"
-category: "Database"
-tags: ['Database', 'Mariadb', 'Auth']
 banner: "./assets/covers/mariadb.png"
+category: "Database"
+date: 2016-12-02
+subTitle: "MariaDB에 사용자 권한주기"
+tags: ['Database', 'Mariadb', 'Auth']
+title: "[DB/MariaDB] MariaDB에 사용자 권한주기"
 ---
 
 안녕하세요, 설훈입니다.

@@ -1,11 +1,13 @@
 ---
-title: "[DataStructure/Java] ArrayList vs LinkedList에 대해서 간단히 정리하기"
 author: Seolhun
-date: 2018-04-19
-category: "DataStructure"
-tags: ['DataStructure', 'Java', 'ArrayList', 'LinkedList']
 banner: "./assets/covers/java.png"
+category: "DataStructure"
+date: 2018-04-19
+subTitle:  ""
+tags: ['DataStructure', 'Java', 'ArrayList', 'LinkedList']
+title: "[DataStructure/Java] ArrayList vs LinkedList에 대해서 간단히 정리하기"
 ---
+
 이번에는 간단하게 코드를 보면서 `ArrayList`와 `LinkedList`에 차이점을 이해하고 간단히도 구해해보는 시간을 가져보겠습니다.
 
 ## Intro
@@ -17,7 +19,7 @@ banner: "./assets/covers/java.png"
 #### - Array의 단점
 1. 메모리 공간의 정적인 구조 ( = 동적이지 않다.)
   - 생성시 크기를 정해주어야 하며, 해당 값을 동적으로 반영하지 않습니다.
-2. 배열을 컨트롤할 수 있는 메소드가 존재하지 않는다. (JavaScript의 경우는 Array([])를 구현하였기 때문에 가능합니다.)
+2. 배열을 컨트롤할 수 있는 메소드가 존재하지 않는다. (Javascript의 경우는 Array([])를 구현하였기 때문에 가능합니다.)
 
 아래의 예제처럼 배열은 메모리 공간의 정적인 구조를 알 수 있습니다.
 

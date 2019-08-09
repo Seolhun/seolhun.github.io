@@ -1,10 +1,11 @@
 ---
-title: "[Algorithm/Java] SWexpertAcademy GetMidNumAvg"
 author: Seolhun
-date: 2018-04-10
-category: "Algorithm"
-tags: ['Algorithm', 'Java']
 banner: "./assets/covers/java.png"
+category: "Algorithm"
+date: 2018-04-10
+subTitle:  ""
+tags: ['Algorithm', 'Java']
+title: "[Algorithm/Java] SWexpertAcademy GetMidNumAvg"
 ---
 - [SWexpertAcademy GetMidNumAvg Algorithm](https://www.swexpertacademy.com/main/code/problem/problemDetail.do)
 - 난이도 : 2

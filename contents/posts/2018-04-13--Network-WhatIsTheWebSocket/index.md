@@ -1,10 +1,11 @@
 ---
-title: "[Network/Socket] WebSocket이란 무엇인가? 어떻게 사용하는가?"
 author: Seolhun
-date: 2018-04-12
-category: "WebSocket"
-tags: ['Network', 'Socket', 'WebSocket', 'SocketIO']
 banner: "./assets/covers/websocket.png"
+category: "WebSocket"
+date: 2018-04-12
+subTitle:  ""
+tags: ['Network', 'Socket', 'WebSocket', 'SocketIO']
+title: "[Network/Socket] WebSocket이란 무엇인가? 어떻게 사용하는가?"
 ---
 이번에는 `WebSocket`에 대해서 간단히 정리해볼까 합니다.
 
@@ -103,8 +104,8 @@ SocketIO는 Guillermo Rauch가 만들어 WebSocket, XHR-Polling, Flash-Socket, I
 
 ##### 4. Binary support
 아래 사항을 이용화여 Serializable 가능 데이터 구조가 생성 될 수 있습니다.
-- 브라우저의 [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) 및 [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
-- Node.js의 [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) 및 [Buffer](https://nodejs.org/api/buffer.html)
+- 브라우저의 [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/Javascript/Reference/Global_Objects/ArrayBuffer) 및 [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
+- Node.js의 [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/Javascript/Reference/Global_Objects/ArrayBuffer) 및 [Buffer](https://nodejs.org/api/buffer.html)
 
 ## Outro
 WebSocket은 한줄로 요약하면 `Web이라는 요청과 응답이라는 제약적인 환경에 벗어나, Socket을 통한 지속적인 통신을 가능만드는 것`이라고 표현할 수 있습니다. HTTP를 이용하는 웹의 환경을 고려하여 WebSocket을 바라본다면 WebSocket에 대해 더 많은 사고를 할 수 있을 것이라고 생각합니다.

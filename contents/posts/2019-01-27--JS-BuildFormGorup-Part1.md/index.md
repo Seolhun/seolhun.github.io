@@ -1,12 +1,12 @@
 ---
 author: Seolhun
-category: "JS"
 banner: "./assets/covers/js.png"
+category: "JS"
 date: 2019-01-26
-title: "[JS] Reactive한 FormGroup Builder 만들어보기 - Part 1"
 description: "Builder Pattern을 이용한 monad식의 FormGroup Builder 만들어보기"
 subTitle: "Create a form group."
 tags: ['JS', 'Form', "FormGroup"]
+title: "[JS] Reactive한 FormGroup Builder 만들어보기 - Part 1"
 ---
 
 ## Intro
@@ -537,4 +537,4 @@ FormBuilder를 만들면서 가장 좋은 것은, FormGroup과 연계되어 생�
 
 ## References
 - [Form Attributes - w3schools](https://www.w3schools.com/html/html_form_attributes.asp)
-- [typeof - MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/typeof)
+- [typeof - MDN](https://developer.mozilla.org/ko/docs/Web/Javascript/Reference/Operators/typeof)

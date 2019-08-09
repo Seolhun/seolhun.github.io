@@ -1,10 +1,11 @@
 ---
-title: "[Algorithm/Javascript] 비트연산자를 이용하여 간단한 알고리즘 및 예제 만들어보기"
 author: Seolhun
-date: 2018-04-05
-category: "Algorithm"
-tags: ['Algorithm', 'Javascript', 'Bit', 'Operators']
 banner: "./assets/covers/js.png"
+category: "Algorithm"
+date: 2018-04-05
+subTitle:  ""
+tags: ['Algorithm', 'Javascript', 'Bit', 'Operators']
+title: "[Algorithm/Javascript] 비트연산자를 이용하여 간단한 알고리즘 및 예제 만들어보기"
 ---
 
 이번에는 Javascript에 Bit Operators를 이용하여 다양한 예제를 만들어볼까 합니다. 예를들어, * 이용하지 않고 곱셈하기, 외로운 수 찾기 알고리즘 등을 풀어볼까 합니다.
@@ -43,7 +44,7 @@ console.log(false && false) // false
 ## Contents
 #### 비트 연산자란?
 - 비트 연산자는 피연산자를 10진수나 16진수, 8진수로 다루지 않고 `32개의 비트 집합을 기준으로 연산합니다.` 예를 들어, 10진수 9는 2진수로 1001입니다.
-- `비트 연산자는 2진수 표현으로 연산`을 하지만, 반환값은 JavaScript 표준 수 값으로 반환합니다.
+- `비트 연산자는 2진수 표현으로 연산`을 하지만, 반환값은 Javascript 표준 수 값으로 반환합니다.
 
 ##### 1. 비트 AND
 - a & b
@@ -283,5 +284,5 @@ console.log(-14 >>> 3) // 536870910
 비트에 대한 이해를 하면 할수록 컴퓨터에 대한 연산을 이해하기 쉽습니다. 특히, 이번 비트 연산자들을 통해 간단하게 비트관련한 정보를 숙지할 수 있었으며, 프로그래밍 간 숫자들이 어떻게 비트로 구성되었는지를 간단하게 체험하는데 좋은 시간이 되었습니다. 이와 관련한 알고리즘과 비트관련 된 좋은 정보를 더 조사하여 다음시간에 공유하겠습니다.
 
 ## References
-- [Mozilla - Bitwise_Operators](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Obsolete_Pages/Core_JavaScript_1.5_Guide/Operators/Bitwise_Operators)
+- [Mozilla - Bitwise_Operators](https://developer.mozilla.org/ko/docs/Web/Javascript/Guide/Obsolete_Pages/Core_Javascript_1.5_Guide/Operators/Bitwise_Operators)
 - [Microsoft - BitOperators](https://docs.microsoft.com/ko-kr/scripting/javascript/reference/unsigned-right-shift-operator-decrement-javascript)

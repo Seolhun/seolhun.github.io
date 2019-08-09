@@ -1,16 +1,18 @@
 ---
-title: "[Javascript/Typescript] JavaScript new, constructor란?"
 author: Seolhun
-category: "Javascript"
-tags: ['New', 'Constructor', 'Singleton']
 banner: "./assets/covers/js.png"
+category: "Javascript"
+date: 2018-02-27
+subTitle:  ""
+tags: ['New', 'Constructor', 'Singleton']
+title: "[Javascript/Typescript] Javascript new, constructor란?"
 ---
 
 Singleton 디자인 패턴을 사용하면서 Javascript의 new에 대한 개념을 더 정확히 알아야된다고 생각하여 작성하게 되었습니다.
 
 ## Goal
 - `new` 생성자의 작동원리와 활용법 이해
-- TypeScript와 JavaScript의 코드 차이를 이해한다.
+- Typescript와 Javascript의 코드 차이를 이해한다.
 
 ## Overview
 - 클래스에는 'constructor'라는 이름을 가진 특별한 메소드를 하나씩 가질 수 있습니다. 하나 이상의 생성자 메소드가 발견되면 SyntaxError 에러가 발생합니다.
@@ -44,7 +46,7 @@ console.log(car1.color);   // black
 
 ## Review
 new에 대해서 공부를 하게 된 이유는, `Singleton Pattern`을 학습하다가, new를 통해 반환된 instance가 기존 instance와 다른 결과를 가져오는 것을 확인해서이다.
-이것이 이질적으로 느껴진 점은 Java에서의 Singleton은 해당 Instance가 생성되면 Singleton의 의미처럼, 해당 객체를 생성해도 이미 생성되어진 Instance를 반환하기 때문이다. 그래서 해당 결과 값이 같은 주소 값은 물론이며 값이 달라지지 않음을 보장해준다. 고민 끝에 내린 결론은, Java가 컴파일 언어의 특징을 갖고있기 때문이라고 생각한다. static으로 생성된 Singleton은 Java에서 해당 값이 컴파일 시 Stack의 메모리를 고정적으로 할당해준다. 하지만, JavaScript는 Compile언어가 아니므로, static으로 선언해도 해당 instance를 static으로 정적메모리를 할당해주지만, 생성자를 통해 해당 function을 다시 호출하면 생성과 초기화가 이루어져 기존의 값을 다른 주소값으로 반환해준다.
+이것이 이질적으로 느껴진 점은 Java에서의 Singleton은 해당 Instance가 생성되면 Singleton의 의미처럼, 해당 객체를 생성해도 이미 생성되어진 Instance를 반환하기 때문이다. 그래서 해당 결과 값이 같은 주소 값은 물론이며 값이 달라지지 않음을 보장해준다. 고민 끝에 내린 결론은, Java가 컴파일 언어의 특징을 갖고있기 때문이라고 생각한다. static으로 생성된 Singleton은 Java에서 해당 값이 컴파일 시 Stack의 메모리를 고정적으로 할당해준다. 하지만, Javascript는 Compile언어가 아니므로, static으로 선언해도 해당 instance를 static으로 정적메모리를 할당해주지만, 생성자를 통해 해당 function을 다시 호출하면 생성과 초기화가 이루어져 기존의 값을 다른 주소값으로 반환해준다.
 
 ## References
-- [https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/new](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/new)
+- [https://developer.mozilla.org/ko/docs/Web/Javascript/Reference/Operators/new](https://developer.mozilla.org/ko/docs/Web/Javascript/Reference/Operators/new)

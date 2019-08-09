@@ -1,10 +1,11 @@
 ---
-title: "[Algorithm/JavaScript] HackerRank - InsertionSort Part 2"
 author: Seolhun
-date: 2018-03-22
-category: "Algorithm"
-tags: ['Algorithm', 'JavaScript', 'HackerRank', 'InsertionSort']
 banner: "./assets/covers/js.png"
+category: "Algorithm"
+date: 2018-03-22
+subTitle:  ""
+tags: ['Algorithm', 'Javascript', 'HackerRank', 'InsertionSort']
+title: "[Algorithm/Javascript] HackerRank - InsertionSort Part 2"
 ---
 
 저번 시간에 삽입 정렬 1번을 풀었고 이번에는 2번을 풀어보도록 하겠습니다.

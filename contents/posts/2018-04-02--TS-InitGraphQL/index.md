@@ -1,10 +1,11 @@
 ---
-title: "[JS/TS/GraphQL] GraphQL 시작해보기 - Part 1"
 author: Seolhun
-date: 2018-04-03
-category: "GraphQL"
-tags: ['Javascript', 'Typescript', 'NodeJS', 'GraphQL']
 banner: "./assets/covers/js.png"
+category: "GraphQL"
+date: 2018-04-03
+subTitle:  ""
+tags: ['Javascript', 'Typescript', 'NodeJS', 'GraphQL']
+title: "[JS/TS/GraphQL] GraphQL 시작해보기 - Part 1"
 ---
 
 이번에 간단히 NodeJS와 GraphQL로 회사에 직원들과 책을 관리할 수 있는 프로젝트를 만들어보았습니다.
@@ -47,11 +48,11 @@ GraphQL로 프로젝트를 진행하면서 개인적으로 `GraphQL은 객체지
 ##### 2. Dev Environments
 - Language
     - NodeJS 8.9.4
-    - TypeScript 2.7.1
+    - Typescript 2.7.1
 - IDE
     - Visual Studio Code
 
-이번 설명은 NodeJS와 TypeScript를 사용하였습니다. 개인적으로 JS는 거의 TypeScript로 사용하고 있습니다. 객체의 타입을 정의하는 것에 강한 집념을 가지고 있습니다.
+이번 설명은 NodeJS와 Typescript를 사용하였습니다. 개인적으로 JS는 거의 Typescript로 사용하고 있습니다. 객체의 타입을 정의하는 것에 강한 집념을 가지고 있습니다.
 그래서 Java도 좋아하지만, Script 언어의 매력도 있고 Java보다 훨씬 자유롭고 편리해서 JS를 좋아합니다.
 
 ## Contents

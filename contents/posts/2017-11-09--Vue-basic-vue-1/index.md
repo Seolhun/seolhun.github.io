@@ -1,9 +1,11 @@
 ---
-title: "[JS/Vue] Vue Study를 통한 문법 및 예제 만들기 - Part 1"
 author: Seolhun
-category: "Javascript"
-tags: ['Javascript', 'Vue']
 banner: "./assets/covers/vue.png"
+category: "Javascript"
+date: 2017-11-09
+subTitle:  ""
+tags: ['Javascript', 'Vue']
+title: "[JS/Vue] Vue Study를 통한 문법 및 예제 만들기 - Part 1"
 ---
 
 이번에는 이전 Vue Study 간 정리한 내용을 블로그에 다시 정리하여 올려보겠습니다.
@@ -226,7 +228,7 @@ app.items = app.items.filter(function (item) {
 ```
 
 ##### - Caveat(Warning)
-  - JavaScript의 제한으로 인해 Vue는 배열에 대해 다음과 같은 변경 사항을 감지할 수 없습니다.
+  - Javascript의 제한으로 인해 Vue는 배열에 대해 다음과 같은 변경 사항을 감지할 수 없습니다.
     - 인덱스로 배열에 있는 항목을 직접 설정하는 경우
       - ex) `vm.items[indexOfItem] = newValue`
     - 배열 길이를 수정하는 경우,
@@ -303,14 +305,14 @@ methods: {
 #### 5. Presentation 5
 ##### - Event Handling
 - Listening to Events
-  - v-on 디렉티브를 사용하여 DOM 이벤트를 듣고 트리거 될 때 JavaScript를 실행할 수 있습니다.
+  - v-on 디렉티브를 사용하여 DOM 이벤트를 듣고 트리거 될 때 Javascript를 실행할 수 있습니다.
 
 ```jsx
 <button v-on:click="counter += 1">Add 1</button>
 ```
 
   - Method Event Handlers
-    - 많은 이벤트 핸들러의 로직은 더 복잡할 것이므로, JavaScript를 v-on 속성 값으로 보관하는 것은 간단하지 않아 메소드의 이름을 받는 이유입니다.
+    - 많은 이벤트 핸들러의 로직은 더 복잡할 것이므로, Javascript를 v-on 속성 값으로 보관하는 것은 간단하지 않아 메소드의 이름을 받는 이유입니다.
 
 ```jsx
 <button v-on:click="increment">Add 1</button>
@@ -334,7 +336,7 @@ methods: {
 ```
 
   - Methods in Inline Handlers
-    - 메소드 이름을 직접 바인딩 하는 대신 인라인 JavaScript 구문에 메소드를 사용할 수도 있습니다.
+    - 메소드 이름을 직접 바인딩 하는 대신 인라인 Javascript 구문에 메소드를 사용할 수도 있습니다.
 
 ```jsx
 <button v-on:click="warn('Form cannot be submitted yet.', $event)">
@@ -464,7 +466,7 @@ Vue.config.keyCodes.f1 = 112
 - `Warning`
   - v-model은 모든 form 엘리먼트의 초기 value와 checked 그리고 selected 속성을 무시합니다.
   - 항상 Vue 인스턴스 데이터를 원본 소스로 취급합니다.
-  - 컴포넌트의 data 옵션 안에 있는 JavaScript에서 초기값을 선언해야합니다.
+  - 컴포넌트의 data 옵션 안에 있는 Javascript에서 초기값을 선언해야합니다.
 
 ##### - Modifiers
 - Types

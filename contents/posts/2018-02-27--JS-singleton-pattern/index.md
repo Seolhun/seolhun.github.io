@@ -1,9 +1,11 @@
 ---
-title: "[Typescript] Singleton Pattern이란?"
 author: Seolhun
-category: "Javascript"
-tags: ['Typescript', 'Singleton', 'Static', 'Private']
 banner: "./assets/covers/js.png"
+category: "Javascript"
+date: 2018-02-27
+subTitle:  ""
+tags: ['Typescript', 'Singleton', 'Static', 'Private']
+title: "[Typescript] Singleton Pattern이란?"
 ---
 
 디자인 패턴의 Singleton Pattern에 대해서 간단히 정리해보았습니다.
@@ -41,7 +43,7 @@ export default Singleton;
   - 동일한 클래스 내의 다른 정적 메서드 내에서 정적 메서드를 호출하는 경우 키워드 `this`를 사용할 수 있다
 
 ## Reference
-- [Mozila - Static](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes/static)
+- [Mozila - Static](https://developer.mozilla.org/ko/docs/Web/Javascript/Reference/Classes/static)
   - 정적 메서드는 클래스의 인스턴스 없이 호출이 가능하며 클래스가 인스턴스화되면 호출할 수 없다. 정적 메서드는 종종 어플리케이션의 유틸리티 함수를 만드는데 사용된다.
-- [Mozila - Equality_comparisons_and_sameness](https://developer.mozilla.org/ko/docs/Web/JavaScript/Equality_comparisons_and_sameness)
-- [Does JavaScript use stack or heap for memory allocation or both?](https://hashnode.com/post/does-javascript-use-stack-or-heap-for-memory-allocation-or-both-cj5jl90xl01nh1twuv8ug0bjk)
+- [Mozila - Equality_comparisons_and_sameness](https://developer.mozilla.org/ko/docs/Web/Javascript/Equality_comparisons_and_sameness)
+- [Does Javascript use stack or heap for memory allocation or both?](https://hashnode.com/post/does-javascript-use-stack-or-heap-for-memory-allocation-or-both-cj5jl90xl01nh1twuv8ug0bjk)

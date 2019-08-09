@@ -1,10 +1,11 @@
 ---
-title: "[Algorithm/Java] SWexpertAcademy BeginnersCrossSameVoca"
 author: Seolhun
-date: 2018-04-10
-category: "Algorithm"
-tags: ['Algorithm', 'Java']
 banner: "./assets/covers/java.png"
+category: "Algorithm"
+date: 2018-04-10
+subTitle:  ""
+tags: ['Algorithm', 'Java']
+title: "[Algorithm/Java] SWexpertAcademy BeginnersCrossSameVoca"
 ---
 - [SWexpertAcademy 초심자의 회문검사](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PyTLqAf4DFAUq&categoryId=AV5PyTLqAf4DFAUq&categoryType=CODE)
 - 난이도 : 2

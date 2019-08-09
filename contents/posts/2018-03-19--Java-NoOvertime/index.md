@@ -1,10 +1,11 @@
 ---
-title: "[Algorithm/Java] Programmers - 야근지수"
 author: Seolhun
-date: 2018-03-19
-category: "Algorithm"
-tags: ['Java', 'Algorithm', 'Programmers', '야근지수']
 banner: "./assets/covers/java.png"
+category: "Algorithm"
+date: 2018-03-19
+subTitle:  ""
+tags: ['Java', 'Algorithm', 'Programmers', '야근지수']
+title: "[Algorithm/Java] Programmers - 야근지수"
 ---
 
 이번에는 Java로 Programmers의 25번 문제 야근지수를 구현해보도록 하겠습니다.

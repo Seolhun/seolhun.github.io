@@ -1,11 +1,13 @@
 ---
-title : "[Algorithm/Java] BAEKJOON - 스택구현하기"
 author: Seolhun
-date : 2018-05-02
-category: "Algorithm"
-tags : ['Algorithm', 'Java', 'Stack']
 banner: "./assets/covers/java.png"
+category: "Algorithm"
+date : 2018-05-02
+subTitle:  ""
+tags : ['Algorithm', 'Java', 'Stack']
+title : "[Algorithm/Java] BAEKJOON - 스택구현하기"
 ---
+
 이번에는 백준 알고리즘의 단계별 풀어보기를 각각 풀어볼 예정입니다. Step 11에 해당하는 Stack부분부터 시작하여 차례차례 책과 함께 정리해나가겠습니다.
 
 - [BAEKJOON Algorithm - 스택구현하기](https://www.acmicpc.net/problem/10828)

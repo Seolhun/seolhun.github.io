@@ -1,10 +1,11 @@
 ---
-title: "[Algorithm/Java] SWexpertAcademy ZigzagNumber"
 author: Seolhun
-date: 2018-04-10
-category: "Algorithm"
-tags: ['Algorithm', 'Java']
 banner: "./assets/covers/java.png"
+category: "Algorithm"
+date: 2018-04-10
+subTitle:  ""
+tags: ['Algorithm', 'Java']
+title: "[Algorithm/Java] SWexpertAcademy ZigzagNumber"
 ---
 이번에는 [삼성소프트웨어 아카데미 사이트](https://www.swexpertacademy.com/main/main.do)에 있는 알고리즘을 풀어볼까 합니다. 문제와 설명 등 모든 것이 잘 되어있고 한국어로 큰 어려움없이 읽을 수 있습니다.
 

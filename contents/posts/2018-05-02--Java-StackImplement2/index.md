@@ -1,11 +1,13 @@
 ---
-title : "[Algorithm/Java] BAEKJOON - 스택으로 CheckBracketValidation"
 author: Seolhun
-date : 2018-05-02
-category: "Algorithm"
-tags : ['Algorithm', 'Java']
 banner: "./assets/covers/java.png"
+category: "Algorithm"
+date : 2018-05-02
+subTitle:  ""
+tags : ['Algorithm', 'Java']
+title : "[Algorithm/Java] BAEKJOON - 스택으로 CheckBracketValidation"
 ---
+
 이번에는 중첩된 괄호가 유효한지 안한지를 체크하는 알고리즘을 풀어보겠습니다.
 - [BAEKJOON Algorithm - 괄호 유효성 검사하기](https://www.acmicpc.net/problem/9012)
 

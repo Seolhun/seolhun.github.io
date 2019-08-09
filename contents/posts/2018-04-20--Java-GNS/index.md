@@ -1,10 +1,11 @@
 ---
-title: "[Algorithm/Java] SWexpertAcademy GNS"
 author: Seolhun
-date: 2018-04-20
-category: "Algorithm"
-tags: ['Algorithm', 'Java', 'Enum']
 banner: "./assets/covers/java.png"
+category: "Algorithm"
+date: 2018-04-20
+subTitle:  ""
+tags: ['Algorithm', 'Java', 'Enum']
+title: "[Algorithm/Java] SWexpertAcademy GNS"
 ---
 - [SWexpertAcademy GNS](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV14jJh6ACYCFAYD)
 - 난이도 3

@@ -1,10 +1,11 @@
 ---
-title: "[Algorithm/Java] SWexpertAcademy PerfectShuffle"
 author: Seolhun
-date: 2018-04-11
-category: "Algorithm"
-tags: ['Algorithm', 'Java']
 banner: "./assets/covers/java.png"
+category: "Algorithm"
+date: 2018-04-11
+subTitle:  ""
+tags: ['Algorithm', 'Java']
+title: "[Algorithm/Java] SWexpertAcademy PerfectShuffle"
 ---
 - [SWexpertAcademy Perfect Shuffle](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWGsRbk6AQIDFAVW&categoryId=AWGsRbk6AQIDFAVW&categoryType=CODE)categoryId=AV14vXUqAGMCFAYD&categoryType=CODE) 
 - 난이도 : 3

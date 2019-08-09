@@ -1,10 +1,11 @@
 ---
-title : "[Web] 웹사이트의 속도를 개선할 수 있는 방법 9가지 정리 - Part 2"
 author: Seolhun
-date : 2018-04-23
-category: "Web"
-tags : ['Web', 'Optimization', 'Cache', 'HTTP', 'gzip', 'Priority']
 banner: "./assets/covers/http.png"
+category: "Web"
+date : 2018-04-23
+subTitle:  ""
+tags : ['Web', 'Optimization', 'Cache', 'HTTP', 'gzip', 'Priority']
+title : "[Web] 웹사이트의 속도를 개선할 수 있는 방법 9가지 정리 - Part 2"
 ---
 
 이번에는 웹사이트를 개선하기 위한 구글에서 추천하는 방법들에 간단히 정리해볼까 합니다. 서비스의 성공을 위해 이제는 프론트엔드의 중요성이 많이 커진 만큼 유저들이 불편하지 않도록 만들기 위한 웹 사이트 최적화 방법을 이해/숙지하면 큰 도움이 될 것이라 생각하였습니다.

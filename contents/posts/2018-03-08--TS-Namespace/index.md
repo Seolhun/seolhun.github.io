@@ -1,10 +1,11 @@
 ---
-title: "[Typescript] Namespace란?"
 author: Seolhun
-date: 2018-03-08
-category: "Javascript"
-tags: ['Javascript', 'Typescript', 'Namespace', 'Declare', 'Module']
 banner: "./assets/covers/typescript.png"
+category: "Typescript"
+date: 2018-03-08
+subTitle:  ""
+tags: ['Javascript', 'Typescript', 'Namespace', 'Declare', 'Module']
+title: "[Typescript] Namespace란?"
 ---
 
 Typescript의 라이브러리 모듈을 사용하다보면은 namespace를 자주 접하게 됩니다. 해당 module을 만들 수 있도록 도와주는 namespace에 대해 간단히 공부했습니다.
@@ -156,4 +157,4 @@ for (let s of strings) {
 ```
 
 ## References
-- [TypeScript - Namespaces](https://www.typescriptlang.org/docs/handbook/namespaces.html)
+- [Typescript - Namespaces](https://www.typescriptlang.org/docs/handbook/namespaces.html)

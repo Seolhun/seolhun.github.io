@@ -1,10 +1,11 @@
 ---
-title: "[Algorithm/JS] 배열에서 사용하면 좋을 Javascript 메소드들"
 author: Seolhun
-date: 2018-04-07
-category: "Algorithm"
-tags: ['Algorithm', 'JS', 'Anti Pattern', 'Methods']
 banner: "./assets/covers/js.png"
+category: "Algorithm"
+date: 2018-04-07
+subTitle:  ""
+tags: ['Algorithm', 'JS', 'Anti Pattern', 'Methods']
+title: "[Algorithm/JS] 배열에서 사용하면 좋을 Javascript 메소드들"
 ---
 이번에는 알고리즘을 풀 때, 배열에 필요한 메소드들을 정리해볼까 합니다. 이러한 메소드들을 숙지하면 안티패턴으로 또 구성할 필요없이 잘 짜여진 코드들을 이용할 수 있습니다.
 
@@ -155,4 +156,4 @@ console.log(arr.some(isEven));
 ES6부터 새롭게 등장한 메소드도 포함시켜 lodash같은 helper library를 이용하지 않아도, 이미 많은 기능들을 충분히 이용할 수 있다는 것을 알 수 있습니다. 특히, 안티패턴을 지향하기 위해서는 기본적으로 내장된 메소드를 숙지하는 것이 우선입니다. 이번에 기본 내장딘 메소드를 정리하면서 알고리즘 및 로직 구현 간 이용하면서 직관적이고 빠른 코드를 구현할 수 있을 것입니다.
 
 ## References
-- [Mozilla - Javascript](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array)
+- [Mozilla - Javascript](https://developer.mozilla.org/ko/docs/Web/Javascript/Reference/Global_Objects/Array)

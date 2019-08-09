@@ -35,21 +35,18 @@ const BlogPage = ({ pageContext, data }: Props) => {
       </Header>
       <Wrapper>
         <Content>
-          {edges.map(post => {
-            console.error("@@@", post.node);
-            return (
-              <Article
-                key={post.node.fields.slug}
-                title={post.node.frontmatter.title}
-                date={post.node.frontmatter.date}
-                excerpt={post.node.excerpt}
-                timeToRead={post.node.timeToRead}
-                slug={post.node.fields.slug}
-                category={post.node.frontmatter.category}
-                banner={post.node.frontmatter.banner}
-              />
-            );
-          })}
+          {edges.map(post => (
+            <Article
+              key={post.node.fields.slug}
+              title={post.node.frontmatter.title}
+              date={post.node.frontmatter.date}
+              excerpt={post.node.excerpt}
+              timeToRead={post.node.timeToRead}
+              slug={post.node.fields.slug}
+              category={post.node.frontmatter.category}
+              banner={post.node.frontmatter.banner}
+            />
+          ))}
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}

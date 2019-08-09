@@ -1,16 +1,18 @@
 ---
-title: "[Javascript/Typescript] Static이란?"
 author: Seolhun
-category: "Javascript"
-tags: ['Prototype', 'Javascript', 'Typescript', 'Class', 'Module']
 banner: "./assets/covers/js.png"
+category: "Javascript"
+date: 2018-02-27
+subTitle:  ""
+tags: ['Prototype', 'Javascript', 'Typescript', 'Class', 'Module']
+title: "[Javascript/Typescript] Static이란?"
 ---
 
 Singleton Pattern을 구현하면서 static이 Javascript에서는 어떻게 작동되는지 궁금하여 간단히 알아보았습니다.
 
 ## Goal
 - `static`의 작동원리와 활용법 이해
-- TypeScript와 JavaScript의 코드 차이를 이해한다.
+- Typescript와 Javascript의 코드 차이를 이해한다.
 
 ## Overview
 정적 메서드는 클래스의 인스턴스 없이 호출이 가능하며 클래스가 인스턴스화되면 호출할 수 없다. 정적 메서드는 종종 어플리케이션의 유틸리티 함수를 만드는데 사용된다.
@@ -35,8 +37,8 @@ console.log(Helpers.calcCircumference(8)); // 25.12
 ```
 
 ## Review
-- JavaScript에서 static은 결국, 해당 instance를 class 혹은 function 안에 객체를 선언하여 해당 값을 담아놓는 것이다.
-- TypeScript와 JavaScript 코드를 같이 보면 이것이 더 명확해진다.
+- Javascript에서 static은 결국, 해당 instance를 class 혹은 function 안에 객체를 선언하여 해당 값을 담아놓는 것이다.
+- Typescript와 Javascript 코드를 같이 보면 이것이 더 명확해진다.
 ```tsx
 class StaticClass {
     private static size: number = 20;
@@ -56,4 +58,4 @@ var StaticClass = /** @class */ (function () {
 ```
 
 ## References
-- [https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes/static](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes/static)
+- [https://developer.mozilla.org/ko/docs/Web/Javascript/Reference/Classes/static](https://developer.mozilla.org/ko/docs/Web/Javascript/Reference/Classes/static)

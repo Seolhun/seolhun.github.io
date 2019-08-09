@@ -1,10 +1,11 @@
 ---
-title: "[Algorithm/JavaScript] HackerRank - ClosestNumbers"
 author: Seolhun
-date: 2018-03-25
-category: "Algorithm"
-tags: ['Algorithm', 'JavaScript', 'HackerRank', 'Sort', 'ClosestNumbers']
 banner: "./assets/covers/js.png"
+category: "Algorithm"
+date: 2018-03-25
+subTitle:  ""
+tags: ['Algorithm', 'Javascript', 'HackerRank', 'Sort', 'ClosestNumbers']
+title: "[Algorithm/Javascript] HackerRank - ClosestNumbers"
 ---
 
 저번 시간에 Counting Sort 2문제를 모두 풀어보았습니다.

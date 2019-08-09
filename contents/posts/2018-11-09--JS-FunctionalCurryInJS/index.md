@@ -1,11 +1,11 @@
 ---
-title: "[JS/Functional] Currying으로 알아보는 Functional Programming"
-description: "How to use Currying"
 author: Seolhun
-date: 2018-11-09
-category: "JS"
-tags: ['JS', 'Functional', 'Currying']
 banner: "./assets/covers/js.png"
+category: "JS"
+date: 2018-11-09
+description: "How to use Currying"
+tags: ['JS', 'Functional', 'Currying']
+title: "[JS/Functional] Currying으로 알아보는 Functional Programming"
 ---
 
 ## What is currying

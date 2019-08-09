@@ -1,10 +1,11 @@
 ---
-title: "[Algorithm/Java] SWexpertAcademy 미로 Part 1"
 author: Seolhun
-date: 2018-04-14
-category: "Algorithm"
-tags: ['Algorithm', 'Java']
 banner: "./assets/covers/java.png"
+category: "Algorithm"
+date: 2018-04-14
+subTitle:  ""
+tags: ['Algorithm', 'Java']
+title: "[Algorithm/Java] SWexpertAcademy 미로 Part 1"
 ---
 - [SWexpertAcademy 미로 Part 1](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV14vXUqAGMCFAYD&categoryId=AV14vXUqAGMCFAYD&categoryType=CODE)
 - 난이도 : 4

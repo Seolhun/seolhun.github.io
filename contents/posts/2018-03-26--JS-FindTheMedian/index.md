@@ -1,10 +1,11 @@
 ---
-title: "[Algorithm/JavaScript] HackerRank - FindTheMedian"
 author: Seolhun
-date: 2018-03-26
-category: "Algorithm"
-tags: ['Algorithm', 'JavaScript', 'HackerRank', 'Sort', 'FindTheMedian']
 banner: "./assets/covers/js.png"
+category: "Algorithm"
+date: 2018-03-26
+subTitle:  ""
+tags: ['Algorithm', 'Javascript', 'HackerRank', 'Sort', 'FindTheMedian']
+title: "[Algorithm/Javascript] HackerRank - FindTheMedian"
 ---
 
 저번 시간에 ClosestNumbers 문제를 풀어보았습니다.

@@ -1,10 +1,11 @@
 ---
-title: "[Javascript/Typescript] Module Pattern이란?"
 author: Seolhun
-date: 2018-03-05
-category: "Javascript"
-tags: ['Javascript', 'Typescript', 'Module', 'Pattern']
 banner: "./assets/covers/js.png"
+category: "Javascript"
+date: 2018-03-05
+subTitle:  ""
+tags: ['Javascript', 'Typescript', 'Module', 'Pattern']
+title: "[Javascript/Typescript] Module Pattern이란?"
 ---
 
 Module Pattern을 공부하면서 Module Javascript의 new에 대한 개념을 더 정확히 알아야된다고 생각하여 작성하게 되었습니다.
@@ -29,7 +30,7 @@ const Module = {
 - ECMAScript Harmony modules
 
 ## Examples
-#### 1. TypeScript
+#### 1. Typescript
 - Before Module Pattern
     - module pattern을 사용하지 않으면 해당 객체가 모두 전역에서 인스턴스화 되어 다른 코드와 충돌 가능성이 높아집니다.
     - 객체 간의 연관성을 알기 어려워 코드관리가 어려우며 용성이 떨어집니다.

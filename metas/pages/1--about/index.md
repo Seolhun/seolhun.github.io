@@ -50,6 +50,6 @@ retrospective-diary와 Seolhun.github.io 블로그를 통합/운영하고, 추�
 
 현재 개발자 간의 깃허브 기반 플랫폼을 만들어 검색/추천/공유 할 수 있는 기능을 개발하고 있습니다. 해당 서비스를 통해 컨텐츠와 로그 데이터를 수집할 수 있는 환경을 구축하고 싶습니다. 이를 통해 로그 데이터를 가공하여 데이터 시각화 및 검색/추천 서비스 개발을 진행하고 싶은 욕구가 큽니다. 
 
-백엔드는 TypeScript를 기반으로 NodeJS로 구축하고 있습니다. NoFramework > Express로 이전 중이고, Serverless도 필요한 부분에 있어 반영 중에 있습니다. 개인 개발자에게 가장 큰 리소스 대비 비용문제를 어떻게 해결할지 고민이 많습니다.
+백엔드는 Typescript를 기반으로 NodeJS로 구축하고 있습니다. NoFramework > Express로 이전 중이고, Serverless도 필요한 부분에 있어 반영 중에 있습니다. 개인 개발자에게 가장 큰 리소스 대비 비용문제를 어떻게 해결할지 고민이 많습니다.
 
-프론트엔드는 TypeScript와 React, Redux(Saga)를 중점적으로 이용하여 개발하고 있습니다. 주로 노력하는 부분은 Functional Programming을 통한 Side Effect가 없는 프로젝트, CrossBrowsing을 통한 웹 접근성 확대입니다. 이를 위해 Process를 정립하고 있으며 Test Code도 열심히 학습/작성 중에 있습니다.
+프론트엔드는 Typescript와 React, Redux(Saga)를 중점적으로 이용하여 개발하고 있습니다. 주로 노력하는 부분은 Functional Programming을 통한 Side Effect가 없는 프로젝트, CrossBrowsing을 통한 웹 접근성 확대입니다. 이를 위해 Process를 정립하고 있으며 Test Code도 열심히 학습/작성 중에 있습니다.

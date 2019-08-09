@@ -191,6 +191,6 @@ export function logProperty(target, key) {
 ## Outro
 
 ## References
-- [MEDIUM - Create and Test Decorators in JavaScript](https://medium.com/m/global-identity?redirectUrl=https%3A%2F%2Fnetbasal.com%2Fcreate-and-test-decorators-in-javascript-85e8d5cf879c%3Fsource%3Dbookmarks---------0---------------------)
-- [TypeScript HandBook - Decorator](https://github.com/microsoft/TypeScript-Handbook/blob/master/pages/Decorators.md)
+- [MEDIUM - Create and Test Decorators in Javascript](https://medium.com/m/global-identity?redirectUrl=https%3A%2F%2Fnetbasal.com%2Fcreate-and-test-decorators-in-javascript-85e8d5cf879c%3Fsource%3Dbookmarks---------0---------------------)
+- [Typescript HandBook - Decorator](https://github.com/microsoft/Typescript-Handbook/blob/master/pages/Decorators.md)
 - [Naver D2 - Javascript Trends(2017)](https://d2.naver.com/helloworld/2809766)
