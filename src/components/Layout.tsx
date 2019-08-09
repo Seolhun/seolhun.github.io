@@ -1,10 +1,12 @@
-import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-import theme from '../../config/Theme';
-import { media } from '../utils/media';
-import split from 'lodash/split';
-import './layout.scss';
+import React from "react";
+import split from "lodash/split";
+import { StaticQuery, graphql } from "gatsby";
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
+
+import theme from "../../config/Theme";
+import { media } from "../utils/media";
+
+import "./layout.scss";
 
 const GlobalStyle = createGlobalStyle`
   ::selection {
@@ -87,8 +89,12 @@ export class Layout extends React.PureComponent<{}> {
               <GlobalStyle />
               {children}
               <Footer>
-                &copy; {split(data.site.buildTime, '.')[2]} by Majid Hajian. All rights reserved. <br />
-                <a href="https://github.com/mhadaily/gatsby-starter-typescirpt-power-blog">GitHub Repository</a> <br />
+                &copy; {split(data.site.buildTime, ".")[2]} by Majid Hajian. All
+                rights reserved. <br />
+                <a href="https://github.com/mhadaily/gatsby-starter-typescirpt-power-blog">
+                  GitHub Repository
+                </a>{" "}
+                <br />
                 <span>Last build: {data.site.buildTime}</span>
               </Footer>
             </React.Fragment>

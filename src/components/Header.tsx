@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import { darken, lighten } from 'polished';
-import rgba from 'polished/lib/color/rgba';
-import { media } from '../utils/media';
-import config from '../../config/SiteConfig';
+import React from "react";
+import styled from "styled-components";
+import { darken, lighten } from "polished";
+import rgba from "polished/lib/color/rgba";
+import { media } from "../utils/media";
+import config from "../../config/SiteConfig";
 
 const HeaderWrapper: any = styled.header`
   position: relative;
@@ -20,7 +20,7 @@ const HeaderWrapper: any = styled.header`
     background: transparent url(/assets/mask.svg) no-repeat bottom left;
     background-size: 101%;
     bottom: -2px;
-    content: '';
+    content: "";
     display: block;
     height: 100%;
     left: 0;

@@ -28,7 +28,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'post',
-        path: `${__dirname}/blog`,
+        path: `${__dirname}/blogs`,
       },
     },
     {
@@ -69,8 +69,8 @@ module.exports = {
         short_name: config.siteTitleAlt,
         description: config.siteDescription,
         start_url: config.pathPrefix,
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
+        background_color: config.manifestBackgroundColor,
+        theme_color: config.manifestThemeColor,
         display: 'standalone',
         icon: config.favicon,
       },

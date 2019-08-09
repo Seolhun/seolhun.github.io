@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { media } from '../utils/media';
+import styled from "styled-components";
+import { media } from "../utils/media";
 
 export const Content = styled.div`
   box-shadow: 0 4px 120px rgba(0, 0, 0, 0.1);

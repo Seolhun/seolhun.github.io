@@ -1,9 +1,10 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
-import { media } from '../utils/media';
-import theme from '../../config/Theme';
-import curriedDarken from 'polished/lib/color/darken';
+import React from "react";
+import { Link } from "gatsby";
+import styled from "styled-components";
+import curriedDarken from "polished/lib/color/darken";
+
+import { media } from "../utils/media";
+import theme from "../../config/Theme";
 
 export const PaginationContainer = styled.div`
   text-align: center;
@@ -16,7 +17,7 @@ export const PaginationContent = styled.div`
     padding: 0 2.5rem;
     border-radius: 3.5rem;
     background-color: #eee;
-    
+
      @media ${media.phone} {
       padding: 0 1rem;
      }
@@ -34,11 +35,11 @@ export const PaginationContent = styled.div`
         background-color: ${curriedDarken(0.2, theme.colors.primary)};
         color: ${theme.colors.white};
       }
-      
+
       &.prev {
         margin-left: -1.5rem;
       }
-      
+
       &.next {
         margin-right: -1.5rem;
       }
@@ -48,7 +49,7 @@ export const PaginationContent = styled.div`
         background-color: transparent;
         color: ${curriedDarken(0.2, theme.colors.primary)};
       }
-      
+
 
       @media ${media.tablet} {
         padding: 0 1.4rem;
@@ -92,7 +93,10 @@ export class Pagination extends React.PureComponent<Props> {
     const { currentPage, totalPages, url } = this.props;
     const isFirst = currentPage === 1;
     const isLast = currentPage === totalPages;
-    const prevPage = currentPage - 1 === 1 ? `/${url}/` : `/${url}/${(currentPage - 1).toString()}`;
+    const prevPage =
+      currentPage - 1 === 1
+        ? `/${url}/`
+        : `/${url}/${(currentPage - 1).toString()}`;
     const nextPage = `/${url}/${(currentPage + 1).toString()}`;
     return totalPages > 1 ? (
       <PaginationContainer>
@@ -104,9 +108,11 @@ export class Pagination extends React.PureComponent<Props> {
           )}
           {Array.from({ length: totalPages }, (_, i) => (
             <Link
-              className={currentPage === i + 1 ? 'page-numbers current' : 'page-numbers'}
+              className={
+                currentPage === i + 1 ? "page-numbers current" : "page-numbers"
+              }
               key={`pagination-number${i + 1}`}
-              to={`/${url}/${i === 0 ? '' : i + 1}`}
+              to={`/${url}/${i === 0 ? "" : i + 1}`}
             >
               {i + 1}
             </Link>

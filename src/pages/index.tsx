@@ -1,14 +1,14 @@
-import React from 'react';
-import { Link, graphql } from 'gatsby';
-import styled from 'styled-components';
-import { Layout, Wrapper, Button, Article } from '../components';
-import PageProps from '../models/PageProps';
-import Helmet from 'react-helmet';
-import config from '../../config/SiteConfig';
-import { media } from '../utils/media';
-import rgba from 'polished/lib/color/rgba';
-import darken from 'polished/lib/color/darken';
-import lighten from 'polished/lib/color/lighten';
+import React from "react";
+import { Link, graphql } from "gatsby";
+import styled from "styled-components";
+import { Layout, Wrapper, Button, Article } from "../components";
+import PageProps from "../models/PageProps";
+import Helmet from "react-helmet";
+import config from "../../config/SiteConfig";
+import { media } from "../utils/media";
+import rgba from "polished/lib/color/rgba";
+import darken from "polished/lib/color/darken";
+import lighten from "polished/lib/color/lighten";
 
 const Homepage = styled.main`
   display: flex;
@@ -33,14 +33,19 @@ const GridRow: any = styled.div`
     props.background
       ? `linear-gradient(
       -185deg,
-      ${rgba(darken(0.1, props.theme.colors.primary), 0.7)}, 
-      ${rgba(lighten(0.1, props.theme.colors.grey.dark), 0.9)}), url(/assets/bg.png) no-repeat`
+      ${rgba(darken(0.1, props.theme.colors.primary), 0.7)},
+      ${rgba(
+        lighten(0.1, props.theme.colors.grey.dark),
+        0.9
+      )}), url(/assets/bg.png) no-repeat`
       : null};
   background-size: cover;
   padding: 2rem 4rem;
-  color: ${(props: any) => (props.background ? props.theme.colors.white : null)};
+  color: ${(props: any) =>
+    props.background ? props.theme.colors.white : null};
   h1 {
-    color: ${(props: any) => (props.background ? props.theme.colors.white : null)};
+    color: ${(props: any) =>
+      props.background ? props.theme.colors.white : null};
   }
   @media ${media.tablet} {
     padding: 3rem 3rem;
@@ -52,7 +57,7 @@ const GridRow: any = styled.div`
 
 const HomepageContent: any = styled.div`
   max-width: 30rem;
-  text-align: ${(props: any) => (props.center ? 'center' : 'left')};
+  text-align: ${(props: any) => (props.center ? "center" : "left")};
 `;
 
 export default class IndexPage extends React.Component<PageProps> {
@@ -71,21 +76,47 @@ export default class IndexPage extends React.Component<PageProps> {
                   Hi. I am <br />
                   Majid Hajian
                 </h1>
-                <p>I write about JavaScript, Angular, Ember, React, Vue, GlimmerJs, NodeJs, Rails, Go, Gatsby and ...</p>
+                <p>
+                  I write about JavaScript, Angular, Ember, React, Vue,
+                  GlimmerJs, NodeJs, Rails, Go, Gatsby and ...
+                </p>
                 <Link to="/contact">
                   <Button big={true}>
-                    <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="1792"
+                      height="1792"
+                      viewBox="0 0 1792 1792"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <path d="M1764 11q33 24 27 64l-256 1536q-5 29-32 45-14 8-31 8-11 0-24-5l-453-185-242 295q-18 23-49 23-13 0-22-4-19-7-30.5-23.5t-11.5-36.5v-349l864-1059-1069 925-395-162q-37-14-40-55-2-40 32-59l1664-960q15-9 32-9 20 0 36 11z" />
                     </svg>
                     Contact
                   </Button>
                 </Link>
-                <Link to="/blog">
+                <Link to="/blogs">
                   <Button big>
-                    <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="1792"
+                      height="1792"
+                      viewBox="0 0 1792 1792"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <path d="M1764 11q33 24 27 64l-256 1536q-5 29-32 45-14 8-31 8-11 0-24-5l-453-185-242 295q-18 23-49 23-13 0-22-4-19-7-30.5-23.5t-11.5-36.5v-349l864-1059-1069 925-395-162q-37-14-40-55-2-40 32-59l1664-960q15-9 32-9 20 0 36 11z" />
                     </svg>
-                    Blog
+                    Blogs
+                  </Button>
+                </Link>
+                <Link to="/tags">
+                  <Button big>
+                    <svg
+                      width="1792"
+                      height="1792"
+                      viewBox="0 0 1792 1792"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M1764 11q33 24 27 64l-256 1536q-5 29-32 45-14 8-31 8-11 0-24-5l-453-185-242 295q-18 23-49 23-13 0-22-4-19-7-30.5-23.5t-11.5-36.5v-349l864-1059-1069 925-395-162q-37-14-40-55-2-40 32-59l1664-960q15-9 32-9 20 0 36 11z" />
+                    </svg>
+                    Tags
                   </Button>
                 </Link>
               </HomepageContent>
@@ -94,9 +125,11 @@ export default class IndexPage extends React.Component<PageProps> {
               <HomepageContent>
                 <h2>About Me</h2>
                 <p>
-                  Though I am a results-driven front-end developer by day who have converted inactive designs to fully interactive,
-                  well-developed, accessible and standards-based user interfaces. I am completely enthusiast with a full stack environment
-                  and passionate about JavaScript world.
+                  Though I am a results-driven front-end developer by day who
+                  have converted inactive designs to fully interactive,
+                  well-developed, accessible and standards-based user
+                  interfaces. I am completely enthusiast with a full stack
+                  environment and passionate about JavaScript world.
                 </p>
                 <hr />
                 <h2>Latest Blog</h2>
@@ -111,8 +144,8 @@ export default class IndexPage extends React.Component<PageProps> {
                     key={post.node.fields.slug}
                   />
                 ))}
-                <p className={'textRight'}>
-                  <Link to={'/blog'}>All articles ({totalCount})</Link>
+                <p className={"textRight"}>
+                  <Link to={"/blogs"}>All articles ({totalCount})</Link>
                 </p>
               </HomepageContent>
             </GridRow>
@@ -124,7 +157,10 @@ export default class IndexPage extends React.Component<PageProps> {
 }
 export const IndexQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 1
+    ) {
       totalCount
       edges {
         node {

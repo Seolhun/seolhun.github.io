@@ -61,33 +61,33 @@ const createClassificationPages = ({ createPage, posts, postsPerPage, numPages }
     const names = Object.keys(classification.postsByClassificationNames);
 
     createPage({
-                 path: _.kebabCase(`/${classification.pluralName}`),
-                 component: classification.template.all,
-                 context: {
-                   [`${classification.pluralName}`]: names.sort(),
-                 },
-               });
+      path: _.kebabCase(`/${classification.pluralName}`),
+      component: classification.template.all,
+      context: {
+        [`${classification.pluralName}`]: names.sort(),
+      },
+    });
 
     names.forEach(name => {
       const postsByName = classification.postsByClassificationNames[name];
       createPage({
-                   path: `/${classification.pluralName}/${_.kebabCase(name)}`,
-                   component: classification.template.part,
-                   context: {
-                     posts: postsByName,
-                     [`${classification.singularName}Name`]: name,
-                   },
-                 });
+        path: `/${classification.pluralName}/${_.kebabCase(name)}`,
+        component: classification.template.part,
+        context: {
+          posts: postsByName,
+          [`${classification.singularName}Name`]: name,
+        },
+      });
     });
   });
 };
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   actions.setWebpackConfig({
-                             resolve: {
-                               modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-                             },
-                           });
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    },
+  });
 };
 
 exports.createPages = ({ actions, graphql }) => {
@@ -97,7 +97,10 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`{
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: {
+        order: DESC,
+        fields: [frontmatter___date]
+      }
       limit: 10000
     ) {
       edges {
@@ -119,28 +122,27 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  }`)
-  .then(result => {
+  }`).then(result => {
     if (result.errors) {
       return Promise.reject(result.errors);
     }
+
     const posts = result.data.allMarkdownRemark.edges;
     const postsPerPage = config.POST_PER_PAGE;
     const numPages = Math.ceil(posts.length / postsPerPage);
 
-    Array.from({ length: numPages })
-         .forEach((_, i) => {
-           createPage({
-                        path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-                        component: path.resolve('./src/templates/Blog.tsx'),
-                        context: {
-                          limit: postsPerPage,
-                          skip: i * postsPerPage,
-                          totalPages: numPages,
-                          currentPage: i + 1
-                        },
-                      });
-         });
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? `/blogs` : `/blogs/${i + 1}`,
+        component: path.resolve('./src/templates/Blog.tsx'),
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          totalPages: numPages,
+          currentPage: i + 1
+        },
+      });
+    });
 
     createClassificationPages({ createPage, posts, postsPerPage, numPages });
 
@@ -149,14 +151,14 @@ exports.createPages = ({ actions, graphql }) => {
       const prev = index === posts.length - 1 ? null : posts[index + 1].node;
 
       createPage({
-                   path: `/blog/${_.kebabCase(node.frontmatter.title)}`,
-                   component: postTemplate,
-                   context: {
-                     slug: _.kebabCase(node.frontmatter.title),
-                     prev,
-                     next,
-                   },
-                 });
+        path: `/blogs/${_.kebabCase(node.frontmatter.title)}`,
+        component: postTemplate,
+        context: {
+          slug: _.kebabCase(node.frontmatter.title),
+          prev,
+          next,
+        },
+      });
     });
   });
 };

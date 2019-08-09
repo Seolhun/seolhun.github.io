@@ -1,8 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'gatsby';
-import kebabCase from 'lodash/kebabCase';
-import Post from '../models/Post';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "gatsby";
+import kebabCase from "lodash/kebabCase";
+
+import Post from "../models/Post";
 
 const Wrapper = styled.div`
   display: flex;
@@ -46,13 +47,17 @@ export class PrevNext extends React.PureComponent<Props> {
         {prev && (
           <Prev>
             <span>Previous</span>
-            <Link to={`/blog/${kebabCase(prev.frontmatter.title)}`}>{prev.frontmatter.title}</Link>
+            <Link to={`/blogs/${kebabCase(prev.frontmatter.title)}`}>
+              {prev.frontmatter.title}
+            </Link>
           </Prev>
         )}
         {next && (
           <Next>
             <span>Next</span>
-            <Link to={`/blog/${kebabCase(next.frontmatter.title)}`}>{next.frontmatter.title}</Link>
+            <Link to={`/blogs/${kebabCase(next.frontmatter.title)}`}>
+              {next.frontmatter.title}
+            </Link>
           </Next>
         )}
       </Wrapper>

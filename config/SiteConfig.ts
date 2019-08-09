@@ -1,32 +1,49 @@
 export default {
-  pathPrefix: "/", // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
-  siteTitle: "Typescript Power Blog", // Navigation and Site Title
-  siteTitleAlt: "Typescript Power Blog - Gatsby Starter",
-  siteUrl: "https://seolhun.github.io",
-  siteLanguage: "en", // Language Tag on <html> element
-  siteBanner: "/assets/banner.jpg", // Your image for og:image tag. You can find it in the /static folder
-  defaultBg: "/assets/bg.png", // default post background header
-  favicon: "src/favicon.png", // Your image for favicons. You can find it in the /src folder
-  siteDescription: "Typescript Power Blog with big typography", // Your site description
-  author: "SeolHun", // Author for schemaORGJSONLD
-  siteLogo: "/assets/logo.png", // Image for schemaORGJSONLD
-
-  userTwitter: "@seol_hooney", // Twitter Username - Optional
+  author: "SeolHun",
+  defaultBg: "/assets/bg.png",
+  favicon: "src/favicon.png",
+  ogLanguage: "ko_KR",
   ogSiteName: "SeolHun",
-  ogLanguage: "en_US",
-
+  ownerImage: "https://avatars.githubusercontent.com/Seolhun",
+  pathPrefix: "/",
+  siteBanner: "/assets/banner.jpg",
+  siteDescription: "The Dreamer through the Programming",
+  siteLanguage: "ko",
+  siteLogo: "/assets/logo.png",
+  siteTitle: "Hi-Cord By SeolHun",
+  siteTitleAlt: "The Dreamer through the Programming",
+  siteUrl: "https://seolhun.github.io",
+  userTwitter: "@seol_hooney",
   // Manifest and Progress color
   // See: https://developers.google.com/web/fundamentals/web-app-manifest/
-  themeColor: "#3498DB",
-  backgroundColor: "#2b2e3c",
-
+  manifestName: "SeolHun TechBlog - The Dreamer through the Programming",
+  manifestShortName: "SeolHun TechBlog",
+  manifestStartUrl: "/",
+  manifestBackgroundColor: "2b2e3c",
+  manifestThemeColor: "3498DB",
+  manifestDisplay: "standalone",
+  // Social media
+  siteFBAppID: "123456789",
+  Google_Tag_Manager_ID: "GTM-XXXXXXX",
+  github: "https://github.com/Seolhun",
+  authorSocialLinks: [
+    {
+      name: "github",
+      url: "https://github.com/Seolhun"
+    },
+    {
+      name: "twitter",
+      url: "https://twitter.com/seol_hooney"
+    },
+    {
+      name: "facebook",
+      url: "http://facebook.com/shun10114"
+    }
+  ],
+  // Constants
+  POST_PER_PAGE: 4,
   // Settings for typography.ts
   headerFontFamily: "Bitter",
   bodyFontFamily: "Open Sans",
-  baseFontSize: "18px",
-
-  // Social media
-  siteFBAppID: "123456789", // Facebook App ID - Optional
-  Google_Tag_Manager_ID: "GTM-XXXXXXX",
-  POST_PER_PAGE: 4
+  baseFontSize: "18px"
 };
