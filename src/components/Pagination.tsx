@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+
 import styled from "styled-components";
 import curriedDarken from "polished/lib/color/darken";
 
@@ -9,7 +10,6 @@ import theme from "../../config/Theme";
 export const PaginationContainer = styled.div`
   text-align: center;
   margin: 2rem;
-  }
 `;
 
 export const PaginationContent = styled.div`
@@ -88,17 +88,17 @@ interface Props {
   url: string;
 }
 
-export class Pagination extends React.PureComponent<Props> {
-  public render() {
-    const { currentPage, totalPages, url } = this.props;
-    const isFirst = currentPage === 1;
-    const isLast = currentPage === totalPages;
-    const prevPage =
-      currentPage - 1 === 1
-        ? `/${url}/`
-        : `/${url}/${(currentPage - 1).toString()}`;
-    const nextPage = `/${url}/${(currentPage + 1).toString()}`;
-    return totalPages > 1 ? (
+export const Pagination = ({ currentPage, totalPages, url }: Props) => {
+  const isFirst = currentPage === 1;
+  const isLast = currentPage === totalPages;
+  const prevPage =
+    currentPage - 1 === 1
+      ? `/${url}/`
+      : `/${url}/${(currentPage - 1).toString()}`;
+  const nextPage = `/${url}/${(currentPage + 1).toString()}`;
+
+  return (
+    totalPages > 1 && (
       <PaginationContainer>
         <PaginationContent>
           {!isFirst && (
@@ -124,6 +124,6 @@ export class Pagination extends React.PureComponent<Props> {
           )}
         </PaginationContent>
       </PaginationContainer>
-    ) : null;
-  }
-}
+    )
+  );
+};

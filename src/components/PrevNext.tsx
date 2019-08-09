@@ -1,6 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import { Link } from "gatsby";
+
+import styled from "styled-components";
 import kebabCase from "lodash/kebabCase";
 
 import Post from "../models/Post";
@@ -39,28 +40,25 @@ interface Props {
   prev: Post;
 }
 
-export class PrevNext extends React.PureComponent<Props> {
-  public render() {
-    const { prev, next } = this.props;
-    return (
-      <Wrapper>
-        {prev && (
-          <Prev>
-            <span>Previous</span>
-            <Link to={`/contents/${kebabCase(prev.frontmatter.title)}`}>
-              {prev.frontmatter.title}
-            </Link>
-          </Prev>
-        )}
-        {next && (
-          <Next>
-            <span>Next</span>
-            <Link to={`/contents/${kebabCase(next.frontmatter.title)}`}>
-              {next.frontmatter.title}
-            </Link>
-          </Next>
-        )}
-      </Wrapper>
-    );
-  }
-}
+export const PrevNext = ({ prev, next }: Props) => {
+  return (
+    <Wrapper>
+      {prev && (
+        <Prev>
+          <span>Previous</span>
+          <Link to={`/contents/${kebabCase(prev.frontmatter.title)}`}>
+            {prev.frontmatter.title}
+          </Link>
+        </Prev>
+      )}
+      {next && (
+        <Next>
+          <span>Next</span>
+          <Link to={`/contents/${kebabCase(next.frontmatter.title)}`}>
+            {next.frontmatter.title}
+          </Link>
+        </Next>
+      )}
+    </Wrapper>
+  );
+};

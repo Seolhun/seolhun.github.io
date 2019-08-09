@@ -1,6 +1,7 @@
 import React from "react";
-import split from "lodash/split";
 import { StaticQuery, graphql } from "gatsby";
+
+import split from "lodash/split";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 
 import theme from "../../config/Theme";

@@ -1,7 +1,9 @@
 import React from "react";
-import styled from "styled-components";
 import { Link } from "gatsby";
+
+import styled from "styled-components";
 import kebabCase from "lodash/kebabCase";
+
 import { Subline } from "./Subline";
 
 const Post = styled.article`
@@ -30,23 +32,27 @@ interface Props {
   slug: string;
   timeToRead: number;
   category: string;
+  banner?: string;
 }
 
-export class Article extends React.PureComponent<Props> {
-  public render() {
-    const { title, date, excerpt, slug, timeToRead, category } = this.props;
-
-    return (
-      <Post>
-        <Title>
-          <Link to={`/contents/${slug}`}>{title}</Link>
-        </Title>
-        <Subline>
-          {date} &mdash; {timeToRead} Min Read &mdash; In
-          <Link to={`/categories/${kebabCase(category)}`}> {category}</Link>
-        </Subline>
-        <Excerpt>{excerpt}</Excerpt>
-      </Post>
-    );
-  }
-}
+export const Article = ({
+  title,
+  date,
+  excerpt,
+  slug,
+  timeToRead,
+  category,
+  banner
+}: Props) => (
+  <Post>
+    {banner && <img src={banner} />}
+    <Title>
+      <Link to={`/contents/${slug}`}>{title}</Link>
+    </Title>
+    <Subline>
+      {date} &mdash; {timeToRead} Min Read &mdash; In
+      <Link to={`/categories/${kebabCase(category)}`}> {category}</Link>
+    </Subline>
+    <Excerpt>{excerpt}</Excerpt>
+  </Post>
+);

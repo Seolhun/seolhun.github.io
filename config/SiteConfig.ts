@@ -6,7 +6,7 @@ export default {
   ogSiteName: "SeolHun",
   ownerImage: "https://avatars.githubusercontent.com/Seolhun",
   pathPrefix: "/",
-  sitebanner: "./assets/covers//assets/banner.jpg",
+  siteBanner: "./assets/logo.png",
   siteDescription: "The Dreamer through the Programming",
   siteLanguage: "ko",
   siteLogo: "/assets/logo.png",

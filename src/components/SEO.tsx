@@ -11,8 +11,7 @@ interface SEO {
   postSEO: boolean;
 }
 
-export const SEO = (props: SEO) => {
-  const { postNode, postPath, postSEO } = props;
+export const SEO = ({ postNode, postPath, postSEO }: SEO) => {
   let title;
   let description;
   let image;

@@ -4,7 +4,6 @@ import { Link } from "gatsby";
 import { Layout, Header, SectionTitle } from "../components";
 
 import config from "../../config/SiteConfig";
-import PageProps from "../models/PageProps";
 
 const ContactPage = () => {
   return (
