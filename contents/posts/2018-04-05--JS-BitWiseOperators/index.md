@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-05
 category: "Algorithm"
 tags: ['Algorithm', 'Javascript', 'Bit', 'Operators']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 
 이번에는 Javascript에 Bit Operators를 이용하여 다양한 예제를 만들어볼까 합니다. 예를들어, * 이용하지 않고 곱셈하기, 외로운 수 찾기 알고리즘 등을 풀어볼까 합니다.

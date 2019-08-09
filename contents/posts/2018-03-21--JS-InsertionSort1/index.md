@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-03-21
 category: "Algorithm"
 tags: ['Algorithm', 'JavaScript', 'HackerRank', 'InsertionSort', '삽입정렬']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 
 안녕하세요, 설훈입니다.

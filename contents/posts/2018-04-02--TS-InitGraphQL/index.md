@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-03
 category: "GraphQL"
 tags: ['Javascript', 'Typescript', 'NodeJS', 'GraphQL']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 
 이번에 간단히 NodeJS와 GraphQL로 회사에 직원들과 책을 관리할 수 있는 프로젝트를 만들어보았습니다.

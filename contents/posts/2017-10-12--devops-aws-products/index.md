@@ -3,7 +3,7 @@ title: "[AWS] AWS Products에 대한 내용 간단히 정리하기"
 author: Seolhun
 category: "AWS"
 tags: ['AWS', 'EC2', 'S3', 'Kinesis', 'Products']
-banner: "aws.png"
+banner: "./assets/covers/aws.png"
 ---
 
 이번에는 AWS를 사용하기 전에 필요한  조사하면서 간단히 정리한 글입니다. EC2, S3 등 기본적인 서비스들은 알고 있었지만 개발을 위해 더 필요한 서비스들이 무엇이 있는지 궁금하여 간단히 정리하였습니다. AWS 공식 홈페이지에 이미 잘 정리되어있지만, 개인적으로 관심 있는 기술들을 정리하였습니다.

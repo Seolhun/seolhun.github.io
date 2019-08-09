@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-04
 category: "Javascript"
 tags: ['Javascript', 'JS', 'EventLoop', 'Web Worker', 'Stack']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 
 이번에 면접을 보면서 JS가 어떻게 Single Thread로 이벤트를 처리하는지에 대한 질문을 받고, WEb Worker라는 것에 대해서 알게 되었습니다.

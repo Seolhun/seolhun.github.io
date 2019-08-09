@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-12
 category: "WebSocket"
 tags: ['Network', 'Socket', 'WebSocket', 'SocketIO']
-banner: "websocket.png"
+banner: "./assets/covers/websocket.png"
 ---
 이번에는 `WebSocket`에 대해서 간단히 정리해볼까 합니다.
 
@@ -77,6 +77,7 @@ Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=
 
 ## 3. WebSocket의 브라우저 호환성
 이 장에서 중요한 것은 WebSocket의 브라우저 호환성 문제입니다. WebSocket의 브라우저 호환성 표를 보겠습니다.
+
 <div class='text-center'>
   <img src='/images/contents/20180413/websocket/supported-browser.png' width='100%'>
 </div>

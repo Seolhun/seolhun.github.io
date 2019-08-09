@@ -1,7 +1,7 @@
 ---
 author: Seolhun
 category: "Diary"
-banner: "logo.png"
+banner: "./assets/covers/logo.png"
 date: 2018-09-09
 title: "[Diary] 문제란 무엇인가? 어떻게 문제를 바라봐야할 것인가?"
 tags: ['diary', 'solution', 'retrospect', 'definition', 'dicision', '정의', '결정', 'develop', 'developer']

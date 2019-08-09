@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-17
 category: "Algorithm"
 tags: ['Algorithm', 'Java']
-banner: "java.jpg"
+banner: "./assets/covers/java.png"
 ---
 - [SWexpertAcademy Dallant2](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV18R8FKIvoCFAZN&categoryId=AV18R8FKIvoCFAZN&categoryType=CODE)
 - 난이도 : 5

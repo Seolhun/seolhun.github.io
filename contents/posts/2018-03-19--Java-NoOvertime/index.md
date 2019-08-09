@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-03-19
 category: "Algorithm"
 tags: ['Java', 'Algorithm', 'Programmers', '야근지수']
-banner: "java.jpg"
+banner: "./assets/covers/java.png"
 ---
 
 이번에는 Java로 Programmers의 25번 문제 야근지수를 구현해보도록 하겠습니다.

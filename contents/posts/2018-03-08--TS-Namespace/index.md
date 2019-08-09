@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-03-08
 category: "Javascript"
 tags: ['Javascript', 'Typescript', 'Namespace', 'Declare', 'Module']
-banner: "typescript.png"
+banner: "./assets/covers/typescript.png"
 ---
 
 Typescript의 라이브러리 모듈을 사용하다보면은 namespace를 자주 접하게 됩니다. 해당 module을 만들 수 있도록 도와주는 namespace에 대해 간단히 공부했습니다.

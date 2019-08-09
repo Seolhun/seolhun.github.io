@@ -1,7 +1,7 @@
 ---
 author: Seolhun
 category: "JS"
-banner: "js.png"
+banner: "./assets/covers/js.png"
 date: 2019-01-26
 title: "[JS] Reactive한 FormGroup Builder 만들어보기 - Part 1"
 description: "Builder Pattern을 이용한 monad식의 FormGroup Builder 만들어보기"

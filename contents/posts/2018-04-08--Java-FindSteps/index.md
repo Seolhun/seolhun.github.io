@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-08
 category: "Algorithm"
 tags: ['Algorithm', 'Java']
-banner: "java.jpg"
+banner: "./assets/covers/java.png"
 ---
 이번에 Codility에서 알고리즘을 풀게 될 기회를 얻었지만 너무나 많이 못풀었습니다. 아쉽고 슬프지만 앞으로도 계속 풀어나가고 연습하면 더 나아질거라고 생각합니다.
 또한, Javascript로만 풀었는데, Java로 풀어야하는 상황이라서 익숙치가 않은 것도 있었네요. Java로도 가끔씩 풀어보면서 연습해야 할 것 같습니다.

@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-06-20
 category: "React"
 tags: ['JavaScript', 'React', 'Component']
-banner: "react.png"
+banner: "./assets/covers/react.png"
 ---
 
 안녕하세요. 설훈입니다. 정말 오랜만(?)에 블로그 글을 적어보려고 합니다. 이번 내용은 간단하게 알아보는 React Coponent 종류와 차이점에 대해서 정리하고 예제를 만들어보고자 함입니다.

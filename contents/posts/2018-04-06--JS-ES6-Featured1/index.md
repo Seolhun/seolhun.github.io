@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-06
 category: "Javascript"
 tags: ['Javascript', 'ES6', 'Feature']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 
 Javascript, TypeScript 등 다양한 Javascript를 번갈아 사용하면서, ES6의 새로운 기능이 무엇인지, TypeScript만의 기능이 무엇인지 잘 구분하지 않았던 것 같습니다.

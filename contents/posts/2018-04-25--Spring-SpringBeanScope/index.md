@@ -4,7 +4,7 @@ author:  Seolhun
 date:  2018-04-25
 category: "Spring"
 tags:  ['Spring', 'Java', 'Bean', 'Scope', 'Singleton', 'Prototype']
-banner: "spring.png"
+banner: "./assets/covers/spring.png"
 ---
 오늘 N사 면접을 보면서 개인적으로 몰랐었던 부분을 몇가지 정리하는 시간을 가져볼까 합니다. Spring을 최근에 이용하지 않은지가 반년이 넘어서 가물가물해서 더 어려웠던 면접이었는데요, 변명을 뒤로하고 몰랐던 부분은 알아가는 것이 더 중요한 것이니까, 이번 기회에 관련된 질문에 대해 정리하려합니다.
 

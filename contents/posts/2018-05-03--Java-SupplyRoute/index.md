@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-05-03
 category: "Algorithm"
 tags: ['Algorithm', 'Java']
-banner: "java.jpg"
+banner: "./assets/covers/java.png"
 ---
 - [SWexpertAcademy SupplyRoute](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV15QRX6APsCFAYD&categoryId=AV15QRX6APsCFAYD&categoryType=CODE)
 - 난이도 4

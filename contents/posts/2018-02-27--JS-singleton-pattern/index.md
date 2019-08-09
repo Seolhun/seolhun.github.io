@@ -3,7 +3,7 @@ title: "[Typescript] Singleton Pattern이란?"
 author: Seolhun
 category: "Javascript"
 tags: ['Typescript', 'Singleton', 'Static', 'Private']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 
 디자인 패턴의 Singleton Pattern에 대해서 간단히 정리해보았습니다.

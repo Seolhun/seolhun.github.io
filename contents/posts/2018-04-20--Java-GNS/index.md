@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-20
 category: "Algorithm"
 tags: ['Algorithm', 'Java', 'Enum']
-banner: "java.jpg"
+banner: "./assets/covers/java.png"
 ---
 - [SWexpertAcademy GNS](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV14jJh6ACYCFAYD)
 - 난이도 3

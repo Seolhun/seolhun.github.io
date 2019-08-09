@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-03-05
 category: "Javascript"
 tags: ['Javascript', 'Typescript', 'Module', 'Pattern']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 
 Module Pattern을 공부하면서 Module Javascript의 new에 대한 개념을 더 정확히 알아야된다고 생각하여 작성하게 되었습니다.

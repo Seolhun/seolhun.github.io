@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-11
 category: "Algorithm"
 tags: ['Algorithm', 'Java']
-banner: "java.jpg"
+banner: "./assets/covers/java.png"
 ---
 - [SWexpertAcademy ManagementExercise Algorithm](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWE_ZXcqAAMDFAV2&categoryId=AWE_ZXcqAAMDFAV2&categoryType=CODE)
 - 난이도 : 3

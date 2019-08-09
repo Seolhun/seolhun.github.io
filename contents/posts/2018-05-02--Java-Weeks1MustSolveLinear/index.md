@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-05-02
 category: "Algorithm"
 tags: ['Algorithm', 'Reculsive', 'Exhaustive', 'Linear']
-banner: "java.jpg"
+banner: "./assets/covers/java.png"
 ---
 알고리즘 문제해결 전략을 정리하면서 간단한 문제도 함께 풀어보고자 합니다. 이번에는 알고리즘 문제해결 전략의 142 ~ 172 Page 에 해당되며, 필요한 부분을 정리하고 관련된 문제를 코드와 함께 공유해보고자 합니다.
 

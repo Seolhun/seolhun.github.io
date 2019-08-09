@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-15
 category: "Algorithm"
 tags: ['Algorithm', 'Java']
-banner: "java.jpg"
+banner: "./assets/covers/java.png"
 ---
 - [SWexpertAcademy 비밀번호](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV14_DEKAJcCFAYD)
 - 난이도 3

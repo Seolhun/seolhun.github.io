@@ -4,7 +4,7 @@ author: Seolhun
 date : 2018-03-24
 category: "Algorithm"
 tags : ['Algorithm', 'JavaScript', 'HackerRank', 'Sort', 'Counting']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 
 저번 시간에 Counting Sort Part 1을 풀어보았습니다.

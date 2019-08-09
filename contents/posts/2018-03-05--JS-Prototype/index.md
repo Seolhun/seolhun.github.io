@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-03-05
 category: "Javascript"
 tags: ['Prototype', 'Javascript', 'Typescript', 'Class', 'Module']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 
 Typescript의 Class를 사용하면서 Javascript의 Prototype에 대한 개념이 중요할 것으로 판단했습니다. 그리고, Javascript의 Module Pattern을 공부하면서 Typescript의 접근제한자 개념이 어떻게 작동되는지에 대해서 알아보고자 합니다.

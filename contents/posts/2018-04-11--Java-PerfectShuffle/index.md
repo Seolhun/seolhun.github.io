@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-11
 category: "Algorithm"
 tags: ['Algorithm', 'Java']
-banner: "java.jpg"
+banner: "./assets/covers/java.png"
 ---
 - [SWexpertAcademy Perfect Shuffle](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWGsRbk6AQIDFAVW&categoryId=AWGsRbk6AQIDFAVW&categoryType=CODE)categoryId=AV14vXUqAGMCFAYD&categoryType=CODE) 
 - 난이도 : 3

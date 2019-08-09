@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-07
 category: "Javascript"
 tags: ['Javascript', 'ES6', 'Feature']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 이번에는 저번 시간에 작성한 ES6 Featur Part1에 이어 Part 2에 해당되는 내용을 정리해볼까 합니다. 간단히 정리하였지만 필요한 기능들을 숙지하면 큰 도움이 될 것 같습니다.
 

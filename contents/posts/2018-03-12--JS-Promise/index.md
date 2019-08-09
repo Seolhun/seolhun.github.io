@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-03-12
 category: "TypeScript"
 tags: ['Promise', 'Async']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 
 TypeScript 환경에서 Promise 사용법을 알아보고 테스트코드를 작성해보고자 합니다. 문제가 되는 부분이나, 도움이 되는 것을 알려주시면 감사합니다.

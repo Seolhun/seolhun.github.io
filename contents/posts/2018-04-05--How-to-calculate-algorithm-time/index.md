@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-05
 category: "Algorithm"
 tags: ['Algorithm', 'Big-O']
-banner: "algorithm.jpeg"
+banner: "./assets/covers/algorithm.jpeg"
 ---
 
 이번에는 알고리즘을 풀면서 시간복잡도를 표기하는 Big-O 표기법에 대해 잘 알지 못해 이를 정리해보고자 합니다.

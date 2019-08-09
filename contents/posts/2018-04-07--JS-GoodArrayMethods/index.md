@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-07
 category: "Algorithm"
 tags: ['Algorithm', 'JS', 'Anti Pattern', 'Methods']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 이번에는 알고리즘을 풀 때, 배열에 필요한 메소드들을 정리해볼까 합니다. 이러한 메소드들을 숙지하면 안티패턴으로 또 구성할 필요없이 잘 짜여진 코드들을 이용할 수 있습니다.
 

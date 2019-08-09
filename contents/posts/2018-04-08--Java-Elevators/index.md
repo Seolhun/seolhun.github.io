@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-08
 category: "Algorithm"
 tags: ['Algorithm', 'Java']
-banner: "java.jpg"
+banner: "./assets/covers/java.png"
 ---
 이번에 Codility에서 Elevator로 사람을 운반하는 알고리즘을 만드는 문제입니다. Queue를 사용해야 할 것으로 보이며 Queue를 이용하여 풀어보겠습니다.
 

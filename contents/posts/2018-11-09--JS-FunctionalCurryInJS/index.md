@@ -5,7 +5,7 @@ author: Seolhun
 date: 2018-11-09
 category: "JS"
 tags: ['JS', 'Functional', 'Currying']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 
 ## What is currying

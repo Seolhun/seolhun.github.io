@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-22
 category: "Algorithm"
 tags: ['Algorithm', 'Java', 'Sort', 'Quick', 'Merge', 'Insertion', 'Selection', 'Bubble', 'Counting']
-banner: "java.jpg"
+banner: "./assets/covers/java.png"
 ---
 저번에 개인적으로 구현한 QuickSort가 있지만, 이번에는 `Bubble, Insertion, Selection, Merge, Counting, Quick 총 6가지`에 대한 정렬에 대해서 구현해볼까 합니다. 각 정렬에 대한 정의와 시간복잡도를 생각하면서 고려해보겠습니다.
 

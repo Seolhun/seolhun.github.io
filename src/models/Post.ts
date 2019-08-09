@@ -1,4 +1,4 @@
-import Frontmatter from './Frontmatter';
+import Frontmatter from "./Frontmatter";
 
 interface Post {
   id: number;

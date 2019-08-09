@@ -1,7 +1,7 @@
 ---
 author: Seolhun
 category: "TS"
-banner: "typescript.png"
+banner: "./assets/covers/typescript.png"
 date: 2099-01-26
 title: ""
 description: ""

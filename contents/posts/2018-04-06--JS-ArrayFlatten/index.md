@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-06
 category: "Algorithm"
 tags: ['Algorithm', 'Javascript', 'Javascript']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 
 이번에 렌딧 면접간 모든 배열의 값을 출력하는 알고리즘이었습니다. 어려운 문제는 아니었으나 제가 넓은 사고를 하지 못해 쉽게는 풀지 못했던 것 같습니다. 이번 알고리즘을 통해 ES6의 Rest 기능으로 더 많은 알고리즘의 기회가 생겼음을 알았고 이와 관련하여 글을 작성해보고자 합니다.

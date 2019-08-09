@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-20
 category: "Network"
 tags: ['Network', 'Http', 'Https', 'Packet', 'TLS', 'SSL']
-banner: "http.png"
+banner: "./assets/covers/http.png"
 ---
 이번에는 Http와 Https에 대한 정의와 간단한 차이점에 대해서 정리해보고자 합니다.
 

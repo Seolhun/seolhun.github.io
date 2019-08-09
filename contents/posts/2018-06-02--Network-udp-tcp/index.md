@@ -3,7 +3,7 @@ title: "[Network] IP, UDP, TCP란 무엇인가?"
 subTitle: "HTTP 이해를 위한 기본 네트워크 지식, IP, UDP, TCP"
 author: Seolhun
 category: "Network"
-banner: "network.png"
+banner: "./assets/covers/network.png"
 ---
 
 HTTP의 관심을 갖고 책을 읽으면서 학습을 하고 있지만, Network에 더 근본적인 IP와 UDP, TCP에 대해서 이해해야 할 필요가 있다고 생각하여 적게되었습니다. 관련 사항에 간단하게 읽어본적은 있지만 읽어보는 것과 이를 숙지하기 위해 반복적으로 학습하는 것은 큰차이가 있기에 이번 시간을 계기로 이와 관련한 내용을 숙지하고자 합니다.
@@ -14,7 +14,7 @@ IP에서 인터넷(the Internet) 이름자체가 'inter-' 라는 접두사와 '�
 IP라는 이름처럼 어디에서든 간단하게 IP만 올릴 수 있으면 어떤 네트워크든 연결할 수 있습니다. 그래서, IP는 아래 그림처럼 모래 시계의 허리에 비유하여 설명할 수 있습니다. 그림처럼 IP 아래로는 네트워크를 만들 수 있는 다양한 하드웨어 기술 (Ethernet, WiFi 등...) 이 존재하고 있고, IP 위로는 다양한 응용 서비스(HTTP, FTP 등...)들이 동작할 수 있습니다. 간단한 예로 컴퓨터에 연결하는 랜선은 Ethernet, 모바일로 무선 네트워크를 이용하는 것은 WiFI, 개발 간 API를 호출할 때는 HTTP를 이영할 수 있는 것입니다. 이처럼 IP를 기반으로하면 어떠한 디바이스와 서버, 혹은 사용자가 사용해도 TCP/UDP와 관련된 네트워크 기능들을 큰 어려움없이 사용할 수 있습니다.
 
 <div class='text-center'>
-  <img src="/images/contents/20180426/network/ip.jpg" width="100%">
+  <img src="/images/contents/20180426/network/ip.png" width="100%">
 </div>
 
 IP의 특징은 연결을 보장하기 위한 노력은 하지만 100% 보장해주지 않습니다. 이를 `Best-effort`라고 표현하는데, IP 가 best-effort가 될 수 밖에 없는 이유는 서로 다른 특성의 여러 네트워크를 연동해야 되기 때문입니다.

@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-19
 category: "DataStructure"
 tags: ['DataStructure', 'Java', 'ArrayList', 'LinkedList']
-banner: "java.jpg"
+banner: "./assets/covers/java.png"
 ---
 이번에는 간단하게 코드를 보면서 `ArrayList`와 `LinkedList`에 차이점을 이해하고 간단히도 구해해보는 시간을 가져보겠습니다.
 

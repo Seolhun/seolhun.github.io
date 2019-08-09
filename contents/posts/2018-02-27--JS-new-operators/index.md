@@ -3,7 +3,7 @@ title: "[Javascript/Typescript] JavaScript new, constructor란?"
 author: Seolhun
 category: "Javascript"
 tags: ['New', 'Constructor', 'Singleton']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 
 Singleton 디자인 패턴을 사용하면서 Javascript의 new에 대한 개념을 더 정확히 알아야된다고 생각하여 작성하게 되었습니다.

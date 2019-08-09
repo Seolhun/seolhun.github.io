@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-03-02
 category: "Jenkins"
 tags: ['CI', 'Jenkins', 'Test', 'Pipeline', 'Devops']
-banner: "jenkins.png"
+banner: "./assets/covers/jenkins.png"
 ---
 > Continuous Integration doesn’t get rid of bugs, but it does make them dramatically easier to find and remove. - Martin Fowler
 

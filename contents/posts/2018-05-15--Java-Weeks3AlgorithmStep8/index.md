@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-05-15
 category: "Algorithm"
 tags: ['Algorithm', 'Java']
-banner: "java.jpg"
+banner: "./assets/covers/java.png"
 ---
 이번 스터디 3주차로 [백준 알고리즘 단계별 문제풀기 : Step8](https://www.acmicpc.net/step/8)를 같이 진행하였습니다. 이전 문자열 사용하기에 비해서 난이도가 많이 올라갔다는 것을 체감할 수 있었습니다. 일정한 패턴이란게 테스트하기가 좀 어렵다는 생각을 가졌는데 이와 관련한 문제 풀이와 내용에 대해서 정리해볼까 합니다.
 

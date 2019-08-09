@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-04-07
 category: "Algorithm"
 tags: ['Algorithm', 'Javascript', 'Javascript']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 이번에는 Java로 000 문제 야근지수를 구현해보도록 하겠습니다.
 []()

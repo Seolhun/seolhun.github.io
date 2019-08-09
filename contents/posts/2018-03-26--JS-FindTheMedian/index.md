@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-03-26
 category: "Algorithm"
 tags: ['Algorithm', 'JavaScript', 'HackerRank', 'Sort', 'FindTheMedian']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 
 저번 시간에 ClosestNumbers 문제를 풀어보았습니다.

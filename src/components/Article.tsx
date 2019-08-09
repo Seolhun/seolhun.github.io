@@ -39,7 +39,7 @@ export class Article extends React.PureComponent<Props> {
     return (
       <Post>
         <Title>
-          <Link to={`/blogs/${slug}`}>{title}</Link>
+          <Link to={`/contents/${slug}`}>{title}</Link>
         </Title>
         <Subline>
           {date} &mdash; {timeToRead} Min Read &mdash; In

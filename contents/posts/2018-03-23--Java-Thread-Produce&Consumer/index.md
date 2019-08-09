@@ -4,7 +4,7 @@ author: Seolhun
 date: 2018-03-23
 category: "Java"
 tags: ['Java', 'Thread', 'Qeue', 'Producer', 'Consumer', 'Pattern', 'Concurrency']
-banner: "java.jpg"
+banner: "./assets/covers/java.png"
 ---
 
 안녕하세요, 설훈입니다.

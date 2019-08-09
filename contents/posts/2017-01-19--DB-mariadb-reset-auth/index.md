@@ -4,7 +4,7 @@ subTitle: "MariaDB에 root password 초기화"
 author: "Seolhun"
 category: "Database"
 tags: ['Database', 'Mariadb', 'Auth']
-banner: "mariadb.png"
+banner: "./assets/covers/mariadb.png"
 ---
 
 안녕하세요, 설훈입니다.

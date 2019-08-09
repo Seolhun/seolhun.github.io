@@ -3,7 +3,7 @@ title: "[Javascript/Typescript] Static이란?"
 author: Seolhun
 category: "Javascript"
 tags: ['Prototype', 'Javascript', 'Typescript', 'Class', 'Module']
-banner: "javascript.jpeg"
+banner: "./assets/covers/js.png"
 ---
 
 Singleton Pattern을 구현하면서 static이 Javascript에서는 어떻게 작동되는지 궁금하여 간단히 알아보았습니다.

@@ -3,7 +3,7 @@ title: "[Java/Collection] Java Collection Framework에 대한 이해를 통해 D
 author: Seolhun
 category: "Datastructure"
 tags:  ['Datastructure', 'Java', 'Collection']
-banner: "java.jpg"
+banner: "./assets/covers/java.png"
 ---
 
 안녕하세요, 설훈입니다.
