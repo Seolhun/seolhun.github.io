@@ -5,13 +5,19 @@ import { Link, graphql } from "gatsby";
 import { Jumbotron } from "@seolhun/localize-components";
 import { Button } from "@seolhun/localize-components-atomic";
 
-import { Layout, Wrapper } from "../components";
+
+import {
+  Container,
+} from "../components";
+import {
+  Layout,
+} from "../containers";
 import config from "../../config/SiteConfig";
 
 const IndexPage = () => {
   return (
     <Layout>
-      <Wrapper isFullWidth={true}>
+      <Container isFullWidth>
         <Helmet title={`Homepage | ${config.siteTitle}`} />
         <Jumbotron>
           <Link to="/contact">
@@ -27,7 +33,7 @@ const IndexPage = () => {
             <Button>Categories</Button>
           </Link>
         </Jumbotron>
-      </Wrapper>
+      </Container>
     </Layout>
   );
 };

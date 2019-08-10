@@ -1,36 +1,36 @@
-import {
-  Header,
-  Footer,
-} from './layout';
-import Article from './article';
-import Content from './content';
-import Wrapper from './wrapper';
+import { Header, Footer } from './layout';
 import { PrevNext, Pagination } from './pagination';
-import SEO from './seo';
 import { SectionTitle, Title } from './typo';
+import Article from './article';
+import Container from './container';
+import Content from './content';
+import SEO from './seo';
+import Wrapper from './wrapper';
 
 export {
   Article,
-  Header,
-  Footer,
+  Container,
   Content,
-  Wrapper,
-  SEO,
-  PrevNext,
+  Footer,
+  Header,
   Pagination,
+  PrevNext,
   SectionTitle,
+  SEO,
   Title,
+  Wrapper,
 }
 
 export default {
   Article,
-  Header,
-  Footer,
+  Container,
   Content,
-  Wrapper,
-  SEO,
-  PrevNext,
+  Footer,
+  Header,
   Pagination,
+  PrevNext,
   SectionTitle,
+  SEO,
   Title,
+  Wrapper,
 }

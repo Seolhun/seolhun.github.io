@@ -7,10 +7,10 @@ import kebabCase from "lodash/kebabCase";
 import Post from "../../models/Post";
 
 interface PaginationWrapperProps {
-
+  theme?: any
 }
 
-const Wrapper = styled.div(({ theme }) => {
+const PaginationWrapper = styled.div<PaginationWrapperProps>(({ theme }) => {
   return {
     display: 'flex',
     margin: '6rem auto 0 auto',
@@ -21,26 +21,33 @@ const Wrapper = styled.div(({ theme }) => {
     },
     justifyItems: 'center',
   }
+});
 
-})
+interface PaginationItemProps {
+  theme?: any
+}
 
-const Prev = styled.div`
-  span {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    color: ${props => props.theme.colors.grey.light};
+const Prev = styled.div<PaginationItemProps>(({ theme }) => {
+  return {
+    span: {
+      textㅆransform: 'uppercase',
+      fontㄴize: '0.8rem',
+      color: theme.colors.grey.light,
+    }
+  };
+});
+
+const Next = styled.div<PaginationItemProps>(({ theme }) => {
+  return {
+    marginLeft: 'auto',
+    textAlign: 'right',
+    span: {
+      textTransform: 'uppercase',
+      fontSize: '0.8rem',
+      color: theme.colors.grey.light,
+    }
   }
-`;
-
-const Next = styled.div`
-  margin-left: auto;
-  text-align: right;
-  span {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    color: ${props => props.theme.colors.grey.light};
-  }
-`;
+});
 
 interface Props {
   next: Post;
@@ -49,7 +56,7 @@ interface Props {
 
 const PrevNext = ({ prev, next }: Props) => {
   return (
-    <Wrapper>
+    <PaginationWrapper>
       {prev && (
         <Prev>
           <span>Previous</span>
@@ -66,7 +73,7 @@ const PrevNext = ({ prev, next }: Props) => {
           </Link>
         </Next>
       )}
-    </Wrapper>
+    </PaginationWrapper>
   );
 };
 

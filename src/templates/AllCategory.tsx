@@ -4,13 +4,15 @@ import { Link } from "gatsby";
 import kebabCase from "lodash/kebabCase";
 
 import {
-  Layout,
-  Wrapper,
+  Container,
   Header,
+  Title,
   SectionTitle,
-  Content,
-  Title
+  Content
 } from "../components";
+import {
+  Layout,
+} from "../containers";
 import config from "../../config/SiteConfig";
 import PageProps from "../models/PageProps";
 
@@ -27,7 +29,7 @@ export default class AllCategoryTemplate extends React.PureComponent<
             <Link to="/">{config.siteTitle}</Link>
             <SectionTitle>Categories</SectionTitle>
           </Header>
-          <Wrapper>
+          <Container>
             <Content>
               {categories.map((category, index: number) => (
                 <Title key={index}>
@@ -37,7 +39,7 @@ export default class AllCategoryTemplate extends React.PureComponent<
                 </Title>
               ))}
             </Content>
-          </Wrapper>
+          </Container>
         </Layout>
       );
     }

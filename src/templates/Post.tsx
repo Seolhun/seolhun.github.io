@@ -6,7 +6,7 @@ import styled from "@emotion/styled";
 import kebabCase from "lodash/kebabCase";
 
 import {
-  Wrapper,
+  Container,
   Header,
   SEO,
   PrevNext,
@@ -55,7 +55,7 @@ const PostPage = ({ data, pathContext }: Props) => {
               </Link>
             </div>
           </Header>
-          <Wrapper>
+          <Container>
             <Content>
               <PostContent dangerouslySetInnerHTML={{ __html: post.html }} />
               {post.frontmatter.tags && (
@@ -71,7 +71,7 @@ const PostPage = ({ data, pathContext }: Props) => {
               )}
               <PrevNext prev={prev} next={next} />
             </Content>
-          </Wrapper>
+          </Container>
         </>
       )}
     </Layout>

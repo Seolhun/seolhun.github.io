@@ -1,9 +1,18 @@
 import React from "react";
 import Helmet from "react-helmet";
-
-import { Content, Header, Layout, Wrapper, SectionTitle } from "../components";
-import config from "../../config/SiteConfig";
 import { Link } from "gatsby";
+
+import {
+  Container,
+  Header,
+  SectionTitle,
+  Content
+} from "../components";
+import {
+  Layout,
+} from "../containers";
+
+import config from "../../config/SiteConfig";
 
 const NotFoundPage = () => {
   return (
@@ -13,11 +22,11 @@ const NotFoundPage = () => {
         <Link to="/">{config.siteTitle}</Link>
         <SectionTitle>NOT FOUND</SectionTitle>
       </Header>
-      <Wrapper>
+      <Container>
         <Content>
           <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
         </Content>
-      </Wrapper>
+      </Container>
     </Layout>
   );
 };

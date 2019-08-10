@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 import kebabCase from "lodash/kebabCase";
 
 import {
-  Wrapper,
+  Container,
   Header,
   Title,
   SectionTitle,
@@ -29,7 +29,7 @@ export default class AllTagTemplate extends React.PureComponent<PageProps> {
             <Link to="/">{config.siteTitle}</Link>
             <SectionTitle>Tags</SectionTitle>
           </Header>
-          <Wrapper>
+          <Container>
             <Content>
               {tags.map((tag, index: number) => (
                 <Title key={index}>
@@ -37,7 +37,7 @@ export default class AllTagTemplate extends React.PureComponent<PageProps> {
                 </Title>
               ))}
             </Content>
-          </Wrapper>
+          </Container>
         </Layout>
       );
     }

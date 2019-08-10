@@ -8,8 +8,6 @@ import { Footer } from '../../components';
 import SiteConfig from '../../../config/SiteConfig';
 import Theme from '../../../config/Theme';
 
-import "./layout.scss";
-
 class Layout extends React.PureComponent<{}> {
   public render() {
     const { children } = this.props;
@@ -19,7 +17,7 @@ class Layout extends React.PureComponent<{}> {
         query={graphql`
           query LayoutQuery {
             site {
-              buildTime(formatString: "DD.MM.YYYY")
+              buildTime(formatString: "YYYY-MM-DD")
             }
           }
         `}

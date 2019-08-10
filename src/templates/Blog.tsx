@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import { Link, graphql } from "gatsby";
 
 import {
-  Wrapper,
+  Container,
   Header,
   Article,
   Pagination,
@@ -36,7 +36,7 @@ const BlogPage = ({ pageContext, data }: Props) => {
         <Link to="/">{config.siteTitle}</Link>
         <SectionTitle>Latest stories ({totalCount})</SectionTitle>
       </Header>
-      <Wrapper>
+      <Container>
         <Content>
           {edges.map(post => (
             <Article
@@ -56,7 +56,7 @@ const BlogPage = ({ pageContext, data }: Props) => {
             url={"contents"}
           />
         </Content>
-      </Wrapper>
+      </Container>
     </Layout>
   );
 };

@@ -3,14 +3,15 @@ import Link from "gatsby-link";
 import kebabCase from "lodash/kebabCase";
 
 import {
-  Article,
-  Content,
+  Container,
   Header,
-  Layout,
+  Article,
   SectionTitle,
-  Subline,
-  Wrapper
+  Content
 } from "../components";
+import {
+  Layout,
+} from "../containers";
 import Helmet from "react-helmet";
 import config from "../../config/SiteConfig";
 import PageProps from "../models/PageProps";
@@ -28,11 +29,11 @@ const TagTemplate = ({ pathContext }: PageProps) => {
       <Header>
         <Link to="/">{config.siteTitle}</Link>
         <SectionTitle>Tag &ndash; {tagName}</SectionTitle>
-        <Subline sectionTitle light={true}>
+        <div>
           {subline} (See <Link to="/tags">all tags</Link>)
-        </Subline>
+        </div>
       </Header>
-      <Wrapper>
+      <Container>
         <Content>
           {posts.map((post: any, index: number) => (
             <Article
@@ -47,7 +48,7 @@ const TagTemplate = ({ pathContext }: PageProps) => {
             />
           ))}
         </Content>
-      </Wrapper>
+      </Container>
     </Layout>
   );
 };

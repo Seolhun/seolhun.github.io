@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 import kebabCase from "lodash/kebabCase";
 
 import {
-  Wrapper,
+  Container,
   Header,
   Article,
   SectionTitle,
@@ -34,7 +34,7 @@ const Category = ({ pathContext }: PageProps) => {
           {subline} (See <Link to="/categories">all categories</Link>)
         </div>
       </Header>
-      <Wrapper>
+      <Container>
         <Content>
           {posts.map((post: any, index) => (
             <Article
@@ -49,7 +49,7 @@ const Category = ({ pathContext }: PageProps) => {
             />
           ))}
         </Content>
-      </Wrapper>
+      </Container>
     </Layout>
   );
 };
