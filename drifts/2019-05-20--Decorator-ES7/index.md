@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-category: "Diary"
+category: "Story"
 banner: "./assets/covers/logo.png"
 date: 2019-05-93
 title: "[]"

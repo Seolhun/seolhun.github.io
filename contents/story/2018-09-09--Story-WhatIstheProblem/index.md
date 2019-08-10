@@ -1,11 +1,11 @@
 ---
 author: Seolhun
 banner: "./assets/covers/logo.png"
-category: "Diary"
+category: "Story"
 date: 2018-09-09
 subTitle: ""
-tags: ['diary', 'solution', 'retrospect', 'definition', 'dicision', '정의', '결정', 'develop', 'developer']
-title: "[Diary] 문제란 무엇인가? 어떻게 문제를 바라봐야할 것인가?"
+tags: ['story', 'solution', 'retrospect', 'definition', 'dicision', '정의', '결정', 'develop', 'developer']
+title: "[Story] 문제란 무엇인가? 어떻게 문제를 바라봐야할 것인가?"
 ---
 # 문제란 무엇인가?
 우리는 정말로 문제를 올바르게 바라보고 있는가?
