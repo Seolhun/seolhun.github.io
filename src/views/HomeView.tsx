@@ -5,7 +5,7 @@ import { Layout, Header, SectionTitle } from "../components";
 
 import config from "../../config/SiteConfig";
 
-const ContactPage = () => {
+const HomeView = () => {
   return (
     <Layout>
       <Helmet title={`Contact | ${config.siteTitle}`} />
@@ -17,4 +17,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default HomeView;
