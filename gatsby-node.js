@@ -4,7 +4,12 @@ const config = require('./config/SiteConfig').default;
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === 'MarkdownRemark' && _.has(node, 'frontmatter') && _.has(node.frontmatter, 'title')) {
+
+  const isMarkdown = node.internal.type === 'MarkdownRemark';
+  const hasFrontMatter = _.has(node, 'frontmatter');
+  const hasTitle = _.has(node.frontmatter, 'title');
+
+  if (isMarkdown && hasFrontMatter && hasTitle) {
     const slug = `${_.kebabCase(node.frontmatter.title)}`;
     createNodeField({ node, name: 'slug', value: slug });
   }
@@ -133,7 +138,7 @@ exports.createPages = ({ actions, graphql }) => {
 
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
-        path: i === 0 ? `/blogs` : `/blogs/${i + 1}`,
+        path: i === 0 ? `/contents` : `/contents/${i + 1}`,
         component: path.resolve('./src/templates/Blog.tsx'),
         context: {
           limit: postsPerPage,
@@ -151,7 +156,7 @@ exports.createPages = ({ actions, graphql }) => {
       const prev = index === posts.length - 1 ? null : posts[index + 1].node;
 
       createPage({
-        path: `/blogs/${_.kebabCase(node.frontmatter.title)}`,
+        path: `/contents/${_.kebabCase(node.frontmatter.title)}`,
         component: postTemplate,
         context: {
           slug: _.kebabCase(node.frontmatter.title),

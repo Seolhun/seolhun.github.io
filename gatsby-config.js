@@ -28,15 +28,20 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'post',
-        path: `${__dirname}/blogs`,
+        path: `${__dirname}/contents/posts`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'diary',
+        path: `${__dirname}/contents/diary`,
       },
     },
     {
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {
         id: config.Google_Tag_Manager_ID,
-        // Include GTM in development.
-        // Defaults to false meaning GTM will only be loaded in production.
         includeInDevelopment: false,
       },
     },
