@@ -1,10 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { Link, graphql } from "gatsby";
-
-import { Jumbotron } from "@seolhun/localize-components";
-import { Button } from "@seolhun/localize-components-atomic";
-
+import { graphql } from "gatsby";
 
 import {
   Container,
@@ -14,25 +10,20 @@ import {
 } from "../containers";
 import config from "../../config/SiteConfig";
 
+import HomeView from "../views/HomeView";
+import StoryView from "../views/StoryView";
+import TechView from "../views/TechView";
+import ContactView from "../views/ContactView";
+
 const IndexPage = () => {
   return (
     <Layout>
       <Container isFullWidth>
         <Helmet title={`Homepage | ${config.siteTitle}`} />
-        <Jumbotron>
-          <Link to="/contact">
-            <Button>Contact</Button>
-          </Link>
-          <Link to="/contents">
-            <Button>Contents</Button>
-          </Link>
-          <Link to="/tags">
-            <Button>Tags</Button>
-          </Link>
-          <Link to="/categories">
-            <Button>Categories</Button>
-          </Link>
-        </Jumbotron>
+        <HomeView />
+        <StoryView />
+        <TechView />
+        <ContactView />
       </Container>
     </Layout>
   );

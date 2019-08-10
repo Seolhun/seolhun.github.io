@@ -1,19 +1,17 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { Link } from "gatsby";
-import { Layout, Header, SectionTitle } from "../components";
+import React, { useEffect } from "react";
 
-import config from "../../config/SiteConfig";
+import AOS from 'aos';
+import AOSSection from '../components/aos';
 
 const ContactView = () => {
+  useEffect(() => {
+    AOS.init();
+  });
+
   return (
-    <Layout>
-      <Helmet title={`Contact | ${config.siteTitle}`} />
-      <Header>
-        <Link to="/">{config.siteTitle}</Link>
-        <SectionTitle uppercase={true}>Contact</SectionTitle>
-      </Header>
-    </Layout>
+    <AOSSection id='ContactView' data-aos='fade-in'>
+      ContactView
+    </AOSSection>
   );
 };
 
