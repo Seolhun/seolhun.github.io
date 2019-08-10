@@ -23,8 +23,9 @@ export default {
   manifestThemeColor: "#3498DB",
   manifestDisplay: "standalone",
   // Social media
-  siteFBAppID: "123456789",
-  Google_Tag_Manager_ID: "GTM-XXXXXXX",
+  siteFBAppID: "543531359431658",
+  Google_Analytics_ID: "115545667",
+  Google_Tag_Manager_ID: "GTM-MKZCXJQ",
   github: "https://github.com/Seolhun",
   authorSocialLinks: [
     {

@@ -39,6 +39,23 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: config.Google_Analytics_ID,
+        head: false,
+        anonymize: true,
+        respectDNT: true,
+        exclude: [],
+        pageTransitionDelay: 0,
+        optimizeId: "YOUR_GOOGLE_OPTIMIZE_TRACKING_ID",
+        experimentId: "YOUR_GOOGLE_EXPERIMENT_ID",
+        variationId: "YOUR_GOOGLE_OPTIMIZE_VARIATION_ID",
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        cookieDomain: config.siteUrl,
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {
         id: config.Google_Tag_Manager_ID,
