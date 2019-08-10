@@ -12,9 +12,15 @@ const HomeView = () => {
   });
 
   return (
-    <AOSSection id='HomeView' data-aos='fade-in'>
-      HomeView
-      <div>
+    <AOSSection
+      id='HomeView'
+      headerImgSrc={"https://maxcdn.icons8.com/app/uploads/2016/03/material-1-1024x576.jpg"}
+    >
+      <div
+        data-aos='fade-up'
+        data-aos-delay="500"
+      >
+        HomeView
         <Link to='/contact'>
           <Button>Contact</Button>
         </Link>

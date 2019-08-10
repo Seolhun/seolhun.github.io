@@ -9,8 +9,17 @@ const StoryView = () => {
   })
 
   return (
-    <AOSSection id='StoryView' data-aos='fade-in'>
-      StoryView
+    <AOSSection
+      id='StoryView'
+      data-aos='fade-in'
+      headerImgSrc={"https://maxcdn.icons8.com/app/uploads/2016/03/material-1-1024x576.jpg"}
+    >
+      <div
+        data-aos='fade-up'
+        data-aos-delay="350"
+      >
+        StoryView
+      </div>
     </AOSSection>
   );
 };
