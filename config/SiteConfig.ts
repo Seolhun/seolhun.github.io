@@ -46,5 +46,5 @@ export default {
   // Settings for typography.ts
   headerFontFamily: "Bitter",
   bodyFontFamily: "Open Sans",
-  baseFontSize: "18px"
+  baseFontSize: "14px"
 };

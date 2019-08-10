@@ -19,6 +19,10 @@ const AOSWrapper = styled.section({
   flex: '0 100%',
   width: '100%',
   height: '100vh',
+
+  [`@media ${media.phone}`]: {
+    flexDirection: 'column',
+  }
 });
 
 const AOSHeader = styled.div({
@@ -29,7 +33,7 @@ const AOSHeader = styled.div({
 
   [`@media ${media.phone}`]: {
     display: 'flex',
-    flex: '0 100%',
+    flex: `0 ${HEADER_MOBILE_HEIGHT}%`,
     width: '100%',
     height: `${HEADER_MOBILE_HEIGHT}%`,
   }
@@ -38,6 +42,8 @@ const AOSHeader = styled.div({
 const AOSHeaderImage = styled.img({
   width: '100%',
   height: '100%',
+  margin: 0,
+  padding: 0,
 });
 
 const AOSContent = styled.div({
@@ -45,11 +51,17 @@ const AOSContent = styled.div({
   flex: `0 ${100 - HEADER_WIDTH}%`,
   width: `${100 - HEADER_WIDTH}%`,
 
+  alignItems: 'center',
+  padding: '1em 2em',
+
   [`@media ${media.phone}`]: {
     display: 'flex',
-    flex: '0 100%',
+    flex: `0 ${100 - HEADER_MOBILE_HEIGHT}%`,
     width: '100%',
     height: `${100 - HEADER_MOBILE_HEIGHT}%`,
+
+    alignItems: 'flex-start',
+    padding: '0.5em 1em',
   }
 });
 
