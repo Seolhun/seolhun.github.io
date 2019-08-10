@@ -2,23 +2,26 @@ import React from "react";
 import Helmet from "react-helmet";
 import { Link, graphql } from "gatsby";
 
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import kebabCase from "lodash/kebabCase";
 
 import {
-  Layout,
   Wrapper,
   Header,
-  Subline,
   SEO,
   PrevNext,
   SectionTitle,
   Content
 } from "../components";
+import {
+  Layout,
+} from "../containers";
+
 import config from "../../config/SiteConfig";
-import "../utils/prismjs-theme.css";
 import PathContext from "../models/PathContext";
 import Post from "../models/Post";
+
+import "../utils/prismjs-theme.css";
 
 const PostContent = styled.div`
   margin-top: 4rem;
@@ -44,19 +47,19 @@ const PostPage = ({ data, pathContext }: Props) => {
           <Header banner={post.frontmatter.banner}>
             <Link to="/">{config.siteTitle}</Link>
             <SectionTitle>{post.frontmatter.title}</SectionTitle>
-            <Subline light={true}>
+            <div>
               {post.frontmatter.date} &mdash; {post.timeToRead} Min Read &mdash;
               In{" "}
               <Link to={`/categories/${kebabCase(post.frontmatter.category)}`}>
                 {post.frontmatter.category}
               </Link>
-            </Subline>
+            </div>
           </Header>
           <Wrapper>
             <Content>
               <PostContent dangerouslySetInnerHTML={{ __html: post.html }} />
-              {post.frontmatter.tags ? (
-                <Subline>
+              {post.frontmatter.tags && (
+                <div>
                   Tags: &#160;
                   {post.frontmatter.tags.map((tag, i) => (
                     <Link key={i} to={`/tags/${kebabCase(tag)}`}>
@@ -64,8 +67,8 @@ const PostPage = ({ data, pathContext }: Props) => {
                       {i < post.frontmatter.tags.length - 1 ? `, ` : ``}
                     </Link>
                   ))}
-                </Subline>
-              ) : null}
+                </div>
+              )}
               <PrevNext prev={prev} next={next} />
             </Content>
           </Wrapper>

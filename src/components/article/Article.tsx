@@ -1,29 +1,8 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import kebabCase from "lodash/kebabCase";
-
-import { Subline } from "./Subline";
-
-const Post = styled.article`
-  display: flex;
-  flex-direction: column;
-  margin-top: 3.5rem;
-  margin-bottom: 3.5rem;
-`;
-
-const Title = styled.h2`
-  position: relative;
-  text-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-  margin-bottom: 0.75rem;
-`;
-
-const Excerpt = styled.p`
-  grid-column: -1 / 1;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-`;
 
 interface Props {
   title: string;
@@ -35,7 +14,26 @@ interface Props {
   banner?: string;
 }
 
-export const Article = ({
+const Post = styled.article({
+  display: 'flex',
+  flexDirection: 'column',
+  marginTop: '3.5rem',
+  marginBottom: '3.5rem',
+});
+
+const Title = styled.h2({
+  position: 'relative',
+  textShadow: '0 12px 30px rgba(0, 0, 0, 0.15)',
+  marginBottom: '0.75rem',
+});
+
+const Excerpt = styled.p({
+  gridColumn: -1 / 1,
+  marginTop: '1rem',
+  marginBottom: '1rem',
+});
+
+const Article = ({
   title,
   date,
   excerpt,
@@ -49,10 +47,12 @@ export const Article = ({
     <Title>
       <Link to={`/contents/${slug}`}>{title}</Link>
     </Title>
-    <Subline>
+    <div>
       {date} &mdash; {timeToRead} Min Read &mdash; In
       <Link to={`/categories/${kebabCase(category)}`}> {category}</Link>
-    </Subline>
+    </div>
     <Excerpt>{excerpt}</Excerpt>
   </Post>
 );
+
+export default Article;

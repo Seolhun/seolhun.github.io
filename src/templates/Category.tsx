@@ -2,17 +2,19 @@ import React from "react";
 import Helmet from "react-helmet";
 import { Link } from "gatsby";
 
+import kebabCase from "lodash/kebabCase";
+
 import {
-  Layout,
   Wrapper,
   Header,
-  Subline,
   Article,
   SectionTitle,
   Content
 } from "../components";
+import {
+  Layout,
+} from "../containers";
 import config from "../../config/SiteConfig";
-import kebabCase from "lodash/kebabCase";
 import PageProps from "../models/PageProps";
 
 const Category = ({ pathContext }: PageProps) => {
@@ -28,9 +30,9 @@ const Category = ({ pathContext }: PageProps) => {
       <Header>
         <Link to="/">{config.siteTitle}</Link>
         <SectionTitle>Category &ndash; {categoryName}</SectionTitle>
-        <Subline sectionTitle light={true}>
+        <div>
           {subline} (See <Link to="/categories">all categories</Link>)
-        </Subline>
+        </div>
       </Header>
       <Wrapper>
         <Content>

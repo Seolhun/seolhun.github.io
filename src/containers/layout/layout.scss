@@ -1,6 +1,3 @@
-// all scss if you like!
-//----------  responsive breakpoints
-//------------------------------------------------------------------------------
 @mixin breakpoint($value) {
   @if $value == 'phone' {
     @media only screen and (min-width: 120px) and (max-width: 767px) {

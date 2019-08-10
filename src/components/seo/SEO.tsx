@@ -2,8 +2,8 @@
 import React from "react";
 import Helmet from "react-helmet";
 
-import config from "../../config/SiteConfig";
-import Post from "../models/Post";
+import SiteConfig from "../../../config/SiteConfig";
+import Post from "../../models/Post";
 
 interface SEO {
   postNode: Post;
@@ -11,25 +11,25 @@ interface SEO {
   postSEO: boolean;
 }
 
-export const SEO = ({ postNode, postPath, postSEO }: SEO) => {
+const SEO = ({ postNode, postPath, postSEO }: SEO) => {
   let title;
   let description;
   let image;
   let postURL;
-  const realPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
+  const realPrefix = SiteConfig.pathPrefix === "/" ? "" : SiteConfig.pathPrefix;
   if (postSEO) {
     const postMeta = postNode.frontmatter;
     title = postMeta.title;
     description = postNode.excerpt;
-    image = config.siteBanner;
-    postURL = config.siteUrl + realPrefix + postPath;
+    image = SiteConfig.siteBanner;
+    postURL = SiteConfig.siteUrl + realPrefix + postPath;
   } else {
-    title = config.siteTitle;
-    description = config.siteDescription;
-    image = config.siteBanner;
+    title = SiteConfig.siteTitle;
+    description = SiteConfig.siteDescription;
+    image = SiteConfig.siteBanner;
   }
-  image = config.siteUrl + realPrefix + image;
-  const blogURL = config.siteUrl + config.pathPrefix;
+  image = SiteConfig.siteUrl + realPrefix + image;
+  const blogURL = SiteConfig.siteUrl + SiteConfig.pathPrefix;
   let schemaOrgJSONLD = [
     {
       "@context": "http://schema.org",
@@ -37,7 +37,7 @@ export const SEO = ({ postNode, postPath, postSEO }: SEO) => {
       "@id": blogURL,
       url: blogURL,
       name: title,
-      alternateName: config.siteTitleAlt ? config.siteTitleAlt : ""
+      alternateName: SiteConfig.siteTitleAlt ? SiteConfig.siteTitleAlt : ""
     }
   ];
   if (postSEO) {
@@ -50,25 +50,25 @@ export const SEO = ({ postNode, postPath, postSEO }: SEO) => {
         // @ts-ignore
         url: postURL,
         name: title,
-        alternateName: config.siteTitleAlt ? config.siteTitleAlt : "",
+        alternateName: SiteConfig.siteTitleAlt ? SiteConfig.siteTitleAlt : "",
         headline: title,
         image: {
           "@type": "ImageObject",
           url: image
         },
-        description: config.siteDescription,
+        description: SiteConfig.siteDescription,
         datePublished: postNode.frontmatter.date,
         dateModified: postNode.frontmatter.date,
         author: {
           "@type": "Person",
-          name: config.author
+          name: SiteConfig.author
         },
         publisher: {
           "@type": "Organization",
-          name: config.author,
+          name: SiteConfig.author,
           logo: {
             "@type": "ImageObject",
-            url: config.siteUrl + realPrefix + config.siteLogo
+            url: SiteConfig.siteUrl + realPrefix + SiteConfig.siteLogo
           }
         },
         isPartOf: blogURL,
@@ -81,17 +81,17 @@ export const SEO = ({ postNode, postPath, postSEO }: SEO) => {
   }
   return (
     <Helmet>
-      <html lang={config.siteLanguage} />
-      <title>{config.siteTitle}</title>
+      <html lang={SiteConfig.siteLanguage} />
+      <title>{SiteConfig.siteTitle}</title>
       <meta name="description" content={description} />
       <meta name="image" content={image} />
       <script type="application/ld+json">
         {JSON.stringify(schemaOrgJSONLD)}
       </script>
-      <meta property="og:locale" content={config.ogLanguage} />
+      <meta property="og:locale" content={SiteConfig.ogLanguage} />
       <meta
         property="og:site_name"
-        content={config.ogSiteName ? config.ogSiteName : ""}
+        content={SiteConfig.ogSiteName ? SiteConfig.ogSiteName : ""}
       />
       <meta property="og:url" content={postSEO ? postURL : blogURL} />
       {postSEO ? <meta property="og:type" content="article" /> : null}
@@ -100,17 +100,19 @@ export const SEO = ({ postNode, postPath, postSEO }: SEO) => {
       <meta property="og:image" content={image} />
       <meta
         property="fb:app_id"
-        content={config.siteFBAppID ? config.siteFBAppID : ""}
+        content={SiteConfig.siteFBAppID ? SiteConfig.siteFBAppID : ""}
       />
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:creator"
-        content={config.userTwitter ? config.userTwitter : ""}
+        content={SiteConfig.userTwitter ? SiteConfig.userTwitter : ""}
       />
       <meta name="twitter:title" content={title} />
-      <meta name="twitter:url" content={config.siteUrl} />
+      <meta name="twitter:url" content={SiteConfig.siteUrl} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
     </Helmet>
   );
 };
+
+export default SEO;

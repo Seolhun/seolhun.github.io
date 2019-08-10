@@ -1,21 +1,28 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import kebabCase from "lodash/kebabCase";
 
-import Post from "../models/Post";
+import Post from "../../models/Post";
 
-const Wrapper = styled.div`
-  display: flex;
-  margin: 6rem auto 0 auto;
-  a {
-    color: ${props => props.theme.colors.primary};
-    display: flex;
-    align-items: center;
+interface PaginationWrapperProps {
+
+}
+
+const Wrapper = styled.div(({ theme }) => {
+  return {
+    display: 'flex',
+    margin: '6rem auto 0 auto',
+    a: {
+      color: theme.colors.primary,
+      display: 'flex',
+      alignItems: 'center',
+    },
+    justifyItems: 'center',
   }
-  justify-items: center;
-`;
+
+})
 
 const Prev = styled.div`
   span {
@@ -40,7 +47,7 @@ interface Props {
   prev: Post;
 }
 
-export const PrevNext = ({ prev, next }: Props) => {
+const PrevNext = ({ prev, next }: Props) => {
   return (
     <Wrapper>
       {prev && (
@@ -62,3 +69,5 @@ export const PrevNext = ({ prev, next }: Props) => {
     </Wrapper>
   );
 };
+
+export default PrevNext;

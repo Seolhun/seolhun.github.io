@@ -1,6 +1,7 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
 import Helmet from "react-helmet";
+import { Link, graphql } from "gatsby";
+
 import { Jumbotron } from "@seolhun/localize-components";
 import { Button } from "@seolhun/localize-components-atomic";
 
@@ -10,7 +11,7 @@ import config from "../../config/SiteConfig";
 const IndexPage = () => {
   return (
     <Layout>
-      <Wrapper fullWidth={true}>
+      <Wrapper isFullWidth={true}>
         <Helmet title={`Homepage | ${config.siteTitle}`} />
         <Jumbotron>
           <Link to="/contact">

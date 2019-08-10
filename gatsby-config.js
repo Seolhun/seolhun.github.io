@@ -15,15 +15,15 @@ module.exports = {
     siteUrl: config.siteUrl + pathPrefix,
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
-    'gatsby-plugin-offline',
-    'gatsby-plugin-typescript',
-    'gatsby-plugin-sass',
-    'gatsby-plugin-manifest',
     'gatsby-plugin-catch-links',
-    'gatsby-plugin-sitemap',
+    'gatsby-plugin-emotion',
     'gatsby-plugin-lodash',
+    'gatsby-plugin-manifest',
+    'gatsby-plugin-offline',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -34,8 +34,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'stroy',
-        path: `${__dirname}/contents/stroy`,
+        name: 'story',
+        path: `${__dirname}/contents/story`,
       },
     },
     {
@@ -48,8 +48,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: [
-          {
+        plugins: [{
             resolve: 'gatsby-remark-external-links',
             options: {
               target: '_blank',

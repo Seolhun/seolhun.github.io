@@ -1,16 +1,19 @@
 import React from "react";
+import Helmet from "react-helmet";
 import { Link, graphql } from "gatsby";
 
 import {
-  Layout,
-  Article,
   Wrapper,
-  SectionTitle,
   Header,
-  Content,
-  Pagination
+  Article,
+  Pagination,
+  SectionTitle,
+  Content
 } from "../components";
-import Helmet from "react-helmet";
+import {
+  Layout,
+} from "../containers";
+
 import config from "../../config/SiteConfig";
 import Data from "../models/Data";
 
