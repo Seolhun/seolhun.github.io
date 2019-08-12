@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
-import { Link, StaticQuery } from 'gatsby';
-
-import { Button } from '@seolhun/localize-components-atomic';
+import { StaticQuery } from 'gatsby';
 
 import AOS from 'aos';
 import AOSSection from '../components/aos';
+import {
+  SNSButtons
+} from '../containers';
 
 const HomeView = () => {
   useEffect(() => {
@@ -24,23 +25,10 @@ const HomeView = () => {
         >
           <div
             data-aos='fade-up'
-            data-aos-delay='250'
+            data-aos-delay='300'
           >
-            HomeView
-            <Link to='/contact'>
-              <Button>Contact</Button>
-            </Link>
-            <Link to='/contents'>
-              <Button>Contents</Button>
-            </Link>
-            <Link to='/tags'>
-              <Button>Tags</Button>
-            </Link>
-            <Link to='/categories'>
-              <Button>Categories</Button>
-            </Link>
+            <SNSButtons />
           </div>
-
         </AOSSection>
       )}
     />

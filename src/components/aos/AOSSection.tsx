@@ -51,7 +51,10 @@ const AOSContent = styled.div({
   flex: `0 ${100 - HEADER_WIDTH}%`,
   width: `${100 - HEADER_WIDTH}%`,
 
+  // background: `linear-gradient(180deg, #4A00D3 0%, #2802E9 35.91%, #0E3AF8 67.4%, #018DE6 100%)`,
+
   alignItems: 'center',
+  justifyContent: 'center',
   padding: '1em 2em',
 
   [`@media ${media.phone}`]: {

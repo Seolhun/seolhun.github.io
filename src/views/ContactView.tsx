@@ -24,9 +24,8 @@ const ContactView = () => {
         >
           <div
             data-aos='fade-up'
-            data-aos-delay='250'
+            data-aos-delay='300'
           >
-            ContactView
             <Link to='/contact'>
               <Button>Contact</Button>
             </Link>

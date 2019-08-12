@@ -1,9 +1,12 @@
 import Layout from './layout';
+import SNSButtons from './sns-buttons';
 
 export {
-  Layout
+  Layout,
+  SNSButtons
 }
 
 export default {
-  Layout
+  Layout,
+  SNSButtons
 }

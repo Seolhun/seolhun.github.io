@@ -20,13 +20,12 @@ const StoryView = () => {
       render={() => (
         <AOSSection
           id='StoryView'
-          headerImgSrc={"https://maxcdn.icons8.com/app/uploads/2016/03/material-1-1024x576.jpg"}
+          headerImgSrc={"https://steemitimages.com/DQmP18L6k8EMHNfsvRNaRFWvka2GnRo8b8CpDuM3hbYGnqp/ff3ywn-1-800x533.jpg"}
         >
           <div
             data-aos='fade-up'
-            data-aos-delay='250'
+            data-aos-delay='300'
           >
-            StoryView
             <Link to='/contact'>
               <Button>Contact</Button>
             </Link>

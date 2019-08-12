@@ -24,9 +24,8 @@ const TechView = () => {
         >
           <div
             data-aos='fade-up'
-            data-aos-delay='250'
+            data-aos-delay='300'
           >
-            TechView
             <Link to='/contact'>
               <Button>Contact</Button>
             </Link>
