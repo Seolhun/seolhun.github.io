@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { Link, StaticQuery } from 'gatsby';
-
-import { Button } from '@seolhun/localize-components-atomic';
+import { StaticQuery } from 'gatsby';
 
 import AOS from 'aos';
+
 import AOSSection from '../components/aos';
+import { StoryContainer } from '../containers';
 
 const StoryView = () => {
   useEffect(() => {
@@ -18,29 +18,8 @@ const StoryView = () => {
     <StaticQuery
       query={query}
       render={() => (
-        <AOSSection
-          id='StoryView'
-          headerImgSrc={"https://maxcdn.icons8.com/app/uploads/2016/03/material-1-1024x576.jpg"}
-        >
-          <div
-            data-aos='fade-up'
-            data-aos-delay='250'
-          >
-            StoryView
-            <Link to='/contact'>
-              <Button>Contact</Button>
-            </Link>
-            <Link to='/contents'>
-              <Button>Contents</Button>
-            </Link>
-            <Link to='/tags'>
-              <Button>Tags</Button>
-            </Link>
-            <Link to='/categories'>
-              <Button>Categories</Button>
-            </Link>
-          </div>
-
+        <AOSSection id='StoryView'>
+          <StoryContainer />
         </AOSSection>
       )}
     />

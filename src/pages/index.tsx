@@ -21,8 +21,8 @@ const IndexPage = () => {
       <Container isFullWidth>
         <Helmet title={`Homepage | ${config.siteTitle}`} />
         <HomeView />
-        <StoryView />
         <TechView />
+        <StoryView />
         <ContactView />
       </Container>
     </Layout>

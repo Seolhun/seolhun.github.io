@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { Link, StaticQuery } from 'gatsby';
 
 import { Button } from '@seolhun/localize-components-atomic';
-
 import AOS from 'aos';
+
 import AOSSection from '../components/aos';
 
 const ContactView = () => {
@@ -18,15 +18,11 @@ const ContactView = () => {
     <StaticQuery
       query={query}
       render={() => (
-        <AOSSection
-          id='ContactView'
-          headerImgSrc={"https://maxcdn.icons8.com/app/uploads/2016/03/material-1-1024x576.jpg"}
-        >
+        <AOSSection id='ContactView'>
           <div
             data-aos='fade-up'
-            data-aos-delay='250'
+            data-aos-delay='300'
           >
-            ContactView
             <Link to='/contact'>
               <Button>Contact</Button>
             </Link>
