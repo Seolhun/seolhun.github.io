@@ -2,9 +2,9 @@ export default {
   author: "SeolHun",
   defaultBg: "/assets/bg.png",
   favicon: "src/favicon.png",
+  githubOwnerImage: "https://avatars.githubusercontent.com/Seolhun",
   ogLanguage: "ko_KR",
   ogSiteName: "SeolHun",
-  ownerImage: "https://avatars.githubusercontent.com/Seolhun",
   pathPrefix: "/",
   siteBanner: "./assets/logo.png",
   siteDescription: "The Dreamer through the Programming",
@@ -14,19 +14,35 @@ export default {
   siteTitleAlt: "The Dreamer through the Programming",
   siteUrl: "https://seolhun.github.io",
   userTwitter: "@seol_hooney",
-  // Manifest and Progress color
-  // See: https://developers.google.com/web/fundamentals/web-app-manifest/
+  /**
+   * Manifest and Progress color
+   * @See: https://developers.google.com/web/fundamentals/web-app-manifest/
+   */
+  manifestBackgroundColor: "#2b2e3c",
+  manifestDisplay: "standalone",
   manifestName: "SeolHun TechBlog - The Dreamer through the Programming",
   manifestShortName: "SeolHun TechBlog",
   manifestStartUrl: "/",
-  manifestBackgroundColor: "#2b2e3c",
   manifestThemeColor: "#3498DB",
-  manifestDisplay: "standalone",
-  // Social media
-  siteFBAppID: "543531359431658",
+  /**
+   * ThridParty Keys
+   */
   Google_Analytics_ID: "115545667",
   Google_Tag_Manager_ID: "GTM-MKZCXJQ",
-  github: "https://github.com/Seolhun",
+  siteFBAppID: "543531359431658",
+  /**
+   * Settings for typography.ts
+   */
+  baseFontSize: "14px",
+  bodyFontFamily: "Open Sans",
+  headerFontFamily: "Bitter",
+  /**
+   * Constants
+   */
+  POST_PER_PAGE: 4,
+  /**
+   * Meta Data
+   */
   authorSocialLinks: [
     {
       name: "github",
@@ -41,10 +57,11 @@ export default {
       url: "http://facebook.com/shun10114"
     }
   ],
-  // Constants
-  POST_PER_PAGE: 4,
-  // Settings for typography.ts
-  headerFontFamily: "Bitter",
-  bodyFontFamily: "Open Sans",
-  baseFontSize: "14px"
+  github: "https://github.com/Seolhun",
+  mission: '모든 데이터를 세상과 연결하여 누구버다 쉽게 유익한 데이터를 쉽고, 편리하게 제공하는 것',
+  keyResults: [
+    '모든 데이터를 세상과 연결하여 누구버다 쉽게 유익한 데이터를 쉽고, 편리하게 제공하는 것',
+    '모든 데이터를 세상과 연결하여 누구버다 쉽게 유익한 데이터를 쉽고, 편리하게 제공하는 것',
+    '모든 데이터를 세상과 연결하여 누구버다 쉽게 유익한 데이터를 쉽고, 편리하게 제공하는 것'
+  ],
 };

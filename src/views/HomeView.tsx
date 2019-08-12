@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import { StaticQuery } from 'gatsby';
 
 import AOS from 'aos';
-import AOSSection from '../components/aos';
+
 import {
-  SNSButtons
-} from '../containers';
+  AOSSection,
+} from '../components';
+import HomeContainer from '../containers/home';
 
 const HomeView = () => {
   useEffect(() => {
@@ -19,16 +20,8 @@ const HomeView = () => {
     <StaticQuery
       query={query}
       render={() => (
-        <AOSSection
-          id='HomeView'
-          headerImgSrc={"https://maxcdn.icons8.com/app/uploads/2016/03/material-1-1024x576.jpg"}
-        >
-          <div
-            data-aos='fade-up'
-            data-aos-delay='300'
-          >
-            <SNSButtons />
-          </div>
+        <AOSSection id='HomeView'>
+          <HomeContainer />
         </AOSSection>
       )}
     />

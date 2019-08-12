@@ -11,6 +11,7 @@ const Wrapper = styled.div<WrapperProps>(() => {
   return {
     display: 'flex',
     flexDirection: 'column',
+
     margin: '0 auto',
     maxWidth: '100%',
     padding: '0 6rem',

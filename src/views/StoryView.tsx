@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { Link, StaticQuery } from 'gatsby';
-
-import { Button } from '@seolhun/localize-components-atomic';
+import { StaticQuery } from 'gatsby';
 
 import AOS from 'aos';
+
 import AOSSection from '../components/aos';
+import { StoryContainer } from '../containers';
 
 const StoryView = () => {
   useEffect(() => {
@@ -18,28 +18,8 @@ const StoryView = () => {
     <StaticQuery
       query={query}
       render={() => (
-        <AOSSection
-          id='StoryView'
-          headerImgSrc={"https://steemitimages.com/DQmP18L6k8EMHNfsvRNaRFWvka2GnRo8b8CpDuM3hbYGnqp/ff3ywn-1-800x533.jpg"}
-        >
-          <div
-            data-aos='fade-up'
-            data-aos-delay='300'
-          >
-            <Link to='/contact'>
-              <Button>Contact</Button>
-            </Link>
-            <Link to='/contents'>
-              <Button>Contents</Button>
-            </Link>
-            <Link to='/tags'>
-              <Button>Tags</Button>
-            </Link>
-            <Link to='/categories'>
-              <Button>Categories</Button>
-            </Link>
-          </div>
-
+        <AOSSection id='StoryView'>
+          <StoryContainer />
         </AOSSection>
       )}
     />
