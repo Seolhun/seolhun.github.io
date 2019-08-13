@@ -2,8 +2,13 @@ const path = require('path');
 const _ = require('lodash');
 const config = require('./config/SiteConfig').default;
 
-exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions;
+exports.onCreateNode = ({
+  node,
+  actions
+}) => {
+  const {
+    createNodeField
+  } = actions;
 
   const isMarkdown = node.internal.type === 'MarkdownRemark';
   const hasFrontMatter = _.has(node, 'frontmatter');
@@ -11,13 +16,19 @@ exports.onCreateNode = ({ node, actions }) => {
 
   if (isMarkdown && hasFrontMatter && hasTitle) {
     const slug = `${_.kebabCase(node.frontmatter.title)}`;
-    createNodeField({ node, name: 'slug', value: slug });
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug
+    });
   }
 };
 
 const getPostsByType = (posts, classificationType) => {
   const postsByType = {};
-  posts.forEach(({ node }) => {
+  posts.forEach(({
+    node
+  }) => {
     const nodeClassificationType = node.frontmatter[classificationType];
     if (nodeClassificationType) {
       if (_.isArray(nodeClassificationType)) {
@@ -27,8 +38,7 @@ const getPostsByType = (posts, classificationType) => {
           }
           postsByType[name].push(node);
         });
-      }
-      else {
+      } else {
         const name = nodeClassificationType;
         if (!postsByType[name]) {
           postsByType[name] = [];
@@ -40,9 +50,13 @@ const getPostsByType = (posts, classificationType) => {
   return postsByType;
 };
 
-const createClassificationPages = ({ createPage, posts, postsPerPage, numPages }) => {
-  const classifications = [
-    {
+const createClassificationPages = ({
+  createPage,
+  posts,
+  postsPerPage,
+  numPages
+}) => {
+  const classifications = [{
       singularName: 'category',
       pluralName: 'categories',
       template: {
@@ -87,7 +101,10 @@ const createClassificationPages = ({ createPage, posts, postsPerPage, numPages }
   });
 };
 
-exports.onCreateWebpackConfig = ({ stage, actions }) => {
+exports.onCreateWebpackConfig = ({
+  stage,
+  actions
+}) => {
   actions.setWebpackConfig({
     resolve: {
       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
@@ -95,8 +112,13 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
   });
 };
 
-exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions;
+exports.createPages = ({
+  actions,
+  graphql
+}) => {
+  const {
+    createPage
+  } = actions;
 
   const postTemplate = path.resolve(`src/templates/Post.tsx`);
 
@@ -136,7 +158,9 @@ exports.createPages = ({ actions, graphql }) => {
     const postsPerPage = config.POST_PER_PAGE;
     const numPages = Math.ceil(posts.length / postsPerPage);
 
-    Array.from({ length: numPages }).forEach((_, i) => {
+    Array.from({
+      length: numPages
+    }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `/contents` : `/contents/${i + 1}`,
         component: path.resolve('./src/templates/Blog.tsx'),
@@ -149,9 +173,16 @@ exports.createPages = ({ actions, graphql }) => {
       });
     });
 
-    createClassificationPages({ createPage, posts, postsPerPage, numPages });
+    createClassificationPages({
+      createPage,
+      posts,
+      postsPerPage,
+      numPages
+    });
 
-    posts.forEach(({ node }, index) => {
+    posts.forEach(({
+      node
+    }, index) => {
       const next = index === 0 ? null : posts[index - 1].node;
       const prev = index === posts.length - 1 ? null : posts[index + 1].node;
 

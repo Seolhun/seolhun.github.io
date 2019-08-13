@@ -1,13 +1,15 @@
-import React, { ReactNode } from "react";
-import { StaticQuery, graphql } from "gatsby";
+import React, { ReactNode } from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 
-import split from "lodash/split";
+import { split } from 'lodash';
 import styled from '@emotion/styled';
 import { ThemeProvider } from 'emotion-theming';
 
-import { Footer } from '../../components';
-import SiteConfig from '../../../config/SiteConfig';
-import Theme from '../../../config/Theme';
+import { Footer } from '@/components';
+import SiteConfig from 'config/SiteConfig';
+import Theme from 'config/Theme';
+
+import '@/i18n';
 
 const LayoutMain = styled.main({
   scrollBehavior: 'smooth',
@@ -28,7 +30,7 @@ const Layout = ({ children }: LayoutProps) => {
           </LayoutMain>
           <Footer>
             <div>
-              &copy; {split(data.site.buildTime, ".")[2]} by SeolHun. All
+              &copy; {split(data.site.buildTime, '.')[2]} by SeolHun. All
               rights reserved.
             </div>
             <div>

@@ -1,3 +1,4 @@
+const path = require('path');
 require('source-map-support').install();
 require('ts-node').register({
   compilerOptions: {
@@ -6,13 +7,15 @@ require('ts-node').register({
   },
 });
 
-const config = require('./config/SiteConfig').default;
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
+const SiteConfig = require('./config/SiteConfig').default;
+const pathPrefix = SiteConfig.pathPrefix === '/' ?
+  '' :
+  SiteConfig.pathPrefix;
 
 module.exports = {
-  pathPrefix: config.pathPrefix,
+  pathPrefix: SiteConfig.pathPrefix,
   siteMetadata: {
-    siteUrl: config.siteUrl + pathPrefix,
+    siteUrl: SiteConfig.siteUrl + pathPrefix,
   },
   plugins: [
     'gatsby-plugin-catch-links',
@@ -32,6 +35,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        '@': path.join(__dirname, 'src'),
+        'config': path.join(__dirname, 'config'),
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'story',
@@ -41,7 +51,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: config.Google_Analytics_ID,
+        trackingId: SiteConfig.Google_Analytics_ID,
         head: false,
         anonymize: true,
         respectDNT: true,
@@ -52,13 +62,13 @@ module.exports = {
         variationId: "YOUR_GOOGLE_OPTIMIZE_VARIATION_ID",
         sampleRate: 5,
         siteSpeedSampleRate: 10,
-        cookieDomain: config.siteUrl,
+        cookieDomain: SiteConfig.siteUrl,
       },
     },
     {
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {
-        id: config.Google_Tag_Manager_ID,
+        id: SiteConfig.Google_Tag_Manager_ID,
         includeInDevelopment: false,
       },
     },
@@ -86,14 +96,14 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: config.siteTitle,
-        short_name: config.siteTitleAlt,
-        description: config.siteDescription,
-        start_url: config.pathPrefix,
-        background_color: config.manifestBackgroundColor,
-        theme_color: config.manifestThemeColor,
+        name: SiteConfig.siteTitle,
+        short_name: SiteConfig.siteTitleAlt,
+        description: SiteConfig.siteDescription,
+        start_url: SiteConfig.pathPrefix,
+        background_color: SiteConfig.manifestBackgroundColor,
+        theme_color: SiteConfig.manifestThemeColor,
         display: 'standalone',
-        icon: config.favicon,
+        icon: SiteConfig.favicon,
       },
     },
   ]

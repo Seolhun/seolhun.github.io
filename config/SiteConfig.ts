@@ -58,6 +58,7 @@ export default {
     }
   ],
   github: "https://github.com/Seolhun",
+  aboutMe: 'I expresses me in writing and code.',
   mission: '모든 데이터를 세상과 연결하여 누구버다 쉽게 유익한 데이터를 쉽고, 편리하게 제공하는 것',
   keyResults: [
     '모든 데이터를 세상과 연결하여 누구버다 쉽게 유익한 데이터를 쉽고, 편리하게 제공하는 것',

@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
-import { media } from "../../utils/media";
-import config from "../../../config/SiteConfig";
+import { media } from '@/utils/media';
+import config from 'config/SiteConfig';
 
 const HeaderWrapper: any = styled.header(() => {
   return {
