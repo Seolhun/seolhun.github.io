@@ -1,3 +1,3 @@
 export default {
-  title: 'Hello. Tech Blog of Seolhun.',
+  title: 'Tech Hi-Cord',
 };
