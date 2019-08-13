@@ -8,12 +8,12 @@ import {
   Article,
   SectionTitle,
   Content
-} from "../components";
+} from "@/components";
 import {
   Layout,
-} from "../containers";
+} from "@/containers";
 import Helmet from "react-helmet";
-import config from "../../config/SiteConfig";
+import config from "config/SiteConfig";
 import PageProps from "../models/PageProps";
 
 const TagTemplate = ({ pathContext }: PageProps) => {

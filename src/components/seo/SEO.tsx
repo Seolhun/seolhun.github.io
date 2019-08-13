@@ -2,8 +2,8 @@
 import React from "react";
 import Helmet from "react-helmet";
 
-import SiteConfig from "../../../config/SiteConfig";
-import Post from "../../models/Post";
+import SiteConfig from "config/SiteConfig";
+import Post from "@/models/Post";
 
 interface SEO {
   postNode: Post;

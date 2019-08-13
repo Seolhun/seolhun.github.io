@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import SiteConfig from '../../../config/SiteConfig';
+import SiteConfig from 'config/SiteConfig';
 
 const KeyResultsWrapper = styled.div(() => {
   return {

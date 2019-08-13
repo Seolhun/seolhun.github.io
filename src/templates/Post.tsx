@@ -12,12 +12,12 @@ import {
   PrevNext,
   SectionTitle,
   Content
-} from "../components";
+} from "@/components";
 import {
   Layout,
-} from "../containers";
+} from "@/containers";
 
-import config from "../../config/SiteConfig";
+import config from "config/SiteConfig";
 import PathContext from "../models/PathContext";
 import Post from "../models/Post";
 

@@ -10,12 +10,12 @@ import {
   Title,
   SectionTitle,
   Content
-} from "../components";
+} from "@/components";
 import {
   Layout,
-} from "../containers";
+} from "@/containers";
 
-import config from "../../config/SiteConfig";
+import config from "config/SiteConfig";
 import PageProps from "../models/PageProps";
 
 export default class AllTagTemplate extends React.PureComponent<PageProps> {

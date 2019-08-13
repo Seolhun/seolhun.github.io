@@ -9,11 +9,11 @@ import {
   Title,
   SectionTitle,
   Content
-} from "../components";
+} from "@/components";
 import {
   Layout,
-} from "../containers";
-import config from "../../config/SiteConfig";
+} from "@/containers";
+import config from "config/SiteConfig";
 import PageProps from "../models/PageProps";
 
 export default class AllCategoryTemplate extends React.PureComponent<

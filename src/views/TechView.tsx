@@ -3,8 +3,8 @@ import { StaticQuery } from 'gatsby';
 
 import AOS from 'aos';
 
-import AOSSection from '../components/aos';
-import { TechContainer } from '../containers';
+import AOSSection from '@/components/aos';
+import { TechContainer } from '@/containers';
 
 const TechView = () => {
   useEffect(() => {

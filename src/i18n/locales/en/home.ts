@@ -1,3 +1,3 @@
 export default {
-  title: 'Hello, Gatsby BoilerPlate ',
+  title: 'Hello. Blog of Seolhun.',
 };

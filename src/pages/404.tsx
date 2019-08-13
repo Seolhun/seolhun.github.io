@@ -7,12 +7,12 @@ import {
   Header,
   SectionTitle,
   Content
-} from "../components";
+} from "@/components";
 import {
   Layout,
-} from "../containers";
+} from "@/containers";
 
-import config from "../../config/SiteConfig";
+import config from "config/SiteConfig";
 
 const NotFoundPage = () => {
   return (

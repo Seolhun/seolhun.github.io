@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StaticQuery, graphql } from 'gatsby';
 
 import { split } from 'lodash';
@@ -20,6 +21,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
+  const { t } = useTranslation();
   return (
     <StaticQuery
       query={query}
@@ -29,13 +31,17 @@ const Layout = ({ children }: LayoutProps) => {
             {children}
           </LayoutMain>
           <Footer>
+            <p>{t('home:title')}</p>
             <div>
-              &copy; {split(data.site.buildTime, '.')[2]} by SeolHun. All
+              &copy; {split(data.site.buildTime, '.')[2]} by {SiteConfig.author}. All
               rights reserved.
             </div>
             <div>
-              <a href={SiteConfig.github}>
-                GitHub Repository
+              <a
+                href={SiteConfig.github}
+                target='_blank'
+              >
+                {SiteConfig.author} GitHub
               </a>
             </div>
             <div>Last build: {data.site.buildTime}</div>

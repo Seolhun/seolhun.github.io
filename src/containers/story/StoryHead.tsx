@@ -4,11 +4,11 @@ import styled from '@emotion/styled';
 
 import {
   Profile,
-} from '../../components';
+} from '@/components';
 import {
   Mission
-} from '../../containers';
-import SiteConfig from '../../../config/SiteConfig';
+} from '@/containers';
+import SiteConfig from 'config/SiteConfig';
 
 const StoryHeadWrapper = styled.div(() => {
   return {

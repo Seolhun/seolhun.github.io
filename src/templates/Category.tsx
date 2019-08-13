@@ -10,11 +10,11 @@ import {
   Article,
   SectionTitle,
   Content
-} from "../components";
+} from "@/components";
 import {
   Layout,
-} from "../containers";
-import config from "../../config/SiteConfig";
+} from "@/containers";
+import config from "config/SiteConfig";
 import PageProps from "../models/PageProps";
 
 const Category = ({ pathContext }: PageProps) => {

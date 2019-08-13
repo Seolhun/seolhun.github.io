@@ -9,12 +9,12 @@ import {
   Pagination,
   SectionTitle,
   Content
-} from "../components";
+} from "@/components";
 import {
   Layout,
-} from "../containers";
+} from "@/containers";
 
-import config from "../../config/SiteConfig";
+import config from "config/SiteConfig";
 import Data from "../models/Data";
 
 interface Props {

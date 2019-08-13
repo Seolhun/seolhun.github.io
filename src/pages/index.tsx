@@ -4,11 +4,11 @@ import { graphql } from "gatsby";
 
 import {
   Container,
-} from "../components";
+} from "@/components";
 import {
   Layout,
-} from "../containers";
-import config from "../../config/SiteConfig";
+} from "@/containers";
+import config from "config/SiteConfig";
 
 import HomeView from "../views/HomeView";
 import StoryView from "../views/StoryView";

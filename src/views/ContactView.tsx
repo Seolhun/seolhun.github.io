@@ -4,7 +4,7 @@ import { Link, StaticQuery } from 'gatsby';
 import { Button } from '@seolhun/localize-components-atomic';
 import AOS from 'aos';
 
-import AOSSection from '../components/aos';
+import AOSSection from '@/components/aos';
 
 const ContactView = () => {
   useEffect(() => {

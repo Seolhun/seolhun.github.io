@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import kebabCase from "lodash/kebabCase";
 
-import Post from "../../models/Post";
+import Post from "@/models/Post";
 
 interface PaginationWrapperProps {
   theme?: any

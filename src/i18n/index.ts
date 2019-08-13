@@ -2,10 +2,20 @@ import i18next from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
-import homeEn from './locales/en/home';
-import homeKo from './locales/ko/home';
-
-const isDev = process.env.NODE_ENV === 'development';
+const supportedLanguages = ['en', 'ko'];
+const supportedFiles = ['home', 'tech'];
+const resources = supportedLanguages.reduce((langObj, lang) => {
+  const supportedFileObject = supportedFiles.reduce((fileObj, file) => {
+    return {
+      ...fileObj,
+      [file]: require(`@/i18n/locales/${lang}/${file}`).default,
+    }
+  }, {});
+  return {
+    ...langObj,
+    [lang]: supportedFileObject,
+  }
+}, {})
 
 i18next
   .use(LanguageDetector)
@@ -14,15 +24,8 @@ i18next
     lng: 'en',
     fallbackLng: ['en', 'ko'],
     defaultNS: 'home',
-    debug: isDev,
-    resources: {
-      ko: {
-        home: homeKo,
-      },
-      en: {
-        home: homeEn,
-      },
-    },
+    debug: process.env.NODE_ENV === 'development',
+    resources,
   });
 
 export default i18next;

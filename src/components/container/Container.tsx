@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { media } from '../../utils/media';
+import { media } from '@/utils/media';
 
 export interface ContainerProps {
   isFullWidth?: boolean;

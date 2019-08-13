@@ -5,8 +5,8 @@ import AOS from 'aos';
 
 import {
   AOSSection,
-} from '../components';
-import HomeContainer from '../containers/home';
+} from '@/components';
+import HomeContainer from '@/containers/home';
 
 const HomeView = () => {
   useEffect(() => {
