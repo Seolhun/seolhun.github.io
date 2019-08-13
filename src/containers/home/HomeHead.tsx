@@ -5,11 +5,9 @@ import styled from '@emotion/styled';
 import {
   Profile,
 } from '@/components';
-
 import {
   Mission
 } from '@/containers';
-
 import SiteConfig from 'config/SiteConfig';
 
 const HomeHeadWrapper = styled.div(() => {
@@ -17,7 +15,7 @@ const HomeHeadWrapper = styled.div(() => {
     display: 'flex',
     alignItems: 'center',
 
-    '& > span:first-child': {
+    '& > span:first-of-type': {
       marginRight: '20px',
     }
   }

@@ -27,8 +27,8 @@ const KeyResults = () => {
   return (
     <KeyResultsWrapper>
       <KeyResultsContainer>
-        {SiteConfig.keyResults.map((item) => (
-          <KeyResultItem>
+        {SiteConfig.keyResults.map((item, index) => (
+          <KeyResultItem key={`${item}-${index}`}>
             {item}
           </KeyResultItem>
         ))}

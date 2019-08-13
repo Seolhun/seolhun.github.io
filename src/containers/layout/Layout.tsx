@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StaticQuery, graphql } from 'gatsby';
 
-import { split } from 'lodash';
 import styled from '@emotion/styled';
 import { ThemeProvider } from 'emotion-theming';
 
@@ -31,9 +30,8 @@ const Layout = ({ children }: LayoutProps) => {
             {children}
           </LayoutMain>
           <Footer>
-            <p>{t('home:title')}</p>
             <div>
-              &copy; {split(data.site.buildTime, '.')[2]} by {SiteConfig.author}. All
+              &copy; {t('home:title')} by {SiteConfig.author}. All
               rights reserved.
             </div>
             <div>

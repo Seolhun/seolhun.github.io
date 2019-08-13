@@ -17,7 +17,7 @@ const TechHeadWrapper = styled.div(() => {
     display: 'flex',
     alignItems: 'center',
 
-    '& > span:first-child': {
+    '& > span:first-of-type': {
       marginRight: '20px',
     }
   }
