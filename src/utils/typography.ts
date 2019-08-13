@@ -1,7 +1,7 @@
 import Typography from 'typography';
 import config from 'config/SiteConfig';
 
-const typography = new Typography({
+export const typography = new Typography({
   baseFontSize: config.baseFontSize,
   baseLineHeight: 1.66,
   scaleRatio: 3.157,

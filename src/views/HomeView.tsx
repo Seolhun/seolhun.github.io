@@ -3,9 +3,7 @@ import { StaticQuery } from 'gatsby';
 
 import AOS from 'aos';
 
-import {
-  AOSSection,
-} from '@/components';
+import { AOSSection } from '@/components';
 import HomeContainer from '@/containers/home';
 
 const HomeView = () => {
@@ -13,7 +11,7 @@ const HomeView = () => {
     AOS.init();
     return () => {
       AOS.refresh();
-    }
+    };
   });
 
   return (

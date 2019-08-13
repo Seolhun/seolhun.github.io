@@ -1,36 +1,35 @@
-import React from "react";
-import Link from "gatsby-link";
-import kebabCase from "lodash/kebabCase";
+import React from 'react';
+import Helmet from 'react-helmet';
+import Link from 'gatsby-link';
 
+import { kebabCase } from 'lodash';
+
+import config from 'config/SiteConfig';
 import {
   Container,
   Header,
   Article,
   SectionTitle,
-  Content
-} from "@/components";
-import {
-  Layout,
-} from "@/containers";
-import Helmet from "react-helmet";
-import config from "config/SiteConfig";
-import PageProps from "../models/PageProps";
+  Content,
+} from '@/components';
+import { Layout } from '@/containers';
+import PageProps from '@/models/PageProps';
 
 const TagTemplate = ({ pathContext }: PageProps) => {
   const { posts, tagName } = pathContext;
   const totalCount = posts ? posts.length : 0;
   const subline = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
+    totalCount === 1 ? '' : 's'
   } tagged with "${tagName}"`;
 
   return (
     <Layout>
-      <Helmet title={`${"Tags"} | ${config.siteTitle}`} />
+      <Helmet title={`${'Tags'} | ${config.siteTitle}`} />
       <Header>
-        <Link to="/">{config.siteTitle}</Link>
+        <Link to='/'>{config.siteTitle}</Link>
         <SectionTitle>Tag &ndash; {tagName}</SectionTitle>
         <div>
-          {subline} (See <Link to="/tags">all tags</Link>)
+          {subline} (See <Link to='/tags'>all tags</Link>)
         </div>
       </Header>
       <Container>

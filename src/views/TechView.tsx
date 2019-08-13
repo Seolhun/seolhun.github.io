@@ -11,14 +11,14 @@ const TechView = () => {
     AOS.init();
     return () => {
       AOS.refresh();
-    }
+    };
   });
 
   return (
     <StaticQuery
       query={query}
       render={() => (
-        <AOSSection id='TechView'>
+        <AOSSection id='TechView' verticalAlign='flex-start'>
           <TechContainer />
         </AOSSection>
       )}

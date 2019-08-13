@@ -61,8 +61,8 @@ export default {
   aboutMe: 'I expresses me in writing and code.',
   mission: '데이터를 접근하기 쉽고, 유익하게 가공하여 세상에 편리하게 만드는 것',
   keyResults: [
-    '데이터를 접근하기 쉽고, 유익하게 가공하여 세상에 편리하게 만드는 것',
-    '데이터를 접근하기 쉽고, 유익하게 가공하여 세상에 편리하게 만드는 것',
-    '데이터를 접근하기 쉽고, 유익하게 가공하여 세상에 편리하게 만드는 것'
+    'Cross Browsing',
+    'Localize-Component',
+    'Visualization with D3'
   ],
 };

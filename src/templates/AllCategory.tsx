@@ -1,20 +1,12 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { Link } from "gatsby";
-import kebabCase from "lodash/kebabCase";
+import React from 'react';
+import Helmet from 'react-helmet';
+import { Link } from 'gatsby';
+import { kebabCase } from 'lodash';
 
-import {
-  Container,
-  Header,
-  Title,
-  SectionTitle,
-  Content
-} from "@/components";
-import {
-  Layout,
-} from "@/containers";
-import config from "config/SiteConfig";
-import PageProps from "../models/PageProps";
+import config from 'config/SiteConfig';
+import { Container, Header, Title, SectionTitle, Content } from '@/components';
+import { Layout } from '@/containers';
+import PageProps from '@/models/PageProps';
 
 export default class AllCategoryTemplate extends React.PureComponent<
   PageProps
@@ -26,7 +18,7 @@ export default class AllCategoryTemplate extends React.PureComponent<
         <Layout>
           <Helmet title={`Categories | ${config.siteTitle}`} />
           <Header>
-            <Link to="/">{config.siteTitle}</Link>
+            <Link to='/'>{config.siteTitle}</Link>
             <SectionTitle>Categories</SectionTitle>
           </Header>
           <Container>

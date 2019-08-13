@@ -1,45 +1,38 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { Link } from "gatsby";
+import { Link } from 'gatsby';
+import React, { FC } from 'react';
+import Helmet from 'react-helmet';
 
-import kebabCase from "lodash/kebabCase";
+import kebabCase from 'lodash/kebabCase';
 
-import {
-  Container,
-  Header,
-  Title,
-  SectionTitle,
-  Content
-} from "@/components";
-import {
-  Layout,
-} from "@/containers";
+import { Container, Content, Header, SectionTitle, Title } from '@/components';
+import { Layout } from '@/containers';
+import PageProps from '@/models/PageProps';
+import config from 'config/SiteConfig';
 
-import config from "config/SiteConfig";
-import PageProps from "../models/PageProps";
+const AllTagTemplate: FC<PageProps> = ({ pathContext }) => {
+  const { tags } = pathContext;
 
-export default class AllTagTemplate extends React.PureComponent<PageProps> {
-  public render() {
-    const { tags } = this.props.pathContext;
-    if (tags) {
-      return (
-        <Layout>
-          <Helmet title={`Tags | ${config.siteTitle}`} />
-          <Header>
-            <Link to="/">{config.siteTitle}</Link>
-            <SectionTitle>Tags</SectionTitle>
-          </Header>
-          <Container>
-            <Content>
-              {tags.map((tag, index: number) => (
-                <Title key={index}>
-                  <Link to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
-                </Title>
-              ))}
-            </Content>
-          </Container>
-        </Layout>
-      );
-    }
+  if (!tags) {
+    return null;
   }
-}
+  return (
+    <Layout>
+      <Helmet title={`Tags | ${config.siteTitle}`} />
+      <Header>
+        <Link to='/'>{config.siteTitle}</Link>
+        <SectionTitle>Tags</SectionTitle>
+      </Header>
+      <Container>
+        <Content>
+          {tags.map((tag, index: number) => (
+            <Title key={index}>
+              <Link to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
+            </Title>
+          ))}
+        </Content>
+      </Container>
+    </Layout>
+  );
+};
+
+export default AllTagTemplate;

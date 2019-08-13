@@ -1,25 +1,18 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { Link } from "gatsby";
+import React from 'react';
+import Helmet from 'react-helmet';
+import { Link } from 'gatsby';
 
-import {
-  Container,
-  Header,
-  SectionTitle,
-  Content
-} from "@/components";
-import {
-  Layout,
-} from "@/containers";
+import SiteConfig from 'config/SiteConfig';
 
-import config from "config/SiteConfig";
+import { Container, Header, SectionTitle, Content } from '@/components';
+import { Layout } from '@/containers';
 
 const NotFoundPage = () => {
   return (
     <Layout>
-      <Helmet title={`404 not found | ${config.siteTitle}`} />
+      <Helmet title={`404 not found | ${SiteConfig.siteTitle}`} />
       <Header>
-        <Link to="/">{config.siteTitle}</Link>
+        <Link to='/'>{SiteConfig.siteTitle}</Link>
         <SectionTitle>NOT FOUND</SectionTitle>
       </Header>
       <Container>

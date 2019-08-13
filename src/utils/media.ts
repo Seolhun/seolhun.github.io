@@ -7,3 +7,5 @@ export const media = {
   tablet: `(max-width: ${sizes.tablet})`,
   phone: `(max-width: ${sizes.phone})`,
 };
+
+export default media;

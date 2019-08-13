@@ -11,8 +11,10 @@ const HomeWrapper = styled.div(() => {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-  }
-})
+
+    width: '100%',
+  };
+});
 
 const HomeContainer = () => {
   return (
@@ -22,6 +24,6 @@ const HomeContainer = () => {
       <HomeFooter />
     </HomeWrapper>
   );
-}
+};
 
 export default HomeContainer;

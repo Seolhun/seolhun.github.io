@@ -1,27 +1,24 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { Link, graphql } from "gatsby";
+import React from 'react';
+import Helmet from 'react-helmet';
+import { Link, graphql } from 'gatsby';
 
-import styled from "@emotion/styled";
-import kebabCase from "lodash/kebabCase";
+import styled from '@emotion/styled';
+import { kebabCase } from 'lodash';
 
+import config from 'config/SiteConfig';
 import {
   Container,
   Header,
   SEO,
   PrevNext,
   SectionTitle,
-  Content
-} from "@/components";
-import {
-  Layout,
-} from "@/containers";
+  Content,
+} from '@/components';
+import { Layout } from '@/containers';
+import PathContext from '@/models/PathContext';
+import Post from '@/models/Post';
 
-import config from "config/SiteConfig";
-import PathContext from "../models/PathContext";
-import Post from "../models/Post";
-
-import "../utils/prismjs-theme.css";
+import '@/utils/prismjs-theme.css';
 
 const PostContent = styled.div`
   margin-top: 4rem;
@@ -45,11 +42,11 @@ const PostPage = ({ data, pathContext }: Props) => {
           <SEO postPath={post.fields.slug} postNode={post} postSEO />
           <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
           <Header banner={post.frontmatter.banner}>
-            <Link to="/">{config.siteTitle}</Link>
+            <Link to='/'>{config.siteTitle}</Link>
             <SectionTitle>{post.frontmatter.title}</SectionTitle>
             <div>
               {post.frontmatter.date} &mdash; {post.timeToRead} Min Read &mdash;
-              In{" "}
+              In{' '}
               <Link to={`/categories/${kebabCase(post.frontmatter.category)}`}>
                 {post.frontmatter.category}
               </Link>
@@ -63,7 +60,7 @@ const PostPage = ({ data, pathContext }: Props) => {
                   Tags: &#160;
                   {post.frontmatter.tags.map((tag, i) => (
                     <Link key={i} to={`/tags/${kebabCase(tag)}`}>
-                      <strong>{tag}</strong>{" "}
+                      <strong>{tag}</strong>{' '}
                       {i < post.frontmatter.tags.length - 1 ? `, ` : ``}
                     </Link>
                   ))}

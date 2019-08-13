@@ -11,8 +11,8 @@ const TechWrapper = styled.div(() => {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-  }
-})
+  };
+});
 
 const TechContainer = () => {
   return (
@@ -22,6 +22,6 @@ const TechContainer = () => {
       <TechFooter />
     </TechWrapper>
   );
-}
+};
 
 export default TechContainer;

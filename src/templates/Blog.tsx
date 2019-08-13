@@ -1,21 +1,18 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { Link, graphql } from "gatsby";
+import React from 'react';
+import Helmet from 'react-helmet';
+import { Link, graphql } from 'gatsby';
 
+import SiteConfig from 'config/SiteConfig';
 import {
   Container,
   Header,
   Article,
   Pagination,
   SectionTitle,
-  Content
-} from "@/components";
-import {
-  Layout,
-} from "@/containers";
-
-import config from "config/SiteConfig";
-import Data from "../models/Data";
+  Content,
+} from '@/components';
+import { Layout } from '@/containers';
+import Data from '@/models/Data';
 
 interface Props {
   data: Data;
@@ -31,14 +28,14 @@ const BlogPage = ({ pageContext, data }: Props) => {
 
   return (
     <Layout>
-      <Helmet title={`Blog | ${config.siteTitle}`} />
+      <Helmet title={`Blog | ${SiteConfig.siteTitle}`} />
       <Header>
-        <Link to="/">{config.siteTitle}</Link>
+        <Link to='/'>{SiteConfig.siteTitle}</Link>
         <SectionTitle>Latest stories ({totalCount})</SectionTitle>
       </Header>
       <Container>
         <Content>
-          {edges.map(post => (
+          {edges.map((post) => (
             <Article
               key={post.node.fields.slug}
               title={post.node.frontmatter.title}
@@ -53,7 +50,7 @@ const BlogPage = ({ pageContext, data }: Props) => {
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
-            url={"contents"}
+            url={'contents'}
           />
         </Content>
       </Container>
