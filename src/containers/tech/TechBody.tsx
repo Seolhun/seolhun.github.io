@@ -2,7 +2,6 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import KeyResults from '../key-results';
 
 const TechBodyWrapper = styled.div(() => {
   return {
@@ -19,7 +18,6 @@ const TechBody = () => {
       data-aos='fade-up'
       data-aos-delay='250'
     >
-      <KeyResults />
     </TechBodyWrapper>
   );
 }

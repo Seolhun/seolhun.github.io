@@ -13,17 +13,15 @@ import config from "config/SiteConfig";
 import HomeView from "../views/HomeView";
 import StoryView from "../views/StoryView";
 import TechView from "../views/TechView";
-import ContactView from "../views/ContactView";
 
 const IndexPage = () => {
   return (
     <Layout>
       <Container isFullWidth>
         <Helmet title={`Homepage | ${config.siteTitle}`} />
-        <HomeView />
+      <HomeView />
         <TechView />
         <StoryView />
-        <ContactView />
       </Container>
     </Layout>
   );

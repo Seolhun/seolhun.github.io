@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { push } from 'gatsby';
 
 import styled from '@emotion/styled';
 
@@ -16,8 +16,6 @@ const SNSButtonsContainer = styled.div(() => {
     display: 'flex',
     padding: '1rem 2rem',
 
-    textDecoration: 'none',
-
     '& > *:not(:last-child)': {
       marginRight: '10px',
     },
@@ -25,6 +23,7 @@ const SNSButtonsContainer = styled.div(() => {
     [`@media ${media.tablet}`]: {
       display: 'block',
     },
+
     [`@media ${media.phone}`]: {
       display: 'block',
 
@@ -40,17 +39,14 @@ const SNSButtons = () => {
   return (
     <SNSButtonsWrapper>
       <SNSButtonsContainer>
-        <Button>
-          <Link to='/contact'>Contact</Link>
+        <Button onClick={() => push('/contents')}>
+          Contents
         </Button>
-        <Button>
-          <Link to='/contents'>Contents</Link>
+        <Button onClick={() => push('/tags')}>
+          Tags
         </Button>
-        <Button>
-          <Link to='/tags'>Tags</Link>
-        </Button>
-        <Button>
-          <Link to='/categories'>Categories</Link>
+        <Button onClick={() => push('/categories')}>
+          Categories
         </Button>
       </SNSButtonsContainer>
     </SNSButtonsWrapper>

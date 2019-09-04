@@ -2,8 +2,6 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import KeyResults from '../key-results';
-
 const HomeBodyWrapper = styled.div(() => {
   return {
     display: 'flex',
@@ -19,7 +17,11 @@ const HomeBody = () => {
       data-aos='fade-up'
       data-aos-delay='250'
     >
-      <KeyResults />
+      메일
+      깃허브
+      페이스북
+      트위터
+      링크드인
     </HomeBodyWrapper>
   );
 }

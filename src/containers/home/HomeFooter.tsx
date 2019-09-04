@@ -3,6 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import SNSButtons from '../sns-buttons';
+import Button from '@seolhun/localize-components-button';
 
 const HomeFooterWrapper = styled.div(() => {
   return {
@@ -17,7 +18,10 @@ const HomeFooter = () => {
       data-aos='fade-up'
       data-aos-delay='300'
     >
-      <SNSButtons />
+      {/* <SNSButtons /> */}
+      <Button mainColor={'white'}>
+        더 보기
+      </Button>
     </HomeFooterWrapper>
   );
 }

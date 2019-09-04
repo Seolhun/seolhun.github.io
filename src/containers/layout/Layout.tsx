@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StaticQuery, graphql } from 'gatsby';
 
+import { Global } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ThemeProvider } from 'emotion-theming';
 
@@ -10,6 +11,8 @@ import SiteConfig from 'config/SiteConfig';
 import Theme from 'config/Theme';
 
 import '@/i18n';
+
+import styles from './styles';
 
 const LayoutMain = styled.main({
   scrollBehavior: 'smooth',
@@ -26,6 +29,7 @@ const Layout = ({ children }: LayoutProps) => {
       query={query}
       render={data => (
         <ThemeProvider theme={Theme}>
+          <Global styles={styles}/>
           <LayoutMain>
             {children}
           </LayoutMain>

@@ -13,6 +13,10 @@ const HomeWrapper = styled.div(() => {
     alignItems: 'center',
 
     width: '100%',
+
+    '& > *:not(:last-of-type)': {
+      marginBottom: '20px',
+    }
   };
 });
 

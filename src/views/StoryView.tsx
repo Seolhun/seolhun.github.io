@@ -32,7 +32,6 @@ export const StoryQuery = graphql`
   query($skip: Int = 0, $limit: Int = 5) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      category: "story"
       limit: $limit
       skip: $skip
     ) {
