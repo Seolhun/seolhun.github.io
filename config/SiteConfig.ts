@@ -46,15 +46,22 @@ export default {
   authorSocialLinks: [
     {
       name: 'github',
-      url: 'https://github.com/Seolhun',
+      href: 'https://github.com/Seolhun',
+      target: '_blank',
     },
     {
       name: 'twitter',
-      url: 'https://twitter.com/seol_hooney',
+      href: 'https://twitter.com/seol_hooney',
+      target: '_blank',
     },
     {
-      name: 'facebook',
-      url: 'http://facebook.com/shun10114',
+      name: 'linkdin',
+      href: 'https://www.linkedin.com/in/hun-seol-3476a7b9/',
+      target: '_blank',
+    },
+    {
+      name: 'mail',
+      href: 'mailto:shun10116@gmail.com',
     },
   ],
   github: 'https://github.com/Seolhun',

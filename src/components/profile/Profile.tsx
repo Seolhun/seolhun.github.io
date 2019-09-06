@@ -8,7 +8,8 @@ interface ProfileProps {
 
 const ProfileImg = styled.img(() => {
   return {
-    width: '10rem',
+    width: '150px',
+    height: '150px',
     borderRadius: '50%',
     padding: 0,
     margin: '0 15px 0 0',

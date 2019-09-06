@@ -6,6 +6,8 @@ import { Global } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ThemeProvider } from 'emotion-theming';
 
+import { Container } from '@seolhun/localize-components';
+
 import { Footer } from '@/components';
 import SiteConfig from 'config/SiteConfig';
 import Theme from 'config/Theme';
@@ -14,7 +16,7 @@ import '@/i18n';
 
 import styles from './styles';
 
-const LayoutMain = styled.main({
+const StyledLayoutMain = styled(Container)({
   scrollBehavior: 'smooth',
 });
 
@@ -30,7 +32,7 @@ const Layout = ({ children }: LayoutProps) => {
       render={(data) => (
         <ThemeProvider theme={Theme}>
           <Global styles={styles} />
-          <LayoutMain>{children}</LayoutMain>
+          <StyledLayoutMain>{children}</StyledLayoutMain>
           <Footer>
             <div>
               &copy; {t('home:title')} by {SiteConfig.author}. All rights reserved.

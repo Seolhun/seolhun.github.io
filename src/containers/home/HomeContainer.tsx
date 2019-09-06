@@ -2,31 +2,47 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import HomeBody from './HomeBody';
-import HomeFooter from './HomeFooter';
-import HomeHead from './HomeHead';
+import { Col, Container, Row } from '@seolhun/localize-components';
 
-const HomeWrapper = styled.div(() => {
+import { Profile } from '@/components';
+import Mission from '@/containers/mission';
+import Button from '@seolhun/localize-components-button';
+import SiteConfig from 'config/SiteConfig';
+
+const StyledHomeWrapper = styled.div(() => {
   return {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-
-    width: '100%',
-
-    '& > *:not(:last-of-type)': {
-      marginBottom: '20px',
+    [`${Row}:not(:last-of-type)`]: {
+      marginBottom: '15px',
     },
   };
 });
 
 const HomeContainer = () => {
   return (
-    <HomeWrapper>
-      <HomeHead />
-      <HomeBody />
-      <HomeFooter />
-    </HomeWrapper>
+    <StyledHomeWrapper>
+      <Container>
+        <Row data-aos='fade-up' data-aos-delay='200'>
+          <Col xs={24} css={{ alignItems: 'center' }}>
+            <Profile src={SiteConfig.githubOwnerImage} />
+            <Mission />
+          </Col>
+        </Row>
+        <Row data-aos='fade-up' data-aos-delay='250' css={{ justifyContent: 'center' }}>
+          <Col xs={18}>
+            {SiteConfig.authorSocialLinks.map((link) => (
+              <Col xs={6} css={{ justifyContent: 'center' }}>
+                <a {...link}>{link.name}</a>
+              </Col>
+            ))}
+          </Col>
+        </Row>
+        <Row data-aos='fade-up' data-aos-delay='300'>
+          <Col xs={24} css={{ justifyContent: 'center' }}>
+            <Button mainColor='primary'>더 보기</Button>
+          </Col>
+        </Row>
+      </Container>
+    </StyledHomeWrapper>
   );
 };
 
