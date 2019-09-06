@@ -2,23 +2,24 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import { Container } from '@/components';
 import { Layout } from '@/containers';
 import config from 'config/SiteConfig';
 
+import BackgroundCanvas, { useCanvas } from '@/containers/canvases';
 import HomeView from '../views/HomeView';
 import StoryView from '../views/StoryView';
 import TechView from '../views/TechView';
 
 const IndexPage = () => {
+  const [cavasRef] = useCanvas();
+
   return (
     <Layout>
-      <Container isFullWidth>
-        <Helmet title={`Homepage | ${config.siteTitle}`} />
-        <HomeView />
-        <TechView />
-        <StoryView />
-      </Container>
+      <Helmet title={`Homepage | ${config.siteTitle}`} />
+      <BackgroundCanvas ref={cavasRef} />
+      <HomeView />
+      <TechView />
+      <StoryView />
     </Layout>
   );
 };

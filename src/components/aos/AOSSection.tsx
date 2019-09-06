@@ -31,7 +31,6 @@ const AOSContent = styled.div<AOSSectionProps>(
 
       width: `100%`,
       height: `100%`,
-      padding: '1em 2em',
     };
   },
 );

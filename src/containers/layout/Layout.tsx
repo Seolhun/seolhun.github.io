@@ -1,12 +1,13 @@
 import { graphql, StaticQuery } from 'gatsby';
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Global } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ThemeProvider } from 'emotion-theming';
 
-import { Container } from '@seolhun/localize-components';
+import { Col, Container, Row } from '@seolhun/localize-components';
+import { Switch } from '@seolhun/localize-components-atomic';
 
 import { Footer } from '@/components';
 import SiteConfig from 'config/SiteConfig';
@@ -20,18 +21,36 @@ const StyledLayoutMain = styled(Container)({
   scrollBehavior: 'smooth',
 });
 
+const StyledSwitch = styled(Switch)({
+  position: 'fixed',
+  right: '10px',
+  top: '10px',
+});
+
 interface LayoutProps {
   children: ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
   const { t } = useTranslation();
+  const [isChecked, setChecked] = useState(false);
   return (
     <StaticQuery
       query={query}
       render={(data) => (
         <ThemeProvider theme={Theme}>
           <Global styles={styles} />
+          <StyledSwitch
+            item={{
+              label: 'label',
+              value: 'value',
+            }}
+            onChange={(event) => {
+              setChecked(!isChecked);
+            }}
+            checked={isChecked}
+            css={{ zIndex: 5 }}
+          />
           <StyledLayoutMain>{children}</StyledLayoutMain>
           <Footer>
             <div>
