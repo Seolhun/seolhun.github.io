@@ -6,9 +6,7 @@ export interface ContainerProps {
   isFullWidth?: boolean;
 }
 
-const Container = styled.div<ContainerProps>(({
-  isFullWidth,
-}) => {
+const Container = styled.div<ContainerProps>(({ isFullWidth }) => {
   return {
     display: 'flex',
     flexDirection: 'column',
@@ -21,8 +19,8 @@ const Container = styled.div<ContainerProps>(({
     },
     [`@media ${media.phone}`]: {
       padding: isFullWidth ? '0' : '0 1rem',
-    }
-  }
+    },
+  };
 });
 
 export default Container;

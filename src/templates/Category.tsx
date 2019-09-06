@@ -1,26 +1,18 @@
+import { Link } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Link } from 'gatsby';
 
 import { kebabCase } from 'lodash';
 
-import config from 'config/SiteConfig';
-import {
-  Container,
-  Header,
-  Article,
-  SectionTitle,
-  Content,
-} from '@/components';
+import { Article, Container, Content, Header, SectionTitle } from '@/components';
 import { Layout } from '@/containers';
 import PageProps from '@/models/PageProps';
+import config from 'config/SiteConfig';
 
 const Category = ({ pathContext }: PageProps) => {
   const { posts, categoryName } = pathContext;
   const totalCount = posts ? posts.length : 0;
-  const subline = `${totalCount} post${
-    totalCount === 1 ? '' : 's'
-  } tagged with "${categoryName}"`;
+  const subline = `${totalCount} post${totalCount === 1 ? '' : 's'} tagged with "${categoryName}"`;
 
   return (
     <Layout>

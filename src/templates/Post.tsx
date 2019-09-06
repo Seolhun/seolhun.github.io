@@ -1,22 +1,15 @@
+import { graphql, Link } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Link, graphql } from 'gatsby';
 
 import styled from '@emotion/styled';
 import { kebabCase } from 'lodash';
 
-import config from 'config/SiteConfig';
-import {
-  Container,
-  Header,
-  SEO,
-  PrevNext,
-  SectionTitle,
-  Content,
-} from '@/components';
+import { Container, Content, Header, PrevNext, SectionTitle, SEO } from '@/components';
 import { Layout } from '@/containers';
 import PathContext from '@/models/PathContext';
 import Post from '@/models/Post';
+import config from 'config/SiteConfig';
 
 import '@/utils/prismjs-theme.css';
 
@@ -45,8 +38,7 @@ const PostPage = ({ data, pathContext }: Props) => {
             <Link to='/'>{config.siteTitle}</Link>
             <SectionTitle>{post.frontmatter.title}</SectionTitle>
             <div>
-              {post.frontmatter.date} &mdash; {post.timeToRead} Min Read &mdash;
-              In{' '}
+              {post.frontmatter.date} &mdash; {post.timeToRead} Min Read &mdash; In{' '}
               <Link to={`/categories/${kebabCase(post.frontmatter.category)}`}>
                 {post.frontmatter.category}
               </Link>
@@ -60,8 +52,7 @@ const PostPage = ({ data, pathContext }: Props) => {
                   Tags: &#160;
                   {post.frontmatter.tags.map((tag, i) => (
                     <Link key={i} to={`/tags/${kebabCase(tag)}`}>
-                      <strong>{tag}</strong>{' '}
-                      {i < post.frontmatter.tags.length - 1 ? `, ` : ``}
+                      <strong>{tag}</strong> {i < post.frontmatter.tags.length - 1 ? `, ` : ``}
                     </Link>
                   ))}
                 </div>

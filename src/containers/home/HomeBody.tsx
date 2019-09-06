@@ -8,22 +8,15 @@ const HomeBodyWrapper = styled.div(() => {
     alignItems: 'center',
 
     marginTop: '10px',
-  }
-})
+  };
+});
 
 const HomeBody = () => {
   return (
-    <HomeBodyWrapper
-      data-aos='fade-up'
-      data-aos-delay='250'
-    >
-      메일
-      깃허브
-      페이스북
-      트위터
-      링크드인
+    <HomeBodyWrapper data-aos='fade-up' data-aos-delay='250'>
+      메일 깃허브 페이스북 트위터 링크드인
     </HomeBodyWrapper>
   );
-}
+};
 
 export default HomeBody;

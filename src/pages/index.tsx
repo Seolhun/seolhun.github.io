@@ -1,25 +1,21 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { graphql } from "gatsby";
+import { graphql } from 'gatsby';
+import React from 'react';
+import Helmet from 'react-helmet';
 
-import {
-  Container,
-} from "@/components";
-import {
-  Layout,
-} from "@/containers";
-import config from "config/SiteConfig";
+import { Container } from '@/components';
+import { Layout } from '@/containers';
+import config from 'config/SiteConfig';
 
-import HomeView from "../views/HomeView";
-import StoryView from "../views/StoryView";
-import TechView from "../views/TechView";
+import HomeView from '../views/HomeView';
+import StoryView from '../views/StoryView';
+import TechView from '../views/TechView';
 
 const IndexPage = () => {
   return (
     <Layout>
       <Container isFullWidth>
         <Helmet title={`Homepage | ${config.siteTitle}`} />
-      <HomeView />
+        <HomeView />
         <TechView />
         <StoryView />
       </Container>
@@ -29,10 +25,7 @@ const IndexPage = () => {
 
 export const IndexQuery = graphql`
   query {
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 1
-    ) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1) {
       totalCount
       edges {
         node {

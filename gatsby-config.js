@@ -8,9 +8,7 @@ require('ts-node').register({
 });
 
 const SiteConfig = require('./config/SiteConfig').default;
-const pathPrefix = SiteConfig.pathPrefix === '/' ?
-  '' :
-  SiteConfig.pathPrefix;
+const pathPrefix = SiteConfig.pathPrefix === '/' ? '' : SiteConfig.pathPrefix;
 
 module.exports = {
   pathPrefix: SiteConfig.pathPrefix,
@@ -38,7 +36,7 @@ module.exports = {
       resolve: 'gatsby-plugin-root-import',
       options: {
         '@': path.join(__dirname, 'src'),
-        'config': path.join(__dirname, 'config'),
+        config: path.join(__dirname, 'config'),
       },
     },
     {
@@ -57,9 +55,9 @@ module.exports = {
         respectDNT: true,
         exclude: [],
         pageTransitionDelay: 0,
-        optimizeId: "YOUR_GOOGLE_OPTIMIZE_TRACKING_ID",
-        experimentId: "YOUR_GOOGLE_EXPERIMENT_ID",
-        variationId: "YOUR_GOOGLE_OPTIMIZE_VARIATION_ID",
+        optimizeId: 'YOUR_GOOGLE_OPTIMIZE_TRACKING_ID',
+        experimentId: 'YOUR_GOOGLE_EXPERIMENT_ID',
+        variationId: 'YOUR_GOOGLE_OPTIMIZE_VARIATION_ID',
         sampleRate: 5,
         siteSpeedSampleRate: 10,
         cookieDomain: SiteConfig.siteUrl,
@@ -75,7 +73,8 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: [{
+        plugins: [
+          {
             resolve: 'gatsby-remark-external-links',
             options: {
               target: '_blank',
@@ -106,5 +105,5 @@ module.exports = {
         icon: SiteConfig.favicon,
       },
     },
-  ]
+  ],
 };

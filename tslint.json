@@ -2,7 +2,7 @@
   "defaultSeverity": "error",
   "extends": [
     "tslint:latest",
-    "tslint-config-prettier",
+    "tslint-config-prettier"
   ],
   "jsRules": {},
   "rules": {
@@ -29,6 +29,8 @@
     "no-empty-interface": false,
     "no-reference": false,
     "no-var-requires": false,
+    "no-submodule-imports": false,
+    "no-implicit-dependencies": false,
     "no-shadowed-variable": [
       false,
       {

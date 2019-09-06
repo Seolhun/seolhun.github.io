@@ -3,8 +3,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import HomeBody from './HomeBody';
-import HomeHead from './HomeHead';
 import HomeFooter from './HomeFooter';
+import HomeHead from './HomeHead';
 
 const HomeWrapper = styled.div(() => {
   return {
@@ -16,7 +16,7 @@ const HomeWrapper = styled.div(() => {
 
     '& > *:not(:last-of-type)': {
       marginBottom: '20px',
-    }
+    },
   };
 });
 

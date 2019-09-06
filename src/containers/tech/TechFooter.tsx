@@ -8,18 +8,15 @@ const TechFooterWrapper = styled.div(() => {
   return {
     display: 'flex',
     alignItems: 'center',
-  }
-})
+  };
+});
 
 const TechFooter = () => {
   return (
-    <TechFooterWrapper
-      data-aos='fade-up'
-      data-aos-delay='300'
-    >
+    <TechFooterWrapper data-aos='fade-up' data-aos-delay='300'>
       <SNSButtons />
     </TechFooterWrapper>
   );
-}
+};
 
 export default TechFooter;

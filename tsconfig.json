@@ -8,13 +8,11 @@
       "es2015",
       "es2017"
     ],
-    // Root Import
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
       "config/*": ["config/*"]
     },
-    // Rules
     "strict": true,
     "noEmit": true,
     "isolatedModules": true,
@@ -29,6 +27,6 @@
     "./src/**/*"
   ],
   "exclude": [
-    "node_modules",
+    "node_modules"
   ]
 }

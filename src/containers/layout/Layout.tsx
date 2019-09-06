@@ -1,6 +1,6 @@
+import { graphql, StaticQuery } from 'gatsby';
 import React, { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { StaticQuery, graphql } from 'gatsby';
 
 import { Global } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -27,22 +27,16 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <StaticQuery
       query={query}
-      render={data => (
+      render={(data) => (
         <ThemeProvider theme={Theme}>
-          <Global styles={styles}/>
-          <LayoutMain>
-            {children}
-          </LayoutMain>
+          <Global styles={styles} />
+          <LayoutMain>{children}</LayoutMain>
           <Footer>
             <div>
-              &copy; {t('home:title')} by {SiteConfig.author}. All
-              rights reserved.
+              &copy; {t('home:title')} by {SiteConfig.author}. All rights reserved.
             </div>
             <div>
-              <a
-                href={SiteConfig.github}
-                target='_blank'
-              >
+              <a href={SiteConfig.github} target='_blank'>
                 {SiteConfig.author} GitHub
               </a>
             </div>
@@ -52,7 +46,7 @@ const Layout = ({ children }: LayoutProps) => {
       )}
     />
   );
-}
+};
 
 const query = graphql`
   query LayoutQuery {

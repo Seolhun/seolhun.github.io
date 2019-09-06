@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "gatsby";
+import { Link } from 'gatsby';
+import React from 'react';
 
-import styled from "@emotion/styled";
-import kebabCase from "lodash/kebabCase";
+import styled from '@emotion/styled';
+import kebabCase from 'lodash/kebabCase';
 
 interface Props {
   title: string;
@@ -33,15 +33,7 @@ const Excerpt = styled.p({
   marginBottom: '1rem',
 });
 
-const Article = ({
-  title,
-  date,
-  excerpt,
-  slug,
-  timeToRead,
-  category,
-  banner
-}: Props) => (
+const Article = ({ title, date, excerpt, slug, timeToRead, category, banner }: Props) => (
   <Post>
     {banner && <img src={banner} />}
     <Title>

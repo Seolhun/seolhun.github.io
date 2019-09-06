@@ -3,8 +3,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import TechBody from './TechBody';
-import TechHead from './TechHead';
 import TechFooter from './TechFooter';
+import TechHead from './TechHead';
 
 const TechWrapper = styled.div(() => {
   return {

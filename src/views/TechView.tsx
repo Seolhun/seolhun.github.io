@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
 import { StaticQuery } from 'gatsby';
+import React, { useEffect } from 'react';
 
 import AOS from 'aos';
 

@@ -30,7 +30,7 @@ const HeaderWrapper: any = styled.header(() => {
     [`@media ${media.phone}`]: {
       padding: '1rem 0.5rem 2rem',
     },
-  }
+  };
 });
 
 const Content = styled.div({
@@ -43,8 +43,8 @@ const Content = styled.div({
     '&:hover': {
       opacity: 0.85,
       color: 'white',
-    }
-  }
+    },
+  },
 });
 
 interface HeaderProps {
@@ -52,15 +52,12 @@ interface HeaderProps {
   banner?: string;
 }
 
-const Header = ({
-  banner,
-  children,
-}: HeaderProps) => {
+const Header = ({ banner, children }: HeaderProps) => {
   return (
     <HeaderWrapper banner={banner || config.defaultBg}>
       <Content>{children}</Content>
     </HeaderWrapper>
   );
-}
+};
 
 export default Header;

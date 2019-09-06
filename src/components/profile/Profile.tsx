@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import styled from '@emotion/styled';
 
 interface ProfileProps {
-  src: string,
+  src: string;
 }
 
 const ProfileImg = styled.img(() => {
@@ -13,14 +13,10 @@ const ProfileImg = styled.img(() => {
     padding: 0,
     margin: '0 15px 0 0',
   };
-})
+});
 
-const Profile: FC<ProfileProps> = ({
-  src,
-}) => {
-  return (
-    <ProfileImg src={src} />
-  );
-}
+const Profile: FC<ProfileProps> = ({ src }) => {
+  return <ProfileImg src={src} />;
+};
 
 export default Profile;

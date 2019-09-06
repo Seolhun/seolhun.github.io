@@ -2,7 +2,7 @@ import Post from './Post';
 
 interface AllMarkdownRemark {
   totalCount: number;
-  edges: { node: Post }[];
+  edges: Array<{ node: Post }>;
 }
 
 export default AllMarkdownRemark;

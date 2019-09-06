@@ -1,18 +1,11 @@
+import { graphql, Link } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Link, graphql } from 'gatsby';
 
-import SiteConfig from 'config/SiteConfig';
-import {
-  Container,
-  Header,
-  Article,
-  Pagination,
-  SectionTitle,
-  Content,
-} from '@/components';
+import { Article, Container, Content, Header, Pagination, SectionTitle } from '@/components';
 import { Layout } from '@/containers';
 import Data from '@/models/Data';
+import SiteConfig from 'config/SiteConfig';
 
 interface Props {
   data: Data;
@@ -47,11 +40,7 @@ const BlogPage = ({ pageContext, data }: Props) => {
               banner={post.node.frontmatter.banner}
             />
           ))}
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            url={'contents'}
-          />
+          <Pagination currentPage={currentPage} totalPages={totalPages} url={'contents'} />
         </Content>
       </Container>
     </Layout>

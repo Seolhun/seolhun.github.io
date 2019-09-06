@@ -24,7 +24,7 @@ const SectionTitle = styled.div<SectionTitleProps>(({ theme, isUpperCase }) => {
       left: '50%',
       marginLeft: '-25px',
       background: theme.colors.white,
-    }
+    },
   };
 });
 

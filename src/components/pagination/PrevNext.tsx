@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "gatsby";
+import { Link } from 'gatsby';
+import React from 'react';
 
-import styled from "@emotion/styled";
-import kebabCase from "lodash/kebabCase";
+import styled from '@emotion/styled';
+import kebabCase from 'lodash/kebabCase';
 
-import Post from "@/models/Post";
+import Post from '@/models/Post';
 
 interface PaginationWrapperProps {
-  theme?: any
+  theme?: any;
 }
 
 const PaginationWrapper = styled.div<PaginationWrapperProps>(({ theme }) => {
@@ -20,11 +20,11 @@ const PaginationWrapper = styled.div<PaginationWrapperProps>(({ theme }) => {
       alignItems: 'center',
     },
     justifyItems: 'center',
-  }
+  };
 });
 
 interface PaginationItemProps {
-  theme?: any
+  theme?: any;
 }
 
 const Prev = styled.div<PaginationItemProps>(({ theme }) => {
@@ -33,7 +33,7 @@ const Prev = styled.div<PaginationItemProps>(({ theme }) => {
       textㅆransform: 'uppercase',
       fontㄴize: '0.8rem',
       color: theme.colors.grey.light,
-    }
+    },
   };
 });
 
@@ -45,8 +45,8 @@ const Next = styled.div<PaginationItemProps>(({ theme }) => {
       textTransform: 'uppercase',
       fontSize: '0.8rem',
       color: theme.colors.grey.light,
-    }
-  }
+    },
+  };
 });
 
 interface Props {

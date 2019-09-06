@@ -9,13 +9,13 @@ const resources = supportedLanguages.reduce((langObj, lang) => {
     return {
       ...fileObj,
       [file]: require(`@/i18n/locales/${lang}/${file}`).default,
-    }
+    };
   }, {});
   return {
     ...langObj,
     [lang]: supportedFileObject,
-  }
-}, {})
+  };
+}, {});
 
 i18next
   .use(LanguageDetector)

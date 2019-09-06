@@ -1,10 +1,10 @@
+import { Link } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Link } from 'gatsby';
 
 import SiteConfig from 'config/SiteConfig';
 
-import { Container, Header, SectionTitle, Content } from '@/components';
+import { Container, Content, Header, SectionTitle } from '@/components';
 import { Layout } from '@/containers';
 
 const NotFoundPage = () => {

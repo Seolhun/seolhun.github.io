@@ -12,28 +12,20 @@ const MissionWrapper = styled.div(() => {
 });
 
 const MissionHead = styled.h2(() => {
-  return {
-
-  };
+  return {};
 });
 
 const MissionDescription = styled.p(() => {
-  return {
-
-  };
+  return {};
 });
 
 const Mission = () => {
   return (
     <MissionWrapper>
-      <MissionHead>
-        Mission
-      </MissionHead>
-      <MissionDescription>
-        {SiteConfig.mission}
-      </MissionDescription>
+      <MissionHead>Mission</MissionHead>
+      <MissionDescription>{SiteConfig.mission}</MissionDescription>
     </MissionWrapper>
   );
-}
+};
 
 export default Mission;

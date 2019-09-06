@@ -1,5 +1,5 @@
-import React from 'react';
 import { push } from 'gatsby';
+import React from 'react';
 
 import styled from '@emotion/styled';
 
@@ -39,15 +39,9 @@ const SNSButtons = () => {
   return (
     <SNSButtonsWrapper>
       <SNSButtonsContainer>
-        <Button onClick={() => push('/contents')}>
-          Contents
-        </Button>
-        <Button onClick={() => push('/tags')}>
-          Tags
-        </Button>
-        <Button onClick={() => push('/categories')}>
-          Categories
-        </Button>
+        <Button onClick={() => push('/contents')}>Contents</Button>
+        <Button onClick={() => push('/tags')}>Tags</Button>
+        <Button onClick={() => push('/categories')}>Categories</Button>
       </SNSButtonsContainer>
     </SNSButtonsWrapper>
   );

@@ -1,12 +1,8 @@
-import TechHead from './TechHead';
 import TechBody from './TechBody';
-import TechFooter from './TechFooter';
 import TechContainer from './TechContainer';
+import TechFooter from './TechFooter';
+import TechHead from './TechHead';
 
-export {
-  TechHead,
-  TechBody,
-  TechFooter,
-}
+export { TechHead, TechBody, TechFooter };
 
 export default TechContainer;

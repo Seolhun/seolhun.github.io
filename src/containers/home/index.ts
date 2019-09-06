@@ -1,12 +1,8 @@
-import HomeHead from './HomeHead';
 import HomeBody from './HomeBody';
-import HomeFooter from './HomeFooter';
 import HomeContainer from './HomeContainer';
+import HomeFooter from './HomeFooter';
+import HomeHead from './HomeHead';
 
-export {
-  HomeHead,
-  HomeBody,
-  HomeFooter,
-}
+export { HomeHead, HomeBody, HomeFooter };
 
 export default HomeContainer;

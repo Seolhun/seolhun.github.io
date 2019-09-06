@@ -2,13 +2,8 @@ const path = require('path');
 const _ = require('lodash');
 const config = require('./config/SiteConfig').default;
 
-exports.onCreateNode = ({
-  node,
-  actions
-}) => {
-  const {
-    createNodeField
-  } = actions;
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions;
 
   const isMarkdown = node.internal.type === 'MarkdownRemark';
   const hasFrontMatter = _.has(node, 'frontmatter');
@@ -19,20 +14,18 @@ exports.onCreateNode = ({
     createNodeField({
       node,
       name: 'slug',
-      value: slug
+      value: slug,
     });
   }
 };
 
 const getPostsByType = (posts, classificationType) => {
   const postsByType = {};
-  posts.forEach(({
-    node
-  }) => {
+  posts.forEach(({ node }) => {
     const nodeClassificationType = node.frontmatter[classificationType];
     if (nodeClassificationType) {
       if (_.isArray(nodeClassificationType)) {
-        nodeClassificationType.forEach(name => {
+        nodeClassificationType.forEach((name) => {
           if (!_.has(postsByType, name)) {
             postsByType[name] = [];
           }
@@ -50,13 +43,9 @@ const getPostsByType = (posts, classificationType) => {
   return postsByType;
 };
 
-const createClassificationPages = ({
-  createPage,
-  posts,
-  postsPerPage,
-  numPages
-}) => {
-  const classifications = [{
+const createClassificationPages = ({ createPage, posts, postsPerPage, numPages }) => {
+  const classifications = [
+    {
       singularName: 'category',
       pluralName: 'categories',
       template: {
@@ -76,7 +65,7 @@ const createClassificationPages = ({
     },
   ];
 
-  classifications.forEach(classification => {
+  classifications.forEach((classification) => {
     const names = Object.keys(classification.postsByClassificationNames);
 
     createPage({
@@ -87,7 +76,7 @@ const createClassificationPages = ({
       },
     });
 
-    names.forEach(name => {
+    names.forEach((name) => {
       const postsByName = classification.postsByClassificationNames[name];
       createPage({
         path: `/${classification.pluralName}/${_.kebabCase(name)}`,
@@ -101,10 +90,7 @@ const createClassificationPages = ({
   });
 };
 
-exports.onCreateWebpackConfig = ({
-  stage,
-  actions
-}) => {
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
   actions.setWebpackConfig({
     resolve: {
       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
@@ -112,44 +98,35 @@ exports.onCreateWebpackConfig = ({
   });
 };
 
-exports.createPages = ({
-  actions,
-  graphql
-}) => {
-  const {
-    createPage
-  } = actions;
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
 
   const postTemplate = path.resolve(`src/templates/Post.tsx`);
 
-  return graphql(`{
-    allMarkdownRemark(
-      sort: {
-        order: DESC,
-        fields: [frontmatter___date]
-      }
-      limit: 10000
-    ) {
-      edges {
-        node {
-          excerpt(pruneLength: 250)
-          html
-          id
-          fields {
-            slug
+  return graphql(`
+    {
+      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: 10000) {
+        edges {
+          node {
+            excerpt(pruneLength: 250)
+            html
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              date
+              title
+              category
+              tags
+              banner
+            }
+            timeToRead
           }
-          frontmatter {
-            date
-            title
-            category
-            tags
-            banner
-          }
-          timeToRead
         }
       }
     }
-  }`).then(result => {
+  `).then((result) => {
     if (result.errors) {
       return Promise.reject(result.errors);
     }
@@ -159,7 +136,7 @@ exports.createPages = ({
     const numPages = Math.ceil(posts.length / postsPerPage);
 
     Array.from({
-      length: numPages
+      length: numPages,
     }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `/contents` : `/contents/${i + 1}`,
@@ -168,7 +145,7 @@ exports.createPages = ({
           limit: postsPerPage,
           skip: i * postsPerPage,
           totalPages: numPages,
-          currentPage: i + 1
+          currentPage: i + 1,
         },
       });
     });
@@ -177,12 +154,10 @@ exports.createPages = ({
       createPage,
       posts,
       postsPerPage,
-      numPages
+      numPages,
     });
 
-    posts.forEach(({
-      node
-    }, index) => {
+    posts.forEach(({ node }, index) => {
       const next = index === 0 ? null : posts[index - 1].node;
       const prev = index === posts.length - 1 ? null : posts[index + 1].node;
 

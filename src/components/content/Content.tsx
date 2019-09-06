@@ -29,8 +29,8 @@ const Content = styled.div<ContentProps>(({ theme }) => {
           resize: 'vertical',
           minHeight: '150px',
           width: '100%',
-        }
-      }
+        },
+      },
     },
 
     [`@media ${media.tablet}`]: {
@@ -38,8 +38,8 @@ const Content = styled.div<ContentProps>(({ theme }) => {
     },
     [`@media ${media.phone}`]: {
       padding: '2rem 1.5rem',
-    }
-  }
+    },
+  };
 });
 
 export default Content;
