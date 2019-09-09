@@ -2,10 +2,11 @@ import { Link } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import SiteConfig from 'config/SiteConfig';
+import { Container } from '@seolhun/localize-components';
 
-import { Container, Content, Header, SectionTitle } from '@/components';
+import { Content, Header, SectionTitle } from '@/components';
 import { Layout } from '@/containers';
+import SiteConfig from 'config/SiteConfig';
 
 const NotFoundPage = () => {
   return (

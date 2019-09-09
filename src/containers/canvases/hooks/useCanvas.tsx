@@ -92,7 +92,7 @@ const drawCanvas = (ref: CanvasRef) => {
   particles();
 };
 
-export const useCanvas = () => {
+const useCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     drawCanvas(canvasRef.current);
@@ -104,4 +104,4 @@ export const useCanvas = () => {
   return [canvasRef];
 };
 
-export default useCanvas;
+export { useCanvas };

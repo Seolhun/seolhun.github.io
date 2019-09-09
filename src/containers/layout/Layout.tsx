@@ -1,31 +1,33 @@
 import { graphql, StaticQuery } from 'gatsby';
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import '@/i18n';
 import { Global } from '@emotion/core';
 import styled from '@emotion/styled';
-import { ThemeProvider } from 'emotion-theming';
-
-import { Col, Container, Row } from '@seolhun/localize-components';
+import { Container } from '@seolhun/localize-components';
 import { Switch } from '@seolhun/localize-components-atomic';
+import { ThemeProvider } from 'emotion-theming';
 
 import { Footer } from '@/components';
 import SiteConfig from 'config/SiteConfig';
 import Theme from 'config/Theme';
 
-import '@/i18n';
-
 import styles from './styles';
 
-const StyledLayoutMain = styled(Container)({
+const StyledHeaderContainer = styled.nav({
+  position: 'fixed',
+  right: 0,
+  top: 0,
+  margin: '10px 10px 0 0',
+  zIndex: 1,
+});
+
+const StyledMainContainer = styled(Container)({
   scrollBehavior: 'smooth',
 });
 
-const StyledSwitch = styled(Switch)({
-  position: 'fixed',
-  right: '10px',
-  top: '10px',
-});
+const StyledFooterContainer = styled.footer();
 
 interface LayoutProps {
   children: ReactNode;
@@ -33,36 +35,40 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const { t } = useTranslation();
+
   const [isChecked, setChecked] = useState(false);
+  const handleIsChecked = useCallback(() => {
+    setChecked(!isChecked);
+  }, [isChecked]);
+
   return (
     <StaticQuery
       query={query}
       render={(data) => (
         <ThemeProvider theme={Theme}>
           <Global styles={styles} />
-          <StyledSwitch
-            item={{
-              label: 'label',
-              value: 'value',
-            }}
-            onChange={(event) => {
-              setChecked(!isChecked);
-            }}
-            checked={isChecked}
-            css={{ zIndex: 5 }}
-          />
-          <StyledLayoutMain>{children}</StyledLayoutMain>
-          <Footer>
-            <div>
-              &copy; {t('home:title')} by {SiteConfig.author}. All rights reserved.
-            </div>
-            <div>
-              <a href={SiteConfig.github} target='_blank'>
-                {SiteConfig.author} GitHub
-              </a>
-            </div>
-            <div>Last build: {data.site.buildTime}</div>
-          </Footer>
+          <StyledHeaderContainer>
+            <Switch
+              htmlFor='theme'
+              onChange={handleIsChecked}
+              checked={isChecked}
+              css={{ zIndex: 5 }}
+            />
+          </StyledHeaderContainer>
+          <StyledMainContainer isFullWidth>{children}</StyledMainContainer>
+          <StyledFooterContainer>
+            <Footer>
+              <div>
+                &copy; {t('home:title')} by {SiteConfig.author}. All rights reserved.
+              </div>
+              <div>
+                <a href={SiteConfig.github} target='_blank'>
+                  {SiteConfig.author} GitHub
+                </a>
+              </div>
+              <div>Last build: {data.site.buildTime}</div>
+            </Footer>
+          </StyledFooterContainer>
         </ThemeProvider>
       )}
     />

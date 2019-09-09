@@ -3,9 +3,10 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 import styled from '@emotion/styled';
+import { Container } from '@seolhun/localize-components';
 import { kebabCase } from 'lodash';
 
-import { Container, Content, Header, PrevNext, SectionTitle, SEO } from '@/components';
+import { Content, Header, PrevNext, SectionTitle, SEO } from '@/components';
 import { Layout } from '@/containers';
 import PathContext from '@/models/PathContext';
 import Post from '@/models/Post';

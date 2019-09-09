@@ -2,14 +2,14 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { Col, Container, Row } from '@seolhun/localize-components';
+import { Card, Col, Container, Row } from '@seolhun/localize-components';
 
 import { Profile } from '@/components';
 import Mission from '@/containers/mission';
 import Button from '@seolhun/localize-components-button';
 import SiteConfig from 'config/SiteConfig';
 
-const StyledHomeWrapper = styled.div(() => {
+const StyledHomeWrapper = styled(Card)(() => {
   return {
     [`.${Row}`]: {
       marginBottom: '15px',

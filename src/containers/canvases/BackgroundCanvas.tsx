@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
-import { StyledProps, ThemeConfig } from '@seolhun/localize-components-styled-types';
 
-interface BackgroundCanvasProps extends StyledProps {}
+import { LocalizeStyledProps, LocalizeTheme } from '@seolhun/localize-components-styled-types';
+
+interface BackgroundCanvasProps extends LocalizeStyledProps {}
 
 const BackgroundCanvas = styled.canvas<BackgroundCanvasProps>(({ theme, mainColor }) => {
   return {
@@ -10,7 +11,7 @@ const BackgroundCanvas = styled.canvas<BackgroundCanvasProps>(({ theme, mainColo
     overflow: 'hidden',
     position: 'fixed',
 
-    backgroundColor: mainColor || ThemeConfig.primaryColor,
+    backgroundColor: mainColor || LocalizeTheme.background,
 
     margin: 0,
     padding: 0,

@@ -2,9 +2,10 @@ import { Link } from 'gatsby';
 import React, { FC } from 'react';
 import Helmet from 'react-helmet';
 
-import kebabCase from 'lodash/kebabCase';
+import { Container } from '@seolhun/localize-components';
+import { kebabCase } from 'lodash';
 
-import { Container, Content, Header, SectionTitle, Title } from '@/components';
+import { Content, Header, SectionTitle, Title } from '@/components';
 import { Layout } from '@/containers';
 import PageProps from '@/models/PageProps';
 import config from 'config/SiteConfig';

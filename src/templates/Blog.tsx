@@ -2,7 +2,9 @@ import { graphql, Link } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import { Article, Container, Content, Header, Pagination, SectionTitle } from '@/components';
+import { Container } from '@seolhun/localize-components';
+
+import { Article, Content, Header, Pagination, SectionTitle } from '@/components';
 import { Layout } from '@/containers';
 import Data from '@/models/Data';
 import SiteConfig from 'config/SiteConfig';

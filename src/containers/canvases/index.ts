@@ -1,2 +1,2 @@
 export { default } from './BackgroundCanvas';
-export * from './canvas';
+export * from './hooks';
