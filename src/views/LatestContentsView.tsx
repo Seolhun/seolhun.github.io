@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 
 import AOSSection from '@/components/aos';
-import { TechContainer } from '@/containers';
+import { ContentsContainer } from '@/containers/content';
 
 const TechView = () => {
   useEffect(() => {
@@ -16,20 +16,47 @@ const TechView = () => {
 
   return (
     <StaticQuery
-      query={query}
-      render={() => (
-        <AOSSection id='TechView' verticalAlign='flex-start'>
-          <TechContainer />
-        </AOSSection>
-      )}
+      query={LatestQuery}
+      render={({ allMarkdownRemark }) => {
+        return (
+          <AOSSection id='Lastest' verticalAlign='flex-start'>
+            <ContentsContainer
+              items={allMarkdownRemark.edges.map((edge: any) => ({
+                ...edge.node.frontmatter,
+                timeToRead: edge.node.timeToRead,
+              }))}
+            />
+          </AOSSection>
+        );
+      }}
     />
   );
 };
 
-const query = graphql`
-  query TechViewQuery {
-    site {
-      buildTime(formatString: "YYYY-MM-DD")
+export const LatestQuery = graphql`
+  query($skip: Int = 0, $limit: Int = 5) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
+      totalCount
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            date(formatString: "DD.MM.YYYY")
+            category
+            tags
+            banner
+          }
+          excerpt(pruneLength: 200)
+          timeToRead
+        }
+      }
     }
   }
 `;

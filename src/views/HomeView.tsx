@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 
 import { AOSSection } from '@/components';
-import HomeContainer from '@/containers/home';
+import { HomeContainer } from '@/containers/home';
 
 const HomeView = () => {
   useEffect(() => {

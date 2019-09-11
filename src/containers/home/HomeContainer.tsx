@@ -6,7 +6,7 @@ import { Col, Container, Icon, Row } from '@seolhun/localize-components';
 
 import { rightTwister } from '@/animations';
 import { Profile } from '@/components';
-import Mission from '@/containers/mission';
+import { Mission } from '@/containers/mission';
 import Button from '@seolhun/localize-components-button';
 import SiteConfig from 'config/SiteConfig';
 
@@ -15,6 +15,8 @@ const StyledHomeContainer = styled(Container)(() => {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
 
     '.__Localize__Row:not(:last-child)': {
       marginBottom: '15px',
@@ -28,7 +30,7 @@ const StyledIconLink = styled.a({
   },
 });
 
-const HomeContainer = () => {
+export const HomeContainer = () => {
   return (
     <StyledHomeContainer>
       <Row data-aos='fade-up' alignItems='center'>

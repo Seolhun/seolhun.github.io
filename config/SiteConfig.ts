@@ -66,6 +66,6 @@ export default {
   ],
   github: 'https://github.com/Seolhun',
   aboutMe: 'I just expresses my thougt by code and word',
-  mission: '데이터를 접근하기 쉽고 유익하게 가공하여 세상에 편리하게 만드는 것',
+  mission: '데이터를 누구나 쉽고 유익하게 사용할 수 있게 한다.',
   keyResults: ['Cross Browsing', 'Localize-Component', 'Visualization with D3'],
 };

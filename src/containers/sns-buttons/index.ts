@@ -1,3 +1,1 @@
-import SNSButtons from './SNSButtons';
-
-export default SNSButtons;
+export * from './SNSButtons';

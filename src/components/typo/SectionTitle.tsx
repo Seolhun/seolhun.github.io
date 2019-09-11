@@ -7,7 +7,7 @@ interface SectionTitleProps {
 
 const SectionTitle = styled.div<SectionTitleProps>(({ theme, isUpperCase }) => {
   return {
-    fontSize: theme.fontSize.big,
+    fontSize: theme.fonts.SIZE.big,
     color: theme.colors.white,
     textTransform: isUpperCase ? 'uppercase' : 'none',
     textAlign: 'center',

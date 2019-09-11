@@ -19,7 +19,7 @@ const MissionDescription = styled.p(() => {
   return {};
 });
 
-const Mission = () => {
+export const Mission = () => {
   return (
     <MissionWrapper>
       <MissionHead>Mission</MissionHead>

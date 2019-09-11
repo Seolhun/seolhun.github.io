@@ -17,7 +17,7 @@ interface Props {
   };
 }
 
-const BlogPage = ({ pageContext, data }: Props) => {
+export const BlogPage = ({ pageContext, data }: Props) => {
   const { currentPage, totalPages } = pageContext;
   const { edges, totalCount } = data.allMarkdownRemark;
 

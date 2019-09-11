@@ -1,12 +1,14 @@
-import { useEffect, useRef } from 'react';
+import { LocalizeThemes } from '@seolhun/localize-components-styled-types';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 type CanvasRef = HTMLCanvasElement | null;
 
-const drawCanvas = (ref: CanvasRef) => {
-  const canvas = ref || (document.getElementById('seolhun-canvas') as HTMLCanvasElement);
+const useDrawCanvas = (canvasRef: CanvasRef) => {
+  const canvas = canvasRef;
   if (!canvas) {
     return;
   }
+
   const width = window.innerWidth;
   const height = window.innerHeight;
   const ctx = canvas ? canvas.getContext('2d') : null;
@@ -16,7 +18,7 @@ const drawCanvas = (ref: CanvasRef) => {
   const size = 7;
   const speed = 20;
   const parts: any[] = [];
-  const colors = ['red', '#f57900', 'yellow', '#ce5c00', '#5c3566'];
+  const colors = Object.values(LocalizeThemes);
   const mouse: any = { x: 0, y: 0 };
 
   canvas.setAttribute('width', `${width}`);
@@ -92,13 +94,10 @@ const drawCanvas = (ref: CanvasRef) => {
   particles();
 };
 
-const useCanvas = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+const useCanvas = (canvas?: HTMLCanvasElement) => {
+  const canvasRef = useRef<HTMLCanvasElement>(canvas || null);
   useEffect(() => {
-    drawCanvas(canvasRef.current);
-    return () => {
-      drawCanvas(canvasRef.current);
-    };
+    useDrawCanvas(canvasRef.current);
   }, []);
 
   return [canvasRef];

@@ -1,22 +1,25 @@
 import styled from '@emotion/styled';
 
-import { LocalizeStyledProps, LocalizeTheme } from '@seolhun/localize-components-styled-types';
+import {
+  ILocalizeTheme,
+  LocalizeStyledProps,
+  LocalizeTheme,
+} from '@seolhun/localize-components-styled-types';
 
 interface BackgroundCanvasProps extends LocalizeStyledProps {}
 
-const BackgroundCanvas = styled.canvas<BackgroundCanvasProps>(({ theme, mainColor }) => {
-  return {
-    height: '100vh',
-    width: '100vw',
-    overflow: 'hidden',
-    position: 'fixed',
-
-    backgroundColor: mainColor || LocalizeTheme.background,
-
-    margin: 0,
-    padding: 0,
-    zIndex: 0,
-  };
-});
+const BackgroundCanvas = styled.canvas<BackgroundCanvasProps, ILocalizeTheme>(
+  ({ mainColor, theme }) => {
+    return {
+      height: '100%',
+      width: '100%',
+      overflow: 'hidden',
+      position: 'fixed',
+      backgroundColor: mainColor || theme.background || LocalizeTheme.background,
+      margin: 0,
+      padding: 0,
+    };
+  },
+);
 
 export default BackgroundCanvas;

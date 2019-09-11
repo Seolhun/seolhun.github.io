@@ -10,13 +10,18 @@ import { Switch } from '@seolhun/localize-components-atomic';
 import { ThemeProvider } from 'emotion-theming';
 
 import { Footer } from '@/components';
+import BackgroundCanvas, { useCanvas } from '@/containers/canvases';
+import useStorage from '@/hooks/useStorage';
 import SiteConfig from 'config/SiteConfig';
 import Theme from 'config/Theme';
 
-import useStorage from '@/hooks/useStorage';
 import styles from './styles';
 
-const StyledHeaderContainer = styled.nav({
+const LayoutContainer = styled(Container)({
+  scrollBehavior: 'smooth',
+});
+
+const StyledHeaderContainer = styled.header({
   position: 'fixed',
   right: 0,
   top: 0,
@@ -24,18 +29,19 @@ const StyledHeaderContainer = styled.nav({
   zIndex: 1,
 });
 
-const StyledMainContainer = styled(Container)({
-  scrollBehavior: 'smooth',
+const StyledFooter = styled(Footer)({
+  zIndex: 1,
 });
 
 interface LayoutProps {
   children: ReactNode;
 }
 
-const Layout = ({ children }: LayoutProps) => {
+export const Layout = ({ children }: LayoutProps) => {
   const { t } = useTranslation();
   const storage = useStorage();
-  const [isDarkMode, setThemeMode] = useState(storage.getItem('THEME') === 'DARK');
+  const [cavasRef] = useCanvas();
+  const [isDarkMode, setThemeMode] = useState(storage.getItem('THEME') === 'DARK' || true);
   const handleIsChecked = useCallback(() => {
     storage.setItem('THEME', !isDarkMode ? 'DARK' : 'LIGHT');
     setThemeMode(!isDarkMode);
@@ -47,26 +53,31 @@ const Layout = ({ children }: LayoutProps) => {
       render={(data) => (
         <ThemeProvider theme={isDarkMode ? Theme.DARK : Theme.LIGHT}>
           <Global styles={styles} />
-          <StyledHeaderContainer>
-            <Switch
-              htmlFor='theme'
-              onChange={handleIsChecked}
-              checked={isDarkMode}
-              css={{ zIndex: 5 }}
-            />
-          </StyledHeaderContainer>
-          <StyledMainContainer isFullWidth>{children}</StyledMainContainer>
-          <Footer>
-            <div>
-              &copy; {t('home:title')} by {SiteConfig.author}. All rights reserved.
-            </div>
-            <div>
-              <a href={SiteConfig.github} target='_blank'>
-                {SiteConfig.author} GitHub
-              </a>
-            </div>
-            <div>Last build: {data.site.buildTime}</div>
-          </Footer>
+          <LayoutContainer isFullWidth>
+            <StyledHeaderContainer>
+              <Switch
+                htmlFor='theme'
+                onChange={handleIsChecked}
+                checked={isDarkMode}
+                css={{ zIndex: 5 }}
+              />
+            </StyledHeaderContainer>
+            <main>
+              <BackgroundCanvas ref={cavasRef} />
+              <Container>{children}</Container>
+            </main>
+            <StyledFooter>
+              <div>
+                &copy; {t('home:title')} by {SiteConfig.author}. All rights reserved.
+              </div>
+              <div>
+                <a href={SiteConfig.github} target='_blank'>
+                  {SiteConfig.author} GitHub
+                </a>
+              </div>
+              <div>Last build: {data.site.buildTime}</div>
+            </StyledFooter>
+          </LayoutContainer>
         </ThemeProvider>
       )}
     />

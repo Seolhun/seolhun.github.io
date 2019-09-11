@@ -5,17 +5,13 @@ import Helmet from 'react-helmet';
 import { Layout } from '@/containers';
 import config from 'config/SiteConfig';
 
-import BackgroundCanvas, { useCanvas } from '@/containers/canvases';
 import HomeView from '@/views/HomeView';
 import LatestContentsView from '@/views/LatestContentsView';
 
 const IndexPage = () => {
-  const [cavasRef] = useCanvas();
-
   return (
     <Layout>
       <Helmet title={`Homepage | ${config.siteTitle}`} />
-      <BackgroundCanvas ref={cavasRef} />
       <HomeView />
       <LatestContentsView />
     </Layout>
