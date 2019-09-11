@@ -13,6 +13,7 @@ import { Footer } from '@/components';
 import SiteConfig from 'config/SiteConfig';
 import Theme from 'config/Theme';
 
+import useStorage from '@/hooks/useStorage';
 import styles from './styles';
 
 const StyledHeaderContainer = styled.nav({
@@ -33,8 +34,10 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const { t } = useTranslation();
-  const [isDarkMode, setThemeMode] = useState(false);
+  const storage = useStorage();
+  const [isDarkMode, setThemeMode] = useState(storage.getItem('THEME') === 'DARK');
   const handleIsChecked = useCallback(() => {
+    storage.setItem('THEME', !isDarkMode ? 'DARK' : 'LIGHT');
     setThemeMode(!isDarkMode);
   }, [isDarkMode]);
 

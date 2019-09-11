@@ -1,4 +1,4 @@
-import { LocalizeThemes, ILocalizeTheme } from '@seolhun/localize-components-styled-types';
+import { LocalizeThemes } from '@seolhun/localize-components-styled-types';
 
 export const colors = {
   primary: '#72cc96', // Color for buttons or links

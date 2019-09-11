@@ -42,7 +42,7 @@ const HomeContainer = () => {
           {SiteConfig.authorSocialLinks.map((link) => (
             <Col key={link.name} xs={12} sm={6}>
               <StyledIconLink {...link}>
-                <Icon src={`/assets/icons/${link.name}.png`} borderRadius='0' />
+                <Icon src={`/assets/icons/${link.name}.png`} />
               </StyledIconLink>
             </Col>
           ))}

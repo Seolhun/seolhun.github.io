@@ -1,7 +1,11 @@
 ---
+author: Seolhun
+category: about
+date: 2019-09-09
+subTitle: About Me
 title: About Seolhun
-menuTitle: About Me
 ---
+
 
 ## 안녕하세요. 설훈입니다.
 여러분들을 이렇게 블로그에서 만나뵐 수 있게되어 영광입니다. :)

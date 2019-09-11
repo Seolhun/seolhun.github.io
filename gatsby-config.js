@@ -28,8 +28,22 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'post',
+        name: 'posts',
         path: `${__dirname}/contents/posts`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'stories',
+        path: `${__dirname}/contents/stories`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'metas',
+        path: `${__dirname}/metas`,
       },
     },
     {
@@ -37,13 +51,6 @@ module.exports = {
       options: {
         '@': path.join(__dirname, 'src'),
         config: path.join(__dirname, 'config'),
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'story',
-        path: `${__dirname}/contents/story`,
       },
     },
     {
