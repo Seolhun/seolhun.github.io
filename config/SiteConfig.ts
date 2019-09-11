@@ -60,7 +60,7 @@ export default {
       target: '_blank',
     },
     {
-      name: 'mail',
+      name: 'email',
       href: 'mailto:shun10116@gmail.com',
     },
   ],

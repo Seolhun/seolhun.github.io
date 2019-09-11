@@ -27,48 +27,43 @@ const StyledMainContainer = styled(Container)({
   scrollBehavior: 'smooth',
 });
 
-const StyledFooterContainer = styled.footer();
-
 interface LayoutProps {
   children: ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
   const { t } = useTranslation();
-
-  const [isChecked, setChecked] = useState(false);
+  const [isDarkMode, setThemeMode] = useState(false);
   const handleIsChecked = useCallback(() => {
-    setChecked(!isChecked);
-  }, [isChecked]);
+    setThemeMode(!isDarkMode);
+  }, [isDarkMode]);
 
   return (
     <StaticQuery
       query={query}
       render={(data) => (
-        <ThemeProvider theme={Theme}>
+        <ThemeProvider theme={isDarkMode ? Theme.DARK : Theme.LIGHT}>
           <Global styles={styles} />
           <StyledHeaderContainer>
             <Switch
               htmlFor='theme'
               onChange={handleIsChecked}
-              checked={isChecked}
+              checked={isDarkMode}
               css={{ zIndex: 5 }}
             />
           </StyledHeaderContainer>
           <StyledMainContainer isFullWidth>{children}</StyledMainContainer>
-          <StyledFooterContainer>
-            <Footer>
-              <div>
-                &copy; {t('home:title')} by {SiteConfig.author}. All rights reserved.
-              </div>
-              <div>
-                <a href={SiteConfig.github} target='_blank'>
-                  {SiteConfig.author} GitHub
-                </a>
-              </div>
-              <div>Last build: {data.site.buildTime}</div>
-            </Footer>
-          </StyledFooterContainer>
+          <Footer>
+            <div>
+              &copy; {t('home:title')} by {SiteConfig.author}. All rights reserved.
+            </div>
+            <div>
+              <a href={SiteConfig.github} target='_blank'>
+                {SiteConfig.author} GitHub
+              </a>
+            </div>
+            <div>Last build: {data.site.buildTime}</div>
+          </Footer>
         </ThemeProvider>
       )}
     />

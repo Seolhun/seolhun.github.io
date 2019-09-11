@@ -2,49 +2,58 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { Card, Col, Container, Row } from '@seolhun/localize-components';
+import { Col, Container, Icon, Row } from '@seolhun/localize-components';
 
+import { rightTwister } from '@/animations';
 import { Profile } from '@/components';
 import Mission from '@/containers/mission';
 import Button from '@seolhun/localize-components-button';
 import SiteConfig from 'config/SiteConfig';
 
-const StyledHomeWrapper = styled(Card)(() => {
+const StyledHomeContainer = styled(Container)(() => {
   return {
-    [`.${Row}`]: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+
+    '.__Localize__Row:not(:last-child)': {
       marginBottom: '15px',
     },
   };
 });
 
+const StyledIconLink = styled.a({
+  '&:hover': {
+    animation: `${rightTwister()} 1s ease-in-out infinite`,
+  },
+});
+
 const HomeContainer = () => {
   return (
-    <StyledHomeWrapper>
-      <Container>
-        <Row data-aos='fade-up' data-aos-delay='200' alignItems='center'>
-          <Col xs={24} sm={8}>
-            <Profile src={SiteConfig.githubOwnerImage} />
-          </Col>
-          <Col xs={24} sm={16}>
-            <Mission />
-          </Col>
-        </Row>
-        <Row data-aos='fade-up' data-aos-delay='250' justifyContent='center'>
-          <Col xs={24} sm={18}>
-            {SiteConfig.authorSocialLinks.map((link) => (
-              <Col key={link.name} xs={12} sm={6} justifyContent='center'>
-                <a {...link}>{link.name}</a>
-              </Col>
-            ))}
-          </Col>
-        </Row>
-        <Row data-aos='fade-up' data-aos-delay='300'>
-          <Col xs={24} justifyContent='center'>
-            <Button mainColor='primary'>더 보기</Button>
-          </Col>
-        </Row>
-      </Container>
-    </StyledHomeWrapper>
+    <StyledHomeContainer>
+      <Row data-aos='fade-up' alignItems='center'>
+        <Col xs={24}>
+          <Profile src={SiteConfig.githubOwnerImage} />
+          <Mission />
+        </Col>
+      </Row>
+      <Row data-aos='fade-up' data-aos-delay='50'>
+        <Col xs={24}>
+          {SiteConfig.authorSocialLinks.map((link) => (
+            <Col key={link.name} xs={12} sm={6}>
+              <StyledIconLink {...link}>
+                <Icon src={`/assets/icons/${link.name}.png`} borderRadius='0' />
+              </StyledIconLink>
+            </Col>
+          ))}
+        </Col>
+      </Row>
+      <Row data-aos='fade-up' data-aos-delay='100'>
+        <Col xs={24}>
+          <Button>더 보기</Button>
+        </Col>
+      </Row>
+    </StyledHomeContainer>
   );
 };
 

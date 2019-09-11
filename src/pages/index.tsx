@@ -6,9 +6,8 @@ import { Layout } from '@/containers';
 import config from 'config/SiteConfig';
 
 import BackgroundCanvas, { useCanvas } from '@/containers/canvases';
-import HomeView from '../views/HomeView';
-import StoryView from '../views/StoryView';
-import TechView from '../views/TechView';
+import HomeView from '@/views/HomeView';
+import LatestContentsView from '@/views/LatestContentsView';
 
 const IndexPage = () => {
   const [cavasRef] = useCanvas();
@@ -18,8 +17,7 @@ const IndexPage = () => {
       <Helmet title={`Homepage | ${config.siteTitle}`} />
       <BackgroundCanvas ref={cavasRef} />
       <HomeView />
-      <TechView />
-      <StoryView />
+      <LatestContentsView />
     </Layout>
   );
 };

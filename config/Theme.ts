@@ -1,6 +1,6 @@
-import { LocalizeThemes } from '@seolhun/localize-components-styled-types';
+import { LocalizeThemes, ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
-const colors = {
+export const colors = {
   primary: '#72cc96', // Color for buttons or links
   bg: '#fff', // Background color
   white: '#fff',
@@ -21,24 +21,50 @@ const fontSize = {
   big: '2.9rem',
 };
 
-export default {
-  primaryColor: 'red',
-  secondaryColor: 'white',
+interface ISeolhunThemes {
+  DARK: any;
+  LIGHT: any;
+}
 
-  background: 'white',
-
-  border: {
-    color: 'grey',
-    radius: '4px',
-    shadow: `0px 2px 1px -1px ${LocalizeThemes.light_grey}, 0px 1px 1px 0px ${LocalizeThemes.light_grey}, 0px 1px 3px 0px ${LocalizeThemes.light_grey}`,
+const SeolhunThemes: ISeolhunThemes = {
+  DARK: {
+    primaryColor: 'pink',
+    secondaryColor: 'white',
+    background: 'white',
+    border: {
+      color: 'grey',
+      radius: '4px',
+      shadow: `0px 2px 1px -1px ${LocalizeThemes.light_grey}, 0px 1px 1px 0px ${LocalizeThemes.light_grey}, 0px 1px 3px 0px ${LocalizeThemes.light_grey}`,
+    },
+    grid: {
+      gutter: '0.5rem',
+    },
+    row: {
+      gutter: '-0.525rem',
+    },
+    colors,
+    transitions,
+    fontSize,
   },
-  grid: {
-    gutter: '0.5rem',
+  LIGHT: {
+    primaryColor: 'blue',
+    secondaryColor: 'white',
+    background: 'white',
+    border: {
+      color: 'grey',
+      radius: '4px',
+      shadow: `0px 2px 1px -1px ${LocalizeThemes.light_grey}, 0px 1px 1px 0px ${LocalizeThemes.light_grey}, 0px 1px 3px 0px ${LocalizeThemes.light_grey}`,
+    },
+    grid: {
+      gutter: '0.5rem',
+    },
+    row: {
+      gutter: '-0.525rem',
+    },
+    colors,
+    transitions,
+    fontSize,
   },
-  row: {
-    gutter: '-0.525rem',
-  },
-  colors,
-  transitions,
-  fontSize,
 };
+
+export default SeolhunThemes;

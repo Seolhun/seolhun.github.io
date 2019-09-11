@@ -24,7 +24,7 @@
     "preserveConstEnums": true,
   },
   "include": [
-    "./src/**/*"
+    "./src/**/*", "src/animations/.ts"
   ],
   "exclude": [
     "node_modules"
