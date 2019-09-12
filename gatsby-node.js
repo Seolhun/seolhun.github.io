@@ -2,6 +2,27 @@ const path = require('path');
 const _ = require('lodash');
 const config = require('./config/SiteConfig').default;
 
+exports.onCreateWebpackConfig = ({ stage, actions, loaders }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    },
+  });
+
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /bad-module/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    });
+  }
+};
+
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
 
@@ -87,14 +108,6 @@ const createClassificationPages = ({ createPage, posts, postsPerPage, numPages }
         },
       });
     });
-  });
-};
-
-exports.onCreateWebpackConfig = ({ stage, actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-    },
   });
 };
 

@@ -4,8 +4,12 @@ const ROOT_KEY: string = '__SEOLHUN__';
 type LocalStorageKeys = 'THEME';
 
 export const useStorage = () => {
+  if (typeof localStorage === 'undefined') {
+    return null;
+  }
+
   const getRootStorage = useCallback(() => {
-    const rootItem: any = window.localStorage.getItem(ROOT_KEY);
+    const rootItem: any = localStorage.getItem(ROOT_KEY);
     if (rootItem) {
       return JSON.parse(rootItem);
     }
@@ -29,7 +33,7 @@ export const useStorage = () => {
       ...rootItem,
       [key]: value,
     };
-    window.localStorage.setItem(ROOT_KEY, JSON.stringify(overridingRootItem));
+    localStorage.setItem(ROOT_KEY, JSON.stringify(overridingRootItem));
     return overridingRootItem;
   }, []);
 
@@ -39,7 +43,7 @@ export const useStorage = () => {
       return false;
     }
     delete rootItem[key];
-    window.localStorage.setItem(ROOT_KEY, rootItem);
+    localStorage.setItem(ROOT_KEY, rootItem);
     return true;
   }, []);
 

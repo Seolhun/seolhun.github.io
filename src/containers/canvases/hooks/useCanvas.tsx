@@ -6,6 +6,10 @@ type CanvasRef = HTMLCanvasElement | null;
 
 const useDrawCanvas = (canvasRef: CanvasRef) => {
   const canvas = canvasRef;
+  if (typeof window === 'undefined') {
+    return;
+  }
+
   if (!canvas) {
     return;
   }
