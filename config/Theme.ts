@@ -28,7 +28,8 @@ export const colors = {
 const fonts = {
   COLOR: {
     highlight: 'royalblue',
-    color: '#282c35',
+    primaryColor: '#282c35',
+    secondaryColor: '#282c35',
   },
   SIZE: {
     small: '0.9rem',
