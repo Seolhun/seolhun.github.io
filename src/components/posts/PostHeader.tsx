@@ -10,20 +10,17 @@ interface PostHeaderProps {
   banner?: string;
 }
 
-const PostHeaderWrapper: any = styled.header<PostHeaderProps>(({ banner }) => {
-  return {
-    position: 'relative',
-    backgroundSize: 'cover',
-    padding: '5rem 2rem 10rem',
-    textAlign: 'center',
+const PostHeaderWrapper: any = styled.header<PostHeaderProps>({
+  backgroundSize: 'cover',
+  padding: '10rem 2rem',
+  textAlign: 'center',
 
-    [`@media ${media.tablet}`]: {
-      padding: '6rem 2rem 2rem',
-    },
-    [`@media ${media.phone}`]: {
-      padding: '1rem 0.5rem 2rem',
-    },
-  };
+  [`@media ${media.tablet}`]: {
+    padding: '6rem 2rem 2rem',
+  },
+  [`@media ${media.phone}`]: {
+    padding: '6rem 2rem 2rem',
+  },
 });
 
 interface PostHeaderBannerProps {

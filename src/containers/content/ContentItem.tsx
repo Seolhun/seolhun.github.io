@@ -14,7 +14,7 @@ const StyledCard = styled(Card)(() => {
     display: 'flex',
     flexDirection: 'column',
     cursor: 'pointer',
-    padding: '10px 30px',
+    padding: '10px 15px',
 
     '& > div': {
       padding: '30px 15px',
@@ -30,10 +30,10 @@ export const ContentItem: FC<ContentItemProps> = (props: ContentItemProps) => {
     <StyledCard>
       <Link to={`/contents/${fields.slug}`}>
         <Row alignItems='flex-start'>
-          <Col xs={3}>
+          <Col xs={0} sm={3}>
             <Image src={banner || `/assets/logo.png`} />
           </Col>
-          <Col xs={21}>
+          <Col xs={24} sm={21}>
             <Typo type='h2' weight={600}>
               {title}
             </Typo>

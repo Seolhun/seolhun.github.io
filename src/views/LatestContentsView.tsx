@@ -1,8 +1,9 @@
-import { StaticQuery } from 'gatsby';
+import { Link, StaticQuery } from 'gatsby';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Typo } from '@seolhun/localize-components-atomic';
+import { Col, Row } from '@seolhun/localize-components';
+import { Button, Typo } from '@seolhun/localize-components-atomic';
 import AOS from 'aos';
 
 import AOSSection from '@/components/aos';
@@ -34,6 +35,13 @@ const LatestContentsView = () => {
                 };
               })}
             />
+            <Row data-aos='fade-up' css={{ marginTop: '30px' }}>
+              <Col xs={24}>
+                <Button>
+                  <Link to={'/contents'}>{t('common:readMore')}</Link>
+                </Button>
+              </Col>
+            </Row>
           </AOSSection>
         );
       }}

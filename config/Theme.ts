@@ -18,7 +18,7 @@ const fontSize = {
 const fonts = {
   LIGHT: {
     COLOR: {
-      highlightColor: 'primary',
+      highlightColor: 'royalblue',
       primaryColor: '#282c35',
       secondaryColor: '#282c35',
     },
@@ -26,7 +26,7 @@ const fonts = {
   },
   DARK: {
     COLOR: {
-      highlightColor: 'primary',
+      highlightColor: 'royalblue',
       primaryColor: '#f9f5f5',
       secondaryColor: '#f9f5f5',
     },
@@ -43,7 +43,7 @@ const SeolhunThemes: ISeolhunThemes = {
   LIGHT: {
     primaryColor: '#373c49',
     secondaryColor: '#fff',
-    clickableColor: 'primary',
+    clickableColor: '#373c49',
     background: '#fff',
     border: {
       color: 'grey',
