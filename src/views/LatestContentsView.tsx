@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 
 import AOSSection from '@/components/aos';
-import { ContentsContainer } from '@/containers/content';
+import { ContentItemList } from '@/containers/content';
 
 const TechView = () => {
   useEffect(() => {
@@ -20,7 +20,7 @@ const TechView = () => {
       render={({ allMarkdownRemark }) => {
         return (
           <AOSSection id='Lastest' verticalAlign='flex-start'>
-            <ContentsContainer
+            <ContentItemList
               items={allMarkdownRemark.edges.map((edge: any) => ({
                 ...edge.node.frontmatter,
                 timeToRead: edge.node.timeToRead,

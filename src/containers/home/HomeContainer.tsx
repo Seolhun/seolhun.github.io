@@ -1,8 +1,8 @@
 import React from 'react';
 
 import styled from '@emotion/styled';
-
 import { Col, Container, Icon, Row } from '@seolhun/localize-components';
+import { useTranslation } from 'react-i18next';
 
 import { rightTwister } from '@/animations';
 import { Profile } from '@/components';
@@ -31,6 +31,8 @@ const StyledIconLink = styled.a({
 });
 
 export const HomeContainer = () => {
+  const { t } = useTranslation();
+
   return (
     <StyledHomeContainer>
       <Row data-aos='fade-up' alignItems='center'>
@@ -52,7 +54,7 @@ export const HomeContainer = () => {
       </Row>
       <Row data-aos='fade-up' data-aos-delay='100'>
         <Col xs={24}>
-          <Button>더 보기</Button>
+          <Button>{t('common:viewMore')}</Button>
         </Col>
       </Row>
     </StyledHomeContainer>
