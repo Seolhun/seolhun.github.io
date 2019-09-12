@@ -11,9 +11,9 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "build": "gatsby build",
     "dev": "gatsby develop",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "build": "gatsby build",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master",
     "lint": "tslint --project 'src/**/*.{ts,tsx}'",
     "lint:fix": "tslint --fix --project 'src/**/*.{ts,tsx}'",
     "prettier": "prettier --write 'src/**/*.{ts,tsx,scss,md}'",
