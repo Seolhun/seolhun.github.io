@@ -2,23 +2,14 @@ import { StaticQuery } from 'gatsby';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { Typo } from '@seolhun/localize-components-atomic';
 import AOS from 'aos';
 
 import AOSSection from '@/components/aos';
 import { ContentItemList } from '@/containers/content';
 import { Edge } from '@/models';
-import styled from '@emotion/styled';
-import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
-const StyledTitle = styled.h2<any, ILocalizeTheme>(({ theme }) => {
-  return {
-    color: theme.primaryColor,
-    fontSize: theme.fonts.SIZE.h2,
-    padding: '0 0 50px',
-  };
-});
-
-const TechView = () => {
+const LatestContentsView = () => {
   useEffect(() => {
     AOS.init();
     return () => {
@@ -31,10 +22,11 @@ const TechView = () => {
       query={LatestQuery}
       render={({ allMarkdownRemark }) => {
         const { t } = useTranslation();
-
         return (
           <AOSSection id='Lastest' verticalAlign='flex-start'>
-            <StyledTitle>{t('content:title')}</StyledTitle>
+            <Typo type='h1' weight={600} css={{ marginBottom: '50px' }} isHighlight>
+              {t('content:title')}
+            </Typo>
             <ContentItemList
               items={allMarkdownRemark.edges.map(({ node }: Edge) => {
                 return {
@@ -77,4 +69,4 @@ export const LatestQuery = graphql`
   }
 `;
 
-export default TechView;
+export default LatestContentsView;

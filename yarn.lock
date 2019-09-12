@@ -1027,17 +1027,17 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@seolhun/localize-components-atomic@^0.1.8":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-atomic/-/localize-components-atomic-0.1.8.tgz#104524f57804e6f8562dc53ac69f44e6980ca82b"
-  integrity sha512-DpsPiR5LzE9TqkJVC80BmNmuCfLBMn37Ul57x/WCjD1LvlgsRvZSvYgoePbIrzzAOKaXydBs5K1/sipXIlwb0A==
+"@seolhun/localize-components-atomic@^0.1.13":
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-atomic/-/localize-components-atomic-0.1.13.tgz#13877987bf3a8af8e3ed3a776b6d617a629baa63"
+  integrity sha512-8hkfX3uvecX83CD4Y3DctoReJ5YmH8CJitnOMRITY5k7mLwMnbh8jvegHsmqNYay4YSs+s7sgjcsSIJDkKB5ZQ==
   dependencies:
     "@emotion/core" "^10.0.6"
     "@emotion/styled" "^10.0.6"
-    "@seolhun/localize-components-button" "^0.1.8"
-    "@seolhun/localize-components-form" "^0.1.7"
-    "@seolhun/localize-components-styled-types" "^0.1.7"
-    "@seolhun/localize-components-styled-utils" "^0.1.7"
+    "@seolhun/localize-components-button" "^0.1.11"
+    "@seolhun/localize-components-form" "^0.1.11"
+    "@seolhun/localize-components-styled-types" "^0.1.10"
+    "@seolhun/localize-components-styled-utils" "^0.1.10"
     "@seolhun/localize-components-types" "^0.1.6"
     classnames "^2.2.6"
     lodash "^4.17.11"
@@ -1045,30 +1045,30 @@
     react "^16.8.6"
     react-dom "^16.8.6"
 
-"@seolhun/localize-components-button@^0.1.8":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-button/-/localize-components-button-0.1.8.tgz#d3106fbd90fd5e3e6925fcdd6d90974348e8c759"
-  integrity sha512-qknTEqJ2zWvWQp0dgyVhYZ+tPoyJXijGKGQXVjZ4v3nv9Fp79THVLTj8oEOgEiuPHeYxO9ge8rNlRA8UL/LzuQ==
+"@seolhun/localize-components-button@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-button/-/localize-components-button-0.1.11.tgz#d5af582fa7d0260b5fd3a8f85a10f34792f6bd5c"
+  integrity sha512-uEkbihy01PNPeieMdR7vNpwQnAJSAi22o2WSo8taeAh0fMJfnXF01gONXhW9X7683Q4nvqyPr1O5VVj3N75Vmg==
   dependencies:
     "@emotion/core" "^10.0.6"
     "@emotion/styled" "^10.0.6"
-    "@seolhun/localize-components-styled-types" "^0.1.7"
-    "@seolhun/localize-components-styled-utils" "^0.1.7"
+    "@seolhun/localize-components-styled-types" "^0.1.10"
+    "@seolhun/localize-components-styled-utils" "^0.1.10"
     classnames "^2.2.6"
     lodash "^4.17.11"
     polished "^3.1.0"
     react "^16.8.6"
     react-dom "^16.8.6"
 
-"@seolhun/localize-components-form@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-form/-/localize-components-form-0.1.7.tgz#d155349d20bb0eccea295376f10ed6ef43cc831b"
-  integrity sha512-4z8fmDkAa3yGvCdF8Y5D3YmYdHCW5GCcR3Z9MkCXDUlfrfbWabdUB88STt9MaM6zERq2lcL4hu4aDOtvwdagUg==
+"@seolhun/localize-components-form@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-form/-/localize-components-form-0.1.11.tgz#241e715cf53968afd4eb18844e54eb9c0adc67f4"
+  integrity sha512-RzOGJgx+j87cpm9VOckfJLAjfZQVGzIhBC/SGai76VKjTQWh1dAxBwhSHZqggoo0poZajWb3ZeeQISBvYRuAgQ==
   dependencies:
     "@emotion/core" "^10.0.6"
     "@emotion/styled" "^10.0.6"
-    "@seolhun/localize-components-styled-types" "^0.1.7"
-    "@seolhun/localize-components-styled-utils" "^0.1.7"
+    "@seolhun/localize-components-styled-types" "^0.1.10"
+    "@seolhun/localize-components-styled-utils" "^0.1.10"
     "@seolhun/localize-components-types" "^0.1.6"
     classnames "^2.2.6"
     lodash "^4.17.11"
@@ -1076,16 +1076,16 @@
     react "^16.8.6"
     react-dom "^16.8.6"
 
-"@seolhun/localize-components-modal@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-modal/-/localize-components-modal-0.1.7.tgz#2e39fc07b3ee7d2876059f32ff6bdc9ed1cdfb23"
-  integrity sha512-Lga48rmZTS2hJO75ojtWOGhb3spV4TLaouzE3aKVAIThDd6N4GEeKuas0ZXUDgTvhbBRwuTSwoqRecE+QH6uLQ==
+"@seolhun/localize-components-modal@^0.1.10":
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-modal/-/localize-components-modal-0.1.10.tgz#c45d0b1b93b79f76544c1189326cfd70b8eb9a54"
+  integrity sha512-5EsQRzHtiePyVa/rpTKaToz50CeswBoZeAkAzYjNtAnrdvdJH0ss3u3pQxoi6r6wxfJTGuWuO5pN7TzEbpK1Xg==
   dependencies:
     "@emotion/core" "^10.0.6"
     "@emotion/styled" "^10.0.6"
-    "@seolhun/localize-components-button" "^0.1.8"
-    "@seolhun/localize-components-styled-types" "^0.1.7"
-    "@seolhun/localize-components-styled-utils" "^0.1.7"
+    "@seolhun/localize-components-button" "^0.1.11"
+    "@seolhun/localize-components-styled-types" "^0.1.10"
+    "@seolhun/localize-components-styled-utils" "^0.1.10"
     "@seolhun/localize-components-types" "^0.1.6"
     classnames "^2.2.6"
     lodash "^4.17.11"
@@ -1093,21 +1093,21 @@
     react "^16.8.6"
     react-dom "^16.8.6"
 
-"@seolhun/localize-components-styled-types@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-styled-types/-/localize-components-styled-types-0.1.7.tgz#3de7d174ffa9abc88a19f597004c68fbc5c6b681"
-  integrity sha512-xkIQYHwHS7dN+kurJWNDVWyCNojRROGx3SLyV8CRJ+szveerp9PlT/PKJLeVIszHYklbLtUG02prT0eim2tMVw==
+"@seolhun/localize-components-styled-types@^0.1.10":
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-styled-types/-/localize-components-styled-types-0.1.10.tgz#f4a45311ff7404eb0874f594e43308bab4370d73"
+  integrity sha512-J5TeTBjjCyAl3K32jMQPf+9aNdy6DlNHsgbKmXdacZxgyluUPQKVyjEJv1BQtNYklbt3gDSGGz1dJMycmBrCfw==
   dependencies:
     classnames "^2.2.6"
     lodash "^4.17.11"
     react "^16.8.6"
 
-"@seolhun/localize-components-styled-utils@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-styled-utils/-/localize-components-styled-utils-0.1.7.tgz#6db9e5f652741270cde5d7be86409cf7946c354d"
-  integrity sha512-8eda3IXAv/OuapnsJM0h/idfjptTWda5kzi+Y+uwdoiAE94zJcJEg+ibL2b5ovmaA9twk06sRn+in6pd5rVddA==
+"@seolhun/localize-components-styled-utils@^0.1.10":
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-styled-utils/-/localize-components-styled-utils-0.1.10.tgz#f4fde3a8f011fed39b46e6861d3bf3ff3e6be88a"
+  integrity sha512-Nw8SxtTlafjLSWGiusWPkU/5FLYoO9KZKR4wRuzy3hRie6tE1mY1aOhz8odpuiyzVnYm2/BYFIc5wd4vGF1MHg==
   dependencies:
-    "@seolhun/localize-components-styled-types" "^0.1.7"
+    "@seolhun/localize-components-styled-types" "^0.1.10"
     classnames "^2.2.6"
     lodash "^4.17.11"
     polished "^3.4.1"
@@ -1122,16 +1122,16 @@
     lodash "^4.17.11"
     react "^16.8.6"
 
-"@seolhun/localize-components@^0.1.8":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@seolhun/localize-components/-/localize-components-0.1.8.tgz#455df3b8cd88bec49ba3ddc36d7cc052e05c093f"
-  integrity sha512-jVOovoxjYnUWAh0vGDma9mqsnY/tyYvkh/nAyOg0hAKEUNOidOFFeVrvN+AVKfTs9tbb+eV1zt6T1YoiyHgV/A==
+"@seolhun/localize-components@^0.1.12":
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/@seolhun/localize-components/-/localize-components-0.1.12.tgz#69f6a22694ff4d92680eeae48e47a66c04fe10f8"
+  integrity sha512-Pl6f78gy0HT+0YGrk/lALS3ltiYVhjtsbtg9GPNZb7v4+HQCFQr32wlptnBB/ujU79G319FtN5hOU9mzQEt31A==
   dependencies:
     "@emotion/core" "^10.0.6"
     "@emotion/styled" "^10.0.6"
-    "@seolhun/localize-components-modal" "^0.1.7"
-    "@seolhun/localize-components-styled-types" "^0.1.7"
-    "@seolhun/localize-components-styled-utils" "^0.1.7"
+    "@seolhun/localize-components-modal" "^0.1.10"
+    "@seolhun/localize-components-styled-types" "^0.1.10"
+    "@seolhun/localize-components-styled-utils" "^0.1.10"
     "@seolhun/localize-components-types" "^0.1.6"
     classnames "^2.2.6"
     lodash "^4.17.11"

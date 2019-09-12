@@ -1,14 +1,36 @@
 import { LocalizeThemes } from '@seolhun/localize-components-styled-types';
 
-const fonts = {
-  COLOR: {
-    highlight: 'royalblue',
-    primaryColor: '#282c35',
-    secondaryColor: '#282c35',
-  },
+const fontSize = {
   SIZE: {
-    small: '0.9rem',
-    big: '2.9rem',
+    h1: '2.4rem',
+    h2: '2.2rem',
+    h3: '2.0rem',
+    h4: '1.8rem',
+    h5: '1.6rem',
+    h6: '1.4rem',
+    p: '1.1rem',
+    big: '2.7rem',
+    medium: '1.5rem',
+    small: '1.0rem',
+  },
+};
+
+const fonts = {
+  LIGHT: {
+    COLOR: {
+      highlightColor: 'royalblue',
+      primaryColor: '#282c35',
+      secondaryColor: '#282c35',
+    },
+    ...fontSize,
+  },
+  DARK: {
+    COLOR: {
+      highlightColor: '#282c35',
+      primaryColor: '#282c35',
+      secondaryColor: '#282c35',
+    },
+    ...fontSize,
   },
 };
 
@@ -34,7 +56,7 @@ const SeolhunThemes: ISeolhunThemes = {
     row: {
       gutter: '-0.525rem',
     },
-    fonts,
+    fonts: fonts.LIGHT,
   },
   DARK: {
     primaryColor: '#282c35',
@@ -52,7 +74,7 @@ const SeolhunThemes: ISeolhunThemes = {
     row: {
       gutter: '-0.525rem',
     },
-    fonts,
+    fonts: fonts.DARK,
   },
 };
 

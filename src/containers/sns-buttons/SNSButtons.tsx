@@ -2,7 +2,6 @@ import { push } from 'gatsby';
 import React from 'react';
 
 import styled from '@emotion/styled';
-
 import { Button } from '@seolhun/localize-components-atomic';
 
 import media from '@/utils/media';

@@ -6,7 +6,7 @@ import '@/i18n';
 import { Global } from '@emotion/core';
 import styled from '@emotion/styled';
 import { Container } from '@seolhun/localize-components';
-import { Switch } from '@seolhun/localize-components-atomic';
+import { Switch, Typo } from '@seolhun/localize-components-atomic';
 import { ThemeProvider } from 'emotion-theming';
 
 import { Footer } from '@/components';
@@ -62,15 +62,15 @@ export const Layout = ({ children }: LayoutProps) => {
             </StyledHeaderContainer>
             <Container>{children}</Container>
             <StyledFooter>
-              <div>
+              <Typo type='p'>
                 &copy; {t('home:title')} by {SiteConfig.author}. All rights reserved.
-              </div>
-              <div>
+              </Typo>
+              <Typo type='p'>
                 <a href={SiteConfig.github} target='_blank'>
                   {SiteConfig.author} GitHub
                 </a>
-              </div>
-              <div>Last build: {data.site.buildTime}</div>
+              </Typo>
+              <Typo type='p'>Last build: {data.site.buildTime}</Typo>
             </StyledFooter>
           </LayoutContainer>
         </ThemeProvider>

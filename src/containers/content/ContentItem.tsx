@@ -1,9 +1,11 @@
+import { Link } from 'gatsby';
 import React, { FC } from 'react';
 
-import { Post } from '@/models';
 import styled from '@emotion/styled';
 import { Card, Col, Row } from '@seolhun/localize-components';
-import { Link } from 'gatsby';
+import { Image, Typo } from '@seolhun/localize-components-atomic';
+
+import { Post } from '@/models';
 
 export interface ContentItemProps extends Post {}
 
@@ -13,6 +15,10 @@ const StyledCard = styled(Card)(() => {
     flexDirection: 'column',
     cursor: 'pointer',
     padding: '10px 30px',
+
+    '& > div': {
+      padding: '30px 15px',
+    },
   };
 });
 
@@ -23,40 +29,44 @@ const StyledDivider = styled.span(() => {
 });
 
 export const ContentItem: FC<ContentItemProps> = (props: ContentItemProps) => {
-  const { fields, frontmatter, timeToRead } = props;
-  const { title, subTitle, tags, date } = frontmatter;
+  const { fields, frontmatter, timeToRead, excerpt } = props;
+  const { title, subTitle, date, banner, category } = frontmatter;
 
   return (
     <StyledCard>
       <Link to={`/contents/${fields.slug}`}>
         <Row alignItems='flex-start'>
-          <Col xs={24}>
-            <h2>{title}</h2>
+          <Col xs={3}>
+            <Image src={banner || `/assets/logo.png`} />
+          </Col>
+          <Col xs={21}>
+            <Typo type='h2' weight={600}>
+              {title}
+            </Typo>
+            {subTitle && <Typo type='p'>{subTitle}</Typo>}
           </Col>
         </Row>
-        {subTitle && (
+        {excerpt && (
           <Row alignItems='flex-start'>
             <Col xs={24}>
-              <h3>{subTitle}</h3>
+              <Typo type='p'>{excerpt}</Typo>
             </Col>
           </Row>
         )}
-        {tags && (
-          <Row alignItems='flex-start'>
-            <Col xs={24} sm={18}>
-              {tags.map((tag) => (
-                <label key={tag}>{tag}</label>
-              ))}
-            </Col>
-            <Col xs={24} sm={6}>
-              <div>
-                <span>{date}</span>
-                <StyledDivider>-</StyledDivider>
-                <span>{`${timeToRead}`} min read </span>
-              </div>
-            </Col>
-          </Row>
-        )}
+        <Row alignItems='flex-start'>
+          <Col xs={24} justifyContent='flex-end'>
+            <Typo type='small' weight={600}>
+              {date}
+            </Typo>
+            <Typo type='small' weight={600} css={{ padding: '0 5px' }}>
+              -
+            </Typo>
+            <Typo type='small' weight={600}>
+              {`${timeToRead}`} min read
+              {category && ` in ${category}`}
+            </Typo>
+          </Col>
+        </Row>
       </Link>
     </StyledCard>
   );

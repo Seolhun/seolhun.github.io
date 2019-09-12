@@ -1,15 +1,16 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import styled from '@emotion/styled';
 import { Col, Container, Icon, Row } from '@seolhun/localize-components';
-import { useTranslation } from 'react-i18next';
+import { Button } from '@seolhun/localize-components-atomic';
 
 import { rightTwister } from '@/animations';
 import { Profile } from '@/components';
 import BackgroundCanvas, { useCanvas } from '@/containers/canvases';
 import { Mission } from '@/containers/mission';
-import Button from '@seolhun/localize-components-button';
 import SiteConfig from 'config/SiteConfig';
+import { Link } from 'gatsby';
 
 const StyledHomeContainer = styled(Container)(() => {
   return {
@@ -58,7 +59,9 @@ export const HomeContainer = () => {
       </Row>
       <Row data-aos='fade-up' data-aos-delay='100'>
         <Col xs={24}>
-          <Button>{t('common:viewMore')}</Button>
+          <Link to={'/contents/about-seolhun'}>
+            <Button>{t('common:viewMore')}</Button>
+          </Link>
         </Col>
       </Row>
     </StyledHomeContainer>

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import styled from '@emotion/styled';
 import { Col, Container, Row } from '@seolhun/localize-components';
-import Button from '@seolhun/localize-components-button';
+import { Button } from '@seolhun/localize-components-atomic';
 
 import { Post } from '@/models';
 import ContentItem from './ContentItem';
