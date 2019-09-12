@@ -1,30 +1,5 @@
 import { LocalizeThemes } from '@seolhun/localize-components-styled-types';
 
-export const colors = {
-  LIGHT: {
-    primary: '#72cc96', // Color for buttons or links
-    bg: '#fff', // Background color
-    white: '#fff',
-    grey: {
-      dark: 'rgba(0, 0, 0, 0.9)',
-      default: 'rgba(0, 0, 0, 0.7)',
-      light: 'rgba(0, 0, 0, 0.5)',
-      ultraLight: 'rgba(0, 0, 0, 0.25)',
-    },
-  },
-  DARK: {
-    primary: '#72cc96', // Color for buttons or links
-    bg: '#fff', // Background color
-    white: '#fff',
-    grey: {
-      dark: 'rgba(0, 0, 0, 0.9)',
-      default: 'rgba(0, 0, 0, 0.7)',
-      light: 'rgba(0, 0, 0, 0.5)',
-      ultraLight: 'rgba(0, 0, 0, 0.25)',
-    },
-  },
-};
-
 const fonts = {
   COLOR: {
     highlight: 'royalblue',
@@ -46,6 +21,7 @@ const SeolhunThemes: ISeolhunThemes = {
   LIGHT: {
     primaryColor: 'royalblue',
     secondaryColor: '#fff',
+    clickableColor: 'royalblue',
     background: '#fff',
     border: {
       color: 'grey',
@@ -59,11 +35,11 @@ const SeolhunThemes: ISeolhunThemes = {
       gutter: '-0.525rem',
     },
     fonts,
-    colors: colors.LIGHT,
   },
   DARK: {
     primaryColor: '#282c35',
     secondaryColor: '#fff',
+    clickableColor: '#282c35',
     background: '#fff',
     border: {
       color: 'grey',
@@ -77,7 +53,6 @@ const SeolhunThemes: ISeolhunThemes = {
       gutter: '-0.525rem',
     },
     fonts,
-    colors: colors.DARK,
   },
 };
 

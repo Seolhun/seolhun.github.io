@@ -24,7 +24,7 @@ const getPostsByType = (posts, classificationType) => {
   posts.forEach(({ node }) => {
     const nodeClassificationType = node.frontmatter[classificationType];
     if (nodeClassificationType) {
-      if (_.isArray(nodeClassificationType)) {
+      if (Array.isArray(nodeClassificationType)) {
         nodeClassificationType.forEach((name) => {
           if (!_.has(postsByType, name)) {
             postsByType[name] = [];
@@ -55,7 +55,7 @@ const createClassificationPages = ({ createPage, posts, postsPerPage, numPages }
       postsByClassificationNames: getPostsByType(posts, 'category'),
     },
     {
-      singularName: 'tag',
+      singularName: 'tags',
       pluralName: 'tags',
       template: {
         part: path.resolve(`src/templates/Tag.tsx`),
@@ -102,7 +102,6 @@ exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
 
   const postTemplate = path.resolve(`src/templates/Post.tsx`);
-
   return graphql(`
     {
       allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: 10000) {
@@ -115,11 +114,13 @@ exports.createPages = ({ actions, graphql }) => {
               slug
             }
             frontmatter {
-              date
               title
+              date
+              author
+              subTitle
+              banner
               category
               tags
-              banner
             }
             timeToRead
           }

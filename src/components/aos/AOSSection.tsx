@@ -24,6 +24,7 @@ const AOSWrapper = styled.section<any, ILocalizeTheme>(({ theme }) => {
     width: '100%',
     height: '100%',
     backgroundColor: theme.background,
+    position: 'relative',
   };
 });
 

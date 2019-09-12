@@ -15,7 +15,7 @@ const StyledContentItemListCpntainer = styled(Container)(() => {
     flexDirection: 'column',
     alignItems: 'center',
 
-    '.__Localize__Row:not(:last-child)': {
+    '.__Localize__Card:not(:last-child)': {
       marginBottom: '15px',
     },
   };
@@ -34,9 +34,7 @@ export const ContentItemList: FC<ContentItemListProps> = ({ items }) => {
         {items.map((item) => {
           return (
             <Col key={item.fields.slug} xs={24} data-aos='fade-up'>
-              <Link to={`/contents/${item.fields.slug}`}>
-                <ContentItem {...item} />
-              </Link>
+              <ContentItem {...item} />
             </Col>
           );
         })}

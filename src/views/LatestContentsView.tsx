@@ -7,6 +7,16 @@ import AOS from 'aos';
 import AOSSection from '@/components/aos';
 import { ContentItemList } from '@/containers/content';
 import { Edge } from '@/models';
+import styled from '@emotion/styled';
+import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
+
+const StyledTitle = styled.h2<any, ILocalizeTheme>(({ theme }) => {
+  return {
+    color: theme.primaryColor,
+    fontSize: theme.fonts.SIZE.h2,
+    padding: '0 0 50px',
+  };
+});
 
 const TechView = () => {
   useEffect(() => {
@@ -24,7 +34,7 @@ const TechView = () => {
 
         return (
           <AOSSection id='Lastest' verticalAlign='flex-start'>
-            <h2>{t('content:title')}</h2>
+            <StyledTitle>{t('content:title')}</StyledTitle>
             <ContentItemList
               items={allMarkdownRemark.edges.map(({ node }: Edge) => {
                 return {

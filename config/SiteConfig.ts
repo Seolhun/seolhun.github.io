@@ -34,8 +34,8 @@ export default {
    * Settings for typography.ts
    */
   baseFontSize: '14px',
-  bodyFontFamily: 'Open Sans',
-  headerFontFamily: 'Bitter',
+  bodyFontFamily: ['Lato', 'Noto Sans KR', 'sans-serif'],
+  headerFontFamily: ['Lato', 'Noto Sans KR', 'sans-serif'],
   /**
    * Constants
    */

@@ -28,32 +28,32 @@ interface Props {
 const PostPage = ({ data, pathContext }: Props) => {
   const { prev, next } = pathContext;
   const post = data.markdownRemark;
+  const { timeToRead, fields, frontmatter, html } = data.markdownRemark;
+  const { tags, title, banner, date, category } = frontmatter;
 
   return (
     <Layout>
       {post && (
         <>
-          <SEO postPath={post.fields.slug} postNode={post} postSEO />
-          <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
-          <Header banner={post.frontmatter.banner}>
+          <SEO postPath={fields.slug} postNode={post} postSEO />
+          <Helmet title={`${title} | ${config.siteTitle}`} />
+          <Header banner={banner}>
             <Link to='/'>{config.siteTitle}</Link>
-            <SectionTitle>{post.frontmatter.title}</SectionTitle>
+            <SectionTitle>{title}</SectionTitle>
             <div>
-              {post.frontmatter.date} &mdash; {post.timeToRead} Min Read &mdash; In{' '}
-              <Link to={`/categories/${kebabCase(post.frontmatter.category)}`}>
-                {post.frontmatter.category}
-              </Link>
+              {date} &mdash; {timeToRead} Min Read &mdash; In{' '}
+              <Link to={`/categories/${kebabCase(category)}`}>{category}</Link>
             </div>
           </Header>
           <Container>
             <Content>
-              <PostContent dangerouslySetInnerHTML={{ __html: post.html }} />
-              {post.frontmatter.tags && (
+              <PostContent dangerouslySetInnerHTML={{ __html: html }} />
+              {tags && (
                 <div>
                   Tags: &#160;
-                  {post.frontmatter.tags.map((tag, i) => (
+                  {tags.map((tag, i) => (
                     <Link key={i} to={`/tags/${kebabCase(tag)}`}>
-                      <strong>{tag}</strong> {i < post.frontmatter.tags.length - 1 ? `, ` : ``}
+                      <strong>{tag}</strong> {i < tags.length - 1 ? `, ` : ``}
                     </Link>
                   ))}
                 </div>
@@ -76,7 +76,7 @@ export const postQuery = graphql`
       }
       frontmatter {
         title
-        date(formatString: "DD.MM.YYYY")
+        date(formatString: "YYYY.MM.DD")
         category
         tags
       }

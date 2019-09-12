@@ -64,7 +64,7 @@ export const BlogQuery = graphql`
           }
           frontmatter {
             title
-            date(formatString: "DD.MM.YYYY")
+            date(formatString: "YYYY.MM.DD")
             category
             tags
             banner

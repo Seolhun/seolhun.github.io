@@ -5,6 +5,11 @@ import styled from '@emotion/styled';
 import { media } from '@/utils/media';
 import config from 'config/SiteConfig';
 
+interface HeaderProps {
+  children: any;
+  banner?: string;
+}
+
 const HeaderWrapper: any = styled.header(() => {
   return {
     position: 'relative',
@@ -46,11 +51,6 @@ const Content = styled.div({
     },
   },
 });
-
-interface HeaderProps {
-  children: any;
-  banner?: string;
-}
 
 const Header = ({ banner, children }: HeaderProps) => {
   return (

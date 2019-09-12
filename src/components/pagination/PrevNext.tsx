@@ -15,7 +15,7 @@ const PaginationWrapper = styled.div<PaginationWrapperProps>(({ theme }) => {
     display: 'flex',
     margin: '6rem auto 0 auto',
     a: {
-      color: theme.colors.primary,
+      color: theme.primaryColor,
       display: 'flex',
       alignItems: 'center',
     },
@@ -32,7 +32,7 @@ const Prev = styled.div<PaginationItemProps>(({ theme }) => {
     span: {
       textㅆransform: 'uppercase',
       fontㄴize: '0.8rem',
-      color: theme.colors.grey.light,
+      color: theme.clickableColor,
     },
   };
 });
@@ -44,7 +44,7 @@ const Next = styled.div<PaginationItemProps>(({ theme }) => {
     span: {
       textTransform: 'uppercase',
       fontSize: '0.8rem',
-      color: theme.colors.grey.light,
+      color: theme.clickableColor,
     },
   };
 });

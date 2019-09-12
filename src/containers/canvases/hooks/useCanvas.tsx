@@ -1,5 +1,5 @@
 import { LocalizeThemes } from '@seolhun/localize-components-styled-types';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 type CanvasRef = HTMLCanvasElement | null;
 

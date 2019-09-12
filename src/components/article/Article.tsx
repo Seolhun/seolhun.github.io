@@ -10,7 +10,7 @@ interface Props {
   excerpt: string;
   slug: string;
   timeToRead: number;
-  category: string;
+  category?: string;
   banner?: string;
 }
 

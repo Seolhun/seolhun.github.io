@@ -11,7 +11,7 @@ const Content = styled.div<ContentProps>(({ theme }) => {
     boxShadow: '0 4px 120px rgba(0, 0, 0, 0.1)',
     borderRadius: '1rem',
     padding: '2rem 4rem',
-    backgroundColor: theme.colors.bg,
+    backgroundColor: theme.background,
     marginTop: '-4rem',
 
     zIndex: 9000,

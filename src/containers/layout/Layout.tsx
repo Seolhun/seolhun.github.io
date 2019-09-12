@@ -39,7 +39,7 @@ interface LayoutProps {
 export const Layout = ({ children }: LayoutProps) => {
   const { t } = useTranslation();
   const storage = useStorage();
-  const [isDarkMode, setThemeMode] = useState(storage.getItem('THEME') === 'DARK' || true);
+  const [isDarkMode, setThemeMode] = useState(storage.getItem('THEME') === 'DARK');
   const handleIsChecked = useCallback(() => {
     storage.setItem('THEME', !isDarkMode ? 'DARK' : 'LIGHT');
     setThemeMode(!isDarkMode);
