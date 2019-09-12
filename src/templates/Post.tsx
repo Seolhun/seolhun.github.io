@@ -3,16 +3,17 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 import styled from '@emotion/styled';
-import { Container } from '@seolhun/localize-components';
+import { Card, Container } from '@seolhun/localize-components';
 import { kebabCase } from 'lodash';
 
-import { Content, Header, PrevNext, SectionTitle, SEO } from '@/components';
+import { Content, PostHeader, PrevNext, SectionTitle, SEO } from '@/components';
 import { Layout } from '@/containers';
 import PathContext from '@/models/PathContext';
 import Post from '@/models/Post';
 import config from 'config/SiteConfig';
 
 import '@/utils/prismjs-theme.css';
+import { Typo } from '@seolhun/localize-components-atomic';
 
 const PostContent = styled.div`
   margin-top: 4rem;
@@ -37,14 +38,18 @@ const PostPage = ({ data, pathContext }: Props) => {
         <>
           <SEO postPath={fields.slug} postNode={post} postSEO />
           <Helmet title={`${title} | ${config.siteTitle}`} />
-          <Header banner={banner}>
+          <PostHeader banner={banner}>
             <Link to='/'>{config.siteTitle}</Link>
-            <SectionTitle>{title}</SectionTitle>
+            <SectionTitle>
+              <Typo type='h1' isHighlight>
+                {title}
+              </Typo>
+            </SectionTitle>
             <div>
               {date} &mdash; {timeToRead} Min Read &mdash; In{' '}
               <Link to={`/categories/${kebabCase(category)}`}>{category}</Link>
             </div>
-          </Header>
+          </PostHeader>
           <Container>
             <Content>
               <PostContent dangerouslySetInnerHTML={{ __html: html }} />

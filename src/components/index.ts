@@ -1,8 +1,9 @@
 import AOSSection from './aos';
 import Article from './article';
 import Content from './content';
-import { Footer, Header } from './layout';
+import { Footer } from './footer';
 import { Pagination, PrevNext } from './pagination';
+import { PostHeader } from './posts';
 import Profile from './profile';
 import SEO from './seo';
 import { SectionTitle, Title } from './typo';
@@ -12,7 +13,7 @@ export {
   Article,
   Content,
   Footer,
-  Header,
+  PostHeader,
   Pagination,
   PrevNext,
   Profile,
@@ -26,7 +27,7 @@ export default {
   Article,
   Content,
   Footer,
-  Header,
+  PostHeader,
   Pagination,
   PrevNext,
   Profile,

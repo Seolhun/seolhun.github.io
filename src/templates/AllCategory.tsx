@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import { Container } from '@seolhun/localize-components';
 import { kebabCase } from 'lodash';
 
-import { Content, Header, SectionTitle, Title } from '@/components';
+import { Content, PostHeader, SectionTitle, Title } from '@/components';
 import { Layout } from '@/containers';
 import PageProps from '@/models/PageProps';
 import config from 'config/SiteConfig';
@@ -17,10 +17,10 @@ export default class AllCategoryTemplate extends React.PureComponent<PageProps> 
       return (
         <Layout>
           <Helmet title={`Categories | ${config.siteTitle}`} />
-          <Header>
+          <PostHeader>
             <Link to='/'>{config.siteTitle}</Link>
             <SectionTitle>Categories</SectionTitle>
-          </Header>
+          </PostHeader>
           <Container>
             <Content>
               {categories.map((category, index: number) => (

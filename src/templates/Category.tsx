@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import { Container } from '@seolhun/localize-components';
 import { kebabCase } from 'lodash';
 
-import { Article, Content, Header, SectionTitle } from '@/components';
+import { Article, Content, PostHeader, SectionTitle } from '@/components';
 import { Layout } from '@/containers';
 import PageProps from '@/models/PageProps';
 import config from 'config/SiteConfig';
@@ -18,13 +18,13 @@ const Category = ({ pathContext }: PageProps) => {
   return (
     <Layout>
       <Helmet title={`${categoryName} | ${config.siteTitle}`} />
-      <Header>
+      <PostHeader>
         <Link to='/'>{config.siteTitle}</Link>
         <SectionTitle>Category &ndash; {categoryName}</SectionTitle>
         <div>
           {subline} (See <Link to='/categories'>all categories</Link>)
         </div>
-      </Header>
+      </PostHeader>
       <Container>
         <Content>
           {posts.map((post: any, index) => (

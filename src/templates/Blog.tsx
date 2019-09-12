@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 
 import { Container } from '@seolhun/localize-components';
 
-import { Article, Content, Header, Pagination, SectionTitle } from '@/components';
+import { Article, Content, Pagination, PostHeader, SectionTitle } from '@/components';
 import { Layout } from '@/containers';
 import Data from '@/models/Data';
 import SiteConfig from 'config/SiteConfig';
@@ -24,10 +24,10 @@ export const BlogPage = ({ pageContext, data }: Props) => {
   return (
     <Layout>
       <Helmet title={`Blog | ${SiteConfig.siteTitle}`} />
-      <Header>
+      <PostHeader>
         <Link to='/'>{SiteConfig.siteTitle}</Link>
         <SectionTitle>Latest stories ({totalCount})</SectionTitle>
-      </Header>
+      </PostHeader>
       <Container>
         <Content>
           {edges.map((post) => (
