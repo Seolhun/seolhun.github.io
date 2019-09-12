@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface PageResources {
+export interface PageResources {
   component: React.PureComponent;
   path: string;
 }

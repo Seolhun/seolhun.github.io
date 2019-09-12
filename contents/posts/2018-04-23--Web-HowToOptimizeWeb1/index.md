@@ -1,7 +1,7 @@
 ---
 author: Seolhun
 banner: "./assets/covers/http.png"
-categories : 'Web'
+category: 'Web'
 date : 2018-04-23
 subTitle:  ""
 tags : ['Web', 'Optimization', 'Cache', 'HTTP', 'gzip', 'Priority']

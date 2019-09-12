@@ -6,7 +6,8 @@ import styled from '@emotion/styled';
 import { Col, Container, Row } from '@seolhun/localize-components';
 import Button from '@seolhun/localize-components-button';
 
-import ContentItem, { ContentItemProps } from './ContentItem';
+import { Post } from '@/models';
+import ContentItem from './ContentItem';
 
 const StyledContentItemListCpntainer = styled(Container)(() => {
   return {
@@ -21,7 +22,7 @@ const StyledContentItemListCpntainer = styled(Container)(() => {
 });
 
 interface ContentItemListProps {
-  items: ContentItemProps[];
+  items: Post[];
 }
 
 export const ContentItemList: FC<ContentItemListProps> = ({ items }) => {
@@ -32,8 +33,10 @@ export const ContentItemList: FC<ContentItemListProps> = ({ items }) => {
       <Row>
         {items.map((item) => {
           return (
-            <Col key={item.title} xs={24} data-aos='fade-up'>
-              <ContentItem {...item} />
+            <Col key={item.fields.slug} xs={24} data-aos='fade-up'>
+              <Link to={`/contents/${item.fields.slug}`}>
+                <ContentItem {...item} />
+              </Link>
             </Col>
           );
         })}

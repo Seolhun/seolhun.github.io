@@ -16,7 +16,7 @@ const HeaderWrapper: any = styled.header(() => {
       background: `transparent url(/assets/mask.svg) no-repeat bottom left`,
       backgroundSize: '101%',
       bottom: '-2px',
-      content: '',
+      content: '""',
       display: 'block',
       height: '100%',
       left: 0,

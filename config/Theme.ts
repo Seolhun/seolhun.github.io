@@ -50,7 +50,7 @@ const SeolhunThemes: ISeolhunThemes = {
     border: {
       color: 'grey',
       radius: '4px',
-      shadow: `0px 2px 1px -1px ${LocalizeThemes.light_grey}, 0px 1px 1px 0px ${LocalizeThemes.light_grey}, 0px 1px 3px 0px ${LocalizeThemes.light_grey}`,
+      shadow: `0 1px 3px ${LocalizeThemes.light_grey}, 0 1px 2px ${LocalizeThemes.light_grey}`,
     },
     grid: {
       gutter: '0.5rem',
@@ -68,7 +68,7 @@ const SeolhunThemes: ISeolhunThemes = {
     border: {
       color: 'grey',
       radius: '4px',
-      shadow: `0px 2px 1px -1px ${LocalizeThemes.light_grey}, 0px 1px 1px 0px ${LocalizeThemes.light_grey}, 0px 1px 3px 0px ${LocalizeThemes.light_grey}`,
+      shadow: `0 1px 3px ${LocalizeThemes.light_grey}, 0 1px 2px ${LocalizeThemes.light_grey}`,
     },
     grid: {
       gutter: '0.5rem',

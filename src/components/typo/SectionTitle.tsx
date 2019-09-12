@@ -16,7 +16,7 @@ const SectionTitle = styled.div<SectionTitleProps>(({ theme, isUpperCase }) => {
     marginBottom: '2rem',
 
     '&:after': {
-      content: '',
+      content: '""',
       height: '1px',
       width: '50px',
       position: 'absolute',

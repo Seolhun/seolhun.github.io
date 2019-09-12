@@ -1,9 +1,11 @@
-interface Frontmatter {
-  date: string;
+export interface Frontmatter {
   title: string;
-  category: string;
-  tags: string[];
+  date: string;
+  author?: string;
+  subTitle?: string;
   banner?: string;
+  category?: string;
+  tags?: string[];
 }
 
 export default Frontmatter;

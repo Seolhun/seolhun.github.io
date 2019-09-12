@@ -1,6 +1,6 @@
 import Frontmatter from './Frontmatter';
 
-interface Post {
+export interface Post {
   id: number;
   excerpt: string;
   html: string;

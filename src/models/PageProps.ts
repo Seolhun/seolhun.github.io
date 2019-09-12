@@ -2,7 +2,7 @@ import Data from './Data';
 import PageResources from './PageResources';
 import PathContext from './PathContext';
 
-interface PageProps {
+export interface PageProps {
   data: Data;
   location: Location;
   pageResources?: PageResources;

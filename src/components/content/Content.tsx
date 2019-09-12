@@ -34,10 +34,12 @@ const Content = styled.div<ContentProps>(({ theme }) => {
     },
 
     [`@media ${media.tablet}`]: {
-      padding: '3rem 3rem',
+      padding: '3rem',
+      margin: '3rem',
     },
     [`@media ${media.phone}`]: {
       padding: '2rem 1.5rem',
+      margin: '2rem 1.5rem',
     },
   };
 });

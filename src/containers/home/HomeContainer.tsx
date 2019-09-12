@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 import { rightTwister } from '@/animations';
 import { Profile } from '@/components';
+import BackgroundCanvas, { useCanvas } from '@/containers/canvases';
 import { Mission } from '@/containers/mission';
 import Button from '@seolhun/localize-components-button';
 import SiteConfig from 'config/SiteConfig';
@@ -32,9 +33,12 @@ const StyledIconLink = styled.a({
 
 export const HomeContainer = () => {
   const { t } = useTranslation();
+  const [cavasRef] = useCanvas();
 
   return (
     <StyledHomeContainer>
+      <BackgroundCanvas ref={cavasRef} />
+
       <Row data-aos='fade-up' alignItems='center'>
         <Col xs={24}>
           <Profile src={SiteConfig.githubOwnerImage} />

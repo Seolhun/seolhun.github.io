@@ -1,10 +1,12 @@
 import { StaticQuery } from 'gatsby';
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import AOS from 'aos';
 
 import AOSSection from '@/components/aos';
 import { ContentItemList } from '@/containers/content';
+import { Edge } from '@/models';
 
 const TechView = () => {
   useEffect(() => {
@@ -18,13 +20,17 @@ const TechView = () => {
     <StaticQuery
       query={LatestQuery}
       render={({ allMarkdownRemark }) => {
+        const { t } = useTranslation();
+
         return (
           <AOSSection id='Lastest' verticalAlign='flex-start'>
+            <h2>{t('content:title')}</h2>
             <ContentItemList
-              items={allMarkdownRemark.edges.map((edge: any) => ({
-                ...edge.node.frontmatter,
-                timeToRead: edge.node.timeToRead,
-              }))}
+              items={allMarkdownRemark.edges.map(({ node }: Edge) => {
+                return {
+                  ...node,
+                };
+              })}
             />
           </AOSSection>
         );
@@ -48,7 +54,7 @@ export const LatestQuery = graphql`
           }
           frontmatter {
             title
-            date(formatString: "DD.MM.YYYY")
+            date(formatString: "YYYY.MM.DD")
             category
             tags
             banner

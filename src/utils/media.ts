@@ -1,6 +1,11 @@
+// XL = 1200,
+// LG = 960,
+// MD = 768,
+// SM = 480,
+// XS = 0
 const sizes = {
-  tablet: '1024px',
-  phone: '425px',
+  tablet: '960px',
+  phone: '480px',
 };
 
 export const media = {

@@ -1,8 +1,12 @@
 import Post from './Post';
 
-interface AllMarkdownRemark {
+export interface Edge {
+  node: Post;
+}
+
+export interface AllMarkdownRemark {
   totalCount: number;
-  edges: Array<{ node: Post }>;
+  edges: Edge[];
 }
 
 export default AllMarkdownRemark;

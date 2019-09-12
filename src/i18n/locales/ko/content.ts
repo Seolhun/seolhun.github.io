@@ -1,3 +1,3 @@
 export default {
-  title: 'Tech Hi-Cord',
+  title: '최근에 작성된 글',
 };

@@ -1,8 +1,7 @@
 import Post from './Post';
 
-interface PathContext {
+export interface PathContext {
   posts: Post[];
-
   tags?: string[];
   categories?: string[];
   categoryName: string;

@@ -10,7 +10,6 @@ import { Switch } from '@seolhun/localize-components-atomic';
 import { ThemeProvider } from 'emotion-theming';
 
 import { Footer } from '@/components';
-import BackgroundCanvas, { useCanvas } from '@/containers/canvases';
 import useStorage from '@/hooks/useStorage';
 import SiteConfig from 'config/SiteConfig';
 import Theme from 'config/Theme';
@@ -40,7 +39,6 @@ interface LayoutProps {
 export const Layout = ({ children }: LayoutProps) => {
   const { t } = useTranslation();
   const storage = useStorage();
-  const [cavasRef] = useCanvas();
   const [isDarkMode, setThemeMode] = useState(storage.getItem('THEME') === 'DARK' || true);
   const handleIsChecked = useCallback(() => {
     storage.setItem('THEME', !isDarkMode ? 'DARK' : 'LIGHT');
@@ -62,10 +60,7 @@ export const Layout = ({ children }: LayoutProps) => {
                 css={{ zIndex: 5 }}
               />
             </StyledHeaderContainer>
-            <main>
-              <BackgroundCanvas ref={cavasRef} />
-              <Container>{children}</Container>
-            </main>
+            <Container>{children}</Container>
             <StyledFooter>
               <div>
                 &copy; {t('home:title')} by {SiteConfig.author}. All rights reserved.

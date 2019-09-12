@@ -1,58 +1,53 @@
-import { Link } from 'gatsby';
 import React, { FC } from 'react';
 
+import { Post } from '@/models';
 import styled from '@emotion/styled';
-import { Card } from '@seolhun/localize-components';
+import { Card, Col, Row } from '@seolhun/localize-components';
+import { Chip } from '@seolhun/localize-components-atomic';
 
-export interface ContentItemProps {
-  category: string;
-  title: string;
-  date: string;
-  timeToRead: number;
-  banner?: string;
-  subTitle?: string;
-  tags?: string[];
-  author?: string;
-}
+export interface ContentItemProps extends Post {}
 
 const StyledCard = styled(Card)(() => {
   return {
     display: 'flex',
-    margin: '15px 30px',
-  };
-});
-
-const StyledCardItem = styled.div(() => {
-  return {
-    display: 'flex',
-    padding: '15px 30px',
     flexDirection: 'column',
     cursor: 'pointer',
+    margin: '15px 30px',
+    padding: '10px 30px',
   };
 });
 
 export const ContentItem: FC<ContentItemProps> = (props: ContentItemProps) => {
-  const { title, subTitle, category, tags, date, timeToRead, author } = props;
+  const { frontmatter, timeToRead } = props;
+  const { title, subTitle, tags, date } = frontmatter;
 
   return (
     <StyledCard>
-      <StyledCardItem>
-        <h2>{title}</h2>
-        <span>Min Read {`${timeToRead}`}</span>
-        {subTitle && <h3>{subTitle}</h3>}
-        {category && <div>{category}</div>}
-        {tags && (
-          <div>
+      <Row alignItems='flex-start'>
+        <Col xs={24}>
+          <h2>{title}</h2>
+        </Col>
+      </Row>
+      {subTitle && (
+        <Row alignItems='flex-start'>
+          <Col xs={24}>
+            <h3>{subTitle}</h3>
+          </Col>
+        </Row>
+      )}
+      {tags && (
+        <Row alignItems='flex-start'>
+          <Col xs={24} sm={18}>
             {tags.map((tag) => (
-              <Link key={tag} to={`/tags/${tag}`}>
-                {tag}
-              </Link>
+              <Chip key={tag}>{tag}</Chip>
             ))}
-          </div>
-        )}
-        {author && <div>{author}</div>}
-        <div>{date}</div>
-      </StyledCardItem>
+          </Col>
+          <Col xs={24} sm={6}>
+            <div>{date}</div>
+            <span>Min Read {`${timeToRead}`}</span>
+          </Col>
+        </Row>
+      )}
     </StyledCard>
   );
 };
