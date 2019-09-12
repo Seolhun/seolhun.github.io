@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-banner: "./assets/covers/java.png"
+banner: "/assets/covers/java.png"
 category: "Algorithm"
 date: 2017-06-02
 tags: ['Algorithm', 'Java', 'Sort', 'Quick']

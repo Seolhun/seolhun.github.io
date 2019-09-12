@@ -1,6 +1,6 @@
 ---
 author: "Seolhun"
-banner: "./assets/covers/mariadb.png"
+banner: "/assets/covers/mariadb.png"
 category: "Database"
 date: 2017-01-19
 subTitle: "MariaDB에 root password 초기화"

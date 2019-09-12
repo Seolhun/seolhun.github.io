@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-banner: "./assets/covers/js.png"
+banner: "/assets/covers/js.png"
 category: "Algorithm"
 date: 2018-04-07
 subTitle:  ""

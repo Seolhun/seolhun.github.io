@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-banner: "./assets/covers/java.png"
+banner: "/assets/covers/java.png"
 category: "DataStructure"
 date: 2018-04-19
 subTitle:  ""

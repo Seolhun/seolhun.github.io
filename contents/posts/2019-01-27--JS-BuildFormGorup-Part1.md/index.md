@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-banner: "./assets/covers/js.png"
+banner: "/assets/covers/js.png"
 category: "JS"
 date: 2019-01-26
 description: "Builder Pattern을 이용한 monad식의 FormGroup Builder 만들어보기"

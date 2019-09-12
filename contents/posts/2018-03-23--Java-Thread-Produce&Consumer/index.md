@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-banner: "./assets/covers/java.png"
+banner: "/assets/covers/java.png"
 category: "Java"
 date: 2018-03-23
 subTitle:  ""

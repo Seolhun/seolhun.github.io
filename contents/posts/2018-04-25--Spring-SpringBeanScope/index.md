@@ -1,6 +1,6 @@
 ---
 author:  Seolhun
-banner: "./assets/covers/spring.png"
+banner: "/assets/covers/spring.png"
 category: "Spring"
 date:  2018-04-25
 subTitle:  ""

@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-banner: "./assets/covers/aws.png"
+banner: "/assets/covers/aws.png"
 category: "AWS"
 date: 2017-10-12
 subTitle:  ""

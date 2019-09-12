@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-banner: "./assets/covers/network.png"
+banner: "/assets/covers/network.png"
 category: "Network"
 date: 2018-06-02
 subTitle: "HTTP 이해를 위한 기본 네트워크 지식, IP, UDP, TCP"

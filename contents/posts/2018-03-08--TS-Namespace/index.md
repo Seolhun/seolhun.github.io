@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-banner: "./assets/covers/typescript.png"
+banner: "/assets/covers/typescript.png"
 category: "Typescript"
 date: 2018-03-08
 subTitle:  ""

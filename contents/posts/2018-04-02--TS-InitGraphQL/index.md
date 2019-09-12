@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-banner: "./assets/covers/js.png"
+banner: "/assets/covers/js.png"
 category: "GraphQL"
 date: 2018-04-03
 subTitle:  ""

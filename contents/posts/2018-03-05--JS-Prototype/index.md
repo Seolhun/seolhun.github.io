@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-banner: "./assets/covers/js.png"
+banner: "/assets/covers/js.png"
 category: "Javascript"
 date: 2018-03-05
 subTitle:  ""

@@ -1,7 +1,7 @@
 ---
 author: Seolhun
 category: "Story"
-banner: "./assets/covers/logo.png"
+banner: "/assets/covers/logo.png"
 date: 2019-08-11
 title: "지인 개발자에게 들은 질문, OKR은 무엇보다도 중요하고 중요하다"
 description: ""

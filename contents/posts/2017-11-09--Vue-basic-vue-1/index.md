@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-banner: "./assets/covers/vue.png"
+banner: "/assets/covers/vue.png"
 category: "Javascript"
 date: 2017-11-09
 subTitle:  ""

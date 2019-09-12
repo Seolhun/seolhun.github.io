@@ -1,7 +1,7 @@
 ---
 author: Seolhun
 category: "JS"
-banner: "./assets/covers/js.png"
+banner: "/assets/covers/js.png"
 date: 2099-01-26
 title: ""
 description: ""

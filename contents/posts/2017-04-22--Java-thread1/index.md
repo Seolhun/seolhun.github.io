@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-banner: "./assets/covers/java.png"
+banner: "/assets/covers/java.png"
 category: "Java"
 date: 2017-04-22
 tags: ['Thread', 'Java', 'Task', 'Runnable']

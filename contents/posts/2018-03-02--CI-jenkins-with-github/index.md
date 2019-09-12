@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-banner: "./assets/covers/jenkins.png"
+banner: "/assets/covers/jenkins.png"
 category: "Jenkins"
 date: 2018-03-02
 subTitle:  ""

@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-banner: "./assets/covers/logo.png"
+banner: "/assets/covers/logo.png"
 category: "Story"
 date: 2018-09-09
 subTitle: ""

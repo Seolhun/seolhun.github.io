@@ -1,7 +1,7 @@
 ---
 author: Seolhun
 category: "Story"
-banner: "./assets/covers/logo.png"
+banner: "/assets/covers/logo.png"
 date: 2019-05-93
 title: "[]"
 description: "ES7 Decorator에 대해서 알아보며, 어떻게 사용하면 좋을지에 대해서 개인적으로 적어보며 코드와 함께 공유하고자 합니다."

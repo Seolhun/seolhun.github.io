@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-banner: "./assets/covers/http.png"
+banner: "/assets/covers/http.png"
 category: "Web"
 date : 2018-04-23
 subTitle:  ""

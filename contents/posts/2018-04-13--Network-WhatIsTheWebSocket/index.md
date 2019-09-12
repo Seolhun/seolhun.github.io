@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-banner: "./assets/covers/websocket.png"
+banner: "/assets/covers/websocket.png"
 category: "WebSocket"
 date: 2018-04-12
 subTitle:  ""

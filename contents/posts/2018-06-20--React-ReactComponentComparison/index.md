@@ -1,6 +1,6 @@
 ---
 author: Seolhun
-banner: "./assets/covers/react.png"
+banner: "/assets/covers/react.png"
 category: "React"
 date: 2018-06-20
 subTitle: ""

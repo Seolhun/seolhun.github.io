@@ -10,7 +10,7 @@ interface HeaderProps {
   banner?: string;
 }
 
-const HeaderWrapper: any = styled.header(() => {
+const HeaderWrapper: any = styled.header<HeaderProps>(({ banner }) => {
   return {
     position: 'relative',
     backgroundSize: 'cover',
@@ -18,7 +18,7 @@ const HeaderWrapper: any = styled.header(() => {
     textAlign: 'center',
 
     '&::after': {
-      background: `transparent url(/assets/mask.svg) no-repeat bottom left`,
+      background: `transparent url(${banner || '/assets/mask.svg'}) no-repeat bottom left`,
       backgroundSize: '101%',
       bottom: '-2px',
       content: '""',

@@ -1,6 +1,6 @@
 ---
 author: "Seolhun"
-banner: "./assets/covers/mariadb.png"
+banner: "/assets/covers/mariadb.png"
 category: "Database"
 date: 2016-12-02
 subTitle: "MariaDB에 사용자 권한주기"
