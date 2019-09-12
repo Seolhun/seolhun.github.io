@@ -24,7 +24,7 @@ const LatestContentsView = () => {
         const { t } = useTranslation();
         return (
           <AOSSection id='Lastest' verticalAlign='flex-start'>
-            <Typo type='h1' weight={600} css={{ marginBottom: '50px' }} isHighlight>
+            <Typo type='h1' weight={600} css={{ marginBottom: '50px' }}>
               {t('content:title')}
             </Typo>
             <ContentItemList

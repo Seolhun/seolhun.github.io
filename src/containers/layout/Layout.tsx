@@ -1,12 +1,13 @@
-import { graphql, StaticQuery } from 'gatsby';
+import { graphql, Link, StaticQuery } from 'gatsby';
 import React, { ReactNode, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import '@/i18n';
 import { Global } from '@emotion/core';
 import styled from '@emotion/styled';
-import { Container } from '@seolhun/localize-components';
+import { Col, Container, Row } from '@seolhun/localize-components';
 import { Switch, Typo } from '@seolhun/localize-components-atomic';
+import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 import { ThemeProvider } from 'emotion-theming';
 
 import { Footer } from '@/components';
@@ -16,16 +17,27 @@ import Theme from 'config/Theme';
 
 import styles from './styles';
 
-const LayoutContainer = styled(Container)({
-  scrollBehavior: 'smooth',
+const LayoutContainer = styled(Container)<any, ILocalizeTheme>(({ theme }) => {
+  return {
+    scrollBehavior: 'smooth',
+    backgroundColor: theme.background,
+  };
 });
 
-const StyledHeaderContainer = styled.header({
-  position: 'fixed',
+const StyledLogoContainer = styled.div({
+  position: 'absolute',
+  left: 0,
+  top: 0,
+  padding: '15px 0 0 20px',
+  zIndex: 5,
+});
+
+const StyledSwitchContainer = styled.div({
+  position: 'absolute',
   right: 0,
   top: 0,
-  margin: '10px 10px 0 0',
-  zIndex: 1,
+  padding: '20px 20px 0 0',
+  zIndex: 5,
 });
 
 const StyledFooter = styled(Footer)({
@@ -52,14 +64,19 @@ export const Layout = ({ children }: LayoutProps) => {
         <ThemeProvider theme={isDarkMode ? Theme.DARK : Theme.LIGHT}>
           <Global styles={styles} />
           <LayoutContainer isFullWidth>
-            <StyledHeaderContainer>
+            <StyledLogoContainer>
+              <Typo type='h2' weight={700} isHighlight>
+                <Link to='/'>{SiteConfig.siteTitle}</Link>
+              </Typo>
+            </StyledLogoContainer>
+            <StyledSwitchContainer>
               <Switch
                 htmlFor='theme'
                 onChange={handleIsChecked}
                 checked={isDarkMode}
                 css={{ zIndex: 5 }}
               />
-            </StyledHeaderContainer>
+            </StyledSwitchContainer>
             <Container>{children}</Container>
             <StyledFooter>
               <Typo type='p'>

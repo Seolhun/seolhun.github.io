@@ -26,8 +26,8 @@ export const Profile = () => {
         </Col>
         <Col xs={24} justifyContent='center'>
           {SiteConfig.authorSocialLinks.map((link) => (
-            <StyledIconLink {...link}>
-              <Image src={`/assets/icons/${link.name}.png`} width='25px' />
+            <StyledIconLink key={link.name} {...link}>
+              <Image src={`/assets/icons/${link.name}.svg`} width='25px' />
             </StyledIconLink>
           ))}
         </Col>

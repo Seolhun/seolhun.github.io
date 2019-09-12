@@ -3,12 +3,13 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 import { Container } from '@seolhun/localize-components';
+import { Typo } from '@seolhun/localize-components-atomic';
 import { kebabCase } from 'lodash';
 
-import { Article, Content, PostHeader, SectionTitle } from '@/components';
+import { Article, Content, PostHeader } from '@/components';
 import { Layout } from '@/containers';
 import PageProps from '@/models/PageProps';
-import config from 'config/SiteConfig';
+import SiteConfig from 'config/SiteConfig';
 
 const Category = ({ pathContext }: PageProps) => {
   const { posts, categoryName } = pathContext;
@@ -17,13 +18,14 @@ const Category = ({ pathContext }: PageProps) => {
 
   return (
     <Layout>
-      <Helmet title={`${categoryName} | ${config.siteTitle}`} />
+      <Helmet title={`${categoryName} | ${SiteConfig.siteTitle}`} />
       <PostHeader>
-        <Link to='/'>{config.siteTitle}</Link>
-        <SectionTitle>Category &ndash; {categoryName}</SectionTitle>
-        <div>
+        <Typo type='h1' weight={800} isHighlight>
+          Category &ndash; {categoryName}
+        </Typo>
+        <Typo type='small' weight={500}>
           {subline} (See <Link to='/categories'>all categories</Link>)
-        </div>
+        </Typo>
       </PostHeader>
       <Container>
         <Content>

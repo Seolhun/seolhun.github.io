@@ -5,7 +5,7 @@ export interface PathContext {
   tags?: string[];
   categories?: string[];
   categoryName: string;
-  tagName?: string;
+  tagsName?: string;
   next: any;
   prev: any;
 }

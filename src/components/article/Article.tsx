@@ -4,7 +4,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Col, Row } from '@seolhun/localize-components';
 import { Image, Typo } from '@seolhun/localize-components-atomic';
-import kebabCase from 'lodash/kebabCase';
 
 interface Props {
   title: string;

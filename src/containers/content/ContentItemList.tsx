@@ -33,7 +33,7 @@ export const ContentItemList: FC<ContentItemListProps> = ({ items }) => {
       <Row>
         {items.map((item) => {
           return (
-            <Col key={item.fields.slug} xs={24} data-aos='fade-up'>
+            <Col key={item.fields.slug} xs={24} data-aos='fade-up' justifyContent='center'>
               <ContentItem {...item} />
             </Col>
           );

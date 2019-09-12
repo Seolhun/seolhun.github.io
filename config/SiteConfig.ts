@@ -10,7 +10,7 @@ export default {
   siteDescription: 'The Dreamer through the Programming',
   siteLanguage: 'ko',
   siteLogo: '/assets/logo.png',
-  siteTitle: 'Hi-Cord By SeolHun',
+  siteTitle: 'Hi-Cord',
   siteTitleAlt: 'The Dreamer through the Programming',
   siteUrl: 'https://seolhun.github.io',
   userTwitter: '@seol_hooney',
@@ -18,7 +18,7 @@ export default {
    * Manifest and Progress color
    * @See: https://developers.google.com/web/fundamentals/web-app-manifest/
    */
-  manifestBackgroundColor: '#2b2e3c',
+  manifestBackgroundColor: 'royalblue',
   manifestDisplay: 'standalone',
   manifestName: 'SeolHun TechBlog - The Dreamer through the Programming',
   manifestShortName: 'SeolHun TechBlog',
@@ -55,7 +55,7 @@ export default {
       target: '_blank',
     },
     {
-      name: 'linkdin',
+      name: 'linkedin',
       href: 'https://www.linkedin.com/in/hun-seol-3476a7b9/',
       target: '_blank',
     },

@@ -9,7 +9,7 @@ const fontSize = {
     h5: '1.6rem',
     h6: '1.4rem',
     p: '1.1rem',
-    big: '2.7rem',
+    big: '3rem',
     medium: '1.5rem',
     small: '1.0rem',
   },
@@ -18,7 +18,7 @@ const fontSize = {
 const fonts = {
   LIGHT: {
     COLOR: {
-      highlightColor: 'royalblue',
+      highlightColor: 'primary',
       primaryColor: '#282c35',
       secondaryColor: '#282c35',
     },
@@ -26,9 +26,9 @@ const fonts = {
   },
   DARK: {
     COLOR: {
-      highlightColor: '#282c35',
-      primaryColor: '#282c35',
-      secondaryColor: '#282c35',
+      highlightColor: 'primary',
+      primaryColor: '#f9f5f5',
+      secondaryColor: '#f9f5f5',
     },
     ...fontSize,
   },
@@ -41,9 +41,9 @@ interface ISeolhunThemes {
 
 const SeolhunThemes: ISeolhunThemes = {
   LIGHT: {
-    primaryColor: 'royalblue',
+    primaryColor: '#373c49',
     secondaryColor: '#fff',
-    clickableColor: 'royalblue',
+    clickableColor: 'primary',
     background: '#fff',
     border: {
       color: 'grey',
@@ -59,10 +59,10 @@ const SeolhunThemes: ISeolhunThemes = {
     fonts: fonts.LIGHT,
   },
   DARK: {
-    primaryColor: '#282c35',
-    secondaryColor: '#fff',
-    clickableColor: '#282c35',
-    background: '#fff',
+    primaryColor: '#fff',
+    secondaryColor: '#373c49',
+    clickableColor: '#fff',
+    background: '#282c35',
     border: {
       color: 'grey',
       radius: '4px',

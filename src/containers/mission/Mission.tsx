@@ -9,6 +9,7 @@ const MissionWrapper = styled.div(() => {
   return {
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'flex-start',
   };
 });
 

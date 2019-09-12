@@ -5,20 +5,9 @@ import { Footer } from './footer';
 import { Pagination, PrevNext } from './pagination';
 import { PostHeader } from './posts';
 import SEO from './seo';
-import { SectionTitle, Title } from './typo';
+import { Title } from './typo';
 
-export {
-  AOSSection,
-  Article,
-  Content,
-  Footer,
-  PostHeader,
-  Pagination,
-  PrevNext,
-  SectionTitle,
-  SEO,
-  Title,
-};
+export { AOSSection, Article, Content, Footer, PostHeader, Pagination, PrevNext, SEO, Title };
 
 export default {
   AOSSection,
@@ -28,7 +17,6 @@ export default {
   PostHeader,
   Pagination,
   PrevNext,
-  SectionTitle,
   SEO,
   Title,
 };

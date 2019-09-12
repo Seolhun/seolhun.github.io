@@ -3,27 +3,29 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 import { Container } from '@seolhun/localize-components';
+import { Typo } from '@seolhun/localize-components-atomic';
 import { kebabCase } from 'lodash';
 
-import { Article, Content, PostHeader, SectionTitle } from '@/components';
+import { Article, Content, PostHeader } from '@/components';
 import { Layout } from '@/containers';
 import PageProps from '@/models/PageProps';
 import config from 'config/SiteConfig';
 
 const TagTemplate = ({ pathContext }: PageProps) => {
-  const { posts, tagName } = pathContext;
+  const { posts, tagsName } = pathContext;
   const totalCount = posts ? posts.length : 0;
-  const subline = `${totalCount} post${totalCount === 1 ? '' : 's'} tagged with "${tagName}"`;
+  const subline = `${totalCount} post${totalCount === 1 ? '' : 's'} tagged with "${tagsName}"`;
 
   return (
     <Layout>
       <Helmet title={`${'Tags'} | ${config.siteTitle}`} />
       <PostHeader>
-        <Link to='/'>{config.siteTitle}</Link>
-        <SectionTitle>Tag &ndash; {tagName}</SectionTitle>
-        <div>
-          {subline} (See <Link to='/tags'>all tags</Link>)
-        </div>
+        <Typo type='h1' weight={800} isHighlight>
+          Category &ndash; {tagsName}
+        </Typo>
+        <Typo type='small' weight={500}>
+          {subline} (See <Link to='/categories'>all categories</Link>)
+        </Typo>
       </PostHeader>
       <Container>
         <Content>

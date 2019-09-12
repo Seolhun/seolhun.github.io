@@ -1,9 +1,5 @@
-import SectionTitle from './SectionTitle';
 import Title from './Title';
 
-export { SectionTitle, Title };
+export { Title };
 
-export default {
-  SectionTitle,
-  Title,
-};
+export default Title;

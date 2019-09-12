@@ -1,11 +1,11 @@
-import { Link } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 
 import { Container } from '@seolhun/localize-components';
 
-import { Content, PostHeader, SectionTitle } from '@/components';
+import { Content, PostHeader } from '@/components';
 import { Layout } from '@/containers';
+import { Typo } from '@seolhun/localize-components-atomic';
 import SiteConfig from 'config/SiteConfig';
 
 const NotFoundPage = () => {
@@ -13,12 +13,13 @@ const NotFoundPage = () => {
     <Layout>
       <Helmet title={`404 not found | ${SiteConfig.siteTitle}`} />
       <PostHeader>
-        <Link to='/'>{SiteConfig.siteTitle}</Link>
-        <SectionTitle>NOT FOUND</SectionTitle>
+        <Typo type='h1' weight={800} isHighlight>
+          NOT FOUND
+        </Typo>
       </PostHeader>
       <Container>
         <Content>
-          <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+          <Typo type='p'>You just hit a route that doesn&#39;t exist... the sadness.</Typo>
         </Content>
       </Container>
     </Layout>

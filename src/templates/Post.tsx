@@ -3,17 +3,17 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 import styled from '@emotion/styled';
-import { Card, Container } from '@seolhun/localize-components';
+import { Container } from '@seolhun/localize-components';
+import { Typo } from '@seolhun/localize-components-atomic';
 import { kebabCase } from 'lodash';
 
-import { Content, PostHeader, PrevNext, SectionTitle, SEO } from '@/components';
+import { Content, PostHeader, PrevNext, SEO } from '@/components';
 import { Layout } from '@/containers';
 import PathContext from '@/models/PathContext';
 import Post from '@/models/Post';
 import config from 'config/SiteConfig';
 
 import '@/utils/prismjs-theme.css';
-import { Typo } from '@seolhun/localize-components-atomic';
 
 const PostContent = styled.div`
   margin-top: 4rem;
@@ -30,7 +30,7 @@ const PostPage = ({ data, pathContext }: Props) => {
   const { prev, next } = pathContext;
   const post = data.markdownRemark;
   const { timeToRead, fields, frontmatter, html } = data.markdownRemark;
-  const { tags, title, banner, date, category } = frontmatter;
+  const { tags, title, date, category } = frontmatter;
 
   return (
     <Layout>
@@ -38,17 +38,14 @@ const PostPage = ({ data, pathContext }: Props) => {
         <>
           <SEO postPath={fields.slug} postNode={post} postSEO />
           <Helmet title={`${title} | ${config.siteTitle}`} />
-          <PostHeader banner={banner}>
-            <Link to='/'>{config.siteTitle}</Link>
-            <SectionTitle>
-              <Typo type='h1' isHighlight>
-                {title}
-              </Typo>
-            </SectionTitle>
-            <div>
+          <PostHeader>
+            <Typo type='h1' weight={800} isHighlight>
+              {title}
+            </Typo>
+            <Typo type='small' weight={500}>
               {date} &mdash; {timeToRead} Min Read &mdash; In{' '}
               <Link to={`/categories/${kebabCase(category)}`}>{category}</Link>
-            </div>
+            </Typo>
           </PostHeader>
           <Container>
             <Content>
