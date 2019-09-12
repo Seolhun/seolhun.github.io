@@ -5,7 +5,7 @@ type LocalStorageKeys = 'THEME';
 
 export const useStorage = () => {
   const getRootStorage = useCallback(() => {
-    const rootItem: any = localStorage.getItem(ROOT_KEY);
+    const rootItem: any = window.localStorage.getItem(ROOT_KEY);
     if (rootItem) {
       return JSON.parse(rootItem);
     }
@@ -29,7 +29,7 @@ export const useStorage = () => {
       ...rootItem,
       [key]: value,
     };
-    localStorage.setItem(ROOT_KEY, JSON.stringify(overridingRootItem));
+    window.localStorage.setItem(ROOT_KEY, JSON.stringify(overridingRootItem));
     return overridingRootItem;
   }, []);
 
@@ -39,7 +39,7 @@ export const useStorage = () => {
       return false;
     }
     delete rootItem[key];
-    localStorage.setItem(ROOT_KEY, rootItem);
+    window.localStorage.setItem(ROOT_KEY, rootItem);
     return true;
   }, []);
 
