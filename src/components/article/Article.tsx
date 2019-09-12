@@ -2,6 +2,8 @@ import { Link } from 'gatsby';
 import React from 'react';
 
 import styled from '@emotion/styled';
+import { Col, Row } from '@seolhun/localize-components';
+import { Image, Typo } from '@seolhun/localize-components-atomic';
 import kebabCase from 'lodash/kebabCase';
 
 interface Props {
@@ -21,29 +23,41 @@ const Post = styled.article({
   marginBottom: '3.5rem',
 });
 
-const Title = styled.h2({
-  position: 'relative',
-  textShadow: '0 12px 30px rgba(0, 0, 0, 0.15)',
-  marginBottom: '0.75rem',
-});
-
-const Excerpt = styled.p({
-  gridColumn: -1 / 1,
-  marginTop: '1rem',
-  marginBottom: '1rem',
-});
-
 const Article = ({ title, date, excerpt, slug, timeToRead, category, banner }: Props) => (
   <Post>
-    {banner && <img src={banner} />}
-    <Title>
-      <Link to={`/contents/${slug}`}>{title}</Link>
-    </Title>
-    <div>
-      {date} &mdash; {timeToRead} Min Read &mdash; In
-      <Link to={`/categories/${kebabCase(category)}`}> {category}</Link>
-    </div>
-    <Excerpt>{excerpt}</Excerpt>
+    <Link to={`/contents/${slug}`}>
+      <Row alignItems='flex-start'>
+        <Col xs={3}>
+          <Image src={banner || `/assets/logo.png`} />
+        </Col>
+        <Col xs={21}>
+          <Typo type='h2' weight={600}>
+            {title}
+          </Typo>
+        </Col>
+      </Row>
+      {excerpt && (
+        <Row alignItems='flex-start'>
+          <Col xs={24}>
+            <Typo type='p'>{excerpt}</Typo>
+          </Col>
+        </Row>
+      )}
+      <Row alignItems='flex-start'>
+        <Col xs={24} justifyContent='flex-end'>
+          <Typo type='small' weight={600}>
+            {date}
+          </Typo>
+          <Typo type='small' weight={600} css={{ padding: '0 5px' }}>
+            -
+          </Typo>
+          <Typo type='small' weight={600}>
+            {`${timeToRead}`} Min read
+            {category && ` in ${category}`}
+          </Typo>
+        </Col>
+      </Row>
+    </Link>
   </Post>
 );
 

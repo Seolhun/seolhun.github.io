@@ -2,6 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import { Typo } from '@seolhun/localize-components-atomic';
 import SiteConfig from 'config/SiteConfig';
 
 const MissionWrapper = styled.div(() => {
@@ -11,19 +12,11 @@ const MissionWrapper = styled.div(() => {
   };
 });
 
-const MissionHead = styled.h2(() => {
-  return {};
-});
-
-const MissionDescription = styled.p(() => {
-  return {};
-});
-
 export const Mission = () => {
   return (
     <MissionWrapper>
-      <MissionHead>Mission</MissionHead>
-      <MissionDescription>{SiteConfig.mission}</MissionDescription>
+      <Typo type='h2'>Mission</Typo>
+      <Typo type='p'>{SiteConfig.mission}</Typo>
     </MissionWrapper>
   );
 };

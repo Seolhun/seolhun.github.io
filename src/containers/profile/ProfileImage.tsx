@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 
 import styled from '@emotion/styled';
 
-interface ProfileProps {
+interface ProfileImageProps {
   src: string;
 }
 
-const ProfileImg = styled.img(() => {
+const StyledProfileImage = styled.img(() => {
   return {
     width: '150px',
     height: '150px',
@@ -16,8 +16,8 @@ const ProfileImg = styled.img(() => {
   };
 });
 
-const Profile: FC<ProfileProps> = ({ src }) => {
-  return <ProfileImg src={src} />;
+export const ProfileImage: FC<ProfileImageProps> = ({ src }) => {
+  return <StyledProfileImage src={src} />;
 };
 
-export default Profile;
+export default ProfileImage;

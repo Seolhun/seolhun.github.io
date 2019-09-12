@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import { Container } from '@seolhun/localize-components';
 
 import { Article, Content, Pagination, PostHeader, SectionTitle } from '@/components';
-import { Layout } from '@/containers';
+import { Layout, Profile } from '@/containers';
 import Data from '@/models/Data';
 import SiteConfig from 'config/SiteConfig';
 
@@ -19,14 +19,14 @@ interface Props {
 
 export const BlogPage = ({ pageContext, data }: Props) => {
   const { currentPage, totalPages } = pageContext;
-  const { edges, totalCount } = data.allMarkdownRemark;
+  const { edges } = data.allMarkdownRemark;
 
   return (
     <Layout>
       <Helmet title={`Blog | ${SiteConfig.siteTitle}`} />
       <PostHeader>
         <Link to='/'>{SiteConfig.siteTitle}</Link>
-        <SectionTitle>Latest stories ({totalCount})</SectionTitle>
+        <Profile />
       </PostHeader>
       <Container>
         <Content>

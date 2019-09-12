@@ -22,12 +22,6 @@ const StyledCard = styled(Card)(() => {
   };
 });
 
-const StyledDivider = styled.span(() => {
-  return {
-    padding: '0 5px',
-  };
-});
-
 export const ContentItem: FC<ContentItemProps> = (props: ContentItemProps) => {
   const { fields, frontmatter, timeToRead, excerpt } = props;
   const { title, subTitle, date, banner, category } = frontmatter;
@@ -62,7 +56,7 @@ export const ContentItem: FC<ContentItemProps> = (props: ContentItemProps) => {
               -
             </Typo>
             <Typo type='small' weight={600}>
-              {`${timeToRead}`} min read
+              {`${timeToRead}`} Min read
               {category && ` in ${category}`}
             </Typo>
           </Col>

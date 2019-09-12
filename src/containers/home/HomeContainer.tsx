@@ -2,14 +2,10 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import styled from '@emotion/styled';
-import { Col, Container, Icon, Row } from '@seolhun/localize-components';
+import { Col, Container, Row } from '@seolhun/localize-components';
 import { Button } from '@seolhun/localize-components-atomic';
 
-import { rightTwister } from '@/animations';
-import { Profile } from '@/components';
-import BackgroundCanvas, { useCanvas } from '@/containers/canvases';
-import { Mission } from '@/containers/mission';
-import SiteConfig from 'config/SiteConfig';
+import { BackgroundCanvas, Profile, useCanvas } from '@/containers';
 import { Link } from 'gatsby';
 
 const StyledHomeContainer = styled(Container)(() => {
@@ -26,12 +22,6 @@ const StyledHomeContainer = styled(Container)(() => {
   };
 });
 
-const StyledIconLink = styled.a({
-  '&:hover': {
-    animation: `${rightTwister()} 1s ease-in-out infinite`,
-  },
-});
-
 export const HomeContainer = () => {
   const { t } = useTranslation();
   const [cavasRef] = useCanvas();
@@ -39,24 +29,7 @@ export const HomeContainer = () => {
   return (
     <StyledHomeContainer>
       <BackgroundCanvas ref={cavasRef} />
-
-      <Row data-aos='fade-up' alignItems='center'>
-        <Col xs={24}>
-          <Profile src={SiteConfig.githubOwnerImage} />
-          <Mission />
-        </Col>
-      </Row>
-      <Row data-aos='fade-up' data-aos-delay='50'>
-        <Col xs={24}>
-          {SiteConfig.authorSocialLinks.map((link) => (
-            <Col key={link.name} xs={12} sm={6}>
-              <StyledIconLink {...link}>
-                <Icon src={`/assets/icons/${link.name}.png`} />
-              </StyledIconLink>
-            </Col>
-          ))}
-        </Col>
-      </Row>
+      <Profile />
       <Row data-aos='fade-up' data-aos-delay='100'>
         <Col xs={24}>
           <Link to={'/contents/about-seolhun'}>

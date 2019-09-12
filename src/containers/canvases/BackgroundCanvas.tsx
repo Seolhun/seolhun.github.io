@@ -6,9 +6,9 @@ import {
   LocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
 
-interface BackgroundCanvasProps extends LocalizeStyledProps {}
+export interface BackgroundCanvasProps extends LocalizeStyledProps {}
 
-const BackgroundCanvas = styled.canvas<BackgroundCanvasProps, ILocalizeTheme>(
+export const BackgroundCanvas = styled.canvas<BackgroundCanvasProps, ILocalizeTheme>(
   ({ mainColor, theme }) => {
     return {
       height: '100%',
