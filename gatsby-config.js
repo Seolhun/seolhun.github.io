@@ -19,12 +19,17 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-plugin-emotion',
     'gatsby-plugin-lodash',
-    'gatsby-plugin-manifest',
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-typescript',
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        '@': path.join(__dirname, 'src'),
+        config: path.join(__dirname, 'config'),
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -47,16 +52,16 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-root-import',
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        '@': path.join(__dirname, 'src'),
-        config: path.join(__dirname, 'config'),
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-adsense`,
-      options: {
-        publisherId: SiteConfig.Google_AD_Sense_ID,
+        name: SiteConfig.siteTitle,
+        short_name: SiteConfig.siteTitleAlt,
+        description: SiteConfig.siteDescription,
+        start_url: SiteConfig.pathPrefix,
+        background_color: SiteConfig.manifestBackgroundColor,
+        theme_color: SiteConfig.manifestThemeColor,
+        display: 'standalone',
+        icon: SiteConfig.favicon,
       },
     },
     {
@@ -77,10 +82,28 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-adsense`,
+      options: {
+        publisherId: SiteConfig.Google_AD_Sense_ID,
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {
         id: SiteConfig.Google_Tag_Manager_ID,
         includeInDevelopment: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: SiteConfig.Disqus_ID,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-typography',
+      options: {
+        pathToConfigModule: 'src/utils/typography.ts',
       },
     },
     {
@@ -97,25 +120,6 @@ module.exports = {
           'gatsby-remark-prismjs',
           'gatsby-remark-autolink-headers',
         ],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/utils/typography.ts',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: SiteConfig.siteTitle,
-        short_name: SiteConfig.siteTitleAlt,
-        description: SiteConfig.siteDescription,
-        start_url: SiteConfig.pathPrefix,
-        background_color: SiteConfig.manifestBackgroundColor,
-        theme_color: SiteConfig.manifestThemeColor,
-        display: 'standalone',
-        icon: SiteConfig.favicon,
       },
     },
   ],

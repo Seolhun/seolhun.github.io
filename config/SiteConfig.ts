@@ -30,6 +30,7 @@ export default {
   Google_Analytics_ID: 'UA-115545667-1',
   Google_AD_Sense_ID: 'ca-pub-2426948628431849',
   Google_Tag_Manager_ID: 'GTM-MKZCXJQ',
+  Disqus_ID: 'disqus_SGUTY5FkU0',
   siteFBAppID: '543531359431658',
   /**
    * Settings for typography.ts
