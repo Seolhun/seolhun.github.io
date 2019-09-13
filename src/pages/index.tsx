@@ -11,7 +11,7 @@ import LatestContentsView from '@/views/LatestContentsView';
 const IndexPage = () => {
   return (
     <Layout>
-      <Helmet title={`Homepage | ${config.siteTitle}`} />
+      <Helmet title={config.siteTitle} />
       <HomeView />
       <LatestContentsView />
     </Layout>
