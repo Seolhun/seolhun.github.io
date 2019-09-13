@@ -79,7 +79,7 @@ export const Layout = ({ children }: LayoutProps) => {
                 css={{ zIndex: 5 }}
               />
             </StyledSwitchContainer>
-            <Container>{children}</Container>
+            <main>{children}</main>
             <StyledFooter>
               <Typo type='p'>
                 &copy; {t('home:title')} by {SiteConfig.author}. All rights reserved.

@@ -1,10 +1,10 @@
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 
 import { Col, Container, Row } from '@seolhun/localize-components';
 
-import { Article, Content, Pagination, PostHeader } from '@/components';
+import { Article, Pagination, PostHeader } from '@/components';
 import { Layout, Profile } from '@/containers';
 import Data from '@/models/Data';
 import SiteConfig from 'config/SiteConfig';
@@ -28,23 +28,24 @@ export const BlogPage = ({ pageContext, data }: Props) => {
         <Profile />
       </PostHeader>
       <Container>
+        <Row flexDirection='column'>
+          {edges.map((post) => (
+            <Col xs={24} key={post.node.fields.slug}>
+              <Article
+                title={post.node.frontmatter.title}
+                date={post.node.frontmatter.date}
+                excerpt={post.node.excerpt}
+                timeToRead={post.node.timeToRead}
+                slug={post.node.fields.slug}
+                category={post.node.frontmatter.category}
+                banner={post.node.frontmatter.banner}
+              />
+            </Col>
+          ))}
+        </Row>
         <Row>
           <Col xs={24}>
-            <Content>
-              {edges.map((post) => (
-                <Article
-                  key={post.node.fields.slug}
-                  title={post.node.frontmatter.title}
-                  date={post.node.frontmatter.date}
-                  excerpt={post.node.excerpt}
-                  timeToRead={post.node.timeToRead}
-                  slug={post.node.fields.slug}
-                  category={post.node.frontmatter.category}
-                  banner={post.node.frontmatter.banner}
-                />
-              ))}
-              <Pagination currentPage={currentPage} totalPages={totalPages} url={'contents'} />
-            </Content>
+            <Pagination currentPage={currentPage} totalPages={totalPages} url={'contents'} />
           </Col>
         </Row>
       </Container>

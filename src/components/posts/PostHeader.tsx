@@ -2,7 +2,6 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { media } from '@/utils/media';
 import config from 'config/SiteConfig';
 
 interface PostHeaderProps {
@@ -12,15 +11,8 @@ interface PostHeaderProps {
 
 const PostHeaderWrapper: any = styled.header<PostHeaderProps>({
   backgroundSize: 'cover',
-  padding: '10rem 2rem',
-  textAlign: 'center',
-
-  [`@media ${media.tablet}`]: {
-    padding: '6rem 2rem 2rem',
-  },
-  [`@media ${media.phone}`]: {
-    padding: '6rem 2rem 2rem',
-  },
+  padding: '6rem 0 0',
+  wordBreak: 'break-all',
 });
 
 interface PostHeaderBannerProps {

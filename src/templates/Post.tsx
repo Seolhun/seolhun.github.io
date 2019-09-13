@@ -3,7 +3,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 import styled from '@emotion/styled';
-import { Container } from '@seolhun/localize-components';
+import { Col, Container, Row } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
 import { kebabCase } from 'lodash';
 
@@ -15,10 +15,6 @@ import config from 'config/SiteConfig';
 
 import '@/utils/prismjs-theme.css';
 import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
-
-const PostContainer = styled(Container)({
-  padding: '10px 15px',
-});
 
 const PostContent = styled.div<any, ILocalizeTheme>(({ theme }) => {
   return {
@@ -46,16 +42,20 @@ const PostPage = ({ data, pathContext }: Props) => {
         <>
           <SEO postPath={fields.slug} postNode={post} postSEO />
           <Helmet title={`${title} | ${config.siteTitle}`} />
-          <PostHeader>
-            <Typo type='h1' weight={800} isHighlight>
-              {title}
-            </Typo>
-            <Typo type='small' weight={500}>
-              {date} &mdash; {timeToRead} Min Read &mdash; In{' '}
-              <Link to={`/categories/${kebabCase(category)}`}>{category}</Link>
-            </Typo>
-          </PostHeader>
-          <PostContainer>
+          <Container isFullWidth>
+            <Row>
+              <Col xs={24}>
+                <PostHeader>
+                  <Typo type='h1' weight={800} isHighlight>
+                    {title}
+                  </Typo>
+                  <Typo type='small' weight={500}>
+                    {date} &mdash; {timeToRead} Min Read &mdash; In{' '}
+                    <Link to={`/categories/${kebabCase(category)}`}>{category}</Link>
+                  </Typo>
+                </PostHeader>
+              </Col>
+            </Row>
             <PostContent dangerouslySetInnerHTML={{ __html: html }} />
             {tags && (
               <Typo type='small'>
@@ -67,8 +67,12 @@ const PostPage = ({ data, pathContext }: Props) => {
                 ))}
               </Typo>
             )}
-            <PrevNext prev={prev} next={next} />
-          </PostContainer>
+            <Row>
+              <Col xs={24}>
+                <PrevNext prev={prev} next={next} />
+              </Col>
+            </Row>
+          </Container>
         </>
       )}
     </Layout>

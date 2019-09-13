@@ -12,8 +12,6 @@ const Content = styled.div<ContentProps, ILocalizeTheme>(({ theme }) => {
     borderRadius: '1rem',
     backgroundColor: theme.secondaryColor,
     color: theme.fonts.COLOR.primaryColor,
-    marginTop: '-4rem',
-
     zIndex: 9000,
 
     form: {

@@ -30,6 +30,7 @@ interface PaginationItemProps {
 const Prev = styled.div<PaginationItemProps>(({ theme }) => {
   return {
     span: {
+      cursor: 'pointer',
       textㅆransform: 'uppercase',
       fontㄴize: '0.8rem',
       color: theme.clickableColor,
@@ -41,7 +42,9 @@ const Next = styled.div<PaginationItemProps>(({ theme }) => {
   return {
     marginLeft: 'auto',
     textAlign: 'right',
+
     span: {
+      cursor: 'pointer',
       textTransform: 'uppercase',
       fontSize: '0.8rem',
       color: theme.clickableColor,
