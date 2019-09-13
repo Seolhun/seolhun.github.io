@@ -27,7 +27,7 @@ const fonts = {
   DARK: {
     COLOR: {
       highlightColor: 'royalblue',
-      primaryColor: '#f9f5f5',
+      primaryColor: '#fff',
       secondaryColor: '#f9f5f5',
     },
     ...fontSize,

@@ -14,13 +14,17 @@ import Post from '@/models/Post';
 import config from 'config/SiteConfig';
 
 import '@/utils/prismjs-theme.css';
+import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
 const PostContainer = styled(Container)({
   padding: '10px 15px',
 });
 
-const PostContent = styled.div({
-  marginTop: '4rem',
+const PostContent = styled.div<any, ILocalizeTheme>(({ theme }) => {
+  return {
+    marginTop: '4rem',
+    color: theme.fonts.COLOR.primaryColor,
+  };
 });
 
 interface Props {
@@ -54,14 +58,14 @@ const PostPage = ({ data, pathContext }: Props) => {
           <PostContainer>
             <PostContent dangerouslySetInnerHTML={{ __html: html }} />
             {tags && (
-              <div>
+              <Typo type='small'>
                 Tags: &#160;
                 {tags.map((tag, i) => (
                   <Link key={i} to={`/tags/${kebabCase(tag)}`}>
-                    <strong>{tag}</strong> {i < tags.length - 1 ? `, ` : ``}
+                    <Typo type='small'>{tag}</Typo> {i < tags.length - 1 ? `, ` : ``}
                   </Link>
                 ))}
-              </div>
+              </Typo>
             )}
             <PrevNext prev={prev} next={next} />
           </PostContainer>
