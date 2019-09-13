@@ -51,10 +51,21 @@ const SeolhunThemes: ISeolhunThemes = {
       shadow: `0 1px 3px ${LocalizeThemes.light_grey}, 0 1px 2px ${LocalizeThemes.light_grey}`,
     },
     grid: {
-      gutter: '5px',
-    },
-    row: {
-      gutter: '0',
+      containerGutter: {
+        right: '15px',
+        left: '15px',
+      },
+      rowGutter: {
+        top: '1rem',
+        right: '-15px',
+        left: '-15px',
+      },
+      columnGutter: {
+        top: '0.75rem',
+        right: '0.75rem',
+        left: '0.75rem',
+        bottom: '0.75rem',
+      },
     },
     fonts: fonts.LIGHT,
   },
@@ -69,10 +80,21 @@ const SeolhunThemes: ISeolhunThemes = {
       shadow: `0 1px 3px ${LocalizeThemes.light_grey}, 0 1px 2px ${LocalizeThemes.light_grey}`,
     },
     grid: {
-      gutter: '5px',
-    },
-    row: {
-      gutter: '0',
+      containerGutter: {
+        right: '15px',
+        left: '15px',
+      },
+      rowGutter: {
+        top: '1rem',
+        right: '-15px',
+        left: '-15px',
+      },
+      columnGutter: {
+        top: '0.75rem',
+        right: '0.75rem',
+        left: '0.75rem',
+        bottom: '0.75rem',
+      },
     },
     fonts: fonts.DARK,
   },

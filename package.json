@@ -23,8 +23,8 @@
   "dependencies": {
     "@emotion/core": "^10.0.17",
     "@emotion/styled": "^10.0.17",
-    "@seolhun/localize-components": "git@github.com:Seolhun/localize-components.git#631009ec30d691ada9bfc4738223d6831e6cb2b3",
-    "@seolhun/localize-components-atomic": "git@github.com:Seolhun/localize-components.git#631009ec30d691ada9bfc4738223d6831e6cb2b3",
+    "@seolhun/localize-components": "^0.1.13",
+    "@seolhun/localize-components-atomic": "^0.1.14",
     "aos": "^2.3.4",
     "emotion-theming": "^10.0.14",
     "gatsby": "^2.15.14",

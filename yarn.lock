@@ -1032,17 +1032,17 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@seolhun/localize-components-atomic@git@github.com:Seolhun/localize-components.git#631009ec30d691ada9bfc4738223d6831e6cb2b3":
-  version "0.1.13"
-  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-atomic/-/localize-components-atomic-0.1.13.tgz#13877987bf3a8af8e3ed3a776b6d617a629baa63"
-  integrity sha512-8hkfX3uvecX83CD4Y3DctoReJ5YmH8CJitnOMRITY5k7mLwMnbh8jvegHsmqNYay4YSs+s7sgjcsSIJDkKB5ZQ==
+"@seolhun/localize-components-atomic@^0.1.14":
+  version "0.1.14"
+  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-atomic/-/localize-components-atomic-0.1.14.tgz#3625d030f06166e2417c885f5ef3131b998e0297"
+  integrity sha512-z6Kb9+6SBhawH7b6FDmQ5Q4ms832uXwGP3wTlzi5z9bYHxIhJ38RqmLkrXtSX6wOr6boIZoS1o33++QPsAYNYw==
   dependencies:
     "@emotion/core" "^10.0.6"
     "@emotion/styled" "^10.0.6"
-    "@seolhun/localize-components-button" "^0.1.11"
-    "@seolhun/localize-components-form" "^0.1.11"
-    "@seolhun/localize-components-styled-types" "^0.1.10"
-    "@seolhun/localize-components-styled-utils" "^0.1.10"
+    "@seolhun/localize-components-button" "^0.1.12"
+    "@seolhun/localize-components-form" "^0.1.12"
+    "@seolhun/localize-components-styled-types" "^0.1.11"
+    "@seolhun/localize-components-styled-utils" "^0.1.11"
     "@seolhun/localize-components-types" "^0.1.6"
     classnames "^2.2.6"
     lodash "^4.17.11"
@@ -1050,69 +1050,69 @@
     react "^16.8.6"
     react-dom "^16.8.6"
 
-"@seolhun/localize-components-button@^0.1.11":
+"@seolhun/localize-components-button@^0.1.12":
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-button/-/localize-components-button-0.1.12.tgz#b72ccf5067d76a9ca577df223a8dd10ded8e0c2c"
+  integrity sha512-6yiYDPaz4tpxQJjMAicrbbflbiOIGIIb/HfYM3/b1+XiIjUF1sh67tPbkAVOPV/f1jfqRKPYf+X+bJquYy1DYA==
+  dependencies:
+    "@emotion/core" "^10.0.6"
+    "@emotion/styled" "^10.0.6"
+    "@seolhun/localize-components-styled-types" "^0.1.11"
+    "@seolhun/localize-components-styled-utils" "^0.1.11"
+    classnames "^2.2.6"
+    lodash "^4.17.11"
+    polished "^3.1.0"
+    react "^16.8.6"
+    react-dom "^16.8.6"
+
+"@seolhun/localize-components-form@^0.1.12":
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-form/-/localize-components-form-0.1.12.tgz#20609a0fc6deb4509e5c4b57f6fdc80a10b3000f"
+  integrity sha512-CdNi9Y/LFgjvkgs3zOjEDbegfF8nbbIHFlQ1JYYcrA7v5NBcdeOgD4rSu1XT6wjvykIp/VMZWMgnTDb2wu0b0Q==
+  dependencies:
+    "@emotion/core" "^10.0.6"
+    "@emotion/styled" "^10.0.6"
+    "@seolhun/localize-components-styled-types" "^0.1.11"
+    "@seolhun/localize-components-styled-utils" "^0.1.11"
+    "@seolhun/localize-components-types" "^0.1.6"
+    classnames "^2.2.6"
+    lodash "^4.17.11"
+    polished "^3.1.0"
+    react "^16.8.6"
+    react-dom "^16.8.6"
+
+"@seolhun/localize-components-modal@^0.1.11":
   version "0.1.11"
-  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-button/-/localize-components-button-0.1.11.tgz#d5af582fa7d0260b5fd3a8f85a10f34792f6bd5c"
-  integrity sha512-uEkbihy01PNPeieMdR7vNpwQnAJSAi22o2WSo8taeAh0fMJfnXF01gONXhW9X7683Q4nvqyPr1O5VVj3N75Vmg==
+  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-modal/-/localize-components-modal-0.1.11.tgz#e1fafcba03bc2df1ead75c4b3a2614865eb46519"
+  integrity sha512-z5eHPmzjO/tKAcQ+Uo7qHnwyvzBXwrrWnBcftEP23OlKM7ATl9UkZ9nOgRJnUg4enCaQZru1IslwP1IByisaig==
   dependencies:
     "@emotion/core" "^10.0.6"
     "@emotion/styled" "^10.0.6"
-    "@seolhun/localize-components-styled-types" "^0.1.10"
-    "@seolhun/localize-components-styled-utils" "^0.1.10"
+    "@seolhun/localize-components-button" "^0.1.12"
+    "@seolhun/localize-components-styled-types" "^0.1.11"
+    "@seolhun/localize-components-styled-utils" "^0.1.11"
+    "@seolhun/localize-components-types" "^0.1.6"
     classnames "^2.2.6"
     lodash "^4.17.11"
     polished "^3.1.0"
     react "^16.8.6"
     react-dom "^16.8.6"
 
-"@seolhun/localize-components-form@^0.1.11":
+"@seolhun/localize-components-styled-types@^0.1.11":
   version "0.1.11"
-  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-form/-/localize-components-form-0.1.11.tgz#241e715cf53968afd4eb18844e54eb9c0adc67f4"
-  integrity sha512-RzOGJgx+j87cpm9VOckfJLAjfZQVGzIhBC/SGai76VKjTQWh1dAxBwhSHZqggoo0poZajWb3ZeeQISBvYRuAgQ==
-  dependencies:
-    "@emotion/core" "^10.0.6"
-    "@emotion/styled" "^10.0.6"
-    "@seolhun/localize-components-styled-types" "^0.1.10"
-    "@seolhun/localize-components-styled-utils" "^0.1.10"
-    "@seolhun/localize-components-types" "^0.1.6"
-    classnames "^2.2.6"
-    lodash "^4.17.11"
-    polished "^3.1.0"
-    react "^16.8.6"
-    react-dom "^16.8.6"
-
-"@seolhun/localize-components-modal@^0.1.10":
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-modal/-/localize-components-modal-0.1.10.tgz#c45d0b1b93b79f76544c1189326cfd70b8eb9a54"
-  integrity sha512-5EsQRzHtiePyVa/rpTKaToz50CeswBoZeAkAzYjNtAnrdvdJH0ss3u3pQxoi6r6wxfJTGuWuO5pN7TzEbpK1Xg==
-  dependencies:
-    "@emotion/core" "^10.0.6"
-    "@emotion/styled" "^10.0.6"
-    "@seolhun/localize-components-button" "^0.1.11"
-    "@seolhun/localize-components-styled-types" "^0.1.10"
-    "@seolhun/localize-components-styled-utils" "^0.1.10"
-    "@seolhun/localize-components-types" "^0.1.6"
-    classnames "^2.2.6"
-    lodash "^4.17.11"
-    polished "^3.1.0"
-    react "^16.8.6"
-    react-dom "^16.8.6"
-
-"@seolhun/localize-components-styled-types@^0.1.10":
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-styled-types/-/localize-components-styled-types-0.1.10.tgz#f4a45311ff7404eb0874f594e43308bab4370d73"
-  integrity sha512-J5TeTBjjCyAl3K32jMQPf+9aNdy6DlNHsgbKmXdacZxgyluUPQKVyjEJv1BQtNYklbt3gDSGGz1dJMycmBrCfw==
+  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-styled-types/-/localize-components-styled-types-0.1.11.tgz#af68dc6db04889bcd44e5396ccd0e1cf7a0b694d"
+  integrity sha512-fIJ0xUVsDWyryUC5NS9FLtNCFvC3yHrzRaRtD7WZDA+LHioTg1owVOiDKw7HcMsO2amqzpmjdr+bw4LP8tTBZQ==
   dependencies:
     classnames "^2.2.6"
     lodash "^4.17.11"
     react "^16.8.6"
 
-"@seolhun/localize-components-styled-utils@^0.1.10":
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-styled-utils/-/localize-components-styled-utils-0.1.10.tgz#f4fde3a8f011fed39b46e6861d3bf3ff3e6be88a"
-  integrity sha512-Nw8SxtTlafjLSWGiusWPkU/5FLYoO9KZKR4wRuzy3hRie6tE1mY1aOhz8odpuiyzVnYm2/BYFIc5wd4vGF1MHg==
+"@seolhun/localize-components-styled-utils@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-styled-utils/-/localize-components-styled-utils-0.1.11.tgz#81093cba56487bbf0a7fb3b7d77a83ddb1a11b38"
+  integrity sha512-S2SBcfldDNIuioaA0UErNXjGOmiRCEh5BS1yaHdojYocz7FawDkkGJ9Rx8nDbpkPuBU8KGm6dibZbIf6l88G+A==
   dependencies:
-    "@seolhun/localize-components-styled-types" "^0.1.10"
+    "@seolhun/localize-components-styled-types" "^0.1.11"
     classnames "^2.2.6"
     lodash "^4.17.11"
     polished "^3.4.1"
@@ -1127,16 +1127,16 @@
     lodash "^4.17.11"
     react "^16.8.6"
 
-"@seolhun/localize-components@git@github.com:Seolhun/localize-components.git#631009ec30d691ada9bfc4738223d6831e6cb2b3":
-  version "0.1.12"
-  resolved "https://registry.yarnpkg.com/@seolhun/localize-components/-/localize-components-0.1.12.tgz#69f6a22694ff4d92680eeae48e47a66c04fe10f8"
-  integrity sha512-Pl6f78gy0HT+0YGrk/lALS3ltiYVhjtsbtg9GPNZb7v4+HQCFQr32wlptnBB/ujU79G319FtN5hOU9mzQEt31A==
+"@seolhun/localize-components@^0.1.13":
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/@seolhun/localize-components/-/localize-components-0.1.13.tgz#fe17bafdaea5d57dddcc4e3a553e4cb9fb2f028c"
+  integrity sha512-ZChKx4icFPm5fdOyj/8dpYcniKX+DfN+bGAlgk97Mev9Eyb6tvv0S+YLDfqRH8CqGFMPezfp9vfwcIaH3YebtQ==
   dependencies:
     "@emotion/core" "^10.0.6"
     "@emotion/styled" "^10.0.6"
-    "@seolhun/localize-components-modal" "^0.1.10"
-    "@seolhun/localize-components-styled-types" "^0.1.10"
-    "@seolhun/localize-components-styled-utils" "^0.1.10"
+    "@seolhun/localize-components-modal" "^0.1.11"
+    "@seolhun/localize-components-styled-types" "^0.1.11"
+    "@seolhun/localize-components-styled-utils" "^0.1.11"
     "@seolhun/localize-components-types" "^0.1.6"
     classnames "^2.2.6"
     lodash "^4.17.11"
