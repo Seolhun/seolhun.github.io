@@ -12,10 +12,6 @@ export interface BackgroundCanvasProps extends LocalizeStyledProps {}
 const StyledBackgroundCanvas = styled.canvas<BackgroundCanvasProps, ILocalizeTheme>(
   ({ mainColor, theme }) => {
     return {
-      height: '100%',
-      width: '100%',
-      overflow: 'hidden',
-      position: 'fixed',
       backgroundColor: mainColor || theme.background || LocalizeTheme.background,
       margin: 0,
       padding: 0,
@@ -26,7 +22,8 @@ const StyledBackgroundCanvas = styled.canvas<BackgroundCanvasProps, ILocalizeThe
 const StyledContainer = styled.div({
   width: '100%',
   height: '100%',
-  position: 'relative',
+  position: 'fixed',
+  overflow: 'hidden',
 });
 
 export const BackgroundCanvas = () => {
