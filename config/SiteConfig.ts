@@ -27,7 +27,8 @@ export default {
   /**
    * ThridParty Keys
    */
-  Google_Analytics_ID: '115545667',
+  Google_Analytics_ID: 'UA-115545667-1',
+  Google_AD_Sense_ID: 'ca-pub-2426948628431849',
   Google_Tag_Manager_ID: 'GTM-MKZCXJQ',
   siteFBAppID: '543531359431658',
   /**
