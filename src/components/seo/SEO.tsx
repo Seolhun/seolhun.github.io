@@ -12,24 +12,14 @@ interface SEO {
 }
 
 const SEO = ({ postNode, postPath, postSEO }: SEO) => {
-  let title;
-  let description;
-  let image;
-  let postURL;
+  const postMeta = postNode.frontmatter;
+  const title = postMeta.title || SiteConfig.siteTitle;
+  const description = postNode.excerpt || SiteConfig.siteDescription;
   const realPrefix = SiteConfig.pathPrefix === '/' ? '' : SiteConfig.pathPrefix;
-  if (postSEO) {
-    const postMeta = postNode.frontmatter;
-    title = postMeta.title;
-    description = postNode.excerpt;
-    image = SiteConfig.siteBanner;
-    postURL = SiteConfig.siteUrl + realPrefix + postPath;
-  } else {
-    title = SiteConfig.siteTitle;
-    description = SiteConfig.siteDescription;
-    image = SiteConfig.siteBanner;
-  }
-  image = SiteConfig.siteUrl + realPrefix + image;
+  const postURL = SiteConfig.siteUrl + realPrefix + postPath;
   const blogURL = SiteConfig.siteUrl + SiteConfig.pathPrefix;
+  const image = SiteConfig.siteUrl + realPrefix + SiteConfig.siteBanner;
+
   let schemaOrgJSONLD = [
     {
       '@context': 'http://schema.org',
@@ -38,6 +28,31 @@ const SEO = ({ postNode, postPath, postSEO }: SEO) => {
       url: blogURL,
       name: title,
       alternateName: SiteConfig.siteTitleAlt ? SiteConfig.siteTitleAlt : '',
+      headline: title,
+      image: {
+        '@type': 'ImageObject',
+        url: image,
+      },
+      description: SiteConfig.siteDescription,
+      datePublished: postNode.frontmatter.date,
+      dateModified: postNode.frontmatter.date,
+      author: {
+        '@type': 'Person',
+        name: SiteConfig.author,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: SiteConfig.author,
+        logo: {
+          '@type': 'ImageObject',
+          url: SiteConfig.siteUrl + realPrefix + SiteConfig.siteLogo,
+        },
+      },
+      isPartOf: blogURL,
+      mainEntityOfPage: {
+        '@type': 'WebSite',
+        '@id': blogURL,
+      },
     },
   ];
   if (postSEO) {
@@ -45,9 +60,7 @@ const SEO = ({ postNode, postPath, postSEO }: SEO) => {
       {
         '@context': 'http://schema.org',
         '@type': 'BlogPosting',
-        // @ts-ignore
         '@id': postURL,
-        // @ts-ignore
         url: postURL,
         name: title,
         alternateName: SiteConfig.siteTitleAlt ? SiteConfig.siteTitleAlt : '',
