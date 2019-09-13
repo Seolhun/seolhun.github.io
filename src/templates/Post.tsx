@@ -42,7 +42,7 @@ const PostPage = ({ data, pathContext }: Props) => {
         <>
           <SEO postPath={fields.slug} postNode={post} postSEO />
           <Helmet title={`${title} | ${config.siteTitle}`} />
-          <Container isFullWidth>
+          <Container>
             <Row>
               <Col xs={24}>
                 <PostHeader>

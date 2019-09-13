@@ -13,7 +13,10 @@ interface PaginationWrapperProps {
 const PaginationWrapper = styled.div<PaginationWrapperProps>(({ theme }) => {
   return {
     display: 'flex',
-    margin: '6rem auto 0 auto',
+    flex: 'auto',
+    justifyContent: 'space-between',
+    margin: '4rem 0 0 0',
+
     a: {
       color: theme.primaryColor,
       display: 'flex',
@@ -29,6 +32,7 @@ interface PaginationItemProps {
 
 const Prev = styled.div<PaginationItemProps>(({ theme }) => {
   return {
+    paddingRight: '10px',
     span: {
       cursor: 'pointer',
       textㅆransform: 'uppercase',
@@ -40,6 +44,7 @@ const Prev = styled.div<PaginationItemProps>(({ theme }) => {
 
 const Next = styled.div<PaginationItemProps>(({ theme }) => {
   return {
+    paddingLeft: '10px',
     marginLeft: 'auto',
     textAlign: 'right',
 

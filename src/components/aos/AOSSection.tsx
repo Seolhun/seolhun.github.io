@@ -1,6 +1,7 @@
 import React, { ReactNode, useEffect } from 'react';
 
 import styled from '@emotion/styled';
+import { Container } from '@seolhun/localize-components';
 import {
   ILocalizeTheme,
   LocalizeThemeStyledProps,
@@ -18,7 +19,7 @@ export interface AOSSectionProps extends LocalizeThemeStyledProps {
   horizonAlign?: AOSAlign;
 }
 
-const AOSWrapper = styled.section<any, ILocalizeTheme>(({ theme }) => {
+const AOSWrapper = styled(Container)<any, ILocalizeTheme>(({ theme }) => {
   return {
     display: 'flex',
     flex: '0 100%',

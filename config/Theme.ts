@@ -41,9 +41,9 @@ interface ISeolhunThemes {
 
 const SeolhunThemes: ISeolhunThemes = {
   LIGHT: {
-    primaryColor: '#373c49',
+    primaryColor: 'royalblue',
     secondaryColor: '#fff',
-    clickableColor: '#373c49',
+    clickableColor: 'royalblue',
     background: '#fff',
     border: {
       color: 'grey',

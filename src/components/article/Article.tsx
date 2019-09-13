@@ -17,6 +17,7 @@ interface Props {
 
 const ArticleContainer = styled.article({
   display: 'flex',
+  flex: 'auto',
   flexDirection: 'column',
   marginTop: '2rem',
   marginBottom: '2rem',
@@ -28,7 +29,7 @@ const Article = ({ title, date, excerpt, slug, timeToRead, category }: Props) =>
     <Container>
       <Link to={`/contents/${slug}`}>
         <Row alignItems='flex-start'>
-          <Col xs={21}>
+          <Col xs={24}>
             <Typo type='h2' weight={600}>
               {title}
             </Typo>

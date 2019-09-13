@@ -2,11 +2,11 @@ import { Link } from 'gatsby';
 import React, { FC } from 'react';
 import Helmet from 'react-helmet';
 
-import { Container } from '@seolhun/localize-components';
+import { Col, Container, Row } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
 import { kebabCase } from 'lodash';
 
-import { Content, PostHeader, Title } from '@/components';
+import { PostHeader, Title } from '@/components';
 import { Layout } from '@/containers';
 import PageProps from '@/models/PageProps';
 import config from 'config/SiteConfig';
@@ -20,19 +20,25 @@ const AllTagTemplate: FC<PageProps> = ({ pathContext }) => {
   return (
     <Layout>
       <Helmet title={`Tags | ${config.siteTitle}`} />
-      <PostHeader>
-        <Typo type='h1' weight={800} isHighlight>
-          Tags
-        </Typo>
-      </PostHeader>
       <Container>
-        <Content>
+        <Row>
+          <Col xs={24}>
+            <PostHeader>
+              <Typo type='h1' weight={800} isHighlight>
+                Tags
+              </Typo>
+            </PostHeader>
+          </Col>
+        </Row>
+        <Row>
           {tags.map((tag, index: number) => (
-            <Title key={index}>
-              <Link to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
-            </Title>
+            <Col xs={12} key={index}>
+              <Title>
+                <Link to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
+              </Title>
+            </Col>
           ))}
-        </Content>
+        </Row>
       </Container>
     </Layout>
   );

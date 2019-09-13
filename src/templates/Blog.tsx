@@ -23,11 +23,15 @@ export const BlogPage = ({ pageContext, data }: Props) => {
 
   return (
     <Layout>
-      <Helmet title={`Blog | ${SiteConfig.siteTitle}`} />
-      <PostHeader>
-        <Profile />
-      </PostHeader>
+      <Helmet title={`Hi-Cord | ${SiteConfig.siteTitle}`} />
       <Container>
+        <Row>
+          <Col xs={24}>
+            <PostHeader>
+              <Profile />
+            </PostHeader>
+          </Col>
+        </Row>
         <Row flexDirection='column'>
           {edges.map((post) => (
             <Col xs={24} key={post.node.fields.slug}>

@@ -40,10 +40,8 @@ const Content = styled.div({
 const PostHeader = ({ banner, children }: PostHeaderProps) => {
   return (
     <PostHeaderWrapper>
-      <Content>
-        <PostHeaderBanner banner={banner || config.defaultBg} />
-        {children}
-      </Content>
+      <PostHeaderBanner banner={banner || config.defaultBg} />
+      {children}
     </PostHeaderWrapper>
   );
 };
