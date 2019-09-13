@@ -54,7 +54,7 @@ const SeolhunThemes: ISeolhunThemes = {
       gutter: '0.5rem',
     },
     row: {
-      gutter: '-0.525rem',
+      gutter: '0.525rem',
     },
     fonts: fonts.LIGHT,
   },
@@ -72,7 +72,7 @@ const SeolhunThemes: ISeolhunThemes = {
       gutter: '0.5rem',
     },
     row: {
-      gutter: '-0.525rem',
+      gutter: '0.525rem',
     },
     fonts: fonts.DARK,
   },

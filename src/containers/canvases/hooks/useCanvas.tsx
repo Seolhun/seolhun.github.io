@@ -18,7 +18,7 @@ const useDrawCanvas = (canvasRef: CanvasRef) => {
   const height = window.innerHeight;
   const ctx = canvas ? canvas.getContext('2d') : null;
   const rate = 60;
-  const arc = 100;
+  const arc = 30;
   const size = 7;
   const speed = 20;
   const parts: any[] = [];

@@ -5,10 +5,11 @@ import {
   LocalizeStyledProps,
   LocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
+import { useCanvas } from './hooks';
 
 export interface BackgroundCanvasProps extends LocalizeStyledProps {}
 
-export const BackgroundCanvas = styled.canvas<BackgroundCanvasProps, ILocalizeTheme>(
+const StyledBackgroundCanvas = styled.canvas<BackgroundCanvasProps, ILocalizeTheme>(
   ({ mainColor, theme }) => {
     return {
       height: '100%',
@@ -21,5 +22,21 @@ export const BackgroundCanvas = styled.canvas<BackgroundCanvasProps, ILocalizeTh
     };
   },
 );
+
+const StyledContainer = styled.div({
+  width: '100%',
+  height: '100%',
+  position: 'relative',
+});
+
+export const BackgroundCanvas = () => {
+  const [cavasRef] = useCanvas();
+
+  return (
+    <StyledContainer>
+      <StyledBackgroundCanvas ref={cavasRef} />
+    </StyledContainer>
+  );
+};
 
 export default BackgroundCanvas;

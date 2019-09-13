@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import { Col, Container, Row } from '@seolhun/localize-components';
 import { Button } from '@seolhun/localize-components-atomic';
 
-import { BackgroundCanvas, Profile, useCanvas } from '@/containers';
+import { BackgroundCanvas, Profile } from '@/containers';
 import { Link } from 'gatsby';
 
 const StyledHomeContainer = styled(Container)(() => {
@@ -24,11 +24,10 @@ const StyledHomeContainer = styled(Container)(() => {
 
 export const HomeContainer = () => {
   const { t } = useTranslation();
-  const [cavasRef] = useCanvas();
 
   return (
     <StyledHomeContainer>
-      <BackgroundCanvas ref={cavasRef} />
+      <BackgroundCanvas />
       <Profile />
       <Row data-aos='fade-up' data-aos-delay='100'>
         <Col xs={24}>
