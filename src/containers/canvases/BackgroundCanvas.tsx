@@ -19,20 +19,21 @@ const StyledBackgroundCanvas = styled.canvas<BackgroundCanvasProps, ILocalizeThe
   },
 );
 
-const StyledContainer = styled.div({
+const StyledCanvasContainer = styled.div({
   width: '100%',
   height: '100%',
   position: 'fixed',
   overflow: 'hidden',
+  zIndex: 0,
 });
 
 export const BackgroundCanvas = () => {
   const [cavasRef] = useCanvas();
 
   return (
-    <StyledContainer>
+    <StyledCanvasContainer>
       <StyledBackgroundCanvas ref={cavasRef} />
-    </StyledContainer>
+    </StyledCanvasContainer>
   );
 };
 

@@ -26,7 +26,7 @@ const Article = ({ title, date, excerpt, slug, timeToRead, category, banner }: P
   <Post>
     <Link to={`/contents/${slug}`}>
       <Row alignItems='flex-start'>
-        <Col xs={3}>
+        <Col xs={0} sm={3}>
           <Image src={banner || `/assets/logo.png`} />
         </Col>
         <Col xs={21}>

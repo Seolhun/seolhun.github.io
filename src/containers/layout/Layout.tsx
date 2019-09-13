@@ -26,17 +26,15 @@ const LayoutContainer = styled(Container)<any, ILocalizeTheme>(({ theme }) => {
 
 const StyledLogoContainer = styled.div({
   position: 'absolute',
-  left: 0,
-  top: 0,
-  padding: '15px 0 0 15px',
+  left: '15px',
+  top: '15px',
   zIndex: 5,
 });
 
 const StyledSwitchContainer = styled.div({
   position: 'absolute',
-  right: 0,
-  top: 0,
-  padding: '20px 10px 0 0',
+  right: '15px',
+  top: '20px',
   zIndex: 5,
 });
 

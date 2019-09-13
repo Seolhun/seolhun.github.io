@@ -1,11 +1,12 @@
-import 'aos/dist/aos.css';
+import React, { ReactNode, useEffect } from 'react';
 
 import styled from '@emotion/styled';
 import {
   ILocalizeTheme,
   LocalizeThemeStyledProps,
 } from '@seolhun/localize-components-styled-types';
-import React, { ReactNode } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 type AOSAlign = 'center' | 'flex-start' | 'flex-end';
 
@@ -44,6 +45,10 @@ const AOSContent = styled.div<AOSSectionProps>(
 );
 
 const AOSSection = ({ children, ...props }: AOSSectionProps) => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <AOSWrapper>
       <AOSContent {...props}>{children}</AOSContent>

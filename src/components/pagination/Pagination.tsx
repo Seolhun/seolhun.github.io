@@ -4,7 +4,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 export const PaginationContainer = styled.div({
-  textAlign: 'center',
+  display: 'flex',
+  justifyContent: 'space-around',
   margin: '2rem',
 });
 

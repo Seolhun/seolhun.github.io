@@ -51,10 +51,10 @@ const SeolhunThemes: ISeolhunThemes = {
       shadow: `0 1px 3px ${LocalizeThemes.light_grey}, 0 1px 2px ${LocalizeThemes.light_grey}`,
     },
     grid: {
-      gutter: '0.5rem',
+      gutter: '5px',
     },
     row: {
-      gutter: '0.525rem',
+      gutter: '0',
     },
     fonts: fonts.LIGHT,
   },
@@ -69,10 +69,10 @@ const SeolhunThemes: ISeolhunThemes = {
       shadow: `0 1px 3px ${LocalizeThemes.light_grey}, 0 1px 2px ${LocalizeThemes.light_grey}`,
     },
     grid: {
-      gutter: '0.5rem',
+      gutter: '5px',
     },
     row: {
-      gutter: '0.525rem',
+      gutter: '0',
     },
     fonts: fonts.DARK,
   },

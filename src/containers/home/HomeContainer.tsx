@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import { Col, Container, Row } from '@seolhun/localize-components';
 import { Button } from '@seolhun/localize-components-atomic';
 
-import { BackgroundCanvas, Profile } from '@/containers';
+import { Profile } from '@/containers';
 import { Link } from 'gatsby';
 
 const StyledHomeContainer = styled(Container)(() => {
@@ -15,6 +15,7 @@ const StyledHomeContainer = styled(Container)(() => {
     alignItems: 'center',
     justifyContent: 'center',
     height: '100vh',
+    zIndex: 1,
 
     '.__Localize__Row:not(:last-child)': {
       marginBottom: '15px',
@@ -27,8 +28,7 @@ export const HomeContainer = () => {
 
   return (
     <StyledHomeContainer>
-      <BackgroundCanvas />
-      <Profile />
+      <Profile data-aos='fade-up' />
       <Row data-aos='fade-up' data-aos-delay='100'>
         <Col xs={24}>
           <Link to={'/contents/about-seolhun'}>

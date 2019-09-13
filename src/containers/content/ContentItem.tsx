@@ -14,11 +14,6 @@ const StyledCard = styled(Card)(() => {
     display: 'flex',
     flexDirection: 'column',
     cursor: 'pointer',
-    padding: '10px 15px',
-
-    '& > div': {
-      padding: '30px 15px',
-    },
   };
 });
 

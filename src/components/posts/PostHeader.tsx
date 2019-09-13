@@ -36,8 +36,6 @@ const PostHeaderBanner = styled.div<PostHeaderBannerProps>(({ banner }) => {
     display: 'block',
     height: '100%',
     width: '100%',
-    position: 'absolute',
-    bottom: '-2px',
     left: 0,
   };
 });
@@ -50,8 +48,10 @@ const Content = styled.div({
 const PostHeader = ({ banner, children }: PostHeaderProps) => {
   return (
     <PostHeaderWrapper>
-      <PostHeaderBanner banner={banner || config.defaultBg} />
-      <Content>{children}</Content>
+      <Content>
+        <PostHeaderBanner banner={banner || config.defaultBg} />
+        {children}
+      </Content>
     </PostHeaderWrapper>
   );
 };

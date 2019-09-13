@@ -2,7 +2,7 @@ import { graphql, Link } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import { Container } from '@seolhun/localize-components';
+import { Col, Container, Row } from '@seolhun/localize-components';
 
 import { Article, Content, Pagination, PostHeader } from '@/components';
 import { Layout, Profile } from '@/containers';
@@ -28,21 +28,25 @@ export const BlogPage = ({ pageContext, data }: Props) => {
         <Profile />
       </PostHeader>
       <Container>
-        <Content>
-          {edges.map((post) => (
-            <Article
-              key={post.node.fields.slug}
-              title={post.node.frontmatter.title}
-              date={post.node.frontmatter.date}
-              excerpt={post.node.excerpt}
-              timeToRead={post.node.timeToRead}
-              slug={post.node.fields.slug}
-              category={post.node.frontmatter.category}
-              banner={post.node.frontmatter.banner}
-            />
-          ))}
-          <Pagination currentPage={currentPage} totalPages={totalPages} url={'contents'} />
-        </Content>
+        <Row>
+          <Col xs={24}>
+            <Content>
+              {edges.map((post) => (
+                <Article
+                  key={post.node.fields.slug}
+                  title={post.node.frontmatter.title}
+                  date={post.node.frontmatter.date}
+                  excerpt={post.node.excerpt}
+                  timeToRead={post.node.timeToRead}
+                  slug={post.node.fields.slug}
+                  category={post.node.frontmatter.category}
+                  banner={post.node.frontmatter.banner}
+                />
+              ))}
+              <Pagination currentPage={currentPage} totalPages={totalPages} url={'contents'} />
+            </Content>
+          </Col>
+        </Row>
       </Container>
     </Layout>
   );

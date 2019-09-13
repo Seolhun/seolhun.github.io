@@ -18,21 +18,19 @@ const StyledIconLink = styled.a({
 
 export const Profile = () => {
   return (
-    <>
-      <Row data-aos='fade-up' alignItems='center'>
-        <Col xs={24} justifyContent='center'>
-          <ProfileImage src={SiteConfig.githubOwnerImage} />
-          <Mission />
-        </Col>
-        <Col xs={24} justifyContent='center'>
-          {SiteConfig.authorSocialLinks.map((link) => (
-            <StyledIconLink key={link.name} {...link}>
-              <Image src={`/assets/icons/${link.name}.svg`} width='25px' />
-            </StyledIconLink>
-          ))}
-        </Col>
-      </Row>
-    </>
+    <Row alignItems='center'>
+      <Col xs={24} justifyContent='center'>
+        <ProfileImage src={SiteConfig.githubOwnerImage} />
+        <Mission />
+      </Col>
+      <Col xs={24} justifyContent='center'>
+        {SiteConfig.authorSocialLinks.map((link) => (
+          <StyledIconLink key={link.name} {...link}>
+            <Image src={`/assets/icons/${link.name}.svg`} width='25px' />
+          </StyledIconLink>
+        ))}
+      </Col>
+    </Row>
   );
 };
 

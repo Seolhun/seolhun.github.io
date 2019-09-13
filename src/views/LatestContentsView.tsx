@@ -1,23 +1,15 @@
 import { Link, StaticQuery } from 'gatsby';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Col, Row } from '@seolhun/localize-components';
 import { Button, Typo } from '@seolhun/localize-components-atomic';
-import AOS from 'aos';
 
 import AOSSection from '@/components/aos';
 import { ContentItemList } from '@/containers/content';
 import { Edge } from '@/models';
 
 const LatestContentsView = () => {
-  useEffect(() => {
-    AOS.init();
-    return () => {
-      AOS.refresh();
-    };
-  });
-
   return (
     <StaticQuery
       query={LatestQuery}

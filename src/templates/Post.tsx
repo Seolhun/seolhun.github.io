@@ -7,7 +7,7 @@ import { Container } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
 import { kebabCase } from 'lodash';
 
-import { Content, PostHeader, PrevNext, SEO } from '@/components';
+import { PostHeader, PrevNext, SEO } from '@/components';
 import { Layout } from '@/containers';
 import PathContext from '@/models/PathContext';
 import Post from '@/models/Post';
@@ -15,9 +15,13 @@ import config from 'config/SiteConfig';
 
 import '@/utils/prismjs-theme.css';
 
-const PostContent = styled.div`
-  margin-top: 4rem;
-`;
+const PostContainer = styled(Container)({
+  padding: '10px 15px',
+});
+
+const PostContent = styled.div({
+  marginTop: '4rem',
+});
 
 interface Props {
   data: {
@@ -47,22 +51,20 @@ const PostPage = ({ data, pathContext }: Props) => {
               <Link to={`/categories/${kebabCase(category)}`}>{category}</Link>
             </Typo>
           </PostHeader>
-          <Container>
-            <Content>
-              <PostContent dangerouslySetInnerHTML={{ __html: html }} />
-              {tags && (
-                <div>
-                  Tags: &#160;
-                  {tags.map((tag, i) => (
-                    <Link key={i} to={`/tags/${kebabCase(tag)}`}>
-                      <strong>{tag}</strong> {i < tags.length - 1 ? `, ` : ``}
-                    </Link>
-                  ))}
-                </div>
-              )}
-              <PrevNext prev={prev} next={next} />
-            </Content>
-          </Container>
+          <PostContainer>
+            <PostContent dangerouslySetInnerHTML={{ __html: html }} />
+            {tags && (
+              <div>
+                Tags: &#160;
+                {tags.map((tag, i) => (
+                  <Link key={i} to={`/tags/${kebabCase(tag)}`}>
+                    <strong>{tag}</strong> {i < tags.length - 1 ? `, ` : ``}
+                  </Link>
+                ))}
+              </div>
+            )}
+            <PrevNext prev={prev} next={next} />
+          </PostContainer>
         </>
       )}
     </Layout>
