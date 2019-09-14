@@ -36,9 +36,8 @@ const PostPage = ({ data, pathContext }: Props) => {
   const post = data.markdownRemark;
   const { timeToRead, fields, frontmatter, html } = data.markdownRemark;
   const { tags, title, date, category } = frontmatter;
-
   const disqusConfig = {
-    url: `${config.siteUrl + location ? location.pathname : ''}`,
+    // url: `${config.siteUrl}${location.pathname}`,
     identifier: fields.slug,
     title,
   };
