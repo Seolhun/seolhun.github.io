@@ -13,6 +13,7 @@
 <url> <loc>https://seolhun.github.io/contents/11</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/12</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/13</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://seolhun.github.io/contents/14</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/categories</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/categories/aws</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/categories/algorithm</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -91,6 +92,7 @@
 <url> <loc>https://seolhun.github.io/tags/network</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/new</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/node-js</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://seolhun.github.io/tags/okr</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/operators</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/optimization</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/packet</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -103,6 +105,7 @@
 <url> <loc>https://seolhun.github.io/tags/programmers</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/promise</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/prototype</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://seolhun.github.io/tags/qna</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/qeue</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/quick</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/react</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -134,7 +137,9 @@
 <url> <loc>https://seolhun.github.io/tags/develop</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/developer</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/dicision</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://seolhun.github.io/tags/goal</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/gzip</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://seolhun.github.io/tags/how-to</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/retrospect</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/solution</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/story</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -142,6 +147,7 @@
 <url> <loc>https://seolhun.github.io/tags/삽입정렬</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/야근지수</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/정의</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://seolhun.github.io/contents/지인-개발자의-질문-okr은-무엇보다도-중요하고-중요하다</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/js-reactive한-form-group-builder-만들어보기-part-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/js-functional-currying으로-알아보는-functional-programming</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/story-문제란-무엇인가-어떻게-문제를-바라봐야할-것인가</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
