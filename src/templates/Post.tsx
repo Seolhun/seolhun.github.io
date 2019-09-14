@@ -5,16 +5,17 @@ import Helmet from 'react-helmet';
 import styled from '@emotion/styled';
 import { Col, Container, Row } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
+import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
+import { CommentCount, Disqus } from 'gatsby-plugin-disqus';
 import { kebabCase } from 'lodash';
 
 import { PostHeader, PrevNext, SEO } from '@/components';
 import { Layout } from '@/containers';
 import PathContext from '@/models/PathContext';
 import Post from '@/models/Post';
-import config from 'config/SiteConfig';
+import SiteConfig from 'config/SiteConfig';
 
 import '@/utils/prismjs-theme.css';
-import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
 const PostContent = styled.div<any, ILocalizeTheme>(({ theme }) => {
   return {
@@ -35,13 +36,18 @@ const PostPage = ({ data, pathContext }: Props) => {
   const post = data.markdownRemark;
   const { timeToRead, fields, frontmatter, html } = data.markdownRemark;
   const { tags, title, date, category } = frontmatter;
+  const disqusConfig = {
+    url: `${SiteConfig.siteUrl}/contents/${fields.slug}`,
+    identifier: fields.slug,
+    title: frontmatter.title,
+  };
 
   return (
     <Layout>
       {post && (
         <>
           <SEO postPath={fields.slug} postNode={post} postSEO />
-          <Helmet title={`${title} | ${config.siteTitle}`} />
+          <Helmet title={`${title} | ${SiteConfig.siteTitle}`} />
           <Container>
             <Row>
               <Col xs={24}>
@@ -49,6 +55,7 @@ const PostPage = ({ data, pathContext }: Props) => {
                   <Typo type='h1' weight={800} isHighlight>
                     {title}
                   </Typo>
+
                   <Typo type='small' weight={500}>
                     {date} &mdash; {timeToRead} Min Read &mdash; In{' '}
                     <Link to={`/categories/${kebabCase(category)}`}>{category}</Link>
@@ -70,6 +77,14 @@ const PostPage = ({ data, pathContext }: Props) => {
             <Row>
               <Col xs={24}>
                 <PrevNext prev={prev} next={next} />
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={24}>
+                <CommentCount config={disqusConfig} placeholder={'...'} />
+              </Col>
+              <Col xs={24}>
+                <Disqus config={disqusConfig} />
               </Col>
             </Row>
           </Container>

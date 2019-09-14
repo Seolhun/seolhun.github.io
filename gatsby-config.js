@@ -92,12 +92,13 @@ module.exports = {
       options: {
         id: SiteConfig.Google_Tag_Manager_ID,
         includeInDevelopment: false,
+        defaultDataLayer: { platform: 'gatsby' },
       },
     },
     {
       resolve: `gatsby-plugin-disqus`,
       options: {
-        shortname: SiteConfig.Disqus_ID,
+        shortname: SiteConfig.Disqus_ShortName,
       },
     },
     {
