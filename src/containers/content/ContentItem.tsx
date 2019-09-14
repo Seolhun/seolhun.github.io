@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 
 import styled from '@emotion/styled';
 import { Card, Col, Row } from '@seolhun/localize-components';
-import { Image, Typo } from '@seolhun/localize-components-atomic';
+import { Typo } from '@seolhun/localize-components-atomic';
 
 import { Post } from '@/models';
 
@@ -19,16 +19,13 @@ const StyledCard = styled(Card)(() => {
 
 export const ContentItem: FC<ContentItemProps> = (props: ContentItemProps) => {
   const { fields, frontmatter, timeToRead, excerpt } = props;
-  const { title, subTitle, date, banner, category } = frontmatter;
+  const { title, subTitle, date, category } = frontmatter;
 
   return (
     <StyledCard>
       <Link to={`/contents/${fields.slug}`}>
         <Row alignItems='flex-start'>
-          <Col xs={0} sm={3}>
-            <Image src={banner || `/assets/logo.png`} />
-          </Col>
-          <Col xs={24} sm={21}>
+          <Col xs={24}>
             <Typo type='h2' weight={600}>
               {title}
             </Typo>
