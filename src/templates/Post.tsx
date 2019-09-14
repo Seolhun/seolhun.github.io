@@ -5,7 +5,6 @@ import Helmet from 'react-helmet';
 import styled from '@emotion/styled';
 import { Col, Container, Row } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
-import { CommentCount, Disqus } from 'gatsby-plugin-disqus';
 import { kebabCase } from 'lodash';
 
 import { PostHeader, PrevNext, SEO } from '@/components';
@@ -36,11 +35,6 @@ const PostPage = ({ data, pathContext }: Props) => {
   const post = data.markdownRemark;
   const { timeToRead, fields, frontmatter, html } = data.markdownRemark;
   const { tags, title, date, category } = frontmatter;
-  const disqusConfig = {
-    // url: `${config.siteUrl}${location.pathname}`,
-    identifier: fields.slug,
-    title,
-  };
 
   return (
     <Layout>
@@ -59,7 +53,6 @@ const PostPage = ({ data, pathContext }: Props) => {
                     {date} &mdash; {timeToRead} Min Read &mdash; In{' '}
                     <Link to={`/categories/${kebabCase(category)}`}>{category}</Link>
                   </Typo>
-                  <CommentCount config={disqusConfig} placeholder={'...'} />
                 </PostHeader>
               </Col>
             </Row>
@@ -77,11 +70,6 @@ const PostPage = ({ data, pathContext }: Props) => {
             <Row>
               <Col xs={24}>
                 <PrevNext prev={prev} next={next} />
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={24}>
-                <Disqus config={disqusConfig} />
               </Col>
             </Row>
           </Container>
