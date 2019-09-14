@@ -3,7 +3,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
 const supportedLanguages = ['en', 'ko'];
-const supportedFiles = ['common', 'home', 'content'];
+const supportedFiles = ['common', 'home', 'content', 'error'];
 const resources = supportedLanguages.reduce((langObj, lang) => {
   const supportedFileObject = supportedFiles.reduce((fileObj, file) => {
     return {
@@ -21,7 +21,7 @@ i18next
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    lng: 'en',
+    lng: 'ko',
     fallbackLng: ['en', 'ko'],
     defaultNS: 'home',
     debug: process.env.NODE_ENV === 'development',
