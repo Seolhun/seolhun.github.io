@@ -23,12 +23,12 @@ Collection Framework는 어떻게보면 자료구조의 기본 중에 기본이�
 #### 1) Java Collection Framework 구조
 <sub>
     <p>- Collection Framework1</p>
-    <img src='/images/contents/20170503/1.jpg' width='100%' height='100%'>
+    <img src='/assets/images/contents/20170503/1.jpg' width='100%' height='100%'>
 </sub>
 
 <sub>
     <p>- Collection Framework2</p>
-    <img src='/images/contents/20170503/2.jpg' width='100%' height='100%'>
+    <img src='/assets/images/contents/20170503/2.jpg' width='100%' height='100%'>
 </sub>
 
 ## 3-1. List에 대해서
@@ -36,7 +36,7 @@ Collection Framework는 어떻게보면 자료구조의 기본 중에 기본이�
 2. List는 객체 자체를 저장하는 것이 아니라, 해당하는 인덱스에 객체의 주소를 참조하여 저장합니다.
 <sub>
     <p>- About List</p>
-    <img src='/images/contents/20170503/3.jpg' width='100%' height='100%'>
+    <img src='/assets/images/contents/20170503/3.jpg' width='100%' height='100%'>
 </sub>
 
 #### 3-1-1. ArrayList
@@ -50,12 +50,12 @@ Collection Framework는 어떻게보면 자료구조의 기본 중에 기본이�
 
 <sub>
     <p>- LinkedList</p>
-    <img src='/images/contents/20170503/4.jpg' width='100%' height='100%'>
+    <img src='/assets/images/contents/20170503/4.jpg' width='100%' height='100%'>
 </sub>
 
 <sub>
     <p>- LinkedList vs ArrayList</p>
-    <img src='/images/contents/20170503/5.jpg' width='100%' height='100%'>
+    <img src='/assets/images/contents/20170503/5.jpg' width='100%' height='100%'>
 </sub>
 
 #### 3-1-3. Vector
@@ -68,7 +68,7 @@ Collection Framework는 어떻게보면 자료구조의 기본 중에 기본이�
 
 <sub>
     <p>- Set</p>
-    <img src='/images/contents/20170503/6.jpg' width='100%' height='100%'>
+    <img src='/assets/images/contents/20170503/6.jpg' width='100%' height='100%'>
 </sub>
 
 #### 3-2-1. HashSet
@@ -78,7 +78,7 @@ Collection Framework는 어떻게보면 자료구조의 기본 중에 기본이�
 #### 3-2-2. TreeSet
 <sub>
     <p>- TreeSet</p>
-    <img src='/images/contents/20170503/7.jpg' width='100%' height='100%'>
+    <img src='/assets/images/contents/20170503/7.jpg' width='100%' height='100%'>
 </sub>
 1. TreeSet은 이진트리(binary tree)를 기반으로한 Set Collection이다.
 2. TreeSet은 2개의 자식 노드를 참조하기 위한 2개의 변수로 구성된다.
@@ -86,14 +86,14 @@ Collection Framework는 어떻게보면 자료구조의 기본 중에 기본이�
 4. Set 인터페이스 타입 변수에 대입해도 되지만 TreeSet 클래스 타입으로 대입한 이유는 객체를 찾거나 범위 검색과 관련된 메소드를 사요하기 위해서이다.
 <sub>
     <p>- TreeSet의 검색 메소드</p>
-    <img src='/images/contents/20170503/8.jpg' width='100%' height='100%'>
+    <img src='/assets/images/contents/20170503/8.jpg' width='100%' height='100%'>
 </sub>
 
 ## 3-3. Map에 대해서
 - Key와 Value를 저장하며, Key는 중복될 수 없다. 키와 값은 모두 객체이다. 만약, 기존에 저장된 키와 동일한 키로 값을 저장하면 기존 값은 없어지고 새로운 값으로 대체 된다.
 <sub>
     <p>- Map</p>
-    <img src='/images/contents/20170503/9.jpg' width='100%' height='100%'>
+    <img src='/assets/images/contents/20170503/9.jpg' width='100%' height='100%'>
 </sub>
 
 #### 3-3-1. HashMap
@@ -112,7 +112,7 @@ HashTable의 하위 클래스이기 때문에 HashTable의 모든 특징을 그�
 #### 3-3-4. TreeMap
 <sub>
     <p>- TreeMap</p>
-    <img src='/images/contents/20170503/10.jpg' width='100%' height='100%'>
+    <img src='/assets/images/contents/20170503/10.jpg' width='100%' height='100%'>
 </sub>
 1. TreeMap은 이진트리(binary tree)를 기반으로 한 Map Collection이다.
 2. TreeSet과 같은 구조를 같고 있지만, TreeSet과의 차이점은 키와 값이 저장된 Map.Entry를 저장하는 것.
@@ -120,7 +120,7 @@ HashTable의 하위 클래스이기 때문에 HashTable의 모든 특징을 그�
 
 <sub>
     <p>- TreeMap의 검색 메소드</p>
-    <img src='/images/contents/20170503/11.jpg' width='100%' height='100%'>
+    <img src='/assets/images/contents/20170503/11.jpg' width='100%' height='100%'>
 </sub>
 
 ## Ontro

@@ -162,7 +162,7 @@ public class MainClass {
 ```
 <sub>
     <p>- Result</p>
-    <img src='/images/contents/20170422/1.jpg' width='100%' height='100%'>
+    <img src='/assets/images/contents/20170422/1.jpg' width='100%' height='100%'>
 </sub>
 
 ### 3. ExcutorService Method 이해하기.
@@ -198,7 +198,7 @@ public class MainClass {
 	- 쓰레드의 작업이 종료된 상태
 <sub>
     <p>- Result</p>
-    <img src='/images/contents/20170422/2.jpg' width='100%' height='100%'>
+    <img src='/assets/images/contents/20170422/2.jpg' width='100%' height='100%'>
 </sub>
 
 #### Life Cycle이해를 위한 Method

@@ -37,7 +37,7 @@ Big-O 표기법 개발자들에게 최악의 경우가 중요하다는 의미를
 > Big-O notation is a way of converting the overall steps of an algorithm into algebraic terms, then excluding lower order constants and coefficients that don’t have that big an impact on the overall complexity of the problem.
 
 <sub>
-    <img src='/images/contents/20180404/algo/Big-O.jpg' width='100%' height='100%'>
+    <img src='/assets/images/contents/20180404/algo/Big-O.jpg' width='100%' height='100%'>
     - [Big-O.jpg](https://joshuajangblog.wordpress.com/2016/09/21/time_complexity_big_o_in_easy_explanation/)
 </sub>
 

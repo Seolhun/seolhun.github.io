@@ -32,14 +32,14 @@ CI 툴을 이용한다는 것은 위 인용한 글 처럼, **손 쉽게 버그�
 7. [기타 및 추가사항](#7-기타-및-추가사항)
 
 <sub>
-	<img src='/images/contents/20180302/Github-Jenkins.jpg' alt='Jenkins - Github'>
+	<img src='/assets/images/contents/20180302/Github-Jenkins.jpg' alt='Jenkins - Github'>
 	<p> 이미지 출처 : http://cicd.life/u3-p4-configuring-jenkins-github-groovy/</p>
 </sub>
 
 ## 1. CI란 무엇인가?
 - Continuous Integrate, Continuous Delivery, Continuous Deploy
 <sub>
-<img src='/images/contents/20180302/CICD.jpg' alt='CI(Continuouse Integration) vs CD(Continuouse Delivery) vs CD(Continuouse Deploy)'>
+<img src='/assets/images/contents/20180302/CICD.jpg' alt='CI(Continuouse Integration) vs CD(Continuouse Delivery) vs CD(Continuouse Deploy)'>
 <p> 이미지 출처 : http://skillslane.com/continuous-integration-delivery-deployment/</p>
 </sub>
 
@@ -89,7 +89,7 @@ sudo apt-get install git
 	- 추가적으로 Jenkins를 설치한 서버에 추가적인 가상 방화벽으로 차단해 둔 경우 Github Webhook의 요청이 방화벽에 차단되어 `Timeout error`가 발생합니다.
 
 3가지 모두 설치를 완료하고 첫 계정을 생성하면 아래와 같은 그림을 볼 수 있습니다.
-<img src='/images/contents/20180302/1-firstJenkins.jpg' alt='Init Jenkins'>
+<img src='/assets/images/contents/20180302/1-firstJenkins.jpg' alt='Init Jenkins'>
 
 ## 4. Jenkins 기본 설정
 `Jenkins 관리`에 들어가면 많은 항목을 볼 수 있습니다. 그 중 지금 필요한 것은 3가지 설정입니다.
@@ -99,19 +99,19 @@ sudo apt-get install git
 - 현재 Jenkins는 Build Tool로 JDK, Git, Gradle, Ant, Maven, Docker 총 6개를 기본적으로 지원하고 있습니다.
 
 <p>JDK와 Git을 아래와 같이 설정해줍니다.</p>
-<img src='/images/contents/20180302/2-globalToolConfig.jpg' alt='Jenkins Git Plugins'>
+<img src='/assets/images/contents/20180302/2-globalToolConfig.jpg' alt='Jenkins Git Plugins'>
 
 #### 2. 시스템 설정
 - 서버관련 환경, 플러그인, 스크립트, 알림 등 다양한 Jenkins 관련 시스템 설정을 할 수 있는 곳입니다.
 
 <p>시스템 설정에서는 Git config에 기본적으로 필요한 name과 email을 기본적으로 설정해줍니다.</p>
-<img src='/images/contents/20180302/3-systemGitPlugin.jpg' alt='Jenkins Git Plugins'>
+<img src='/assets/images/contents/20180302/3-systemGitPlugin.jpg' alt='Jenkins Git Plugins'>
 
 #### 3. 플러그인 관리
 - 말 그대로 플러그인 설치/업데이트/삭제 등 플러그인을 관리할 수 있는 곳입니다.
 
 <p>기본 설치시 설치되는 Git Plugins는 아래 그림으로 확인할 수 있습니다.</p>
-<img src='/images/contents/20180302/4-defaultGitPlugins.jpg' alt='Jenkins Git Plugins'>
+<img src='/assets/images/contents/20180302/4-defaultGitPlugins.jpg' alt='Jenkins Git Plugins'>
 
 ## 5. Jenkins, Github 서비스에 등록/인증하기
 #### Jenkins, Github Webhook 서비스로 등록하기
@@ -122,11 +122,11 @@ sudo apt-get install git
 	- 이전에는 Username/Password 혹은 Token 값 설정만으로도 Webhooks가 지원되었지만, 이제는 CI 서버와 Github Repository를 명시적으로 연결하여야지만 정상작동됩니다. 아래와 같은 방법으로 해당 Repsitory에 Jenkins 서비스를 등록하여줍니다.
 
 ##### 1. 아래와 같은 방식으로 Repositroy > Settings 찾아주시기 바랍니다.
-<img src='/images/contents/20180302/7-gitServiceJenkins2.jpg' alt='Webhooks1'>
+<img src='/assets/images/contents/20180302/7-gitServiceJenkins2.jpg' alt='Webhooks1'>
 
 ##### 2. Jenkins가 설치된 서버의 IP와 Port를 입력해주시기 바랍니다.
 - 아래와 같이 설정하면 **Public Repository**에서 추가 인증 없이 Jenkins와 Repository가 연동되어 Build Trigger가 정상작동됩니다.
-<img src='/images/contents/20180302/7-gitServiceJenkins3.jpg' alt='Webhooks2'>
+<img src='/assets/images/contents/20180302/7-gitServiceJenkins3.jpg' alt='Webhooks2'>
 
 - 주의사항
 	1. Jenkins 서버 URL이 적합하지 않으면 정상작동되지 않습니다.
@@ -156,16 +156,16 @@ sudo apt-get install git
 
 #### 2. Freestyle project 설정하기
 ##### 1. Freestyle project를 만듭니다.
-<img src='/images/contents/20180302/5-freestyleJob.jpg' alt='FreeStyle Item'>
+<img src='/assets/images/contents/20180302/5-freestyleJob.jpg' alt='FreeStyle Item'>
 
 ##### 2. Git Repository를 연결합니다.
-<img src='/images/contents/20180302/6-jenkinsGitConfig1.jpg' alt='Git Repository'>
+<img src='/assets/images/contents/20180302/6-jenkinsGitConfig1.jpg' alt='Git Repository'>
 
 ##### 3. Build Trigger를 Github hook trigger로 설정합니다. 여기에 체크하는 것이 Github에 Services에 등록한 것과 연결이 됩니다.
-<img src='/images/contents/20180302/6-jenkinsGitConfig2.jpg' alt='Build Trigger'>
+<img src='/assets/images/contents/20180302/6-jenkinsGitConfig2.jpg' alt='Build Trigger'>
 
 ##### 4. Build에서 Shell에 해당 Git 정보를 확인하는 Script를 작성합니다.
-<img src='/images/contents/20180302/freestyleResult1.jpg' alt='Build Trigger'>
+<img src='/assets/images/contents/20180302/freestyleResult1.jpg' alt='Build Trigger'>
 
 ##### 5. Github에 해당 Branch에 새롭게 푸쉬를 해봅니다.
 ##### 6. Github에 Push되면, Jenkins에 `/web-hook/`가 전송되어 Jenkins의 Item(Job)이 Trigger되어 해당 Item(Job)을 수행합니다.
@@ -219,18 +219,18 @@ GIT_AUTHOR_EMAIL testJenkins@testJenkins.com
 #### 2. Pipeline project로 설정하기
 ##### 1. Pipeline Project 만들기
 <sub>
-	<img src='/images/contents/20180302/10-pipelineConfig1.jpg' alt='Build Trigger'>
+	<img src='/assets/images/contents/20180302/10-pipelineConfig1.jpg' alt='Build Trigger'>
 </sub>
 
 ##### 2. Build Trigger를 Github hook trigger로 설정합니다. 여기에 체크하는 것이 Github에 Services에 등록한 것과 연결이 됩니다.
 <sub>
-	<img src='/images/contents/20180302/6-jenkinsGitConfig2.jpg' alt='Build Trigger'>
+	<img src='/assets/images/contents/20180302/6-jenkinsGitConfig2.jpg' alt='Build Trigger'>
 </sub>
 
 ##### 3. Github에서 Pipeline Trigger
 - [Pipeline SCM Step](https://jenkins.io/doc/pipeline/steps/workflow-scm-step/)은 여기서 더 알아볼 수 있습니다.
 <sub>
-	<img src='/images/contents/20180302/10-pipelineConfig2.jpg' alt='Build Trigger'>
+	<img src='/assets/images/contents/20180302/10-pipelineConfig2.jpg' alt='Build Trigger'>
 </sub>
 - Script Path에 Jenkinsfile로 Script를 정의했다고 알려주면, 해당 branch에 Jenkinsfile을 읽어 Script를 수행합니다.
 
@@ -311,7 +311,7 @@ GIT_AUTHOR_EMAIL : testJenkins@testJenkins.com
 ## 7. 기타 및 추가사항
 #### [1. Jenkins Blue Ocean](https://jenkins.io/projects/blueocean/)
 - Jenkins의 Pipeline을 다양하게 보고 조작할 수 있는 UI/UX를 최신으로 제공해줍니다.
-<img src='/images/contents/20180302/7-etc-blueOcean.jpg'>
+<img src='/assets/images/contents/20180302/7-etc-blueOcean.jpg'>
 
 #### 2. Credentials를 이용하기 전 주의 사항
 - 참고자료
@@ -330,21 +330,21 @@ GIT_AUTHOR_EMAIL : testJenkins@testJenkins.com
 - Jenkins Item(Job)에 credentials에 설정하면 해당 Github Repository와의 연결을 인증할 수 있습니다.
 
 <p> - Credentials를 생성할 때 보이는 ID가 credeintalsId에 입력되는 값입니다.</p>
-<img src='/images/contents/20180302/selectCredential.jpg' alt='Build Trigger'>
+<img src='/assets/images/contents/20180302/selectCredential.jpg' alt='Build Trigger'>
 - 위처럼 정의한 credentials에 ID는 아래 Pipeline Script 정의에서 `credentialsId`로 작동됩니다.
 	- Private Repository의 경우 사용됩니다.
 
 ##### 2. Secret Text : Oauth2 Token 받기
 1. Oauth2 Token 생성하러 가기
 	- Settings > Developer settings > Personal access tokens
-	<img src='/images/contents/20180302/8-oauth2Token1.jpg' alt='Oauth2 Token1'>
+	<img src='/assets/images/contents/20180302/8-oauth2Token1.jpg' alt='Oauth2 Token1'>
 2. Oauth2 Token 생성하기
-	<img src='/images/contents/20180302/8-oauth2Token2.jpg' alt='Oauth2 Token2'>
+	<img src='/assets/images/contents/20180302/8-oauth2Token2.jpg' alt='Oauth2 Token2'>
 3. Oauth2 Token 권한 설정
-	<img src='/images/contents/20180302/8-oauth2Token3.jpg' alt='Oauth2 Token3'>
+	<img src='/assets/images/contents/20180302/8-oauth2Token3.jpg' alt='Oauth2 Token3'>
 4. Oauth2 Token 값 받기
 	- 해당 값을 credentials로 생성시, `Secret Text`에 입력하여줍니다.
-	<img src='/images/contents/20180302/8-oauth2Token4.jpg' alt='Oauth2 Token3'>
+	<img src='/assets/images/contents/20180302/8-oauth2Token4.jpg' alt='Oauth2 Token3'>
 
 ##### 3. Credentials를 Binding하여 Pipeline에서 이용하기
 - 참고사항

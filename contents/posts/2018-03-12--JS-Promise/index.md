@@ -51,7 +51,7 @@ Promise는 생성될 때 꼭 알 필요는 없는 값을 위한 대리자입니�
 
 Promise.prototype.then() 및 Promise.prototype.catch() 메서드가 Promise를 반환하기에, 둘은 연결(chain)될 수 있습니다. 이를 합성(composition)이라고 합니다.
 <sub>
-  <img src='/images/contents/20180312/promise.png' width='100%' height='100%'>
+  <img src='/assets/images/contents/20180312/promise.png' width='100%' height='100%'>
   - Promise Flow
 </sub>
 

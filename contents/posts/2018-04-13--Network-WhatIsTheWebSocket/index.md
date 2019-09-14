@@ -42,12 +42,12 @@ HTML과 HTTP를 찾아서 읽어보면 도움이 될 것 같습니다. - [HTTP -
 
 #### - Polling Flow
 <div class='text-center'>
-  <img src='/images/contents/20180413/websocket/polling.png' width='100%'>
+  <img src='/assets/images/contents/20180413/websocket/polling.png' width='100%'>
 </div>
 
 #### - WebSocket Flow
 <div class='text-center'>
-  <img src='/images/contents/20180413/websocket/websocket.png' width='50%'>
+  <img src='/assets/images/contents/20180413/websocket/websocket.png' width='50%'>
 </div>
 
 #### - WebSocket의 HandShake 과정
@@ -80,7 +80,7 @@ Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=
 이 장에서 중요한 것은 WebSocket의 브라우저 호환성 문제입니다. WebSocket의 브라우저 호환성 표를 보겠습니다.
 
 <div class='text-center'>
-  <img src='/images/contents/20180413/websocket/supported-browser.png' width='100%'>
+  <img src='/assets/images/contents/20180413/websocket/supported-browser.png' width='100%'>
 </div>
 
 브라우저 호환성이 중요한 이유는 Client에서 WebSocket이 연결되는 것은 브라우저입니다. 즉, 브라우저에서 WebSocket을 지원하지 않으면 서버가 않으면 이용할 수 없습니다. 이러한 브라우저 호환성 문제로 인해 개발자 커뮤니티에서 페이스북 개발자가 직접 페이스북 서비스에서 Polling 방식으로 개발한 이유에 대한 글을 본적이 있습니다. 이처럼 WebSocket은 브라우저 호환성이라는 제약사항을 갖고 있어 모든 유저의 환경을 고려한 대중적인 서비스를 개발하기 위해서는 아직도 해결해야 할 많은 이슈들이 존재합니다.
