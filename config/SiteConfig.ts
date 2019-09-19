@@ -68,6 +68,6 @@ export default {
   ],
   github: 'https://github.com/Seolhun',
   aboutMe: 'I just expresses my thougt by code and word',
-  mission: '데이터를 쉽고 유익하게 제공하여 함께 성장할 수 있게 한다.',
+  mission: 'Cook data, Share it and Grow All Together',
   keyResults: ['Cross Browsing', 'Localize-Component', 'Visualization with D3'],
 };
