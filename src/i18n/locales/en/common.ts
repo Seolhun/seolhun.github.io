@@ -1,5 +1,6 @@
 export default {
-  readMore: 'Read more',
   viewMore: 'View more',
-  goBlogList: 'Blog List',
+  readMore: 'Read more',
+  seeMore: 'See more',
+  goBlogList: 'Go to list',
 };

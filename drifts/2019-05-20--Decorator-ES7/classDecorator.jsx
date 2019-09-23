@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 export function logRender(constructor) {
   const original = constructor.prototype.render;
@@ -10,8 +10,6 @@ export function logRender(constructor) {
 }
 
 @logRender
-class Todos extends Component {
-  render() {
-    return <div />;
-  }
-}
+const Todos = () => {
+  return <div />;
+};

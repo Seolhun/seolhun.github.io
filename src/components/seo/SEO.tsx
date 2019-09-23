@@ -20,6 +20,8 @@ const SEO = ({ postNode, postPath, postSEO }: SEO) => {
   const blogURL = SiteConfig.siteUrl + SiteConfig.pathPrefix;
   const image = SiteConfig.siteUrl + realPrefix + SiteConfig.siteBanner;
 
+  console.error('@@@', description);
+
   let schemaOrgJSONLD = [
     {
       '@context': 'http://schema.org',
