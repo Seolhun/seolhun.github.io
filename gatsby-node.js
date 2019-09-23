@@ -1,6 +1,7 @@
 const path = require('path');
 const _ = require('lodash');
 const config = require('./config/SiteConfig').default;
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.onCreateWebpackConfig = ({ stage, actions, loaders }) => {
   actions.setWebpackConfig({
@@ -25,7 +26,6 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders }) => {
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
-
   const isMarkdown = node.internal.type === 'MarkdownRemark';
   const hasFrontMatter = _.has(node, 'frontmatter');
   const hasTitle = _.has(node.frontmatter, 'title');
@@ -33,8 +33,8 @@ exports.onCreateNode = ({ node, actions }) => {
   if (isMarkdown && hasFrontMatter && hasTitle) {
     const slug = `${_.kebabCase(node.frontmatter.title)}`;
     createNodeField({
-      node,
       name: 'slug',
+      node,
       value: slug,
     });
   }

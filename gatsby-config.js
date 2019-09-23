@@ -13,15 +13,17 @@ const pathPrefix = SiteConfig.pathPrefix === '/' ? '' : SiteConfig.pathPrefix;
 module.exports = {
   pathPrefix: SiteConfig.pathPrefix,
   siteMetadata: {
+    title: SiteConfig.siteTitle,
+    description: SiteConfig.siteDescription,
     siteUrl: SiteConfig.siteUrl + pathPrefix,
   },
   plugins: [
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-emotion',
     'gatsby-plugin-lodash',
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sitemap',
     'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-root-import',
@@ -49,6 +51,65 @@ module.exports = {
       options: {
         name: 'metas',
         path: `${__dirname}/metas`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map((edge) => {
+                const url = site.siteMetadata.siteUrl + '/contents' + edge.node.fields.slug;
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url,
+                  guid: url,
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                });
+              });
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { fields: [frontmatter___date], order: DESC },
+                ) {
+                  edges {
+                    node {
+                      excerpt(pruneLength: 200)
+                      html
+                      fields {
+                        slug
+                      }
+                      frontmatter {
+                        title
+                        date(formatString: "YYYY.MM.DD")
+                        category
+                        tags
+                        banner
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: "Hi-Cord's RSS Feed",
+          },
+        ],
       },
     },
     {
