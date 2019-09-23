@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import { Col, Container, Row } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
 import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
-import { CommentCount, Disqus } from 'gatsby-plugin-disqus';
+import { Disqus } from 'gatsby-plugin-disqus';
 import { kebabCase } from 'lodash';
 
 import { PostHeader, PrevNext, SEO } from '@/components';
@@ -15,6 +15,7 @@ import PathContext from '@/models/PathContext';
 import Post from '@/models/Post';
 import SiteConfig from 'config/SiteConfig';
 
+import MarkdownHTML from '@/components/markdown/MarkdownHTML';
 import '@/utils/prismjs-theme.css';
 
 const PostContent = styled.div<any, ILocalizeTheme>(({ theme }) => {
@@ -63,7 +64,9 @@ const PostPage = ({ data, pathContext }: Props) => {
                 </PostHeader>
               </Col>
             </Row>
-            <PostContent dangerouslySetInnerHTML={{ __html: html }} />
+            <MarkdownHTML>
+              <PostContent dangerouslySetInnerHTML={{ __html: html }} />
+            </MarkdownHTML>
             {tags && (
               <Typo type='small'>
                 Tags: &#160;
@@ -80,9 +83,6 @@ const PostPage = ({ data, pathContext }: Props) => {
               </Col>
             </Row>
             <Row>
-              <Col xs={24}>
-                <CommentCount config={disqusConfig} placeholder={'...'} />
-              </Col>
               <Col xs={24}>
                 <Disqus config={disqusConfig} />
               </Col>
