@@ -46,7 +46,7 @@ const PostPage = ({ data, pathContext }: Props) => {
     <Layout>
       {post && (
         <>
-          <SEO postPath={fields.slug} postNode={post} postSEO />
+          <SEO postPath={fields.slug} postNode={post} isPostSEO />
           <Helmet title={`${title} | ${SiteConfig.siteTitle}`} />
           <Container>
             <Row>
