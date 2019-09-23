@@ -6,17 +6,17 @@ import Post from '@/models/Post';
 import SiteConfig from 'config/SiteConfig';
 
 interface SEO {
-  postNode: Post;
-  postPath: string;
-  postSEO: boolean;
+  isPostSEO: boolean;
+  postPath?: string;
+  postNode?: Post;
 }
 
-const SEO = ({ postNode, postPath, postSEO }: SEO) => {
-  const postMeta = postNode.frontmatter;
-  const title = postMeta.title || SiteConfig.siteTitle;
-  const description = postNode.excerpt || SiteConfig.siteDescription;
+const SEO = ({ isPostSEO, postPath, postNode }: SEO) => {
+  const postMeta = postNode ? postNode.frontmatter : null;
+  const title = postMeta && postMeta.title ? postMeta.title : SiteConfig.siteTitle;
+  const description = postNode && postNode.excerpt ? postNode.excerpt : SiteConfig.siteDescription;
   const realPrefix = SiteConfig.pathPrefix === '/' ? '' : SiteConfig.pathPrefix;
-  const postURL = SiteConfig.siteUrl + realPrefix + postPath;
+  const postURL = `${SiteConfig.siteUrl}${realPrefix}${postPath}`;
   const blogURL = SiteConfig.siteUrl + SiteConfig.pathPrefix;
   const image = SiteConfig.siteUrl + realPrefix + SiteConfig.siteBanner;
 
@@ -36,8 +36,8 @@ const SEO = ({ postNode, postPath, postSEO }: SEO) => {
         url: image,
       },
       description: SiteConfig.siteDescription,
-      datePublished: postNode.frontmatter.date,
-      dateModified: postNode.frontmatter.date,
+      datePublished: postNode ? postNode.frontmatter.date : '',
+      dateModified: postNode ? postNode.frontmatter.date : '',
       author: {
         '@type': 'Person',
         name: SiteConfig.author,
@@ -57,7 +57,7 @@ const SEO = ({ postNode, postPath, postSEO }: SEO) => {
       },
     },
   ];
-  if (postSEO) {
+  if (isPostSEO) {
     schemaOrgJSONLD = [
       {
         '@context': 'http://schema.org',
@@ -72,8 +72,8 @@ const SEO = ({ postNode, postPath, postSEO }: SEO) => {
           url: image,
         },
         description: SiteConfig.siteDescription,
-        datePublished: postNode.frontmatter.date,
-        dateModified: postNode.frontmatter.date,
+        datePublished: postNode ? postNode.frontmatter.date : '',
+        dateModified: postNode ? postNode.frontmatter.date : '',
         author: {
           '@type': 'Person',
           name: SiteConfig.author,
@@ -103,11 +103,11 @@ const SEO = ({ postNode, postPath, postSEO }: SEO) => {
       <script type='application/ld+json'>{JSON.stringify(schemaOrgJSONLD)}</script>
       <meta property='og:title' content={title} />
       <meta property='og:description' content={description} />
-      <meta property='og:type' content={postSEO ? 'article' : 'website'} />
+      <meta property='og:type' content={isPostSEO ? 'article' : 'website'} />
       <meta property='og:image' content={image} />
       <meta property='og:locale' content={SiteConfig.ogLanguage} />
       <meta property='og:site_name' content={SiteConfig.ogSiteName} />
-      <meta property='og:url' content={postSEO ? postURL : blogURL} />
+      <meta property='og:url' content={isPostSEO ? postURL : blogURL} />
       <meta property='fb:app_id' content={SiteConfig.siteFBAppID} />
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:creator' content={SiteConfig.userTwitter} />

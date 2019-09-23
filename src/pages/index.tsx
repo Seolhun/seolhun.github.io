@@ -5,16 +5,20 @@ import Helmet from 'react-helmet';
 import { Layout } from '@/containers';
 import config from 'config/SiteConfig';
 
+import { SEO } from '@/components';
 import HomeView from '@/views/HomeView';
 import LatestContentsView from '@/views/LatestContentsView';
 
 const IndexPage = () => {
   return (
-    <Layout>
-      <Helmet title={config.siteTitle} />
-      <HomeView />
-      <LatestContentsView />
-    </Layout>
+    <>
+      <Layout>
+        <SEO isPostSEO={false} />
+        <Helmet title={config.siteTitle} />
+        <HomeView />
+        <LatestContentsView />
+      </Layout>
+    </>
   );
 };
 
