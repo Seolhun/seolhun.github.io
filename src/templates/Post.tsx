@@ -110,6 +110,7 @@ export const postQuery = graphql`
         tags
         date(formatString: "YYYY.MM.DD")
       }
+      excerpt(pruneLength: 300)
       timeToRead
     }
   }

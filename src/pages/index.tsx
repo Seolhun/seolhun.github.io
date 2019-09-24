@@ -36,6 +36,7 @@ export const IndexQuery = graphql`
             date(formatString: "YYYY.MM.DD")
             category
           }
+          excerpt(pruneLength: 300)
           timeToRead
         }
       }
