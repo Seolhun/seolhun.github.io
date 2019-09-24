@@ -63,6 +63,7 @@ export const BlogQuery = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
+      filter: { frontmatter: { date: { lt: "2019-09-30T00:00:00.000Z" } } }
     ) {
       totalCount
       edges {

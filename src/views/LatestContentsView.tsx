@@ -41,12 +41,15 @@ const LatestContentsView = () => {
   );
 };
 
+// filter: { frontmatter: { date: { lt: "2019-01-30T00:00:00.000Z" } } }
+// filter: {date: {lt: "2019-01-30T00:00:00.000Z"}}
 export const LatestQuery = graphql`
   query($skip: Int = 0, $limit: Int = 5) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
+      filter: { frontmatter: { date: { lt: "2019-09-30T00:00:00.000Z" } } }
     ) {
       totalCount
       edges {
