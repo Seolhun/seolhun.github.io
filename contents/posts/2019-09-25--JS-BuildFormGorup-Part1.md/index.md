@@ -82,20 +82,81 @@ FormBuilder를 먼저 만들어봅시다. 이후에 FormGroupBuilder를 만들�
 음. 생각해보셨나요?, 제가 선정한 값은 아래와 같습니다.
 
 ```js
-export const FORM_PROPERTIES = {
-  // Values
+export const FORM_VALUES = {
+  /**
+   * @requires
+   * @type string
+   */
   key: 'key',
+  /**
+   * @requires
+   * @type string
+   */
+  htmlFor: 'htmlFor',
+  // isNotRequired
+  /**
+   * @default '''
+   * @type string
+   */
   value: 'value',
+  /**
+   * @default false
+   * @type boolean
+   */
   hasError: 'hasError',
+  /**
+   * @default false
+   * @type boolean
+   */
   message: 'message',
+  /**
+   * @default 'text'
+   * @type string
+   */
+  type: 'type',
+  /**
+   * @default false
+   * @type boolean
+   */
+  isFocus: 'isFocus',
+  /**
+   * @default false
+   * @type boolean
+   */
   isRequired: 'isRequired',
+};
+
+export const FORM_PROPERTIES = {
+  ...FORM_VALUES,
+  /**
+   * @default ''
+   * @type string
+   */
   requiredMessage: 'requiredMessage',
-  // Events
+  /**
+   * @default () => { hassError: false, message: '' }
+   * @type function
+   */
   onValidation: 'onValidation',
-  // Options
-  isOnCreatedValidation: 'isOnCreatedValidation',
-  isOnChangeValidation: 'isOnChangeValidation',
+  /**
+   * @default { hassError: false, message: '' }
+   * @type function
+   */
   onGroupValidation: 'onGroupValidation',
+  /**
+   * @default false
+   * @type boolean
+   */
+  isOnCreatedValidation: 'isOnCreatedValidation',
+  /**
+   * @default true
+   * @type boolean
+   */
+  isOnChangeValidation: 'isOnChangeValidation',
+  /**
+   * @default false
+   * @type boolean
+   */
 };
 ```
 
@@ -135,52 +196,46 @@ const REQUIRED_CHECKING_TYPES = {
 코드로 알아봅시다.
 
 ```js
-class FormBuilder {
+export class FormBuilder {
   constructor(properties, options) {
     // 1. 함수를 생성할 때 가장 먼저 실행되는 것이 생성자이므로 생성자에서 유효성 검사를 실시합니다.
-    const validtionProperties = this._checkPropertiesValidation(properties);
-    // 4. 주어진 값에 문제가 있다면, 어디에 문제가 있는지를 사용자(개발자)에게 알려줍니다.
-    if (!validtionProperties.hasError) {
-      throw new Error(
-        `Properties types('${validtionProperties.keys.join(', ')}') are invalid`
-      );
+    if (!this._checkPropertiesValidation(properties)) {
+      // 4. 주어진 값에 문제가 있다면, 어디에 문제가 있는지를 사용자(개발자)에게 알려줍니다.
+      throw new Error('Properties types are not right');
     }
-    this.properties = this._buildFormProperties(properties, options);
+    // 5. 각 값들의 default 값을 만들어주기 위해 함수로 만들었습니다.
+    const formProperties = this._initForm(properties, options);
+    this.properties = formProperties.properties;
+    this.options = formProperties.options;
   }
 
   _checkPropertiesValidation = (properties) => {
     // 2. 유효성 검사는 위에서 언급한 Object 값을 이용하여 실행시켜줍니다.
-    const invalidProperties = [];
-    const isInvalidProperty = Object.keys(REQUIRED_CHECKING_TYPES).every(
-      (key) => {
-        if (properties[key]) {
-          // 3. 주어진 변수에 값이 있다면, 해당 키를 이용하여 타입이 올바른지 확인합니다.
-          const propertyType = typeof properties[key];
-          const validType = REQUIRED_CHECKING_TYPES[key];
-          const isMatch = validType === propertyType;
-          if (!isMatch) {
-            invalidProperties.push(key);
-          }
-          return isMatch;
-        }
-        return true;
+    const isValidProperty = Object.keys(REQUIRED_CHECKING_TYPES).every((key) => {
+      if (properties[key]) {
+        // 3. 주어진 변수에 값이 있다면, 해당 키를 이용하여 타입이 올바른지 확인합니다.
+        const propertyType = typeof properties[key];
+        const validType = REQUIRED_CHECKING_TYPES[key];
+        return validType === propertyType;
       }
-    );
-    return {
-      hasError: isInvalidProperty,
-      keys: invalidProperties,
-    };
+      return true;
+    });
+    return isValidProperty;
   };
 
-  _buildFormProperties = (
+  // 초기 선언된 js-doc에 맞게 만들어줍니다. 
+  _initForm = (
     {
       // Values
-      value,
+      htmlFor,
+      key,
+      value = '',
+      type = 'text',
       hasError = false,
       message = '',
       isRequired = false,
-      requiredMessage,
-      // Events
+      requiredMessage = '',
+      isFocus = false,
       onValidation = () => ({
         hasError: false,
         message: '',
@@ -188,11 +243,22 @@ class FormBuilder {
     },
     {
       // Options
+      onGroupValidation = () => ({
+        hasError: false,
+        message: '',
+      }),
       isOnCreatedValidation = false,
       isOnChangeValidation = false,
-      onGroupValidation,
-    }
+    },
   ) => {
+    if (!htmlFor) {
+      throw new Error('htmlFor property is required. Set unique name to use Object key');
+    }
+
+    if (!key) {
+      throw new Error('key property is required. Set unique name to use Object key');
+    }
+
     let isValidObject = {
       hasError,
       message,
@@ -201,16 +267,26 @@ class FormBuilder {
       isValidObject = onValidation(value);
     }
 
-    return {
+    const properties = {
+      htmlFor,
+      key,
       value,
+      type,
       hasError: isValidObject.hasError,
       message: isValidObject.message,
       isRequired,
       requiredMessage,
+      isFocus,
       onValidation,
+    };
+    const options = {
       isOnCreatedValidation,
       isOnChangeValidation,
       onGroupValidation,
+    };
+    return {
+      properties,
+      options,
     };
   };
 }
@@ -225,50 +301,59 @@ class FormBuilder {
 > 저도 고민이 많은데, class를 이용하는 순간 객체지향 코드로 구성하겠다는 것과 같습니다. 즉, 그 둘을 완벽하게 분리해서 코드를 구성할 수도 있겠지만, 우리가 생각하는 FormBuilder에는 객체지향 요소로 고려하면 장점이 되는 것이 많습니다. 그래서, 객체지향 내부 함수를 최대한 Functional하게 구성하는게 여기서 더 좋은 방법이라고 생각합니다.
 
 ```js
-// 5. 새로운 newProperties의 있는 값만 기존 properties를 덮어줍니다.
-setProperties(newProperties) {
-  this.properties = {
-    ...this.properties,
-    ...newProperties,
-  };
-  return this;
-}
-
-// 6. 값을 바꿀 때, 유효성 감사를 할 것인지에 대한 Option이 true라면 유효성 검사를 합니다.
-setValue(value) {
-  if (this.properties.isOnChangeValidation) {
-    this._handleOnValidation(value);
+export class FormBuilder {
+  // ...
+  
+  // 1. 새로운 newProperties의 있는 값만 기존 properties를 덮어줍니다.
+  setProperties(newProperties) {
+    this.properties = {
+      ...this.properties,
+      ...newProperties,
+    };
+    return this;
   }
-  this.setProperties({
-    value,
-  });
-  return this;
-}
 
-// 8. Properties 중 우리가 필요한 값만 가져오기 위함입니다.
-getPropertyBy(propertyKey) {
-  return this.properties[propertyKey];
-}
+  // 2. 값을 바꿀 때, 유효성 감사를 할 것인지에 대한 Option이 true라면 유효성 검사를 합니다.
+  setValue(value) {
+    if (this.options.isOnChangeValidation) {
+      this.handleOnValidation(value);
+    }
+    this.setProperties({
+      value,
+    });
+    return this;
+  }
 
-// 9. 현재 갖고있는 모든 Properties를 가져오기 위함입니다.
-getProperties() {
-  return this.properties;
-}
+  // 3. Properties 중 유효성 검사에 대한 값만 가져오기 위함입니다.
+  getValidation() {
+    return {
+      hasError: this.properties.hasError,
+      message: this.properties.message,
+    };
+  }
 
-// 9. Form에 필요한 Values만 가져오기 위함입니다.
-getValues() {
-  const { value, hasError, message, isRequired } = this.properties;
+  // 4. Properties 중 우리가 필요한 값만 가져오기 위함입니다.
+  getPropertyValueBy(propertyKey) {
+    return this.properties[propertyKey];
+  }
 
-  return {
-    value,
-    hasError,
-    message,
-    isRequired,
-  };
+  // 5. 현재 갖고있는 모든 Properties를 가져오기 위함입니다.
+  getProperties() {
+    return this.properties;
+  }
+
+  // 6. Form에 값으로 사용되어야 할 Properties를 가져옵니다.
+  getValues() {
+    const { value, hasError, message } = this.properties;
+
+    return {
+      value,
+      hasError,
+      message,
+    };
+  }
 }
 ```
-
-7번에 대한 `_handleOnValidation`은 다음 내용에서 살펴보겠습니다.
 
 ## 3. HandleValidation
 
@@ -276,12 +361,40 @@ Properties로 주어진 onValidation과 onGroupValidation 함수를 이용하여
 
 주의 할 점은 onValidation과 onGroupValidation의 return 값은 `{ hasError, message }` 구조를 가져야 한다는 것입니다.
 
-또한, GroupValidation은 key값을 이용하여 해당 key값과 매칭되는 부분만 값을 변경합니다.
+또한, GroupValidation은 key값을 이용하여 해당 key값과 매칭되는 부분만 값을 변경합니다. 이는 FormGroupBuilder를 포스팅 할 때 다시 설명드리겠습니다.
 
 ```js
+export class FormBuilder {
+  // ...
+
+  // 1. 해당 값의 유효성 감사를 실행하여 줍니다.
+  handleOnValidation = (value = this.properties.value) => {
+    // 필수 값의 옵션은 쉽게 체크할 수 있어 FomrBuilder 내에 구현해놓았습니다.
+    if (this.properties.isRequired && !value) {
+      this.setProperties({
+        hasError: true,
+        message: this.properties.requiredMessage,
+      });
+      return this;
+    }
+
+    // onValidation의 외부 Props값을 받았다면 해당 함수를 이용하여 유효성 검사값을 반영합니다.
+    const isValidObject = this.properties.onValidation(value);
+    this.setProperties({
+      ...isValidObject,
+    });
+
+    // 에러가 없다면, 그룹 값과 비교한 유효성 검사를 한 번 더 실시합니다.
+    if (!this.properties.hasError) {
+      this.handleOnGroupValidation(this.properties.key);
+    }
+
+    return this;
+  };
+
   // 8. 그룹 유효성 검사를 실시합니다.
-  _handleOnGroupValidation = () => {
-    const { key, hasError, message } = this.onGroupValidation();
+  handleOnGroupValidation = (currentKey) => {
+    const { key, hasError, message } = this.options.onGroupValidation(currentKey);
     if (key === this.key && hasError) {
       this._setProperties({
         key,
@@ -291,40 +404,11 @@ Properties로 주어진 onValidation과 onGroupValidation 함수를 이용하여
     }
     return this;
   };
-
-  // 7. 해당 값의 유효성 감사를 실행하여 줍니다.
-  _handleOnValidation = (value = this.properties.value) => {
-    // 필수 값의 옵션은 쉽게 체크할 수 있어 FomrBuilder 내에 구현해놓았습니다.
-    if (this.properties.isRequired && !value) {
-      this.setProperties({
-        hasError: true,
-        message: this.properties.requiredMessage || 'Value is required',
-      });
-      return this;
-    }
-    // onValidation의 외부 Props값을 받았다면 클로저로 함수를 이용하여 유효성 검사값을 반영합니다.
-    let isValidObject = this.onValidation(value);
-    // 에러가 없다면, 그룹 값과 비교한 유효성 검사를 한 번 더 실시합니다.
-    if (!isValidObject.hasError) {
-      this._setProperties({
-        ...isValidObject,
-      });
-      isValidObject = this._handleOnGroupValidation();
-    }
-    this._setProperties({
-      ...isValidObject,
-    });
-    return this;
-  };
+}
 ```
 
-> 현재 _를 사용한 이유는 private에 대한 개념이 없는 Javascript에서 ModulePattern을 이용한 것이 아니라면 class 내에는 private을 사용할 수 없습니다. 그러므로, 해당 값을 내부에서만 사용하라는 의미로 이를 명시화하였습니다.
-
-현재 setValue의 Option에 따라 유효성 검사를 자동화할지를 결정할 수 있습니다.
-
-의문이 드실 수 있는 부분은 자동화를 하지 않았으면 값의 유효성은 변하지 않을텐데요...라고 생각할 수 있습니다. 이는 FormBuilder가 아닌, FormGroup에서 해결하려고 합니다.
-
-그렇다고 FormBuilder에서 불가능한 것은 아닙니다. 그저 _handleOnValidation을 호출하면 됩니다. 하지만, _로 private처럼 사용하기 위해 명시화하였던 함수를 외부에서 사용하는 것은 올바르지 않다고 생각합니다.
+> 현재 _를 사용한 이유는 private에 대한 개념이 없기에 이를 명시하기 위함입니다. 
+> > ModulePattern을 이용하여 클로저와 스코프를 이용하면 class 내에는 private을 사용할 수 있습니다만, class에 현재 스펙이는 private이 없으므로, 이렇게 작업하였습니다.
 
 ## 6. FormBuilder Completion
 
@@ -332,95 +416,158 @@ Properties로 주어진 onValidation과 onGroupValidation 함수를 이용하여
 
 ```js
 /* eslint-disable no-underscore-dangle */
-export const FORM_PROPERTIES = {
+export const FORM_VALUES = {
+  /**
+   * @requires
+   * @type string
+   */
   key: 'key',
+  /**
+   * @requires
+   * @type string
+   */
+  htmlFor: 'htmlFor',
+  // isNotRequired
+  /**
+   * @default '''
+   * @type string
+   */
   value: 'value',
+  /**
+   * @default false
+   * @type boolean
+   */
   hasError: 'hasError',
+  /**
+   * @default false
+   * @type boolean
+   */
   message: 'message',
+  /**
+   * @default 'text'
+   * @type string
+   */
+  type: 'type',
+  /**
+   * @default false
+   * @type boolean
+   */
+  isFocus: 'isFocus',
+  /**
+   * @default false
+   * @type boolean
+   */
   isRequired: 'isRequired',
+};
+
+export const FORM_PROPERTIES = {
+  ...FORM_VALUES,
+  /**
+   * @default ''
+   * @type string
+   */
   requiredMessage: 'requiredMessage',
-  // Event/s
+  /**
+   * @default () => { hassError: false, message: '' }
+   * @type function
+   */
   onValidation: 'onValidation',
-  // Options
-  isOnCreatedValidation: 'isOnCreatedValidation',
-  isOnChangeValidation: 'isOnChangeValidation',
+  /**
+   * @default { hassError: false, message: '' }
+   * @type function
+   */
   onGroupValidation: 'onGroupValidation',
+  /**
+   * @default false
+   * @type boolean
+   */
+  isOnCreatedValidation: 'isOnCreatedValidation',
+  /**
+   * @default true
+   * @type boolean
+   */
+  isOnChangeValidation: 'isOnChangeValidation',
+  /**
+   * @default false
+   * @type boolean
+   */
 };
 
 // Will be improvement considering browser
 const REQUIRED_CHECKING_TYPES = {
+  key: 'string',
+  htmlFor: 'string',
   value: 'string',
   hasError: 'boolean',
-  message: 'string',
+  isFocus: 'boolean',
   isRequired: 'boolean',
-  requiredMessage: 'string',
-  // Events
+  message: 'string',
   onValidation: 'function',
-  // Options
+  requiredMessage: 'string',
+  type: 'string',
+  // Group Options
+  onGroupValidation: 'function',
   isOnCreatedValidation: 'boolean',
   isOnChangeValidation: 'boolean',
-  onGroupValidation: 'function',
 };
 
-class FormBuilder {
+export class FormBuilder {
   constructor(properties, options) {
-    // 1. 함수를 생성할 때 가장 먼저 실행되는 것이 생성자이므로 생성자에서 유효성 검사를 실시합니다.
-    const validtionProperties = this._checkPropertiesValidation(properties);
-    // 4. 주어진 값에 문제가 있다면, 어디에 문제가 있는지를 사용자(개발자)에게 알려줍니다.
-    if (!validtionProperties.hasError) {
-      throw new Error(
-        `Properties types('${validtionProperties.keys.join(', ')}') are invalid`
-      );
+    if (!this._checkPropertiesValidation(properties)) {
+      throw new Error('Properties types are not right');
     }
-    this.properties = this._buildFormProperties(properties, options);
+    const formProperties = this._initForm(properties, options);
+    this.properties = formProperties.properties;
+    this.options = formProperties.options;
   }
 
   _checkPropertiesValidation = (properties) => {
-    // 2. 유효성 검사는 위에서 언급한 Object 값을 이용하여 실행시켜줍니다.
-    const invalidProperties = [];
-    const isInvalidProperty = Object.keys(REQUIRED_CHECKING_TYPES).every(
-      (key) => {
-        if (properties[key]) {
-          // 3. 주어진 변수에 값이 있다면, 해당 키를 이용하여 타입이 올바른지 확인합니다.
-          const propertyType = typeof properties[key];
-          const validType = REQUIRED_CHECKING_TYPES[key];
-          const isMatch = validType === propertyType;
-          if (!isMatch) {
-            invalidProperties.push(key);
-          }
-          return isMatch;
-        }
-        return true;
+    const isValidProperty = Object.keys(REQUIRED_CHECKING_TYPES).every((key) => {
+      if (properties[key]) {
+        const propertyType = typeof properties[key];
+        const validType = REQUIRED_CHECKING_TYPES[key];
+        return validType === propertyType;
       }
-    );
-    return {
-      hasError: isInvalidProperty,
-      keys: invalidProperties,
-    };
+      return true;
+    });
+    return isValidProperty;
   };
 
-  _buildFormProperties = (
+  _initForm = (
     {
       // Values
+      htmlFor,
       key,
-      value,
+      value = '',
+      type = 'text',
       hasError = false,
       message = '',
       isRequired = false,
-      requiredMessage,
+      requiredMessage = '',
+      isFocus = false,
       // Events
       onValidation = () => ({
         hasError: false,
         message: '',
       }),
     },
-    // Options
     {
+      onGroupValidation = () => ({
+        hasError: false,
+        message: '',
+      }),
       isOnCreatedValidation = false,
       isOnChangeValidation = false,
-      onGroupValidation,
-    }
+    },
   ) => {
+    if (!htmlFor) {
+      throw new Error('htmlFor property is required. Set unique name to use Object key');
+    }
+
+    if (!key) {
+      throw new Error('key property is required. Set unique name to use Object key');
+    }
+
     let isValidObject = {
       hasError,
       message,
@@ -429,55 +576,52 @@ class FormBuilder {
       isValidObject = onValidation(value);
     }
 
-    return {
+    const properties = {
+      htmlFor,
       key,
       value,
+      type,
       hasError: isValidObject.hasError,
       message: isValidObject.message,
       isRequired,
       requiredMessage,
+      isFocus,
       onValidation,
+    };
+    const options = {
       isOnCreatedValidation,
       isOnChangeValidation,
       onGroupValidation,
     };
+    return {
+      properties,
+      options,
+    };
   };
 
-  // 8. 그룹 유효성 검사를 실시합니다.
-  _handleOnGroupValidation = () => {
-    const { key, hasError, message } = this.onGroupValidation();
-    if (key === this.key && hasError) {
-      this._setProperties({
-        key,
-        hasError,
-        message,
-      });
-    }
-    return this;
-  };
-
-  // 7. 해당 값의 유효성 감사를 실행하여 줍니다.
-  _handleOnValidation = (value = this.properties.value) => {
-    // 필수 값의 옵션은 쉽게 체크할 수 있어 FomrBuilder 내에 구현해놓았습니다.
+  handleOnValidation = (value = this.properties.value) => {
     if (this.properties.isRequired && !value) {
       this.setProperties({
         hasError: true,
-        message: this.properties.requiredMessage || 'Value is required',
+        message: this.properties.requiredMessage,
       });
       return this;
     }
-    // onValidation의 외부 Props값을 받았다면 클로저로 함수를 이용하여 유효성 검사값을 반영합니다.
-    let isValidObject = this.onValidation(value);
-    // 에러가 없다면, 그룹 값과 비교한 유효성 검사를 한 번 더 실시합니다.
-    if (!isValidObject.hasError) {
-      this._setProperties({
-        ...isValidObject,
-      });
-      isValidObject = this._handleOnGroupValidation();
-    }
-    this._setProperties({
+
+    const isValidObject = this.properties.onValidation(value);
+    this.setProperties({
       ...isValidObject,
     });
+
+    if (!this.properties.hasError) {
+      this.handleOnGroupValidation(this.properties.key);
+    }
+
+    return this;
+  };
+
+  handleOnGroupValidation = (currentKey) => {
+    this.options.onGroupValidation(currentKey);
     return this;
   };
 
@@ -490,8 +634,8 @@ class FormBuilder {
   }
 
   setValue(value) {
-    if (this.properties.isOnChangeValidation) {
-      this._handleOnValidation(value);
+    if (this.options.isOnChangeValidation) {
+      this.handleOnValidation(value);
     }
     this.setProperties({
       value,
@@ -499,10 +643,14 @@ class FormBuilder {
     return this;
   }
 
-  /**
-   * Finished Methods
-   */
-  getPropertyBy(propertyKey) {
+  getValidation() {
+    return {
+      hasError: this.properties.hasError,
+      message: this.properties.message,
+    };
+  }
+
+  getPropertyValueBy(propertyKey) {
     return this.properties[propertyKey];
   }
 
@@ -525,16 +673,20 @@ export default FormBuilder;
 ```
 
 ## Outro
-이번 FormBuilder를 이용하여 ES6 기반의 많은 feature들을 이용할 수 있었습니다. 또한, 객체를 return하여 함수를 쉽게 재호출할 수 있다는 것을 알게되었습니다.
+이번 FormBuilder를 이용하여 ES6 기반의 많은 feature들을 이용할 수 있었습니다. 또한, 객체를 return하여 함수를 쉽게 재호출할 수 있다는 것을 알게되었습니다. 이러한 형식을 monad라고 많이 부릅니다. 특히, JQuery가 이러한 방식을 사용하였다는 것을 알 수 있습니다. 함수형에서도 compose, flow 등을 같이 사용하면 이러한 함수를 구현할 수 있습니다.
 
-FormBuilder를 만들면서 가장 좋은 것은, FormGroup과 연계되어 생각하면 좋은데 React, Vue 등등을 이용할 때 해당 Builder를 이용하여 해당 객체를 State에 주입하여 사용하면 아주 쉽게 사용할 수 있다는 것입니다.
+FormBuilder를 만들면서 가장 좋은 것은, FormGroup과 연계되어 생각하면 좋은데 React, Vue 등 을 이용할 때 해당 Builder를 이용하여 해당 객체를 State에 주입하여 사용하면 아주 쉽게 사용할 수 있다는 것입니다.
 
-즉, 어떠한 Library(Framework)에서도 매번 함수를 새로 구성하여 쉽게 파편화되고 하드코딩되는 부분들을 구조적으로 방지할 수 있다는 것입니다.
-
-아직 개선할 점이 많이 있지만, Form을 생성하는데는 무리가 없어보입니다. 다음 FormGroup 설명과 함께 직접 만든 코드로 작동되는 페이지를 보여드리겠습니다~!!
+즉, 어떠한 Library(Framework)에서도 매번 함수를 새로 구성하여 쉽게 파편화되고 하드코딩되는 부분들을 구조적으로 방지할 수 있다는 것입니다. 당연히 아직 개선할 점이 있지만, Form을 생성하는데는 무리가 없어보입니다.
 
 여기까지 글 읽어주셔서 감사합니다! :)
+
+PS. 다음에는 테스트코드 작성한 코드와 FormGroup 설명과 함께 직접 만든 코드로 작동되는 페이지를 보여드리겠습니다. 테스트코드는 이미 작성되었지만 글이 길어지므로 다음 포스팅으로 넘어가겠습니다.
+
+<img src='/assets/images/contents/2019/FormBuilderJsTest.png' width='100%' height='100%'>
+
 
 ## References
 - [Form Attributes - w3schools](https://www.w3schools.com/html/html_form_attributes.asp)
 - [typeof - MDN](https://developer.mozilla.org/ko/docs/Web/Javascript/Reference/Operators/typeof)
+- [JQuery - Monad - stackoverflow](https://stackoverflow.com/questions/10496932/is-jquery-a-monad)

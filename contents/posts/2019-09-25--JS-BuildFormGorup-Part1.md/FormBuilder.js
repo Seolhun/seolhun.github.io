@@ -78,8 +78,10 @@ export const FORM_PROPERTIES = {
 
 // Will be improvement considering browser
 const REQUIRED_CHECKING_TYPES = {
-  hasError: 'boolean',
+  key: 'string',
   htmlFor: 'string',
+  value: 'string',
+  hasError: 'boolean',
   isFocus: 'boolean',
   isRequired: 'boolean',
   message: 'string',
@@ -180,7 +182,6 @@ export class FormBuilder {
     };
   };
 
-  // tslint:disable-next-line:variable-name
   handleOnValidation = (value = this.properties.value) => {
     if (this.properties.isRequired && !value) {
       this.setProperties({

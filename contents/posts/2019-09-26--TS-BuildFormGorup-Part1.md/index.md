@@ -2,7 +2,7 @@
 author: Seolhun
 banner: "/assets/covers/typescript.png"
 category: "TS"
-date: 2019-09-25
+date: 2020-09-25
 description: "Builder Pattern을 이용한 monad식의 FormGroup Builder 만들어보기"
 subTitle: "Create a form group."
 tags: ['TS', 'Form', "FormGroup"]
@@ -14,7 +14,7 @@ title: "[TS] Typescript로 Reactive한 FormGroup Builder 만들어보기 - Part 
 개인적으로 Typescript를 상당히 애용합니다. Bundler와 같이사용하면, Javascript에 다양한 모듈을 만들어 줄 수 있으며, 타입을 명시해줌으로써 함수와 객체에 대한 정의를 더 쉽게 할 수 있기 때문입니다.
 당연히 기존 Script의 언어 장점을 잃어버리는 측면도 있습니다. 하지만, 이미 번들러를 통해서 ES5까지 호환할 수 있는 스크립트를 만들 수 있으며, TS-Compiler를 통해서 사전에 코드 에러를 방지할 수 있습니다.
 
-![ts-es6.png]('/assets/images/contents/ts-es6.png')
+<img src='/assets/images/contents/2019/ts-es6.png' width='100%' height='100%'>
 
 또한, 워낙 위처럼 유명한 이미지처럼, Typescript는 이미 대부분의 Javascript의 기능들을 호환할 수 있게 만들수 있습니다. 특히, JS로만 개발하면 Typescript의 유저가 해당 모듈을 사용할 때, type경고 및 에러 등으로 사용이 원활하지 않게되는 경우가 있습니다. 이럴 때, type만 declare하는 경우도 있지만 typescript로 초기부터 개발하면 2개의 언어(사실 모두 JS)를 모두 쉽게 커버할 수 있습니다.
 
