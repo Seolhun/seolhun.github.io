@@ -2,16 +2,16 @@
 author: Seolhun
 banner: "/assets/covers/typescript.png"
 category: "TS"
-date: 2019-01-26
+date: 2019-09-25
 description: "Builder Pattern을 이용한 monad식의 FormGroup Builder 만들어보기"
 subTitle: "Create a form group."
-tags: ['TS', 'TS', 'Form', "FormGroup"]
-title: "[TS] Reactive한 FormGroup Builder 만들어보기 - Part 1"
+tags: ['JS', 'Form', "FormGroup"]
+title: "[JS] Javascript로 Reactive한 FormGroup Builder 만들어보기 - Part 1"
 ---
 
 ## Intro
 
-웹 개발을 하다보면 가장 많이 사용되는 기능은 Form이라고 생각합니다. 
+웹 개발을 하다보면 가장 많이 사용되는 기능은 Form이라고 생각합니다.
 대부분의 웹 사이트에 방문하면 회원가입과 로그인이 없는 사이트는 거의 없을 것이며, 최소한 고객문의와 Contact 등에 대한 페이지는 어느 사이트에서나 필요하기 때문입니다.
 
 그렇다면, 개발자로서 이렇게 많이 사용되는 Form을 구현하기 위해서는 어떻게 접근하는 것이 가장 좋을까요?
@@ -19,12 +19,10 @@ title: "[TS] Reactive한 FormGroup Builder 만들어보기 - Part 1"
 
 먼저, 현재 JS 생태계를 지배하고 있는 React와 Vue, Agnular의 입장에서 JS 코드를 바라보아야 합니다. 왜냐하면, UI와 관련된 모든 JS는 현재 3개의 Library(혹은 Framework)에 영향이 너무나 지대하므로, 이점을 간과할 수 없기 때문입니다.
 
-그러므로 FormBuilder 또한 어느 UI Library(혹은 Framework)와 함께 사용하더라도 작동할 수 있게 구현 할 예정입니다.
+그러므로 FormBuilder는 어느 UI Library(혹은 Framework)와 함께 사용하더라도 작동할 수 있게 구현 할 예정입니다.
 
 둘째, 우리가 사용하는 UI는 결국 HTML과 CSS, JS의 결합입니다. 그 중 이번 FormBuilder는 UI와 결합되기 전까지의 JS로 구성할 수 있는 독립적인 부분을 고려하여 설계할 것입니다.
-너무 추상적이라고 느낄 수 있습니다. 그래서 더 간단하게 얘기하면, HTML과 CSS에 사용될 값들을 JS에서 모두 다룰 수 있도록 할 예정입니다. 
-
-이 부분은 앞으로 코드로 알아보도록 하겠습니다.
+너무 추상적이라고 느낄 수 있습니다. 그래서 더 간단하게 얘기하면, HTML과 CSS에 사용될 값들을 JS에서 모두 다룰 수 있도록 할 예정입니다.
 
 ## Pre-requirement
 - Javascript, Typescript
@@ -47,7 +45,7 @@ Form 관련 Attributes의 값을 JS에서 다룰 예정이며, 특히, disabled�
 2. Form에 들어가는 값들에 유효성 검사가 원활해야 합니다. 메세지도 포함해서요~
   - Validation
     - Group Validation
-    - Form Valition  
+    - Form Valition
     - Message
 
 Form의 핵심은 Validation에 있다고 생각하며, 편리하게 UI를 만들어주는 것이 중요합니다.
@@ -78,10 +76,10 @@ FormBuilder를 먼저 만들어봅시다. 이후에 FormGroupBuilder를 만들�
 2. Validation
 3. Reactive Code
 
-이 3가지를 채우기 위한 변수로 무엇이 있을까요? 한번 생각해봅시다. 
+이 3가지를 채우기 위한 변수로 무엇이 있을까요? 한번 생각해봅시다.
 
 ## 1. Build & Set Properties
-음. 생각해보셨나요?, 제가 선정한 값은 아래와 같습니다. 
+음. 생각해보셨나요?, 제가 선정한 값은 아래와 같습니다.
 
 ```js
 export const FORM_PROPERTIES = {
@@ -104,7 +102,7 @@ export const FORM_PROPERTIES = {
 Object에 담은 이유는 2가지 입니다.
 
 1. 정의 된 값만을 사용하기 위함입니다. 이는 나중에 어떠한 값이 Props에 있고 유효하게 사용할 수 있는지 쉽게 알게해줍니다.
-2. 해당 값이 생성될 때 키 값을 이용하여 Props의 타입을 체크할 예정이기 때문입니다. 
+2. 해당 값이 생성될 때 키 값을 이용하여 Props의 타입을 체크할 예정이기 때문입니다.
 
 2번 사항에 더 알아보겠습니다.
 
@@ -322,9 +320,9 @@ Properties로 주어진 onValidation과 onGroupValidation 함수를 이용하여
 
 > 현재 _를 사용한 이유는 private에 대한 개념이 없는 Javascript에서 ModulePattern을 이용한 것이 아니라면 class 내에는 private을 사용할 수 없습니다. 그러므로, 해당 값을 내부에서만 사용하라는 의미로 이를 명시화하였습니다.
 
-현재 setValue의 Option에 따라 유효성 검사를 자동화할지를 결정할 수 있습니다. 
+현재 setValue의 Option에 따라 유효성 검사를 자동화할지를 결정할 수 있습니다.
 
-의문이 드실 수 있는 부분은 자동화를 하지 않았으면 값의 유효성은 변하지 않을텐데요...라고 생각할 수 있습니다. 이는 FormBuilder가 아닌, FormGroup에서 해결하려고 합니다. 
+의문이 드실 수 있는 부분은 자동화를 하지 않았으면 값의 유효성은 변하지 않을텐데요...라고 생각할 수 있습니다. 이는 FormBuilder가 아닌, FormGroup에서 해결하려고 합니다.
 
 그렇다고 FormBuilder에서 불가능한 것은 아닙니다. 그저 _handleOnValidation을 호출하면 됩니다. 하지만, _로 private처럼 사용하기 위해 명시화하였던 함수를 외부에서 사용하는 것은 올바르지 않다고 생각합니다.
 

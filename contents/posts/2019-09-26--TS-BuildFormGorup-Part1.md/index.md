@@ -1,34 +1,28 @@
 ---
 author: Seolhun
-banner: "/assets/covers/js.png"
-category: "JS"
-date: 2019-01-26
+banner: "/assets/covers/typescript.png"
+category: "TS"
+date: 2019-09-25
 description: "Builder Pattern을 이용한 monad식의 FormGroup Builder 만들어보기"
 subTitle: "Create a form group."
-tags: ['JS', 'Form', "FormGroup"]
-title: "[JS] Reactive한 FormGroup Builder 만들어보기 - Part 1"
+tags: ['TS', 'Form', "FormGroup"]
+title: "[TS] Typescript로 Reactive한 FormGroup Builder 만들어보기 - Part 1"
 ---
 
 ## Intro
 
-웹 개발을 하다보면 가장 기본적으로 사용되는 것은 Form이라는 것을 알게됩니다.
-대부분의 웹 사이트에 방문하면 회원가입, 로그인이 없는 사이트는 거의 없을 것이며, 최소한 고객문의 등에 대한 공간은 어느 사이트에나 있습니다.
-그렇다면, 개발자로서 이렇게 대중적으로 사용되는 Form을 구현하기 위해서는 어떻게 접근하는 것이 가장 좋을까요?
+개인적으로 Typescript를 상당히 애용합니다. Bundler와 같이사용하면, Javascript에 다양한 모듈을 만들어 줄 수 있으며, 타입을 명시해줌으로써 함수와 객체에 대한 정의를 더 쉽게 할 수 있기 때문입니다.
+당연히 기존 Script의 언어 장점을 잃어버리는 측면도 있습니다. 하지만, 이미 번들러를 통해서 ES5까지 호환할 수 있는 스크립트를 만들 수 있으며, TS-Compiler를 통해서 사전에 코드 에러를 방지할 수 있습니다.
 
-먼저, 현재 JS 생태계를 지배하고 있는 React와 Vue, Agnular(?)의 입장에서 JS 코드를 바라보아야 합니다.
-특히, UI와 관련된 모든 JS는 현재 3개의 Library(혹은 Framework)에 영향이 너무나 지대하므로, 이점을 간과할 수 없습니다.
-또한, FormBuilder를 통해 만들게 될 값도 UI에서 필요로하는 값으로만 구현될 예정이기에 어느 Library(혹은 Framework)에서도 작동해야 합니다.
+![ts-es6.png]('./ts-es6.png')
 
-둘째, 우리가 사용하는 UI는 결국 HTML과 CSS, JS의 결합입니다. 그 중 이번 FormBuilder는 UI와 결합되기 전까지의 JS로 구성할 수 있는 독립적인 부분을 고려하여 설계할 것입니다.
-너무 추상적이라고 느낄 수 있습니다. 그래서 더 간단하게 얘기하면, HTML과 CSS에 사용될 값들을 JS에서 모두 다룰 수 있도록 할 예정입니다. 
-
-이 부분은 앞으로 코드로 알아보도록 하겠습니다.
+또한, 워낙 위처럼 유명한 이미지처럼, Typescript는 이미 대부분의 Javascript의 기능들을 호환할 수 있게 만들수 있습니다. 특히, JS로만 개발하면 Typescript의 유저가 해당 모듈을 사용할 때, type경고 및 에러 등으로 사용이 원활하지 않게되는 경우가 있습니다. 이럴 때, type만 declare하는 경우도 있지만 typescript로 초기부터 개발하면 2개의 언어(사실 모두 JS)를 모두 쉽게 커버할 수 있습니다.
 
 ## Pre-requirement
-- JS
+- Typescript
   - ES6
 
-JS로만 코드를 짤 예정이며, Jest를 이용하여 테스트로 코드의 유효성을 확인해볼 것입니다.
+기존에 작성된 JS코드를 TS로 변경하여 재작성 할 예정입니다. Jest를 이용하여 테스트로 코드의 유효성을 확인해볼 것입니다.
 
 ## Goals
 먼저, 이번 FromGroup을 만들기 위한 3가지 목표를 세웠습니다.

@@ -4,18 +4,19 @@ export interface ValidationResponse {
 }
 
 export interface FormBuilderValues {
-  value: string | number | boolean;
+  value?: string | number | boolean;
   hasError?: boolean;
   message?: string;
 }
 
 export interface FormBuilderProperties extends FormBuilderValues {
+  key: string;
+  htmlFor: string;
   type?: string;
   isRequired?: boolean;
   requiredMessage?: string;
-  htmlFor?: string;
   isFocus?: boolean;
-  onValidation: (value: string | number | boolean) => ValidationResponse;
+  onValidation?: (value: string | number | boolean) => ValidationResponse;
 }
 
 export interface FormBuilderOptions {
@@ -25,50 +26,54 @@ export interface FormBuilderOptions {
 }
 
 
-export interface FormBuilderProps {
+export interface IFormBuilder {
   properties: FormBuilderProperties;
+  options: FormBuilderOptions;
   handleOnValidation: (value?: any) => FormBuilder;
   setProperties: (Properties) => FormBuilder;
   setValue: (value) => FormBuilder;
   getPropertyValueBy: (keyName: keyof FormBuilderProperties) => any;
   getProperties: () => FormBuilderProperties;
-  getValues: () => void;
+  getValues: () => FormBuilderValues;
 }
 
 
-export class FormBuilder implements FormBuilderProps {
+export class FormBuilder implements IFormBuilder {
   properties: FormBuilderProperties;
   options: FormBuilderOptions;
 
-  constructor(properties, options) {
+  constructor(properties: FormBuilderProperties, options: FormBuilderOptions) {
     const formProperties = this._initForm(properties, options);
     this.properties = formProperties.properties;
     this.options = formProperties.options;
   }
 
-  // tslint:disable-next-line:variable-name
   private _initForm = (
     {
       // Values
+      htmlFor,
+      key,
       value = '',
       type = 'text',
       hasError = false,
       message = '',
       isRequired = false,
       requiredMessage = '',
-      htmlFor = '',
       isFocus = false,
       // Events
       onValidation = (value: string) => ({
         hasError: false,
         message: '',
       }),
-    },
+    }: FormBuilderProperties,
     {
-      onGroupValidation,
+      onGroupValidation = (currentKey: string) => ({
+        hasError: false,
+        message: '',
+      }),
       isOnCreatedValidation = false,
       isOnChangeValidation = false,
-    },
+    }: FormBuilderOptions,
   ) => {
     let isValidObject = {
       hasError,
@@ -79,13 +84,14 @@ export class FormBuilder implements FormBuilderProps {
     }
 
     const properties = {
+      htmlFor,
+      key,
       value,
       type,
       hasError: isValidObject.hasError,
       message: isValidObject.message,
       isRequired,
       requiredMessage,
-      htmlFor,
       isFocus,
       onValidation,
     };
@@ -109,12 +115,23 @@ export class FormBuilder implements FormBuilderProps {
       });
       return this;
     }
+
     const isValidObject = this.properties.onValidation(value);
     this.setProperties({
       ...isValidObject,
     });
+
+    if (!this.properties.hasError) {
+      this.handleOnGroupValidation(this.properties.key);
+    }
+
     return this;
   }
+
+  handleOnGroupValidation = (currentKey) => {
+    this.options.onGroupValidation(currentKey);
+    return this;
+  };
 
   setProperties(newProperties) {
     this.properties = {
