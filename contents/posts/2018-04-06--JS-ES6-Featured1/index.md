@@ -19,7 +19,7 @@ Javascript, Typescript 등 다양한 Javascript를 번갈아 사용하면서, ES
 
 #### Typescript vs ES6
 <div class='text-center'>
-  <img src="/images/contents/20180406/es6/ts-es6.png" width="40%" height="40%">
+  <img src="/assets/images/contents/20180406/es6/ts-es6.png" width="40%" height="40%">
 </div>
 
 Typescript에서 주로 사용되는 그림이다. 문제는 Typescript를 사용하다보면, 해당 기능들이 ES6부터 제공된 기능인지 Typescript에서 제공된 기능인지를 잘 모르고 사용할 때가 많았습니다. 특히, ES6부터는 Javascript의 격변이 시작되었고 상당히 중요한 기능들이 등장하기 시작했습니다. 가끔 누군가가 제게 이러한 기능들에 대해 물어보면 ES6의 기능인지 Typescript의 기능인지, 정확히 어떤 내용인지를 잘 설명하지 못하는 자신을 보고 꼭 정리할 필요성이 있다고 생각했습니다.

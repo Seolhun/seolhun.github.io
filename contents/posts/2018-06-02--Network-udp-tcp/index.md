@@ -15,7 +15,7 @@ IP에서 인터넷(the Internet) 이름자체가 'inter-' 라는 접두사와 '�
 IP라는 이름처럼 어디에서든 간단하게 IP만 올릴 수 있으면 어떤 네트워크든 연결할 수 있습니다. 그래서, IP는 아래 그림처럼 모래 시계의 허리에 비유하여 설명할 수 있습니다. 그림처럼 IP 아래로는 네트워크를 만들 수 있는 다양한 하드웨어 기술 (Ethernet, WiFi 등...) 이 존재하고 있고, IP 위로는 다양한 응용 서비스(HTTP, FTP 등...)들이 동작할 수 있습니다. 간단한 예로 컴퓨터에 연결하는 랜선은 Ethernet, 모바일로 무선 네트워크를 이용하는 것은 WiFI, 개발 간 API를 호출할 때는 HTTP를 이영할 수 있는 것입니다. 이처럼 IP를 기반으로하면 어떠한 디바이스와 서버, 혹은 사용자가 사용해도 TCP/UDP와 관련된 네트워크 기능들을 큰 어려움없이 사용할 수 있습니다.
 
 <div class='text-center'>
-  <img src="/images/contents/20180426/network/ip.png" width="100%">
+  <img src="/assets/images/contents/20180426/network/ip.png" width="100%">
 </div>
 
 IP의 특징은 연결을 보장하기 위한 노력은 하지만 100% 보장해주지 않습니다. 이를 `Best-effort`라고 표현하는데, IP 가 best-effort가 될 수 밖에 없는 이유는 서로 다른 특성의 여러 네트워크를 연동해야 되기 때문입니다.
@@ -32,7 +32,7 @@ UDP에 설명하기 앞서 같은 계층에 있는 TCP를 설명하면 좋을 �
 이로 인해 UDP Header를 확인해보면 목적지 주소, 데이터 순서, checksum과 실데이터만 포함되고, 확인응답 같은 것이 없습니다. 그래서, TCP보다 용량이 가볍고 송신속도가 빠르게 작동됩니다. 하지만 확인응답을 하지 못하기때문에 신뢰도가 TCP보다 떨어지게 됩니다. 따라서 `UDP는 비연결형이라 부르며 TCP는 연결형이라 구분합니다.`
 
 <div class='text-center'>
-  <img src="/images/contents/20180426/network/udp-header.png" width="100%">
+  <img src="/assets/images/contents/20180426/network/udp-header.png" width="100%">
 </div>
 
 ## TCP란?
@@ -44,7 +44,7 @@ TCP가 개발된 배경은 군사적인 목적으로 어느 환경에서도 정�
 신뢰성 보장을 알아보기 위해서는 TCP의 Header 정보를 보면 도움이 될것 같습니다. TCP header에는 목적지 주소, 확인응답, 오류 검출 및 복원, 실제 데이터 등이 포함됩니다. 그 중 UDP와 구분되는 부분이 바로 `확인응답(Acknowledge)`입니다. 즉, TCP는 신뢰성을 보장하기 위해 ACK을 기반으로 재전송과 타임아웃 방법을 이용하고 있습니다.
 
 <div class='text-center'>
-  <img src="/images/contents/20180426/network/tcp-header.png" width="100%">
+  <img src="/assets/images/contents/20180426/network/tcp-header.png" width="100%">
 </div>
 
 TCP의 데이터는 물줄기처럼 흐른다고 해서 stream이라는 표현을 사용하는데, 이는 결국 패킷(Packet)을 의미합니다. TCP의 패킷이 전송되어 이에 응답할 때마다 ACK이라는 별도의 패킷을 생성하여 다음 필요한 패킷에 대해 알려주며 응답합니다. 만약, ACK 이 일정 시간 동안 오지 않으면 전송자는 패킷을 다시 보냅니다. 다시 보내는 경우는 크게 2가지 입니다.
@@ -55,7 +55,7 @@ TCP의 데이터는 물줄기처럼 흐른다고 해서 stream이라는 표현�
 하지만, 위 두 상황을 확실히 구분하는 것이 어렵기 때문에 일정기간 동안 응답을 받지 못하면 무조건 패킷을 다시 전송합니다.
 
 <div class='text-center'>
-  <img src="/images/contents/20180426/network/tcp.jpg" width="100%">
+  <img src="/assets/images/contents/20180426/network/tcp.jpg" width="100%">
 </div>
 
 만약, 다시 보냈음에도 불구하고 일정시간을 초과하여 응답받지 못하면 이를 전송자에게 알려주고 종료합니다(타임아웃).

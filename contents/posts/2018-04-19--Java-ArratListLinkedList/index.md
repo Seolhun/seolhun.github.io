@@ -64,7 +64,7 @@ ArrayList는 Array와는 다르게 동적으로 메모리 공간을 처리하기
 
 ---
 **위의 과정을 간단히 그림으로 보면 아래와 같습니다.**
-<img src="/images/contents/20180419/array/array.png" width="100%">
+<img src="/assets/images/contents/20180419/array/array.png" width="100%">
 
 ---
 #### - ArrayList의 특징
@@ -104,15 +104,15 @@ LinkedList가 중요한 이유는, Node를 기준으로 구현되어있기 때�
 
 1. 단일 연결 리스트
 단일 연결 리스트는 각 노드에 자료 공간과 한 개의 포인터 공간이 있고, 각 노드의 포인터는 다음 노드를 가리킨다.
-<img src="/images/contents/20180419/array/linked1.png" width="100%">
+<img src="/assets/images/contents/20180419/array/linked1.png" width="100%">
 
 2. 이중 연결 리스트
 이중 연결 리스트의 구조는 단일 연결 리스트와 비슷하지만, 포인터 공간이 두 개가 있고 각각의 포인터는 앞의 노드와 뒤의 노드를 가리킨다.
-<img src="/images/contents/20180419/array/linked2.png" width="100%">
+<img src="/assets/images/contents/20180419/array/linked2.png" width="100%">
 
 3. 원형 연결 리스트
 원형 연결 리스트는 일반적인 연결 리스트에 마지막 노드와 처음 노드를 연결시켜 원형으로 만든 구조이다.
-<img src="/images/contents/20180419/array/linked3.png" width="100%">
+<img src="/assets/images/contents/20180419/array/linked3.png" width="100%">
 
 ## Outro
 Array에서 ArrayList, LinkedList 등을 간단히 알아보았습니다. 각각의 특징 및 시간복잡도 등을 알아볼 수 있었습니다. 각각의 상황에 맞게 사용하는 것이 중요하지만, 그러한 상황을 만드는 이유, 즉 시간복잡도를 가지는지에 대해서 간단히 코드도 보면서 알아갔습니다. 다음 시간에는 Tree에 대해 깊게 알아보고자 합니다. 개인적으로 부족한 부분이기도 하며, BFS, DFS 알고리즘과 연관이 깊기 때문에 이 부분을 통해 부족한 부분을 채워나가려고 합니다.

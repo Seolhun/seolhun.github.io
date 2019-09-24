@@ -43,7 +43,7 @@ title : "[Web] 웹사이트의 속도를 개선할 수 있는 방법 9가지 정
 - 자바스크립트를 압축하려면 [UglifyJS](https://github.com/mishoo/UglifyJS2)를 사용해 보세요. [Closure Compiler](https://developers.google.com/closure/compiler/)도 매우 효과적입니다.
 
 <div class='text-center'>
-  <img src="/images/contents/20180423/optimization/resources-zip.png" width="100%">
+  <img src="/assets/images/contents/20180423/optimization/resources-zip.png" width="100%">
 </div><br>
 
 - 다른 방법으로는, [PageSpeed 모듈](https://developers.google.com/speed/pagespeed/module/)을 사용하면, Apache나 Nginx 웹 서버와 통합되어 리소스를 압축하고 사이트를 자동으로 최적화할 수 있습니다.
@@ -123,7 +123,7 @@ HTML 및 CSS 입력을 기반으로 DOM 및 CSSOM 트리를 빌드되며, 이들
 4. 렌더링 트리에서 레이아웃을 실행하여 각 노드의 기하학적 형태를 계산합니다.
 5. 마지막 단계는 최종 렌더링 트리에서 수행되는 페인트이며, 픽셀을 화면에 렌더링합니다.
 
-<img src="/images/contents/20180423/optimization/render-tree.png" width="100%">
+<img src="/assets/images/contents/20180423/optimization/render-tree.png" width="100%">
 
 ## 8. 표시되는 컨텐츠 우선순위 지정
 이 규칙은 PageSpeed Insights에서 페이지의 스크롤 없이 볼 수 있는 콘텐츠를 렌더링하는 데 추가적인 네트워크 왕복이 필요함이 감지되면 트리거됩니다.

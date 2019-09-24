@@ -17,7 +17,7 @@ title: "[Network/Http] Http vs Https의 차이? 그리고 Packet과 TSL, SSL"
 
 이렇게 2가지를 언급하는 이유는 https는 즉, 네트워크에서 전송되는 패킷을 암호화하여 이를 쉽게 해독할 수 없도록 만들어줍니다. http에서 해당 패킷을 확인해보고, https 적용 후 패킷을 다시 확인해보면 그 차이를 크게 확인 할 수 있습니다.
 
-<img src="/images/contents/20180420/http/http.png" width="100%">
+<img src="/assets/images/contents/20180420/http/http.png" width="100%">
 
 ## HTTP(HyperText Transfer Protocol)
 `HTTP(HyperText Transfer Protocol)`는 WWW 상에서 정보를 주고받을 수 있는 프로토콜입니다. 주로 HTML 문서를 주고받는 데에 쓰입니다. TCP와 UDP를 사용하며, 기본 TCP/IP 포트는 80 포트를 사용합니다. 1996년에 첫 상용화버전인 HTTP/1.0가 발표되었고, 1999년에 HTTP/1.1, 그리고 2015년 HTTP/2를 공식으로 발표하였습니다.

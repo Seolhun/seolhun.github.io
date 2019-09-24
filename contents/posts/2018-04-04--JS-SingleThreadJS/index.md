@@ -18,7 +18,7 @@ JS가 Event를 처리하면서 어떻게 동시에 Ajax 등과 같은 Request가
 
 이를 이해하기 위해서는 JS Event Loop를 이해하면 좋을 것 같습니다.
 <sub>
-    <img src='..//images/contents/20180404/js/js-eventloop.png'>
+    <img src='/assets/images/contents/20180404/js/js-eventloop.png'>
 </sub>
 
 1. Call Stack, Heap, Queue
@@ -34,7 +34,7 @@ JS가 Event를 처리하면서 어떻게 동시에 Ajax 등과 같은 Request가
 Javascript는 Stack, Heap, Queue 영역을 가지고 있습니다. 해당 영역 별 기능이 다르기 때문에 이를 숙지하면 Single Thread로 작동되는 원리를 더 잘 이해할 수 있습니다.
 
 <sub>
-    <img src='..//images/contents/20180404/js/js-eventloop.svg'>
+    <img src='/assets/images/contents/20180404/js/js-eventloop.svg'>
 </sub>
 
 #### 1. Event 처리를 위한 영역들

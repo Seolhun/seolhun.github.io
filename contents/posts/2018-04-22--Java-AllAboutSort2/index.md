@@ -88,7 +88,7 @@ public class QuickSort {
 
 #### - 그림으로 보는 QuickSort
 <div class='text-center'>
-  <img src="/images/contents/20180422/sort/Quicksort.gif" width="50%">
+  <img src="/assets/images/contents/20180422/sort/Quicksort.gif" width="50%">
 </div>
 
 ## 5. Merge Sort
@@ -157,7 +157,7 @@ public class MergeSort {
 
 #### - 그림으로 보는 MergeSort
 <div class='text-center'>
-  <img src="/images/contents/20180422/sort/Mergesort.gif" width="50%">
+  <img src="/assets/images/contents/20180422/sort/Mergesort.gif" width="50%">
 </div>
 
 ## 6. Counting Sort
@@ -223,7 +223,7 @@ public class CountingSort {
 
 ## 대부분의 Sort 시간/공간복잡도
 <div class='text-center'>
-  <img src="/images/contents/20180422/sort/Sorts.png" width="50%">
+  <img src="/assets/images/contents/20180422/sort/Sorts.png" width="50%">
 </div>
 
 ## Outro

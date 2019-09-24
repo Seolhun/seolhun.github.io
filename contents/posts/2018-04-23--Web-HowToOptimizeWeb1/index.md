@@ -132,7 +132,7 @@ status: 200
 
 #### - 최적의 Cache-Control 정책 정의
 <div class='text-center'>
-  <img src="../../images/contents/20180423/optimization/http-cache-decision-tree.png" width="50%">
+  <img src="/assets/images/contents/20180423/optimization/http-cache-decision-tree.png" width="50%">
 </div>
 
 #### - 더 보기

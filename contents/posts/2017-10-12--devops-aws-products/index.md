@@ -459,7 +459,7 @@ title: "[AWS] AWS Products에 대한 내용 간단히 정리하기"
 ## 1. Kinesis
 - 실시간 스트리밍 데이터를 손쉽게 수집, 처리 및 분석
 - Example Usage Architecture
-<img src="/images/contents/20171012/aws/kinesisExample.png" width="100%">
+<img src="/assets/images/contents/20171012/aws/kinesisExample.png" width="100%">
 
 #### - Kinesis 장점
 1. 실시간
@@ -474,7 +474,7 @@ title: "[AWS] AWS Products에 대한 내용 간단히 정리하기"
 - Firehose는 스트리밍 데이터를 AWS로 로드하는 가장 쉬운 방법입니다. 스트리밍 데이터를 캡처하고 변환하여 Amazon Kinesis Analytics, Amazon S3, Amazon Redshift 및 Amazon Elasticsearch Service로 로드하여, 기존 비즈니스 인텔리전스 도구 및 이미 사용하고 있는 대시보드를 통해 거의 실시간으로 분석할 수 있습니다.
 
 - How to Use
-<img src="/images/contents/20171012/aws/firehoseExample.png" width="100%">
+<img src="/assets/images/contents/20171012/aws/firehoseExample.png" width="100%">
 
 #### - Firehose 장점
 1. 사용 편의성
@@ -491,7 +491,7 @@ title: "[AWS] AWS Products에 대한 내용 간단히 정리하기"
 - Amazon Kinesis Analytics는 새로운 프로그래밍 언어 또는 처리 프레임워크를 배울 필요 없이 표준 SQL을 통해 실시간으로 스트리밍 데이터를 처리할 수 있는 가장 쉬운 방법입니다.
 
 - How to Use
-<img src="/images/contents/20171012/aws/analyticsExample.png" width="100%">
+<img src="/assets/images/contents/20171012/aws/analyticsExample.png" width="100%">
 
 #### - Amazon Kinesis Analytics 장점
 1. 강력한 실시간 처리
@@ -508,7 +508,7 @@ title: "[AWS] AWS Products에 대한 내용 간단히 정리하기"
 - Amazon Kinesis Streams를 사용하면 특수 요구에 맞춰 스트리밍 데이터를 처리 또는 분석하는 사용자 지정 애플리케이션을 구축할 수 있습니다. Kinesis Streams는 웹사이트 클릭스트림, 금융 거래, 소셜 미디어 피드, IT 로그 및 위치 추적 이벤트와 같은 수십만 개의 소스에서 시간당 테라바이트 규모의 데이터를 지속적으로 캡처 및 저장할 수 있습니다.
 
 - How to Use
-<img src="/images/contents/20171012/aws/steamExample.png" width="100%">
+<img src="/assets/images/contents/20171012/aws/steamExample.png" width="100%">
 
 #### - Amazon Kinesis Streams 장점
 1. 실시간
