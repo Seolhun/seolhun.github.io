@@ -29,6 +29,7 @@
 <url> <loc>https://seolhun.github.io/categories/react</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/categories/spring</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/categories/story</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://seolhun.github.io/categories/ts</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/categories/typescript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/categories/web</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/categories/web-socket</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -124,6 +125,7 @@
 <url> <loc>https://seolhun.github.io/tags/stack</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/static</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/tls</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://seolhun.github.io/tags/ts</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/task</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/test</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/thread</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -147,8 +149,9 @@
 <url> <loc>https://seolhun.github.io/tags/삽입정렬</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/야근지수</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/정의</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://seolhun.github.io/contents/ts-typescript로-reactive한-form-group-builder-만들어보기-part-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://seolhun.github.io/contents/js-javascript로-reactive한-form-group-builder-만들어보기-part-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/지인-개발자의-질문-okr은-무엇보다도-중요하고-중요하다</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://seolhun.github.io/contents/js-reactive한-form-group-builder-만들어보기-part-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/js-functional-currying으로-알아보는-functional-programming</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/story-문제란-무엇인가-어떻게-문제를-바라봐야할-것인가</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/react-component-react-component-종류와-차이점</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -159,10 +162,10 @@
 <url> <loc>https://seolhun.github.io/contents/algorithm-java-baekjoon-스택구현하기</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/algorithm-알고리즘-문제-해결전략-무식하게-풀기-weeks-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/spring-java-spring-bean-scope는-무엇인가</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://seolhun.github.io/contents/web-웹사이트의-속도를-개선할-수-있는-방법-9-가지-정리-part-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/web-웹사이트의-속도를-개선할-수-있는-방법-9-가지-정리-part-2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://seolhun.github.io/contents/algorithm-java-자주-언급되는-sort-algorithm-자바로-구현해보기-part-2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://seolhun.github.io/contents/web-웹사이트의-속도를-개선할-수-있는-방법-9-가지-정리-part-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/algorithm-java-자주-언급되는-sort-algorithm-자바로-구현해보기-part-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://seolhun.github.io/contents/algorithm-java-자주-언급되는-sort-algorithm-자바로-구현해보기-part-2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/algorithm-java-s-wexpert-academy-gns</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/network-http-http-vs-https의-차이-그리고-packet과-tsl-ssl</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/data-structure-java-array-list-vs-linked-list에-대해서-간단히-정리하기</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
