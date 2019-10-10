@@ -17,7 +17,7 @@ const TagTemplate = ({ pathContext }: PageProps) => {
 
   return (
     <Layout>
-      <Helmet title={`${'Tags'} | ${config.siteTitle}`} />
+      <Helmet title={`${tagsName} | ${config.siteTitle}`} />
       <Container>
         <Row>
           <Col xs={24}>

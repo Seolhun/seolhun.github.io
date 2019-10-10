@@ -11,21 +11,17 @@ interface SEO {
   postNode?: Post;
 }
 
-const SEO = ({ isPostSEO, postPath, postNode }: SEO) => {
+const SEO = ({ isPostSEO, postPath = '', postNode }: SEO) => {
   const postMeta = postNode ? postNode.frontmatter : null;
   const title = postMeta && postMeta.title ? postMeta.title : SiteConfig.siteTitle;
   const description = postNode && postNode.excerpt ? postNode.excerpt : SiteConfig.siteDescription;
-  const realPrefix = SiteConfig.pathPrefix === '/' ? '' : SiteConfig.pathPrefix;
-  const postURL = `${SiteConfig.siteUrl}${realPrefix}${postPath}`;
+  const realPrefix = SiteConfig.pathPrefix === '/' ? '/' : SiteConfig.pathPrefix;
+  const postURL = `${SiteConfig.siteUrl}${realPrefix}contents/${postPath}`;
   const blogURL = SiteConfig.siteUrl + SiteConfig.pathPrefix;
   const image = SiteConfig.siteUrl + realPrefix + SiteConfig.siteBanner;
 
-  let schemaOrgJSONLD = [
+  const DEFAULT_SCHEMA_JSOND = [
     {
-      '@context': 'http://schema.org',
-      '@type': 'WebSite',
-      '@id': blogURL,
-      url: blogURL,
       name: title,
       alternateName: SiteConfig.siteTitleAlt ? SiteConfig.siteTitleAlt : '',
       headline: title,
@@ -45,7 +41,7 @@ const SEO = ({ isPostSEO, postPath, postNode }: SEO) => {
         name: SiteConfig.author,
         logo: {
           '@type': 'ImageObject',
-          url: SiteConfig.siteUrl + realPrefix + SiteConfig.siteLogo,
+          url: `${SiteConfig.siteUrl}${SiteConfig.siteLogo}`,
         },
       },
       isPartOf: blogURL,
@@ -55,40 +51,25 @@ const SEO = ({ isPostSEO, postPath, postNode }: SEO) => {
       },
     },
   ];
+
+  let schemaOrgJSONLD = [
+    {
+      ...DEFAULT_SCHEMA_JSOND,
+      '@context': 'http://schema.org',
+      '@type': 'WebSite',
+      '@id': blogURL,
+      url: blogURL,
+    },
+  ];
+
   if (isPostSEO) {
     schemaOrgJSONLD = [
       {
+        ...DEFAULT_SCHEMA_JSOND,
         '@context': 'http://schema.org',
         '@type': 'BlogPosting',
         '@id': postURL,
         url: postURL,
-        name: title,
-        alternateName: SiteConfig.siteTitleAlt ? SiteConfig.siteTitleAlt : '',
-        headline: title,
-        image: {
-          '@type': 'ImageObject',
-          url: image,
-        },
-        description: SiteConfig.siteDescription,
-        datePublished: postNode ? postNode.frontmatter.date : '',
-        dateModified: postNode ? postNode.frontmatter.date : '',
-        author: {
-          '@type': 'Person',
-          name: SiteConfig.author,
-        },
-        publisher: {
-          '@type': 'Organization',
-          name: SiteConfig.author,
-          logo: {
-            '@type': 'ImageObject',
-            url: SiteConfig.siteUrl + realPrefix + SiteConfig.siteLogo,
-          },
-        },
-        isPartOf: blogURL,
-        mainEntityOfPage: {
-          '@type': 'WebSite',
-          '@id': blogURL,
-        },
       },
     ];
   }

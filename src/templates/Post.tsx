@@ -48,7 +48,7 @@ const PostPage = ({ data, pathContext }: Props) => {
       {post && (
         <>
           <SEO postPath={fields.slug} postNode={post} isPostSEO />
-          <Helmet title={`${title} | ${SiteConfig.siteTitle}`} />
+          <Helmet title={`${title.substring(0, 62)}...`} />
           <Container>
             <Row>
               <Col xs={24}>
@@ -110,7 +110,7 @@ export const postQuery = graphql`
         tags
         date(formatString: "YYYY.MM.DD")
       }
-      excerpt(pruneLength: 300)
+      excerpt(pruneLength: 165)
       timeToRead
     }
   }

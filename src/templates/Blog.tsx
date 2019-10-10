@@ -78,7 +78,7 @@ export const BlogQuery = graphql`
             tags
             banner
           }
-          excerpt(pruneLength: 300)
+          excerpt(pruneLength: 165)
           timeToRead
         }
       }

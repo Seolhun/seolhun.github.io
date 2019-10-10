@@ -64,7 +64,7 @@ export const LatestQuery = graphql`
             tags
             banner
           }
-          excerpt(pruneLength: 300)
+          excerpt(pruneLength: 165)
           timeToRead
         }
       }
