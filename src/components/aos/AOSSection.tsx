@@ -42,7 +42,7 @@ const AOSContent = styled.div<AOSSectionProps>(
       width: `100%`,
       height: `100%`,
     };
-  },
+  }
 );
 
 const AOSSection = ({ children, ...props }: AOSSectionProps) => {

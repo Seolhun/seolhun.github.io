@@ -16,7 +16,7 @@ const StyledBackgroundCanvas = styled.canvas<BackgroundCanvasProps, ILocalizeThe
       margin: 0,
       padding: 0,
     };
-  },
+  }
 );
 
 const StyledCanvasContainer = styled.div({
