@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import { Col, Container, Row } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
 
-import { Article, PostHeader } from '@/components';
+import { Article, PostHeader, SEO } from '@/components';
 import { Layout } from '@/containers';
 import PageProps from '@/models/PageProps';
 import SiteConfig from 'config/SiteConfig';
@@ -17,6 +17,7 @@ const Category = ({ pathContext }: PageProps) => {
 
   return (
     <Layout>
+      <SEO isPostSEO={false} />
       <Helmet title={`${categoryName} | ${SiteConfig.siteTitle}`} />
       <Container>
         <Row>

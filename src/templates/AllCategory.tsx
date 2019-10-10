@@ -6,7 +6,7 @@ import { Col, Container, Row } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
 import { kebabCase } from 'lodash';
 
-import { PostHeader, Title } from '@/components';
+import { PostHeader, SEO, Title } from '@/components';
 import { Layout } from '@/containers';
 import PageProps from '@/models/PageProps';
 import config from 'config/SiteConfig';
@@ -17,6 +17,7 @@ export default class AllCategoryTemplate extends React.PureComponent<PageProps> 
     if (categories) {
       return (
         <Layout>
+          <SEO isPostSEO={false} />
           <Helmet title={`Categories | ${config.siteTitle}`} />
           <Container>
             <Row>

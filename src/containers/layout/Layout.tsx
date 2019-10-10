@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import '@/i18n';
 import { Global } from '@emotion/core';
 import styled from '@emotion/styled';
-import { Col, Container, Row } from '@seolhun/localize-components';
+import { Container } from '@seolhun/localize-components';
 import { Switch, Typo } from '@seolhun/localize-components-atomic';
 import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 import { ThemeProvider } from 'emotion-theming';
@@ -58,6 +58,8 @@ export const Layout = ({ children }: LayoutProps) => {
     storage.setItem('THEME', !isDarkMode ? 'DARK' : 'LIGHT');
     setThemeMode(!isDarkMode);
   }, [isDarkMode]);
+
+  console.error('@@', window.location);
 
   return (
     <StaticQuery

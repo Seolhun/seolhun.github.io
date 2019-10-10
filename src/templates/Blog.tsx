@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 
 import { Col, Container, Row } from '@seolhun/localize-components';
 
-import { Article, Pagination, PostHeader } from '@/components';
+import { Article, Pagination, PostHeader, SEO } from '@/components';
 import { Layout, Profile } from '@/containers';
 import Data from '@/models/Data';
 import SiteConfig from 'config/SiteConfig';
@@ -23,7 +23,8 @@ export const BlogPage = ({ pageContext, data }: Props) => {
 
   return (
     <Layout>
-      <Helmet title={`Hi-Cord | ${SiteConfig.siteTitle}`} />
+      <SEO isPostSEO={false} />
+      <Helmet title={`Blogs | ${SiteConfig.siteTitle}`} />
       <Container>
         <Row>
           <Col xs={24}>
