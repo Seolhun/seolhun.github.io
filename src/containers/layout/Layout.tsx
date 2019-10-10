@@ -1,5 +1,5 @@
 import { graphql, Link, StaticQuery } from 'gatsby';
-import React, { ReactNode, useCallback, useState } from 'react';
+import React, { ReactNode, useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import '@/i18n';
@@ -24,18 +24,32 @@ const LayoutContainer = styled(Container)<any, ILocalizeTheme>(({ theme }) => {
   };
 });
 
+const StyledFixedHeader = styled.header<any, ILocalizeTheme>(({ theme }) => {
+  return {
+    position: 'fixed',
+    left: 0,
+    top: 0,
+    right: 0,
+
+    height: '4rem',
+    backgroundColor: theme.background,
+    boxShadow: theme.border.shadow,
+    zIndex: 5,
+  };
+});
+
 const StyledLogoContainer = styled.div({
   position: 'absolute',
-  left: '15px',
-  top: '15px',
-  zIndex: 5,
+  left: '1.2rem',
+  top: '0.8rem',
+  zIndex: 10,
 });
 
 const StyledSwitchContainer = styled.div({
   position: 'absolute',
-  right: '15px',
-  top: '20px',
-  zIndex: 5,
+  right: '1.2rem',
+  top: '1.1rem',
+  zIndex: 10,
 });
 
 const StyledFooter = styled(Footer)({
@@ -54,12 +68,15 @@ export const Layout = ({ children }: LayoutProps) => {
   }
 
   const [isDarkMode, setThemeMode] = useState(storage.getItem('THEME') === 'DARK');
+
   const handleIsChecked = useCallback(() => {
     storage.setItem('THEME', !isDarkMode ? 'DARK' : 'LIGHT');
     setThemeMode(!isDarkMode);
   }, [isDarkMode]);
 
-  console.error('@@', window.location);
+  const memoizedIsContentPath = useMemo(() => {
+    return window.location.pathname.split('/').includes('contents');
+  }, [window.location.pathname]);
 
   return (
     <StaticQuery
@@ -68,19 +85,23 @@ export const Layout = ({ children }: LayoutProps) => {
         <ThemeProvider theme={isDarkMode ? Theme.DARK : Theme.LIGHT}>
           <Global styles={styles} />
           <LayoutContainer isFullWidth>
-            <StyledLogoContainer>
-              <Typo type='h2' weight={700} isHighlight>
-                <Link to='/'>{SiteConfig.siteTitle}</Link>
-              </Typo>
-            </StyledLogoContainer>
-            <StyledSwitchContainer>
-              <Switch
-                htmlFor='theme'
-                onChange={handleIsChecked}
-                checked={isDarkMode}
-                css={{ zIndex: 5 }}
-              />
-            </StyledSwitchContainer>
+            <StyledFixedHeader>
+              <StyledLogoContainer>
+                <Typo type='h2' weight={700} isHighlight>
+                  <Link to={memoizedIsContentPath ? '/contents' : '/'}>
+                    {SiteConfig.siteTitle}
+                  </Link>
+                </Typo>
+              </StyledLogoContainer>
+              <StyledSwitchContainer>
+                <Switch
+                  htmlFor='theme'
+                  onChange={handleIsChecked}
+                  checked={isDarkMode}
+                  css={{ zIndex: 5 }}
+                />
+              </StyledSwitchContainer>
+            </StyledFixedHeader>
             <main>{children}</main>
             <StyledFooter>
               <Typo type='p'>
