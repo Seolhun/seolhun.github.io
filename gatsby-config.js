@@ -149,6 +149,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-adsense`,
+      options: {
+        publisherId: SiteConfig.Google_AD_Sense_ID2,
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {
         id: SiteConfig.Google_Tag_Manager_ID,
