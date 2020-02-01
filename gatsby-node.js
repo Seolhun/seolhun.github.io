@@ -149,9 +149,7 @@ exports.createPages = ({ actions, graphql }) => {
     const postsPerPage = config.POST_PER_PAGE;
     const numPages = Math.ceil(posts.length / postsPerPage);
 
-    Array.from({
-      length: numPages,
-    }).forEach((_, i) => {
+    Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `/contents` : `/contents/${i + 1}`,
         component: path.resolve('./src/templates/Blog.tsx'),
