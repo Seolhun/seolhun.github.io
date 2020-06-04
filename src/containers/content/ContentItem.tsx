@@ -24,30 +24,30 @@ export const ContentItem: FC<ContentItemProps> = (props: ContentItemProps) => {
   return (
     <StyledCard>
       <Link to={`/contents/${fields.slug}`}>
-        <Row alignItems='flex-start'>
+        <Row alignItems="flex-start">
           <Col xs={24}>
-            <Typo type='h2' weight={600}>
+            <Typo type="h2" weight={600}>
               {title}
             </Typo>
-            {subTitle && <Typo type='p'>{subTitle}</Typo>}
+            {subTitle && <Typo type="p">{subTitle}</Typo>}
           </Col>
         </Row>
         {excerpt && (
-          <Row alignItems='flex-start'>
+          <Row alignItems="flex-start">
             <Col xs={24}>
-              <Typo type='p'>{excerpt}</Typo>
+              <Typo type="p">{excerpt}</Typo>
             </Col>
           </Row>
         )}
-        <Row alignItems='flex-start'>
-          <Col xs={24} justifyContent='flex-end'>
-            <Typo type='small' weight={600}>
+        <Row alignItems="flex-start">
+          <Col xs={24} justifyContent="flex-end">
+            <Typo type="small" weight={600}>
               {date}
             </Typo>
-            <Typo type='small' weight={600} css={{ padding: '0 5px' }}>
+            <Typo type="small" weight={600} css={{ padding: '0 5px' }}>
               -
             </Typo>
-            <Typo type='small' weight={600}>
+            <Typo type="small" weight={600}>
               {`${timeToRead}`} Min read
               {category && ` in ${category}`}
             </Typo>

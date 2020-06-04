@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   author: 'SeolHun',
   defaultBg: '/assets/logo3.png',
   favicon: 'src/favicon.png',
@@ -29,7 +29,6 @@ export default {
    */
   Google_Analytics_ID: 'UA-115545667-1',
   Google_AD_Sense_ID: 'ca-pub-2426948628431849',
-  Google_AD_Sense_ID2: 'ca-pub-2426948628431849',
   Google_Tag_Manager_ID: 'GTM-MKZCXJQ',
   Disqus_ShortName: 'https-seolhun-github-io',
   siteFBAppID: '543531359431658',

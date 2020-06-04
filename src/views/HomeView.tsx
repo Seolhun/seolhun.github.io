@@ -10,7 +10,7 @@ const HomeView = () => {
     <StaticQuery
       query={query}
       render={() => (
-        <AOSSection id='HomeView'>
+        <AOSSection id="HomeView">
           <BackgroundCanvas />
           <HomeContainer />
         </AOSSection>

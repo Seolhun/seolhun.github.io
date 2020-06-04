@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import { Col, Container, Row } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
@@ -8,7 +8,7 @@ import { Typo } from '@seolhun/localize-components-atomic';
 import { Article, PostHeader, SEO } from '@/components';
 import { Layout } from '@/containers';
 import PageProps from '@/models/PageProps';
-import SiteConfig from 'config/SiteConfig';
+import SiteConfig from 'siteMetadata';
 
 const Category = ({ pathContext }: PageProps) => {
   const { posts, categoryName } = pathContext;
@@ -23,16 +23,16 @@ const Category = ({ pathContext }: PageProps) => {
         <Row>
           <Col xs={24}>
             <PostHeader>
-              <Typo type='h1' weight={800} isHighlight>
+              <Typo type="h1" weight={800} isHighlight>
                 Category &ndash; {categoryName}
               </Typo>
-              <Typo type='small' weight={500}>
-                {subline} (See <Link to='/categories'>all categories</Link>)
+              <Typo type="small" weight={500}>
+                {subline} (See <Link to="/categories">all categories</Link>)
               </Typo>
             </PostHeader>
           </Col>
         </Row>
-        <Row flexDirection='column'>
+        <Row flexDirection="column">
           {posts.map((post) => (
             <Col xs={24} key={post.fields.slug}>
               <Article

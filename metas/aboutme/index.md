@@ -13,6 +13,7 @@ title: About Seolhun
 진부하지만 제가 개발자로 성장해왔던 이야기에 대해 간단하게 써보고자 합니다.
 
 ### Mission
+
 Cook data, Share it and Grow All Together
 
 ### 2016
@@ -31,10 +32,10 @@ Cook data, Share it and Grow All Together
 ### 2019
 
 2019년에는 localize-component에 대한 많은 Component를 재사용할 수 있게 개발하고 Theme관련 설정도 추가하였습니다. 이를 기반으로 직접 서비스 플랫폼을 개발하고자 합니다. 현재 Cralwer를 만들어서 데이터를 수집하고 있으며, 이를 추상화하여 윈도우 앱을 만들었습니다.
-
 수집한 데이터를 기반으로 플랫폼 사이트를 만들 계획이며, 해당 React Product를 Native에도 함께 사용할 수 있도록 고려하고 있습니다. 코드를 가장 적게 짜고 다양한 플랫폼을 제공하는 것이 이번 개발에 핵심 과제라고 볼 수 있습니다. 여기에 사용되는 모든 Component는 localize-component를 사용할 예정입니다.
-
 이 외에도 다양한 부분들을 조금씩 개발 중에 있으며 Funtional Programming에 관심이 많아 이를 Deep Dive 하고 있습니다. 제 깃허브 Repo에 놀러오시면 제 서비스 코드를 제외한 취미 코드를 보실 수 있습니다.
+
+### 2019
 
 많은 글 읽어주셔서 감사합니다. :)
 
@@ -46,4 +47,3 @@ Cook data, Share it and Grow All Together
 - 2017년 12월 ~ 2018년 3월 - 크로키닷컴 - 지그재그 백엔드 개발
 - 2016년 9월 ~ 2017년 10월 - 아이메디신 - 뇌파 플랫폼 개발
 - 2016년 7월 ~ 2017년 8월 - 마이다스아이티 웹기획 인턴
-- 2015년 12월 ~ 2016년 6월 - 쌍용교육센터 빅데이터 플랫폼 교육

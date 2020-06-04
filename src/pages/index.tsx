@@ -1,9 +1,9 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import { Layout } from '@/containers';
-import config from 'config/SiteConfig';
+import config from 'siteMetadata';
 
 import { SEO } from '@/components';
 import HomeView from '@/views/HomeView';

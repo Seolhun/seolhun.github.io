@@ -12,8 +12,8 @@ import { ThemeProvider } from 'emotion-theming';
 
 import { Footer } from '@/components';
 import useStorage from '@/hooks/useStorage';
-import SiteConfig from 'config/SiteConfig';
-import Theme from 'config/Theme';
+import Theme from '@/Theme';
+import siteMetadata from 'siteMetadata';
 
 import styles from './styles';
 
@@ -87,15 +87,15 @@ export const Layout = ({ children }: LayoutProps) => {
           <LayoutContainer isFullWidth>
             <StyledFixedHeader>
               <StyledLogoContainer>
-                <Typo type='h2' weight={700} isHighlight>
+                <Typo type="h2" weight={700} isHighlight>
                   <Link to={memoizedIsContentPath ? '/contents' : '/'}>
-                    {SiteConfig.siteTitle}
+                    {siteMetadata.siteTitle}
                   </Link>
                 </Typo>
               </StyledLogoContainer>
               <StyledSwitchContainer>
                 <Switch
-                  htmlFor='theme'
+                  htmlFor="theme"
                   onChange={handleIsChecked}
                   checked={isDarkMode}
                   css={{ zIndex: 5 }}
@@ -104,15 +104,15 @@ export const Layout = ({ children }: LayoutProps) => {
             </StyledFixedHeader>
             <main>{children}</main>
             <StyledFooter>
-              <Typo type='p'>
-                &copy; {t('home:title')} by {SiteConfig.author}. All rights reserved.
+              <Typo type="p">
+                &copy; {t('home:title')} by {siteMetadata.author}. All rights reserved.
               </Typo>
-              <Typo type='p'>
-                <a href={SiteConfig.github} target='_blank'>
-                  {SiteConfig.author} GitHub
+              <Typo type="p">
+                <a href={siteMetadata.github} target="_blank">
+                  {siteMetadata.author} GitHub
                 </a>
               </Typo>
-              <Typo type='p'>Last build: {data.site.buildTime}</Typo>
+              <Typo type="p">Last build: {data.site.buildTime}</Typo>
             </StyledFooter>
           </LayoutContainer>
         </ThemeProvider>

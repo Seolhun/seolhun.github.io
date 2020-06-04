@@ -28,9 +28,9 @@ export const HomeContainer = () => {
 
   return (
     <StyledHomeContainer>
-      <Profile data-aos='fade-up' />
-      <Row data-aos='fade-up' data-aos-delay='100'>
-        <Col xs={24} alignItems='center'>
+      <Profile data-aos="fade-up" />
+      <Row data-aos="fade-up" data-aos-delay="100">
+        <Col xs={24} alignItems="center">
           <Link to={'/contents/about-seolhun'}>
             <Button>{t('common:viewMore')}</Button>
           </Link>

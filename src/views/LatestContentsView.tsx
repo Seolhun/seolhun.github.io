@@ -16,8 +16,8 @@ const LatestContentsView = () => {
       render={({ allMarkdownRemark }) => {
         const { t } = useTranslation();
         return (
-          <AOSSection id='Lastest' verticalAlign='flex-start'>
-            <Typo type='h1' weight={600} css={{ marginBottom: '50px' }}>
+          <AOSSection id="Lastest" verticalAlign="flex-start">
+            <Typo type="h1" weight={600} css={{ marginBottom: '50px' }}>
               {t('content:title')}
             </Typo>
             <ContentItemList
@@ -27,7 +27,7 @@ const LatestContentsView = () => {
                 };
               })}
             />
-            <Row data-aos='fade-up' css={{ marginTop: '30px' }}>
+            <Row data-aos="fade-up" css={{ marginTop: '30px' }}>
               <Col xs={24}>
                 <Button>
                   <Link to={'/contents'}>{t('common:readMore')}</Link>

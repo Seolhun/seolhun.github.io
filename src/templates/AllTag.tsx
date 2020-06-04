@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import React, { FC } from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import { Col, Container, Row } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
@@ -9,7 +9,7 @@ import { kebabCase } from 'lodash';
 import { PostHeader, SEO, Title } from '@/components';
 import { Layout } from '@/containers';
 import PageProps from '@/models/PageProps';
-import config from 'config/SiteConfig';
+import config from 'siteMetadata';
 
 const AllTagTemplate: FC<PageProps> = ({ pathContext }) => {
   const { tags } = pathContext;
@@ -25,7 +25,7 @@ const AllTagTemplate: FC<PageProps> = ({ pathContext }) => {
         <Row>
           <Col xs={24}>
             <PostHeader>
-              <Typo type='h1' weight={800} isHighlight>
+              <Typo type="h1" weight={800} isHighlight>
                 Tags
               </Typo>
             </PostHeader>

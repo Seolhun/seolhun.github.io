@@ -100,4 +100,6 @@ const SeolhunThemes: ISeolhunThemes = {
   },
 };
 
+export { SeolhunThemes };
+
 export default SeolhunThemes;

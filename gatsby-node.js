@@ -1,7 +1,7 @@
 const path = require('path');
-const _ = require('lodash');
-const config = require('./config/SiteConfig').default;
-const { createFilePath } = require(`gatsby-source-filesystem`);
+const ramda = require('ramda');
+const kebabCase = require('lodash.kebabcase');
+const siteMetadata = require('./siteMetadata');
 
 exports.onCreateWebpackConfig = ({ stage, actions, loaders }) => {
   actions.setWebpackConfig({
@@ -27,11 +27,11 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders }) => {
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
   const isMarkdown = node.internal.type === 'MarkdownRemark';
-  const hasFrontMatter = _.has(node, 'frontmatter');
-  const hasTitle = _.has(node.frontmatter, 'title');
+  const hasFrontMatter = ramda.has(node, 'frontmatter');
+  const hasTitle = ramda.has(node.frontmatter, 'title');
 
   if (isMarkdown && hasFrontMatter && hasTitle) {
-    const slug = `${_.kebabCase(node.frontmatter.title)}`;
+    const slug = `${kebabCase(node.frontmatter.title)}`;
     createNodeField({
       name: 'slug',
       node,
@@ -47,7 +47,7 @@ const getPostsByType = (posts, classificationType) => {
     if (nodeClassificationType) {
       if (Array.isArray(nodeClassificationType)) {
         nodeClassificationType.forEach((name) => {
-          if (!_.has(postsByType, name)) {
+          if (!ramda.has(postsByType, name)) {
             postsByType[name] = [];
           }
           postsByType[name].push(node);
@@ -90,7 +90,7 @@ const createClassificationPages = ({ createPage, posts, postsPerPage, numPages }
     const names = Object.keys(classification.postsByClassificationNames);
 
     createPage({
-      path: _.kebabCase(`/${classification.pluralName}`),
+      path: kebabCase(`/${classification.pluralName}`),
       component: classification.template.all,
       context: {
         [`${classification.pluralName}`]: names.sort(),
@@ -100,7 +100,7 @@ const createClassificationPages = ({ createPage, posts, postsPerPage, numPages }
     names.forEach((name) => {
       const postsByName = classification.postsByClassificationNames[name];
       createPage({
-        path: `/${classification.pluralName}/${_.kebabCase(name)}`,
+        path: `/${classification.pluralName}/${kebabCase(name)}`,
         component: classification.template.part,
         context: {
           posts: postsByName,
@@ -146,7 +146,7 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     const posts = result.data.allMarkdownRemark.edges;
-    const postsPerPage = config.POST_PER_PAGE;
+    const postsPerPage = siteMetadata.POST_PER_PAGE;
     const numPages = Math.ceil(posts.length / postsPerPage);
 
     Array.from({ length: numPages }).forEach((_, i) => {
@@ -174,10 +174,10 @@ exports.createPages = ({ actions, graphql }) => {
       const prev = index === posts.length - 1 ? null : posts[index + 1].node;
 
       createPage({
-        path: `/contents/${_.kebabCase(node.frontmatter.title)}`,
+        path: `/contents/${kebabCase(node.frontmatter.title)}`,
         component: postTemplate,
         context: {
-          slug: _.kebabCase(node.frontmatter.title),
+          slug: kebabCase(node.frontmatter.title),
           prev,
           next,
         },

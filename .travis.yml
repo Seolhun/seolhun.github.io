@@ -1,0 +1,27 @@
+sudo: required
+
+language: node_js
+
+node_js:
+  - "10"
+
+install:
+  - npm install
+
+build:
+  skip_cleanup: true
+  on:
+    branch: develop
+
+deploy:
+  provider: pages
+  github_token: $GITHUB_TOKEN # Set in the settings page of your repository, as a secure variable
+  on:
+    branch: develop
+
+notifications:
+  email:
+    - shun10116@gmail.com
+  slack:
+    rooms:
+      - hi-cordworkspace:EC6Q4SIRTddzUEE0rMDXrSl6#dev-travis

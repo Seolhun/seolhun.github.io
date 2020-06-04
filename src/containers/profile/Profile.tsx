@@ -6,7 +6,7 @@ import { Image } from '@seolhun/localize-components-atomic';
 
 import { rightTwister } from '@/animations';
 import { Mission, ProfileImage } from '@/containers';
-import SiteConfig from 'config/SiteConfig';
+import siteMetadata from 'siteMetadata';
 
 const StyledIconLink = styled.a({
   padding: '5px 15px',
@@ -18,15 +18,15 @@ const StyledIconLink = styled.a({
 
 export const Profile = () => {
   return (
-    <Row alignItems='center'>
-      <Col xs={24} justifyContent='center'>
-        <ProfileImage src={SiteConfig.githubOwnerImage} />
+    <Row alignItems="center">
+      <Col xs={24} justifyContent="center">
+        <ProfileImage src={siteMetadata.githubOwnerImage} />
         <Mission />
       </Col>
-      <Col xs={24} justifyContent='center'>
-        {SiteConfig.authorSocialLinks.map((link) => (
+      <Col xs={24} justifyContent="center">
+        {siteMetadata.authorSocialLinks.map((link) => (
           <StyledIconLink key={link.name} {...link}>
-            <Image src={`/assets/icons/${link.name}.svg`} width='25px' />
+            <Image src={`/assets/icons/${link.name}.svg`} width="25px" />
           </StyledIconLink>
         ))}
       </Col>

@@ -52,7 +52,7 @@ const useDrawCanvas = (canvasRef: CanvasRef) => {
     cy: number,
     spikes: number,
     outerRadius: number,
-    innerRadius: number
+    innerRadius: number,
   ) => {
     if (!ctx) {
       return;

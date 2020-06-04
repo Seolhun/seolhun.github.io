@@ -1,11 +1,12 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import styled from '@emotion/styled';
 import { Col, Container, Row } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
 import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
+// @ts-ignore
 import { Disqus } from 'gatsby-plugin-disqus';
 import { kebabCase } from 'lodash';
 
@@ -13,7 +14,7 @@ import { PostHeader, PrevNext, SEO } from '@/components';
 import { Layout } from '@/containers';
 import PathContext from '@/models/PathContext';
 import Post from '@/models/Post';
-import SiteConfig from 'config/SiteConfig';
+import siteMetadata from 'siteMetadata';
 
 import MarkdownHTML from '@/components/markdown/MarkdownHTML';
 import '@/utils/prismjs-theme.css';
@@ -38,7 +39,7 @@ const PostPage = ({ data, pathContext }: Props) => {
   const { timeToRead, fields, frontmatter, html } = data.markdownRemark;
   const { tags, title, date, category } = frontmatter;
   const disqusConfig = {
-    url: `${SiteConfig.siteUrl}/contents/${fields.slug}`,
+    url: `${siteMetadata.siteUrl}/contents/${fields.slug}`,
     identifier: fields.slug,
     title: frontmatter.title,
   };
@@ -53,11 +54,11 @@ const PostPage = ({ data, pathContext }: Props) => {
             <Row>
               <Col xs={24}>
                 <PostHeader>
-                  <Typo type='h1' weight={800} isHighlight>
+                  <Typo type="h1" weight={800} isHighlight>
                     {title}
                   </Typo>
 
-                  <Typo type='small' weight={500}>
+                  <Typo type="small" weight={500}>
                     {date} &mdash; {timeToRead} Min Read &mdash; In{' '}
                     <Link to={`/categories/${kebabCase(category)}`}>{category}</Link>
                   </Typo>
@@ -68,11 +69,11 @@ const PostPage = ({ data, pathContext }: Props) => {
               <PostContent dangerouslySetInnerHTML={{ __html: html }} />
             </MarkdownHTML>
             {tags && (
-              <Typo type='small'>
+              <Typo type="small">
                 Tags: &#160;
                 {tags.map((tag, i) => (
                   <Link key={i} to={`/tags/${kebabCase(tag)}`}>
-                    <Typo type='small'>{tag}</Typo> {i < tags.length - 1 ? `, ` : ``}
+                    <Typo type="small">{tag}</Typo> {i < tags.length - 1 ? `, ` : ``}
                   </Link>
                 ))}
               </Typo>

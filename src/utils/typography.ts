@@ -1,4 +1,4 @@
-import config from 'config/SiteConfig';
+import config from 'siteMetadata';
 import Typography from 'typography';
 
 const headerFontFamilies = config.headerFontFamily.map((font) => {

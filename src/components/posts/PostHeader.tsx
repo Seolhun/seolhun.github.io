@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import config from 'config/SiteConfig';
+import config from 'siteMetadata';
 
 interface PostHeaderProps {
   children: any;

@@ -33,7 +33,7 @@ const Pagination = ({ currentPage, totalPages, url }: Props) => {
   return (
     <PaginationContainer>
       {!isFirst && (
-        <Link className='prev page-numbers' to={prevPage} rel='prev'>
+        <Link className="prev page-numbers" to={prevPage} rel="prev">
           ← Prev
         </Link>
       )}
@@ -47,7 +47,7 @@ const Pagination = ({ currentPage, totalPages, url }: Props) => {
         </Link>
       ))}
       {!isLast && (
-        <Link className='next page-numbers' to={nextPage} rel='next'>
+        <Link className="next page-numbers" to={nextPage} rel="next">
           Next →
         </Link>
       )}

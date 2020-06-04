@@ -1,13 +1,13 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import { Col, Container, Row } from '@seolhun/localize-components';
 
 import { Article, Pagination, PostHeader, SEO } from '@/components';
 import { Layout, Profile } from '@/containers';
 import Data from '@/models/Data';
-import SiteConfig from 'config/SiteConfig';
+import siteMetadata from 'siteMetadata';
 
 interface Props {
   data: Data;
@@ -24,7 +24,7 @@ export const BlogPage = ({ pageContext, data }: Props) => {
   return (
     <Layout>
       <SEO isPostSEO={false} />
-      <Helmet title={`Blogs | ${SiteConfig.siteTitle}`} />
+      <Helmet title={`Blogs | ${siteMetadata.siteTitle}`} />
       <Container>
         <Row>
           <Col xs={24}>
@@ -33,7 +33,7 @@ export const BlogPage = ({ pageContext, data }: Props) => {
             </PostHeader>
           </Col>
         </Row>
-        <Row flexDirection='column'>
+        <Row flexDirection="column">
           {edges.map((post) => (
             <Col xs={24} key={post.node.fields.slug}>
               <Article
