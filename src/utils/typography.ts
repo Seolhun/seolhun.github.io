@@ -1,19 +1,15 @@
 import config from 'siteMetadata';
 import Typography from 'typography';
 
-const headerFontFamilies = config.headerFontFamily.map((font) => {
-  return {
-    name: font,
-    styles: ['700'],
-  };
-});
+const headerFontFamilies = config.headerFontFamily.map((font) => ({
+  name: font,
+  styles: ['700'],
+}));
 
-const bodyFontFamilies = config.bodyFontFamily.map((font) => {
-  return {
-    name: font,
-    styles: ['400'],
-  };
-});
+const bodyFontFamilies = config.bodyFontFamily.map((font) => ({
+  name: font,
+  styles: ['400'],
+}));
 
 export const typography = new Typography({
   baseFontSize: config.baseFontSize,

@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from '@emotion/styled';
 
 import {
@@ -10,13 +11,11 @@ import { useCanvas } from './hooks';
 export interface BackgroundCanvasProps extends LocalizeStyledProps {}
 
 const StyledBackgroundCanvas = styled.canvas<BackgroundCanvasProps, ILocalizeTheme>(
-  ({ mainColor, theme }) => {
-    return {
-      backgroundColor: mainColor || theme.background || LocalizeTheme.background,
-      margin: 0,
-      padding: 0,
-    };
-  },
+  ({ mainColor, theme }) => ({
+    backgroundColor: mainColor || theme.background || LocalizeTheme.background,
+    margin: 0,
+    padding: 0,
+  }),
 );
 
 const StyledCanvasContainer = styled.div({

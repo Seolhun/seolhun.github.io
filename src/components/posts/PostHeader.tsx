@@ -19,31 +19,22 @@ interface PostHeaderBannerProps {
   banner?: string;
 }
 
-const PostHeaderBanner = styled.div<PostHeaderBannerProps>(({ banner }) => {
-  return {
-    content: '""',
-    background: `transparent url(${banner || '/assets/mask.svg'}) no-repeat bottom left`,
-    backgroundPosition: 'center',
-    backgroundSize: '40%',
-    display: 'block',
-    height: '100%',
-    width: '100%',
-    left: 0,
-  };
-});
+const PostHeaderBanner = styled.div<PostHeaderBannerProps>(({ banner }) => ({
+  content: '""',
+  background: `transparent url(${banner || '/assets/mask.svg'}) no-repeat bottom left`,
+  backgroundPosition: 'center',
+  backgroundSize: '40%',
+  display: 'block',
+  height: '100%',
+  width: '100%',
+  left: 0,
+}));
 
-const Content = styled.div({
-  position: 'relative',
-  zIndex: 999,
-});
-
-const PostHeader = ({ banner, children }: PostHeaderProps) => {
-  return (
-    <PostHeaderWrapper>
-      <PostHeaderBanner banner={banner || config.defaultBg} />
-      {children}
-    </PostHeaderWrapper>
-  );
-};
+const PostHeader = ({ banner, children }: PostHeaderProps) => (
+  <PostHeaderWrapper>
+    <PostHeaderBanner banner={banner || config.defaultBg} />
+    {children}
+  </PostHeaderWrapper>
+);
 
 export default PostHeader;

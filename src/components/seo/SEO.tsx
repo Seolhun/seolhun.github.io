@@ -14,8 +14,8 @@ interface SEO {
 const SEO = ({ isPostSEO, postPath = '', postNode }: SEO) => {
   const postMeta = postNode ? postNode.frontmatter : null;
   const title = postMeta && postMeta.title ? postMeta.title : siteMetadata.siteTitle;
-  const description =
-    postNode && postNode.excerpt ? postNode.excerpt : siteMetadata.siteDescription;
+  const description = postNode && postNode.excerpt
+    ? postNode.excerpt : siteMetadata.siteDescription;
   const realPrefix = siteMetadata.pathPrefix === '/' ? '/' : siteMetadata.pathPrefix;
   const postURL = `${siteMetadata.siteUrl}${realPrefix}contents/${postPath}`;
   const blogURL = siteMetadata.siteUrl + siteMetadata.pathPrefix;

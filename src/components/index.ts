@@ -6,7 +6,9 @@ import { PostHeader } from './posts';
 import SEO from './seo';
 import { Title } from './typo';
 
-export { AOSSection, Article, Footer, PostHeader, Pagination, PrevNext, SEO, Title };
+export {
+  AOSSection, Article, Footer, PostHeader, Pagination, PrevNext, SEO, Title,
+};
 
 export default {
   AOSSection,

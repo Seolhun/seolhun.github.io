@@ -1,5 +1,5 @@
-import { Link } from 'gatsby';
 import React from 'react';
+import { Link } from 'gatsby';
 
 import styled from '@emotion/styled';
 import { Col, Container, Row } from '@seolhun/localize-components';
@@ -24,7 +24,14 @@ const ArticleContainer = styled.article({
   wordBreak: 'break-all',
 });
 
-const Article = ({ title, date, excerpt, slug, timeToRead, category }: Props) => (
+const Article = ({
+  title,
+  date,
+  excerpt,
+  slug,
+  timeToRead,
+  category,
+}: Props) => (
   <ArticleContainer>
     <Container>
       <Link to={`/contents/${slug}`}>
@@ -51,7 +58,9 @@ const Article = ({ title, date, excerpt, slug, timeToRead, category }: Props) =>
               -
             </Typo>
             <Typo type="small" weight={600}>
-              {`${timeToRead}`} Min read
+              {`${timeToRead}`}
+              {' '}
+              Min read
               {category && ` in ${category}`}
             </Typo>
           </Col>

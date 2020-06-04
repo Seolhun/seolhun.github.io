@@ -9,18 +9,16 @@ import { SEO } from '@/components';
 import HomeView from '@/views/HomeView';
 import LatestContentsView from '@/views/LatestContentsView';
 
-const IndexPage = () => {
-  return (
-    <>
-      <Layout>
-        <SEO isPostSEO={false} />
-        <Helmet title={config.siteTitle} />
-        <HomeView />
-        <LatestContentsView />
-      </Layout>
-    </>
-  );
-};
+const IndexPage = () => (
+  <>
+    <Layout>
+      <SEO isPostSEO={false} />
+      <Helmet title={config.siteTitle} />
+      <HomeView />
+      <LatestContentsView />
+    </Layout>
+  </>
+);
 
 export const IndexQuery = graphql`
   query {

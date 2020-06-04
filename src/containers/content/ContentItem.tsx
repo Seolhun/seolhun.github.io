@@ -9,17 +9,19 @@ import { Post } from '@/models';
 
 export interface ContentItemProps extends Post {}
 
-const StyledCard = styled(Card)(() => {
-  return {
-    display: 'flex',
-    flexDirection: 'column',
-    cursor: 'pointer',
-  };
-});
+const StyledCard = styled(Card)(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  cursor: 'pointer',
+}));
 
 export const ContentItem: FC<ContentItemProps> = (props: ContentItemProps) => {
-  const { fields, frontmatter, timeToRead, excerpt } = props;
-  const { title, subTitle, date, category } = frontmatter;
+  const {
+    fields, frontmatter, timeToRead, excerpt,
+  } = props;
+  const {
+    title, subTitle, date, category,
+  } = frontmatter;
 
   return (
     <StyledCard>
@@ -48,7 +50,9 @@ export const ContentItem: FC<ContentItemProps> = (props: ContentItemProps) => {
               -
             </Typo>
             <Typo type="small" weight={600}>
-              {`${timeToRead}`} Min read
+              {`${timeToRead}`}
+              {' '}
+              Min read
               {category && ` in ${category}`}
             </Typo>
           </Col>

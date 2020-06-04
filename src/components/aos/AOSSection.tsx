@@ -19,30 +19,26 @@ export interface AOSSectionProps extends LocalizeThemeStyledProps {
   horizonAlign?: AOSAlign;
 }
 
-const AOSWrapper = styled(Container)<any, ILocalizeTheme>(({ theme }) => {
-  return {
-    display: 'flex',
-    flex: '0 100%',
-    width: '100%',
-    height: '100%',
-    backgroundColor: theme.background,
-    position: 'relative',
-  };
-});
+const AOSWrapper = styled(Container)<any, ILocalizeTheme>(({ theme }) => ({
+  display: 'flex',
+  flex: '0 100%',
+  width: '100%',
+  height: '100%',
+  backgroundColor: theme.background,
+  position: 'relative',
+}));
 
 const AOSContent = styled.div<AOSSectionProps>(
-  ({ horizonAlign = 'center', verticalAlign = 'center' }) => {
-    return {
-      display: 'flex',
-      flex: `0 100%`,
-      flexDirection: 'column',
-      alignItems: horizonAlign,
-      justifyContent: verticalAlign,
+  ({ horizonAlign = 'center', verticalAlign = 'center' }) => ({
+    display: 'flex',
+    flex: '0 100%',
+    flexDirection: 'column',
+    alignItems: horizonAlign,
+    justifyContent: verticalAlign,
 
-      width: `100%`,
-      height: `100%`,
-    };
-  },
+    width: '100%',
+    height: '100%',
+  }),
 );
 
 const AOSSection = ({ children, ...props }: AOSSectionProps) => {

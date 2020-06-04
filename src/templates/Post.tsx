@@ -1,14 +1,15 @@
-import { graphql, Link } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { graphql, Link } from 'gatsby';
 
 import styled from '@emotion/styled';
 import { Col, Container, Row } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
 import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 // @ts-ignore
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Disqus } from 'gatsby-plugin-disqus';
-import { kebabCase } from 'lodash';
+import kebabcase from 'lodash.kebabcase';
 
 import { PostHeader, PrevNext, SEO } from '@/components';
 import { Layout } from '@/containers';
@@ -19,25 +20,34 @@ import siteMetadata from 'siteMetadata';
 import MarkdownHTML from '@/components/markdown/MarkdownHTML';
 import '@/utils/prismjs-theme.css';
 
-const PostContent = styled.div<any, ILocalizeTheme>(({ theme }) => {
-  return {
-    marginTop: '4rem',
-    color: theme.fonts.COLOR.primaryColor,
-  };
-});
-
-interface Props {
+interface PostPageProps {
   data: {
     markdownRemark: Post;
   };
   pathContext: PathContext;
 }
 
-const PostPage = ({ data, pathContext }: Props) => {
+const PostContent = styled.div<any, ILocalizeTheme>(({ theme }) => ({
+  marginTop: '4rem',
+  color: theme.fonts.COLOR.primaryColor,
+}));
+
+
+const PostPage: React.FC<PostPageProps> = ({ data, pathContext }) => {
   const { prev, next } = pathContext;
   const post = data.markdownRemark;
-  const { timeToRead, fields, frontmatter, html } = data.markdownRemark;
-  const { tags, title, date, category } = frontmatter;
+  const {
+    timeToRead,
+    fields,
+    frontmatter,
+    html,
+  } = post;
+  const {
+    tags,
+    title,
+    date,
+    category,
+  } = frontmatter;
   const disqusConfig = {
     url: `${siteMetadata.siteUrl}/contents/${fields.slug}`,
     identifier: fields.slug,
@@ -59,8 +69,14 @@ const PostPage = ({ data, pathContext }: Props) => {
                   </Typo>
 
                   <Typo type="small" weight={500}>
-                    {date} &mdash; {timeToRead} Min Read &mdash; In{' '}
-                    <Link to={`/categories/${kebabCase(category)}`}>{category}</Link>
+                    {date}
+                    {' '}
+                    &mdash;
+                    {timeToRead}
+                    {' '}
+                    Min Read &mdash; In
+                    {' '}
+                    <Link to={`/categories/${kebabcase(category)}`}>{category}</Link>
                   </Typo>
                 </PostHeader>
               </Col>
@@ -72,8 +88,10 @@ const PostPage = ({ data, pathContext }: Props) => {
               <Typo type="small">
                 Tags: &#160;
                 {tags.map((tag, i) => (
-                  <Link key={i} to={`/tags/${kebabCase(tag)}`}>
-                    <Typo type="small">{tag}</Typo> {i < tags.length - 1 ? `, ` : ``}
+                  <Link key={i} to={`/tags/${kebabcase(tag)}`}>
+                    <Typo type="small">{tag}</Typo>
+                    {' '}
+                    {i < tags.length - 1 ? ', ' : ''}
                   </Link>
                 ))}
               </Typo>
@@ -94,6 +112,7 @@ const PostPage = ({ data, pathContext }: Props) => {
     </Layout>
   );
 };
+
 
 export const postQuery = graphql`
   query($slug: String!) {

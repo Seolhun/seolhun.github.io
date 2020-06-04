@@ -16,22 +16,20 @@ const StyledIconLink = styled.a({
   },
 });
 
-export const Profile = () => {
-  return (
-    <Row alignItems="center">
-      <Col xs={24} justifyContent="center">
-        <ProfileImage src={siteMetadata.githubOwnerImage} />
-        <Mission />
-      </Col>
-      <Col xs={24} justifyContent="center">
-        {siteMetadata.authorSocialLinks.map((link) => (
-          <StyledIconLink key={link.name} {...link}>
-            <Image src={`/assets/icons/${link.name}.svg`} width="25px" />
-          </StyledIconLink>
-        ))}
-      </Col>
-    </Row>
-  );
-};
+export const Profile = () => (
+  <Row alignItems="center">
+    <Col xs={24} justifyContent="center">
+      <ProfileImage src={siteMetadata.githubOwnerImage} />
+      <Mission />
+    </Col>
+    <Col xs={24} justifyContent="center">
+      {siteMetadata.authorSocialLinks.map((link) => (
+        <StyledIconLink key={link.name} {...link}>
+          <Image src={`/assets/icons/${link.name}.svg`} width="25px" />
+        </StyledIconLink>
+      ))}
+    </Col>
+  </Row>
+);
 
 export default Profile;

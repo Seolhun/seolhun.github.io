@@ -4,14 +4,12 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
-export const PaginationContainer = styled.span<any, ILocalizeTheme>(({ theme }) => {
-  return {
-    display: 'flex',
-    flex: 'auto',
-    justifyContent: 'space-evenly',
-    color: theme.fonts.COLOR.primaryColor,
-  };
-});
+export const PaginationContainer = styled.span<any, ILocalizeTheme>(({ theme }) => ({
+  display: 'flex',
+  flex: 'auto',
+  justifyContent: 'space-evenly',
+  color: theme.fonts.COLOR.primaryColor,
+}));
 
 interface Props {
   currentPage: number;

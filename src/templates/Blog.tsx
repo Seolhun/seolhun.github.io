@@ -4,7 +4,9 @@ import { Helmet } from 'react-helmet';
 
 import { Col, Container, Row } from '@seolhun/localize-components';
 
-import { Article, Pagination, PostHeader, SEO } from '@/components';
+import {
+  Article, Pagination, PostHeader, SEO,
+} from '@/components';
 import { Layout, Profile } from '@/containers';
 import Data from '@/models/Data';
 import siteMetadata from 'siteMetadata';
@@ -50,7 +52,7 @@ export const BlogPage = ({ pageContext, data }: Props) => {
         </Row>
         <Row>
           <Col xs={24}>
-            <Pagination currentPage={currentPage} totalPages={totalPages} url={'contents'} />
+            <Pagination currentPage={currentPage} totalPages={totalPages} url="contents" />
           </Col>
         </Row>
       </Container>

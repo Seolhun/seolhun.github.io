@@ -1,5 +1,7 @@
+/* eslint-disable max-len */
 const path = require('path');
 const siteMetadata = require('./siteMetadata');
+
 const pathPrefix = siteMetadata.pathPrefix === '/' ? '' : siteMetadata.pathPrefix;
 
 module.exports = {
@@ -49,7 +51,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: 'gatsby-plugin-feed',
       options: {
         query: `
             {
@@ -65,18 +67,17 @@ module.exports = {
           `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map((edge) => {
-                const url = site.siteMetadata.siteUrl + '/contents' + edge.node.fields.slug;
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  date: edge.node.frontmatter.date,
-                  url,
-                  guid: url,
-                  custom_elements: [{ 'content:encoded': edge.node.html }],
-                });
-              });
-            },
+            serialize: ({ query: { site, allMarkdownRemark } }) => allMarkdownRemark.edges.map((edge) => {
+              const url = `${site.siteMetadata.siteUrl}/contents${edge.node.fields.slug}`;
+              return {
+                ...edge.node.frontmatter,
+                description: edge.node.excerpt,
+                date: edge.node.frontmatter.date,
+                url,
+                guid: url,
+                custom_elements: [{ 'content:encoded': edge.node.html }],
+              };
+            }),
             query: `
                 {
                   allMarkdownRemark(
@@ -121,7 +122,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: siteMetadata.Google_Analytics_ID,
         head: false,
@@ -138,13 +139,13 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-adsense`,
+      resolve: 'gatsby-plugin-google-adsense',
       options: {
         publisherId: siteMetadata.Google_AD_Sense_ID,
       },
     },
     {
-      resolve: `gatsby-plugin-google-tagmanager`,
+      resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         id: siteMetadata.Google_Tag_Manager_ID,
         includeInDevelopment: false,
@@ -152,7 +153,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-disqus`,
+      resolve: 'gatsby-plugin-disqus',
       options: {
         shortname: siteMetadata.Disqus_ShortName,
       },

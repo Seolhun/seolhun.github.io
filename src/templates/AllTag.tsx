@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 
 import { Col, Container, Row } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
-import { kebabCase } from 'lodash';
+import kebabcase from 'lodash.kebabcase';
 
 import { PostHeader, SEO, Title } from '@/components';
 import { Layout } from '@/containers';
@@ -35,7 +35,7 @@ const AllTagTemplate: FC<PageProps> = ({ pathContext }) => {
           {tags.map((tag, index: number) => (
             <Col xs={12} key={index}>
               <Title>
-                <Link to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
+                <Link to={`/tags/${kebabcase(tag)}`}>{tag}</Link>
               </Title>
             </Col>
           ))}

@@ -1,5 +1,5 @@
-import Link from 'gatsby-link';
 import React from 'react';
+import { Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
 import { Col, Container, Row } from '@seolhun/localize-components';
@@ -24,10 +24,16 @@ const TagTemplate = ({ pathContext }: PageProps) => {
           <Col xs={24}>
             <PostHeader>
               <Typo type="h1" weight={800} isHighlight>
-                Category &ndash; {tagsName}
+                Category &ndash;
+                {' '}
+                {tagsName}
               </Typo>
               <Typo type="small" weight={500}>
-                {subline} (See <Link to="/categories">all categories</Link>)
+                {subline}
+                {' '}
+                (See
+                <Link to="/categories">all categories</Link>
+                )
               </Typo>
             </PostHeader>
           </Col>
