@@ -6,7 +6,8 @@ import { Image } from '@seolhun/localize-components-atomic';
 
 import { rightTwister } from '@/animations';
 import { Mission, ProfileImage } from '@/containers';
-import siteMetadata from 'siteMetadata';
+
+import siteMetadata from '../../../siteMetadata';
 
 const StyledIconLink = styled.a({
   padding: '5px 15px',

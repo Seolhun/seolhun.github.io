@@ -1,9 +1,6 @@
+/* eslint-disable no-restricted-globals */
 import React from 'react';
-import {
-  graphql,
-  Link,
-  useStaticQuery,
-} from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 
 import '@/i18n';
@@ -16,8 +13,9 @@ import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
 import { Footer } from '@/components';
 import useStorage from '@/hooks/useStorage';
-import Theme from '@/Theme';
-import siteMetadata from 'siteMetadata';
+import Theme from '@/constants/Theme';
+
+import siteMetadata from '../../../siteMetadata';
 
 interface LayoutProps {}
 
@@ -66,7 +64,7 @@ const query = graphql`
 
 const globalStyle = (theme: ILocalizeTheme) => css`
   html {
-    color: ${theme.fonts.COLOR.primaryColor};
+    color: ${theme.fonts.color.primaryColor};
     background-color: ${theme.background};
   }
 
@@ -84,7 +82,9 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { t } = useTranslation();
   const { site } = useStaticQuery(query);
   const storage = useStorage();
-  const [isDarkMode, setThemeMode] = React.useState(storage ? storage.getItem('THEME') === 'DARK' : true);
+  const [isDarkMode, setThemeMode] = React.useState(
+    storage ? storage.getItem('THEME') === 'DARK' : true,
+  );
 
   const handleIsChecked = React.useCallback(() => {
     if (storage) {
@@ -93,7 +93,11 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
     }
   }, [isDarkMode]);
 
-  const memoizedIsContentPath = React.useMemo(() => window.location.pathname.split('/').includes('contents'), [window.location.pathname]);
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
+  const isContentPath = window.location.pathname.split('/').includes('contents');
 
   return (
     <ThemeProvider theme={isDarkMode ? Theme.DARK : Theme.LIGHT}>
@@ -102,9 +106,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         <StyledFixedHeader>
           <StyledLogoContainer>
             <Typo type="h2" weight={700} isHighlight>
-              <Link to={memoizedIsContentPath ? '/contents' : '/'}>
-                {siteMetadata.siteTitle}
-              </Link>
+              <Link to={isContentPath ? '/contents' : '/'}>{siteMetadata.siteTitle}</Link>
             </Typo>
           </StyledLogoContainer>
           <StyledSwitchContainer>

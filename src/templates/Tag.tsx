@@ -8,7 +8,8 @@ import { Typo } from '@seolhun/localize-components-atomic';
 import { Article, PostHeader, SEO } from '@/components';
 import { Layout } from '@/containers';
 import PageProps from '@/models/PageProps';
-import config from 'siteMetadata';
+
+import siteMetadata from '../../siteMetadata';
 
 const TagTemplate = ({ pathContext }: PageProps) => {
   const { posts, tagsName } = pathContext;
@@ -18,7 +19,7 @@ const TagTemplate = ({ pathContext }: PageProps) => {
   return (
     <Layout>
       <SEO isPostSEO={false} />
-      <Helmet title={`${tagsName} | ${config.siteTitle}`} />
+      <Helmet title={`${tagsName} | ${siteMetadata.siteTitle}`} />
       <Container>
         <Row>
           <Col xs={24}>
@@ -32,7 +33,9 @@ const TagTemplate = ({ pathContext }: PageProps) => {
                 {subline}
                 {' '}
                 (See
+                {' '}
                 <Link to="/categories">all categories</Link>
+                {' '}
                 )
               </Typo>
             </PostHeader>

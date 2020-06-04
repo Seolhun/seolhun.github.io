@@ -9,7 +9,8 @@ import kebabcase from 'lodash.kebabcase';
 import { PostHeader, SEO, Title } from '@/components';
 import { Layout } from '@/containers';
 import PageProps from '@/models/PageProps';
-import config from 'siteMetadata';
+
+import config from '../../siteMetadata';
 
 const AllTagTemplate: FC<PageProps> = ({ pathContext }) => {
   const { tags } = pathContext;

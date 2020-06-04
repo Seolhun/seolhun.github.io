@@ -3,7 +3,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import { Typo } from '@seolhun/localize-components-atomic';
-import siteMetadata from 'siteMetadata';
+
+import siteMetadata from '../../../siteMetadata';
 
 const MissionWrapper = styled.div(() => ({
   display: 'flex',

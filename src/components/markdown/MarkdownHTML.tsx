@@ -21,9 +21,6 @@ const MarkdownHTML = styled.div<MarkdownHTMLProps, ILocalizeTheme>(({ theme }) =
   },
 }));
 
-export {
-  MarkdownHTMLProps,
-  MarkdownHTML,
-};
+export { MarkdownHTMLProps, MarkdownHTML };
 
 export default MarkdownHTML;

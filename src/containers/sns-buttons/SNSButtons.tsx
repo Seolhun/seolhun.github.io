@@ -42,9 +42,6 @@ const SNSButtons: React.FC<SNSButtonsProps> = () => (
   </SNSButtonsWrapper>
 );
 
-export {
-  SNSButtonsProps,
-  SNSButtons,
-};
+export { SNSButtonsProps, SNSButtons };
 
 export default SNSButtons;

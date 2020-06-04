@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
+import React from 'react';
 
 import styled from '@emotion/styled';
 import { Container } from '@seolhun/localize-components';
@@ -11,10 +11,7 @@ import 'aos/dist/aos.css';
 
 type AOSAlign = 'center' | 'flex-start' | 'flex-end';
 
-export interface AOSSectionProps extends LocalizeThemeStyledProps {
-  [key: string]: any;
-  children: ReactNode;
-
+interface AOSSectionProps extends LocalizeThemeStyledProps {
   verticalAlign?: AOSAlign;
   horizonAlign?: AOSAlign;
 }
@@ -41,8 +38,8 @@ const AOSContent = styled.div<AOSSectionProps>(
   }),
 );
 
-const AOSSection = ({ children, ...props }: AOSSectionProps) => {
-  useEffect(() => {
+const AOSSection: React.FC<AOSSectionProps> = ({ children, ...props }) => {
+  React.useEffect(() => {
     AOS.init();
   }, []);
 
@@ -52,5 +49,7 @@ const AOSSection = ({ children, ...props }: AOSSectionProps) => {
     </AOSWrapper>
   );
 };
+
+export { AOSSection };
 
 export default AOSSection;

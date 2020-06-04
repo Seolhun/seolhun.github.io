@@ -70,4 +70,6 @@ const Article = ({
   </ArticleContainer>
 );
 
+export { Article };
+
 export default Article;

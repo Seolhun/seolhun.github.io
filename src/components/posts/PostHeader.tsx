@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import config from 'siteMetadata';
+import siteMetadata from '../../../siteMetadata';
 
 interface PostHeaderProps {
   children: any;
@@ -32,7 +32,7 @@ const PostHeaderBanner = styled.div<PostHeaderBannerProps>(({ banner }) => ({
 
 const PostHeader = ({ banner, children }: PostHeaderProps) => (
   <PostHeaderWrapper>
-    <PostHeaderBanner banner={banner || config.defaultBg} />
+    <PostHeaderBanner banner={banner || siteMetadata.defaultBg} />
     {children}
   </PostHeaderWrapper>
 );

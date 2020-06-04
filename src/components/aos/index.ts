@@ -1,3 +1,1 @@
-import AOSSection from './AOSSection';
-
-export default AOSSection;
+export * from './AOSSection';

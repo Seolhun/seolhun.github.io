@@ -59,20 +59,16 @@ interface Props {
 const PrevNext = ({ prev, next }: Props) => (
   <PaginationWrapper>
     {prev && (
-    <Prev>
-      <span>Previous</span>
-      <Link to={`/contents/${kebabcase(prev.frontmatter.title)}`}>
-        {prev.frontmatter.title}
-      </Link>
-    </Prev>
+      <Prev>
+        <span>Previous</span>
+        <Link to={`/contents/${kebabcase(prev.frontmatter.title)}`}>{prev.frontmatter.title}</Link>
+      </Prev>
     )}
     {next && (
-    <Next>
-      <span>Next</span>
-      <Link to={`/contents/${kebabcase(next.frontmatter.title)}`}>
-        {next.frontmatter.title}
-      </Link>
-    </Next>
+      <Next>
+        <span>Next</span>
+        <Link to={`/contents/${kebabcase(next.frontmatter.title)}`}>{next.frontmatter.title}</Link>
+      </Next>
     )}
   </PaginationWrapper>
 );

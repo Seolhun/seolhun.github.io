@@ -11,14 +11,18 @@ import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 import { Disqus } from 'gatsby-plugin-disqus';
 import kebabcase from 'lodash.kebabcase';
 
-import { PostHeader, PrevNext, SEO } from '@/components';
+import {
+  MarkdownHTML,
+  PostHeader,
+  PrevNext,
+  SEO,
+} from '@/components';
 import { Layout } from '@/containers';
 import PathContext from '@/models/PathContext';
 import Post from '@/models/Post';
-import siteMetadata from 'siteMetadata';
-
-import MarkdownHTML from '@/components/markdown/MarkdownHTML';
 import '@/utils/prismjs-theme.css';
+
+import siteMetadata from '../../siteMetadata';
 
 interface PostPageProps {
   data: {
@@ -32,21 +36,14 @@ const PostContent = styled.div<any, ILocalizeTheme>(({ theme }) => ({
   color: theme.fonts.COLOR.primaryColor,
 }));
 
-
 const PostPage: React.FC<PostPageProps> = ({ data, pathContext }) => {
   const { prev, next } = pathContext;
   const post = data.markdownRemark;
   const {
-    timeToRead,
-    fields,
-    frontmatter,
-    html,
+    timeToRead, fields, frontmatter, html,
   } = post;
   const {
-    tags,
-    title,
-    date,
-    category,
+    tags, title, date, category,
   } = frontmatter;
   const disqusConfig = {
     url: `${siteMetadata.siteUrl}/contents/${fields.slug}`,
@@ -112,7 +109,6 @@ const PostPage: React.FC<PostPageProps> = ({ data, pathContext }) => {
     </Layout>
   );
 };
-
 
 export const postQuery = graphql`
   query($slug: String!) {

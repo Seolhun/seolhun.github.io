@@ -1,5 +1,5 @@
+import React from 'react';
 import { Link } from 'gatsby';
-import React, { FC } from 'react';
 
 import styled from '@emotion/styled';
 import { Card, Col, Row } from '@seolhun/localize-components';
@@ -15,7 +15,7 @@ const StyledCard = styled(Card)(() => ({
   cursor: 'pointer',
 }));
 
-export const ContentItem: FC<ContentItemProps> = (props: ContentItemProps) => {
+export const ContentItem: React.FC<ContentItemProps> = (props: ContentItemProps) => {
   const {
     fields,
     frontmatter,

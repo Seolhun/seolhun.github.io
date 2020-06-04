@@ -3,17 +3,18 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import { Layout } from '@/containers';
-import config from 'siteMetadata';
 
 import { SEO } from '@/components';
 import HomeView from '@/views/HomeView';
 import LatestContentsView from '@/views/LatestContentsView';
 
+import siteMetadata from '../../siteMetadata';
+
 const IndexPage = () => (
   <>
     <Layout>
       <SEO isPostSEO={false} />
-      <Helmet title={config.siteTitle} />
+      <Helmet title={siteMetadata.siteTitle} />
       <HomeView />
       <LatestContentsView />
     </Layout>

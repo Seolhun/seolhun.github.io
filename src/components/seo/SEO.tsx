@@ -3,7 +3,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import Post from '@/models/Post';
-import siteMetadata from 'siteMetadata';
+
+import siteMetadata from '../../../siteMetadata';
 
 interface SEO {
   isPostSEO: boolean;
@@ -98,5 +99,7 @@ const SEO = ({ isPostSEO, postPath = '', postNode }: SEO) => {
     </Helmet>
   );
 };
+
+export { SEO };
 
 export default SEO;

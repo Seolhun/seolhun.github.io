@@ -8,7 +8,8 @@ import { Typo } from '@seolhun/localize-components-atomic';
 import { Article, PostHeader, SEO } from '@/components';
 import { Layout } from '@/containers';
 import PageProps from '@/models/PageProps';
-import SiteConfig from 'siteMetadata';
+
+import siteMetadata from '../../siteMetadata';
 
 const Category = ({ pathContext }: PageProps) => {
   const { posts, categoryName } = pathContext;
@@ -18,7 +19,7 @@ const Category = ({ pathContext }: PageProps) => {
   return (
     <Layout>
       <SEO isPostSEO={false} />
-      <Helmet title={`${categoryName} | ${SiteConfig.siteTitle}`} />
+      <Helmet title={`${categoryName} | ${siteMetadata.siteTitle}`} />
       <Container>
         <Row>
           <Col xs={24}>

@@ -12,7 +12,8 @@ import {
 } from '@/components';
 import { Layout, Profile } from '@/containers';
 import Data from '@/models/Data';
-import siteMetadata from 'siteMetadata';
+
+import siteMetadata from '../../siteMetadata';
 
 interface Props {
   data: Data;
@@ -64,24 +65,12 @@ export const BlogPage = ({ pageContext, data }: Props) => {
 };
 
 export const BlogQuery = graphql`
-  query(
-    $skip: Int!,
-    $limit: Int!
-  ) {
+  query($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
-      sort: {
-        fields: [frontmatter___date],
-        order: DESC
-      }
+      sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
-      filter: {
-        frontmatter: {
-          date: {
-            lt: "2019-09-30T00:00:00.000Z"
-          }
-        }
-      }
+      filter: { frontmatter: { date: { lt: "2019-09-30T00:00:00.000Z" } } }
     ) {
       totalCount
       edges {

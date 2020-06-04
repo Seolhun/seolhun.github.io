@@ -9,7 +9,8 @@ import kebabcase from 'lodash.kebabcase';
 import { PostHeader, SEO, Title } from '@/components';
 import { Layout } from '@/containers';
 import PageProps from '@/models/PageProps';
-import config from 'siteMetadata';
+
+import config from '../../siteMetadata';
 
 const AllCategoryTemplate: React.FC<PageProps> = ({ pathContext }) => {
   const { categories } = pathContext;
@@ -46,8 +47,6 @@ const AllCategoryTemplate: React.FC<PageProps> = ({ pathContext }) => {
   );
 };
 
-export {
-  AllCategoryTemplate,
-};
+export { AllCategoryTemplate };
 
 export default AllCategoryTemplate;

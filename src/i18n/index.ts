@@ -8,10 +8,13 @@ import { initReactI18next } from 'react-i18next';
 const supportedLanguages = ['en', 'ko'];
 const supportedFiles = ['common', 'home', 'content', 'error'];
 const resources = supportedLanguages.reduce((langObj, lang) => {
-  const supportedFileObject = supportedFiles.reduce((fileObj, file) => ({
-    ...fileObj,
-    [file]: require(`@/i18n/locales/${lang}/${file}`).default,
-  }), {});
+  const supportedFileObject = supportedFiles.reduce(
+    (fileObj, file) => ({
+      ...fileObj,
+      [file]: require(`@/i18n/locales/${lang}/${file}`).default,
+    }),
+    {},
+  );
   return {
     ...langObj,
     [lang]: supportedFileObject,

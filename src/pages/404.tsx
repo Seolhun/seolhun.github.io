@@ -9,7 +9,7 @@ import { PostHeader } from '@/components';
 import { Layout } from '@/containers';
 import { Button, Typo } from '@seolhun/localize-components-atomic';
 
-import siteMetadata from 'siteMetadata';
+import siteMetadata from '../../siteMetadata';
 
 const NotFoundPage = () => {
   const { t } = useTranslation();
