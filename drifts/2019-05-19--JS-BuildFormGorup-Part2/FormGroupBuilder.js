@@ -79,7 +79,7 @@ class FormGroupBuilder {
     }
 
     return keys === targetKey;
-  }
+  };
 
   _handleOnGroupValidationBy = (currentKey) => {
     const {
@@ -121,10 +121,10 @@ class FormGroupBuilder {
       }
     });
     return this;
-  }
+  };
 
   _executeAllFormValidation = () => {
-    const hasErrorKeys = Object.keys(this.group).filter(key => this.group[key]
+    const hasErrorKeys = Object.keys(this.group).filter((key) => this.group[key]
       .runValidation()
       .getValueBy(FORM_PROPERTIES.hasError));
 
@@ -136,14 +136,14 @@ class FormGroupBuilder {
       return this;
     }
 
-    this.isDisabled = Object.keys(this.group).some(key => this.group[key]
+    this.isDisabled = Object.keys(this.group).some((key) => this.group[key]
       .runValidation()
       .getValueBy(FORM_PROPERTIES.hasError));
     if (this.isDisabled) {
       this.refsFocus(hasErrorKeys[0]);
     }
     return this;
-  }
+  };
 
   refsFocus = (name) => {
     if (this.refs && this.refs[[name]]) {
@@ -157,7 +157,7 @@ class FormGroupBuilder {
     }
 
     return this;
-  }
+  };
 
   setRefs = (refs, isOverride) => {
     if (isOverride || (refs && !this.refs)) {
@@ -166,13 +166,13 @@ class FormGroupBuilder {
     return this;
   };
 
-  getFormGroupIsDisabled = () => this._executeAllFormValidation().isDisabled
+  getFormGroupIsDisabled = () => this._executeAllFormValidation().isDisabled;
 
-  getFormByName = name => this.group[name]
+  getFormByName = (name) => this.group[name];
 
   getFormGroup = () => this.group;
 
-  runAllValidation = () => this._executeAllFormValidation()
+  runAllValidation = () => this._executeAllFormValidation();
 }
 
 export default FormGroupBuilder;

@@ -15,5 +15,8 @@ babel.config.js
 *.test.*
 
 # JetBrains
+gatsby-*.js
+
+# JetBrains
 .next
 .idea

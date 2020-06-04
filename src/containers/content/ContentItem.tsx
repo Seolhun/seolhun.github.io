@@ -17,7 +17,10 @@ const StyledCard = styled(Card)(() => ({
 
 export const ContentItem: FC<ContentItemProps> = (props: ContentItemProps) => {
   const {
-    fields, frontmatter, timeToRead, excerpt,
+    fields,
+    frontmatter,
+    timeToRead,
+    excerpt,
   } = props;
   const {
     title, subTitle, date, category,

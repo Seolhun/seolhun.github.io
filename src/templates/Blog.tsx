@@ -5,7 +5,10 @@ import { Helmet } from 'react-helmet';
 import { Col, Container, Row } from '@seolhun/localize-components';
 
 import {
-  Article, Pagination, PostHeader, SEO,
+  Article,
+  Pagination,
+  PostHeader,
+  SEO,
 } from '@/components';
 import { Layout, Profile } from '@/containers';
 import Data from '@/models/Data';
@@ -61,27 +64,43 @@ export const BlogPage = ({ pageContext, data }: Props) => {
 };
 
 export const BlogQuery = graphql`
-  query($skip: Int!, $limit: Int!) {
+  query(
+    $skip: Int!,
+    $limit: Int!
+  ) {
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {
+        fields: [frontmatter___date],
+        order: DESC
+      }
       limit: $limit
       skip: $skip
-      filter: { frontmatter: { date: { lt: "2019-09-30T00:00:00.000Z" } } }
+      filter: {
+        frontmatter: {
+          date: {
+            lt: "2019-09-30T00:00:00.000Z"
+          }
+        }
+      }
     ) {
       totalCount
       edges {
         node {
+          excerpt(pruneLength: 165)
           fields {
             slug
           }
           frontmatter {
-            title
-            date(formatString: "YYYY.MM.DD")
-            category
-            tags
+            author
             banner
+            category
+            date(formatString: "YYYY.MM.DD")
+            subTitle
+            tags
+            title
           }
-          excerpt(pruneLength: 165)
+          html
+          id
           timeToRead
         }
       }

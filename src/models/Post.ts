@@ -1,13 +1,13 @@
 import { Frontmatter } from './Frontmatter';
 
 export interface Post {
-  id: number;
   excerpt: string;
-  html: string;
-  frontmatter: Frontmatter;
   fields: {
     slug: string;
   };
+  frontmatter: Frontmatter;
+  html: string;
+  id: number;
   timeToRead: number;
 }
 

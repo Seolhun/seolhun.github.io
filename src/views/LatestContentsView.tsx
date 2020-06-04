@@ -43,6 +43,7 @@ export const LatestQuery = graphql`
 const LatestContentsView = () => {
   const { t } = useTranslation();
   const { allMarkdownRemark } = useStaticQuery(LatestQuery);
+
   return (
     <AOSSection id="Lastest" verticalAlign="flex-start">
       <Typo type="h1" weight={600} css={{ marginBottom: '50px' }}>

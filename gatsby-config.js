@@ -81,22 +81,29 @@ module.exports = {
             query: `
                 {
                   allMarkdownRemark(
-                    sort: { fields: [frontmatter___date], order: DESC },
+                    sort: {
+                      fields: [frontmatter___date],
+                      order: DESC
+                    },
                   ) {
                     edges {
                       node {
-                        excerpt(pruneLength: 200)
-                        html
+                        excerpt(pruneLength: 250)
                         fields {
                           slug
                         }
                         frontmatter {
-                          title
-                          date(formatString: "YYYY.MM.DD")
-                          category
-                          tags
+                          author
                           banner
+                          category
+                          date(formatString: "YYYY.MM.DD")
+                          subTitle
+                          tags
+                          title
                         }
+                        html
+                        id
+                        timeToRead
                       }
                     }
                   }

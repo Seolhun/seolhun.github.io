@@ -10,6 +10,9 @@ module.exports = {
     // TODO: Will be Removed
     'import/no-cycle': 0,
     'mouse-events-have-key-events': 0,
+    // https://eslint.org/docs/rules/consistent-return
+    'consistent-return': 0,
+
     // JSX
     'jsx-a11y/mouse-events-have-key-events': 0,
     'jsx-a11y/anchor-is-valid': 0,
