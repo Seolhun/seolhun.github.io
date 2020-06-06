@@ -67,17 +67,18 @@ module.exports = {
           `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => allMarkdownRemark.edges.map((edge) => {
-              const url = `${site.siteMetadata.siteUrl}/contents${edge.node.fields.slug}`;
-              return {
-                ...edge.node.frontmatter,
-                description: edge.node.excerpt,
-                date: edge.node.frontmatter.date,
-                url,
-                guid: url,
-                custom_elements: [{ 'content:encoded': edge.node.html }],
-              };
-            }),
+            serialize: ({ query: { site, allMarkdownRemark } }) =>
+              allMarkdownRemark.edges.map((edge) => {
+                const url = `${site.siteMetadata.siteUrl}/contents/${edge.node.fields.slug}`;
+                return {
+                  ...edge.node.frontmatter,
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url,
+                  guid: url,
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                };
+              }),
             query: `
                 {
                   allMarkdownRemark(
