@@ -8,7 +8,7 @@ import {
 import { useTranslation } from 'react-i18next';
 
 import { ThemeProvider } from 'emotion-theming';
-import { Global, css } from '@emotion/core';
+import { Global } from '@emotion/core';
 import styled from '@emotion/styled';
 import { Container } from '@seolhun/localize-components';
 import { Switch, Typo } from '@seolhun/localize-components-atomic';
@@ -19,6 +19,7 @@ import useStorage from '@/hooks/useStorage';
 import Theme from '@/constants/Theme';
 import '@/i18n';
 
+import globalStyles from './globalStyles';
 import siteMetadata from '../../../siteMetadata';
 
 interface LayoutProps {}
@@ -69,11 +70,6 @@ const query = graphql`
   }
 `;
 
-const globalStyle = (theme: ILocalizeTheme) => css`
-  html, body {
-    background-color: ${theme.background};
-  }
-`;
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { t } = useTranslation();
@@ -94,7 +90,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <ThemeProvider theme={isDarkMode ? Theme.DARK : Theme.LIGHT}>
-      <Global styles={globalStyle} />
+      <Global styles={globalStyles} />
       <LayoutContainer isFullWidth>
         <StyledFixedHeader>
           <StyledLogoContainer>
