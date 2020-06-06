@@ -1,7 +1,7 @@
-import React from 'react';
+import { ComponentClass } from 'react';
 
 export interface PageResources {
-  component: React.PureComponent;
+  component: ComponentClass;
   path: string;
 }
 export default PageResources;

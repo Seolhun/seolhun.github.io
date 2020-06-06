@@ -45,7 +45,7 @@ const LatestContentsView = () => {
   const { allMarkdownRemark } = useStaticQuery(LatestQuery);
 
   return (
-    <AOSSection id="Lastest" verticalAlign="flex-start">
+    <AOSSection verticalAlign="flex-start">
       <Typo type="h1" weight={600} css={{ marginBottom: '50px' }}>
         {t('content:title')}
       </Typo>

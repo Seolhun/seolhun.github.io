@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "CommonJS",
     "lib": ["ES2015", "ES2016", "ES2017", "dom"],
-    "jsx": "react",
+    "jsx": "preserve",
     "moduleResolution": "Node",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,

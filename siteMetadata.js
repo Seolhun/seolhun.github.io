@@ -39,7 +39,7 @@ module.exports = {
   bodyFontFamily: ['Lato', 'Noto Sans KR', 'sans-serif'],
   headerFontFamily: ['Lato', 'Noto Sans KR', 'sans-serif'],
   /**
-   * Constants
+   * Per Page
    */
   POST_PER_PAGE: 5,
   /**

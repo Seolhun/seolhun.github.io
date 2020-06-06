@@ -1,9 +1,12 @@
 /* eslint-disable no-restricted-globals */
 import React from 'react';
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import {
+  graphql,
+  Link,
+  useStaticQuery,
+} from 'gatsby';
 import { useTranslation } from 'react-i18next';
 
-import '@/i18n';
 import { ThemeProvider } from 'emotion-theming';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -14,6 +17,7 @@ import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 import { Footer } from '@/components';
 import useStorage from '@/hooks/useStorage';
 import Theme from '@/constants/Theme';
+import '@/i18n';
 
 import siteMetadata from '../../../siteMetadata';
 
@@ -29,7 +33,6 @@ const StyledFixedHeader = styled.header<any, ILocalizeTheme>(({ theme }) => ({
   left: 0,
   top: 0,
   right: 0,
-
   height: '4rem',
   backgroundColor: theme.background,
   boxShadow: theme.border.shadow,
@@ -54,17 +57,16 @@ const StyledFooter = styled(Footer)({
   zIndex: 1,
 });
 
-const query = graphql`
-  query LayoutQuery {
-    site {
-      buildTime(formatString: "YYYY-MM-DD")
-    }
-  }
-`;
+// const query = graphql`
+//   query LayoutQuery {
+//     site {
+//       buildTime(formatString: "YYYY-MM-DD")
+//     }
+//   }
+// `;
 
 const globalStyle = (theme: ILocalizeTheme) => css`
   html {
-    color: ${theme.fonts.color.primaryColor};
     background-color: ${theme.background};
   }
 
@@ -80,18 +82,14 @@ const globalStyle = (theme: ILocalizeTheme) => css`
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { t } = useTranslation();
-  const { site } = useStaticQuery(query);
+  // const { site } = useStaticQuery(query);
   const storage = useStorage();
-  const [isDarkMode, setThemeMode] = React.useState(
-    storage ? storage.getItem('THEME') === 'DARK' : true,
-  );
+  const [isDarkMode, setThemeMode] = React.useState(storage ? storage.getItem('THEME') === 'DARK' : true);
 
-  const handleIsChecked = React.useCallback(() => {
-    if (storage) {
-      storage.setItem('THEME', !isDarkMode ? 'DARK' : 'LIGHT');
-      setThemeMode(!isDarkMode);
-    }
-  }, [isDarkMode]);
+  const handleIsChecked = () => {
+    storage?.setItem('THEME', !isDarkMode ? 'DARK' : 'LIGHT');
+    setThemeMode(!isDarkMode);
+  };
 
   if (typeof window === 'undefined') {
     return null;

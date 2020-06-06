@@ -40,15 +40,20 @@ const PostPage: React.FC<PostPageProps> = ({ data, pathContext }) => {
   const { prev, next } = pathContext;
   const post = data.markdownRemark;
   const {
-    timeToRead, fields, frontmatter, html,
+    timeToRead,
+    fields,
+    frontmatter: {
+      tags,
+      title,
+      date,
+      category,
+    },
+    html,
   } = post;
-  const {
-    tags, title, date, category,
-  } = frontmatter;
   const disqusConfig = {
     url: `${siteMetadata.siteUrl}/contents/${fields.slug}`,
     identifier: fields.slug,
-    title: frontmatter.title,
+    title,
   };
 
   return (

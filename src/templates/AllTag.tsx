@@ -1,6 +1,6 @@
-import { Link } from 'gatsby';
-import React, { FC } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'gatsby';
 
 import { Col, Container, Row } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
@@ -12,7 +12,7 @@ import PageProps from '@/models/PageProps';
 
 import config from '../../siteMetadata';
 
-const AllTagTemplate: FC<PageProps> = ({ pathContext }) => {
+const AllTagTemplate: React.FC<PageProps> = ({ pathContext }) => {
   const { tags } = pathContext;
 
   if (!tags) {

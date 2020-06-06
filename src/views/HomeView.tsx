@@ -5,7 +5,7 @@ import { BackgroundCanvas } from '@/containers';
 import { HomeContainer } from '@/containers/home';
 
 const HomeView = () => (
-  <AOSSection id="HomeView">
+  <AOSSection>
     <BackgroundCanvas />
     <HomeContainer />
   </AOSSection>

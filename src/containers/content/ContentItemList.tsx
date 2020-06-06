@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import styled from '@emotion/styled';
 import { Col, Container, Row } from '@seolhun/localize-components';
@@ -20,7 +20,7 @@ interface ContentItemListProps {
   items: Post[];
 }
 
-export const ContentItemList: FC<ContentItemListProps> = ({ items }) => (
+export const ContentItemList: React.FC<ContentItemListProps> = ({ items }) => (
   <StyledContentItemListCpntainer>
     <Row>
       {items.map((item) => (

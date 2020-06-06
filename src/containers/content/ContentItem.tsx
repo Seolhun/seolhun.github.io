@@ -23,7 +23,10 @@ export const ContentItem: React.FC<ContentItemProps> = (props: ContentItemProps)
     excerpt,
   } = props;
   const {
-    title, subTitle, date, category,
+    title,
+    subTitle,
+    date,
+    category,
   } = frontmatter;
 
   return (

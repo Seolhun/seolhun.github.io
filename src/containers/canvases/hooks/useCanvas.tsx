@@ -1,10 +1,8 @@
-import { useEffect, useRef } from 'react';
+import React from 'react';
 
 import { LocalizeThemes } from '@seolhun/localize-components-styled-types';
 
-type CanvasRef = HTMLCanvasElement | null;
-
-const drawCanvas = (canvasRef: CanvasRef) => {
+const drawCanvas = (canvasRef: HTMLCanvasElement | null) => {
   const canvas = canvasRef;
   if (typeof window === 'undefined') {
     return;
@@ -104,7 +102,6 @@ const drawCanvas = (canvasRef: CanvasRef) => {
       let distanceFactor = DistanceBetween(mouse, parts[i]);
       // useDrawStar(75, 100, 3, 30, 15);
       // useDrawStar(75, 200, 5, 30, 15);
-
       distanceFactor = Math.max(Math.min(15 - distanceFactor / 10, 10), 1);
       ctx.beginPath();
       ctx.arc(li.x, li.y, li.size * distanceFactor, 0, Math.PI * 2, false);
@@ -119,7 +116,6 @@ const drawCanvas = (canvasRef: CanvasRef) => {
 
       li.x += li.toX * (time * 0.05);
       li.y += li.toY * (time * 0.05);
-
       if (li.x > width) {
         li.x = 0;
       }
@@ -144,8 +140,8 @@ const drawCanvas = (canvasRef: CanvasRef) => {
 };
 
 const useCanvas = (canvas?: HTMLCanvasElement) => {
-  const canvasRef = useRef<HTMLCanvasElement>(canvas || null);
-  useEffect(() => {
+  const canvasRef = React.useRef<HTMLCanvasElement>(canvas || null);
+  React.useEffect(() => {
     drawCanvas(canvasRef.current);
   }, []);
 

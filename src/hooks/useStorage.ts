@@ -1,9 +1,13 @@
 const ROOT_KEY: string = '__SEOLHUN__';
 type LocalStorageKeys = 'THEME';
 
-export const useStorage = () => {
-  if (typeof localStorage === 'undefined') {
-    return null;
+const useStorage = () => {
+  let storage = sessionStorage;
+  if (typeof sessionStorage === 'undefined') {
+    storage = localStorage;
+    if (typeof localStorage === 'undefined') {
+      return null;
+    }
   }
 
   const getRootStorage = () => {
@@ -46,10 +50,15 @@ export const useStorage = () => {
   };
 
   return {
+    storage,
     getItem,
     setItem,
     removeItem,
   };
+};
+
+export {
+  useStorage,
 };
 
 export default useStorage;
