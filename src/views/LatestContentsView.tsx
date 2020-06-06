@@ -6,7 +6,7 @@ import { Col, Row } from '@seolhun/localize-components';
 import { Button, Typo } from '@seolhun/localize-components-atomic';
 
 import { AOSSection } from '@/components/aos';
-import { ContentItemList } from '@/containers/content';
+import { ContentItemList } from '@/containers/contents';
 import { Edge } from '@/models';
 
 // filter: { frontmatter: { date: { lt: "2019-01-30T00:00:00.000Z" } } }
