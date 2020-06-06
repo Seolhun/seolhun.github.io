@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './global.scss';
+
 interface HTMLProps {
   htmlAttributes: any;
   headComponents: any[];

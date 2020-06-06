@@ -44,6 +44,10 @@ const StyledLogoContainer = styled.div({
   left: '1.2rem',
   top: '0.8rem',
   zIndex: 10,
+
+  a: {
+    textDecoration: 'none',
+  },
 });
 
 const StyledSwitchContainer = styled.div({
@@ -57,32 +61,23 @@ const StyledFooter = styled(Footer)({
   zIndex: 1,
 });
 
-// const query = graphql`
-//   query LayoutQuery {
-//     site {
-//       buildTime(formatString: "YYYY-MM-DD")
-//     }
-//   }
-// `;
+const query = graphql`
+  query LayoutQuery {
+    site {
+      buildTime(formatString: "YYYY-MM-DD")
+    }
+  }
+`;
 
 const globalStyle = (theme: ILocalizeTheme) => css`
-  html {
+  html, body {
     background-color: ${theme.background};
-  }
-
-  a {
-    textDecoration: none,
-    color: inherit,
-  }
-
-  .html-lock-scroll {
-    overflow: hidden !important;
   }
 `;
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { t } = useTranslation();
-  // const { site } = useStaticQuery(query);
+  const { site } = useStaticQuery(query);
   const storage = useStorage();
   const [isDarkMode, setThemeMode] = React.useState(storage ? storage.getItem('THEME') === 'DARK' : true);
 
@@ -108,36 +103,27 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             </Typo>
           </StyledLogoContainer>
           <StyledSwitchContainer>
-            <Switch
+            {/* <Switch
               htmlFor="theme"
               onChange={handleIsChecked}
               checked={isDarkMode}
               css={{ zIndex: 5 }}
-            />
+            /> */}
           </StyledSwitchContainer>
         </StyledFixedHeader>
         <main>{children}</main>
         <StyledFooter>
           <Typo type="p">
             &copy;
-            {' '}
-            {t('home:title')}
-            {' '}
-            by
-            {' '}
-            {siteMetadata.author}
-            . All rights reserved.
+            {`${t('home:title')} by ${siteMetadata.author} . All rights reserved.`}
           </Typo>
           <Typo type="p">
             <a href={siteMetadata.github} target="_blank" rel="noreferrer">
-              {siteMetadata.author}
-              {' '}
-              GitHub
+              {`${siteMetadata.author} GitHub`}
             </a>
           </Typo>
           <Typo type="p">
-            Last build:
-            {site.buildTime}
+            {`Last build ${site.buildTime}`}
           </Typo>
         </StyledFooter>
       </LayoutContainer>
