@@ -73,8 +73,8 @@
 <url> <loc>https://seolhun.github.io/tags/form-group</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/functional</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/graph-ql</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://seolhun.github.io/tags/http</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/hacker-rank</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://seolhun.github.io/tags/http</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/https</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/insertion</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/insertion-sort</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -150,6 +150,7 @@
 <url> <loc>https://seolhun.github.io/tags/야근지수</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/tags/정의</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/ts-typescript로-reactive한-form-group-builder-만들어보기-part-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://seolhun.github.io/contents/about-seolhun</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/js-javascript로-reactive한-form-group-builder-만들어보기-part-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/지인-개발자의-질문-okr은-무엇보다도-중요하고-중요하다</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/js-functional-currying으로-알아보는-functional-programming</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -179,8 +180,8 @@
 <url> <loc>https://seolhun.github.io/contents/algorithm-java-s-wexpert-academy-get-mid-num-avg</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/algorithm-java-s-wexpert-academy-beginners-cross-same-voca</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/algorithm-javascript-hacker-rank-lonely-interger-algorithm</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://seolhun.github.io/contents/algorithm-java-codility-counting-elevator-movements</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/algorithm-java-codility-find-steps-algorithm</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://seolhun.github.io/contents/algorithm-java-codility-counting-elevator-movements</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/algorithm-javascript-programmers-algorithm-야근지수</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/algorithm-js-배열에서-사용하면-좋을-javascript-메소드들</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/javascript-es-6-es-6-부터-등장하는-개발자가-알아야-할-특징-part-2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -202,12 +203,12 @@
 <url> <loc>https://seolhun.github.io/contents/algorithm-java-programmers-멀리뛰기</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/javascript-typescript-promise에-대해서-알아보고-예제-작성하기-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/typescript-namespace란</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://seolhun.github.io/contents/javascript-typescript-prototype이란</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/javascript-typescript-module-pattern이란</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://seolhun.github.io/contents/javascript-typescript-prototype이란</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/jenkins-ci-continuous-integration-with-jenkins-and-github-알아보고-예제-작성하기-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://seolhun.github.io/contents/typescript-singleton-pattern이란</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/javascript-typescript-static이란</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/javascript-typescript-javascript-new-constructor란</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://seolhun.github.io/contents/typescript-singleton-pattern이란</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/js-vue-vue-study를-통한-문법-및-예제-만들기-part-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/aws-aws-products에-대한-내용-간단히-정리하기</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/algorithm-sort-quick-sort-자바로-구현해보기</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -215,6 +216,5 @@
 <url> <loc>https://seolhun.github.io/contents/java-thread-java-thread-pool을-이용한-thread를-이해하기-thread-runnable</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/db-maria-db-분실한-mysql-root-password-재설정하기</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/contents/db-maria-db-maria-db에-사용자-권한주기</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://seolhun.github.io/contents/about-seolhun</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://seolhun.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
