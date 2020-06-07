@@ -12,7 +12,7 @@ interface ContentItemListProps {
 const ContentItemListWrapper = styled.div({});
 
 const ContentItemListContainer = styled.div({
-  marginBottom: '1rem',
+  marginBottom: '2rem',
 });
 
 const ContentItemList: React.FC<ContentItemListProps> = ({ items }) => (

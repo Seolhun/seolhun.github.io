@@ -1,12 +1,12 @@
 ---
 author: Seolhun
-banner: "/assets/covers/typescript.png"
-category: "TS"
+banner: '/assets/covers/typescript.png'
+category: 'TS'
 date: 2019-09-25
-description: "Builder Pattern을 이용한 monad식의 FormGroup Builder 만들어보기"
-subTitle: "Create a form group."
-tags: ['JS', 'Form', "FormGroup"]
-title: "[JS] Javascript로 Reactive한 FormGroup Builder 만들어보기 - Part 1"
+title: '[JS] Javascript로 Reactive한 FormGroup Builder 만들어보기 - Part 1'
+subTitle: 'Create a form group.'
+description: 'Builder Pattern을 이용한 monad식의 FormGroup Builder 만들어보기'
+tags: ['JS', 'Form', 'FormGroup']
 ---
 
 ## Intro
@@ -25,42 +25,47 @@ title: "[JS] Javascript로 Reactive한 FormGroup Builder 만들어보기 - Part 
 너무 추상적이라고 느낄 수 있습니다. 그래서 더 간단하게 얘기하면, HTML과 CSS에 사용될 값들을 JS에서 모두 다룰 수 있도록 할 예정입니다.
 
 ## Pre-requirement
+
 - Javascript, Typescript
   - ES6
 
 JS로만 코드를 짤 예정이며, Jest를 이용하여 테스트로 코드의 유효성을 확인해볼 것입니다.
 
 ## Goals
+
 먼저, 이번 FromGroup을 만들기 위한 3가지 목표를 세웠습니다.
 
 1. Form Attribution 값을 호환시켜야 합니다. 간단한 속성값으로는 아래와 같습니다.
-  - Form Attributes
-    - disabled
-    - reqired
-    - ...
+
+- Form Attributes
+  - disabled
+  - reqired
+  - ...
 
 Form 관련 Attributes의 값을 JS에서 다룰 예정이며, 특히, disabled와 requried는 필수로 다룰 에정입니다.
 이유는 아래 항목인 Validation 항목과 아주 연관이 된 값이기 떄문입니다.
 
 2. Form에 들어가는 값들에 유효성 검사가 원활해야 합니다. 메세지도 포함해서요~
-  - Validation
-    - Group Validation
-    - Form Valition
-    - Message
+
+- Validation
+  - Group Validation
+  - Form Valition
+  - Message
 
 Form의 핵심은 Validation에 있다고 생각하며, 편리하게 UI를 만들어주는 것이 중요합니다.
 하지만, 서버로 전송되기전에 데이터 형식에 어긋나는 부분들을 알기 쉽고, 정확하게 알려주어 데이터의 정합성을 높이는 것이 더 바람직합니다.
 이러한 부분들로 UI에 필요한 3개의 기능을 이번에 만들것입니다.
 
 3. Library(혹은 Framework)에 상관없는 값의 Observable한 코드
-  - Reactive
+
+- Reactive
 
 Reactive는 코드로 보는 것이 가장 빠른 방법입니다.
 당연히 UI에 Reactive함은 State(React), data(Vue)... 등을 이용하여 쉽게 해결할 수 있습니다.(랜더링 이슈)
 하지만, JS는 Reactive한 코드를 통해 Library(혹은 Framework)에 상관없이 이를 쉽게 값이 변하는 것을 구현할 수 있습니다.
 
-
 ## Code & Description
+
 이제 코드로 알아 볼 시간입니다. 위의 목적을 달성하는 것을 차례로 코드를 작성해 봅시다.
 
 FormGroup을 만들기 위해서는 먼저, Group안에 들어가는 Form의 input을 이용하여 진행 할 예정입니다.
@@ -69,9 +74,11 @@ input에는 text, checkbox 등이 있습니다. 먼저, text로 간단한 양식
 FormBuilder를 먼저 만들어봅시다. 이후에 FormGroupBuilder를 만들어봅시다.
 
 ## FormBuilder
+
 이제 FormBuilder를 만들어 봅시다.
 
 위에서 언급했듯이 우리에게 필요한 Goal은 3가지 입니다.
+
 1. Form Attributes
 2. Validation
 3. Reactive Code
@@ -79,6 +86,7 @@ FormBuilder를 먼저 만들어봅시다. 이후에 FormGroupBuilder를 만들�
 이 3가지를 채우기 위한 변수로 무엇이 있을까요? 한번 생각해봅시다.
 
 ## 1. Build & Set Properties
+
 음. 생각해보셨나요?, 제가 선정한 값은 아래와 같습니다.
 
 ```js
@@ -223,7 +231,7 @@ export class FormBuilder {
     return isValidProperty;
   };
 
-  // 초기 선언된 js-doc에 맞게 만들어줍니다. 
+  // 초기 선언된 js-doc에 맞게 만들어줍니다.
   _initForm = (
     {
       // Values
@@ -303,7 +311,7 @@ export class FormBuilder {
 ```js
 export class FormBuilder {
   // ...
-  
+
   // 1. 새로운 newProperties의 있는 값만 기존 properties를 덮어줍니다.
   setProperties(newProperties) {
     this.properties = {
@@ -407,7 +415,8 @@ export class FormBuilder {
 }
 ```
 
-> 현재 _를 사용한 이유는 private에 대한 개념이 없기에 이를 명시하기 위함입니다. 
+> 현재 \_를 사용한 이유는 private에 대한 개념이 없기에 이를 명시하기 위함입니다.
+>
 > > ModulePattern을 이용하여 클로저와 스코프를 이용하면 class 내에는 private을 사용할 수 있습니다만, class에 현재 스펙이는 private이 없으므로, 이렇게 작업하였습니다.
 
 ## 6. FormBuilder Completion
@@ -673,6 +682,7 @@ export default FormBuilder;
 ```
 
 ## Outro
+
 이번 FormBuilder를 이용하여 ES6 기반의 많은 feature들을 이용할 수 있었습니다. 또한, 객체를 return하여 함수를 쉽게 재호출할 수 있다는 것을 알게되었습니다. 이러한 형식을 monad라고 많이 부릅니다. 특히, JQuery가 이러한 방식을 사용하였다는 것을 알 수 있습니다. 함수형에서도 compose, flow 등을 같이 사용하면 이러한 함수를 구현할 수 있습니다.
 
 FormBuilder를 만들면서 가장 좋은 것은, FormGroup과 연계되어 생각하면 좋은데 React, Vue 등 을 이용할 때 해당 Builder를 이용하여 해당 객체를 State에 주입하여 사용하면 아주 쉽게 사용할 수 있다는 것입니다.
@@ -685,8 +695,8 @@ PS. 다음에는 테스트코드 작성한 코드와 FormGroup 설명과 함께 
 
 <img src='/assets/images/contents/2019/FormBuilderJsTest.png' width='100%' height='100%'>
 
-
 ## References
+
 - [Form Attributes - w3schools](https://www.w3schools.com/html/html_form_attributes.asp)
 - [typeof - MDN](https://developer.mozilla.org/ko/docs/Web/Javascript/Reference/Operators/typeof)
 - [JQuery - Monad - stackoverflow](https://stackoverflow.com/questions/10496932/is-jquery-a-monad)

@@ -10,9 +10,16 @@ interface SHLinkProps extends LinkProps<any> {
 
 }
 
-const StyledLink = styled.a<{}, ILocalizeTheme>(({ theme }) => ({
-  textDecoration: 'none',
+const LinkWrapper = styled.span({});
 
+const LinkContainer = styled.span({
+  textDecoration: 'none',
+  a: {
+    textDecoration: 'none',
+  },
+});
+
+const StyledLink = styled.a<{}, ILocalizeTheme>(({ theme }) => ({
   '&:hover': {
     color: theme.primaryColor,
   },
@@ -24,15 +31,21 @@ const StyledLink = styled.a<{}, ILocalizeTheme>(({ theme }) => ({
 const SHLink: React.FC<SHLinkProps> = ({ children, to, isExternal }) => {
   if (isExternal) {
     return (
-      <StyledLink href={to} target="_blank" rel="noreferrer">
-        {children}
-      </StyledLink>
+      <LinkWrapper>
+        <LinkContainer>
+          <StyledLink href={to} target="_blank" rel="noreferrer">
+            {children}
+          </StyledLink>
+        </LinkContainer>
+      </LinkWrapper>
     );
   }
   return (
-    <StyledLink>
-      <Link to={to}>{children}</Link>
-    </StyledLink>
+    <LinkWrapper>
+      <LinkContainer>
+        <Link to={to}>{children}</Link>
+      </LinkContainer>
+    </LinkWrapper>
   );
 };
 

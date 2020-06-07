@@ -38,17 +38,21 @@ export const IndexQuery = graphql`
       totalCount
       edges {
         node {
+          excerpt(pruneLength: 200)
           fields {
             slug
           }
           frontmatter {
-            title
-            date(formatString: "YYYY.MM.DD")
-            category
-            tags
+            author
             banner
+            category
+            date(formatString: "YYYY.MM.DD")
+            subTitle
+            tags
+            title
           }
-          excerpt(pruneLength: 165)
+          html
+          id
           timeToRead
         }
       }

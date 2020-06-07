@@ -9,7 +9,7 @@ import { SHLink } from '@/components';
 
 export interface ContentItemProps extends Post {}
 
-const StyledCard = styled(Card)(() => ({
+const SHCard = styled(Card)(() => ({
   display: 'flex',
   flexDirection: 'column',
   cursor: 'pointer',
@@ -17,7 +17,11 @@ const StyledCard = styled(Card)(() => ({
   boxShadow: '1px 2px 4px #cccc, 2px 1px 2px #cccc',
 }));
 
-const StyledContentDateTime = styled.div(() => ({
+const ContentSubTitle = styled.div(() => ({
+  marginTop: '1rem',
+}));
+
+const ContentDateTime = styled.div(() => ({
   textAlign: 'right',
 }));
 
@@ -36,25 +40,29 @@ export const ContentItem: React.FC<ContentItemProps> = (props: ContentItemProps)
   } = frontmatter;
 
   return (
-    <StyledCard>
+    <SHCard>
       <SHLink to={`/contents/${fields.slug}`}>
         <Typo type="h2" weight={600}>
           {title}
         </Typo>
-        {subTitle && <Typo type="p">{subTitle}</Typo>}
-        {excerpt && (
-          <Typo type="p">{excerpt}</Typo>
-        )}
-        <StyledContentDateTime>
+        <ContentSubTitle>
+          {subTitle && (
+            <Typo type="p" weight={500}>{subTitle}</Typo>
+          )}
+          {excerpt && (
+            <Typo type="p">{excerpt}</Typo>
+          )}
+        </ContentSubTitle>
+        <ContentDateTime>
           <Typo type="p" weight={600}>
             {date}
           </Typo>
           <Typo type="p" weight={600}>
             {`${timeToRead} Min read ${category && `in ${category}`}`}
           </Typo>
-        </StyledContentDateTime>
+        </ContentDateTime>
       </SHLink>
-    </StyledCard>
+    </SHCard>
   );
 };
 
