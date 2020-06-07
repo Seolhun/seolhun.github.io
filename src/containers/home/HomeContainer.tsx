@@ -6,7 +6,7 @@ import { Col, Container, Row } from '@seolhun/localize-components';
 import { Button } from '@seolhun/localize-components-atomic';
 
 import { Profile } from '@/containers';
-import { Link } from 'gatsby';
+import { SHLink } from '@/components';
 
 const StyledHomeContainer = styled(Container)(() => ({
   display: 'flex',
@@ -29,9 +29,9 @@ export const HomeContainer = () => {
       <Profile data-aos="fade-up" />
       <Row data-aos="fade-up" data-aos-delay="100">
         <Col xs={24} alignItems="center">
-          <Link to="/contents/about-seolhun">
+          <SHLink to="/contents/about-seolhun">
             <Button>{t('common:viewMore')}</Button>
-          </Link>
+          </SHLink>
         </Col>
       </Row>
     </StyledHomeContainer>

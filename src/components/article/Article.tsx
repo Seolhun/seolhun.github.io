@@ -1,15 +1,17 @@
 import React from 'react';
-import { Link } from 'gatsby';
-
 import styled from '@emotion/styled';
-import { Col, Container, Row } from '@seolhun/localize-components';
+
+import { Container } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
+
+import { SHLink } from '@/components';
 
 interface Props {
   title: string;
+  subTitle: string;
+  slug: string;
   date: string;
   excerpt: string;
-  slug: string;
   timeToRead: number;
   category?: string;
   banner?: string;
@@ -24,8 +26,13 @@ const ArticleContainer = styled.article({
   wordBreak: 'break-all',
 });
 
+const StyledContentDateTime = styled.div(() => ({
+  textAlign: 'right',
+}));
+
 const Article = ({
   title,
+  subTitle,
   date,
   excerpt,
   slug,
@@ -34,38 +41,25 @@ const Article = ({
 }: Props) => (
   <ArticleContainer>
     <Container>
-      <Link to={`/contents/${slug}`}>
-        <Row alignItems="flex-start">
-          <Col xs={24}>
-            <Typo type="h2" weight={600}>
-              {title}
-            </Typo>
-          </Col>
-        </Row>
-        {excerpt && (
-          <Row alignItems="flex-start">
-            <Col xs={24}>
-              <Typo type="p">{excerpt}</Typo>
-            </Col>
-          </Row>
+      <SHLink to={`/contents/${slug}`}>
+        <Typo type="h2" weight={600}>
+          {title}
+        </Typo>
+        {subTitle && (
+          <Typo type="p">{subTitle}</Typo>
         )}
-        <Row alignItems="flex-start">
-          <Col xs={24} justifyContent="flex-end">
-            <Typo type="small" weight={600}>
-              {date}
-            </Typo>
-            <Typo type="small" weight={600} css={{ padding: '0 5px' }}>
-              -
-            </Typo>
-            <Typo type="small" weight={600}>
-              {`${timeToRead}`}
-              {' '}
-              Min read
-              {category && ` in ${category}`}
-            </Typo>
-          </Col>
-        </Row>
-      </Link>
+        {excerpt && (
+          <Typo type="p">{excerpt}</Typo>
+        )}
+        <StyledContentDateTime>
+          <Typo type="p" weight={600}>
+            {date}
+          </Typo>
+          <Typo type="p" weight={600}>
+            {`${timeToRead} Min read ${category && `in ${category}`}`}
+          </Typo>
+        </StyledContentDateTime>
+      </SHLink>
     </Container>
   </ArticleContainer>
 );

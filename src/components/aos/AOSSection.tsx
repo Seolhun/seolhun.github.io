@@ -17,26 +17,16 @@ interface AOSSectionProps extends LocalizeThemeStyledProps {
 }
 
 const AOSWrapper = styled(Container)<any, ILocalizeTheme>(({ theme }) => ({
-  display: 'flex',
-  flex: '0 100%',
+  position: 'relative',
   width: '100%',
   height: '100%',
   backgroundColor: theme.background,
-  position: 'relative',
 }));
 
-const AOSContent = styled.div<AOSSectionProps>(
-  ({ horizonAlign = 'center', verticalAlign = 'center' }) => ({
-    display: 'flex',
-    flex: '0 100%',
-    flexDirection: 'column',
-    alignItems: horizonAlign,
-    justifyContent: verticalAlign,
-
-    width: '100%',
-    height: '100%',
-  }),
-);
+const AOSContent = styled.div<AOSSectionProps>(() => ({
+  width: '100%',
+  height: '100%',
+}));
 
 const AOSSection: React.FC<AOSSectionProps> = ({ children, ...props }) => {
   React.useEffect(() => {

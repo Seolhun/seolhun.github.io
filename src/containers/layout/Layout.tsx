@@ -1,20 +1,16 @@
 /* eslint-disable no-restricted-globals */
 import React from 'react';
-import {
-  graphql,
-  Link,
-  useStaticQuery,
-} from 'gatsby';
-import { useTranslation } from 'react-i18next';
-
+import { graphql, useStaticQuery } from 'gatsby';
 import { ThemeProvider } from 'emotion-theming';
 import { Global } from '@emotion/core';
 import styled from '@emotion/styled';
+import { useTranslation } from 'react-i18next';
+
 import { Container } from '@seolhun/localize-components';
-import { Switch, Typo } from '@seolhun/localize-components-atomic';
+import { Typo } from '@seolhun/localize-components-atomic';
 import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
-import { Footer } from '@/components';
+import { Footer, SHLink, SHSwitch } from '@/components';
 import useStorage from '@/hooks/useStorage';
 import Theme from '@/constants/Theme';
 import '@/i18n';
@@ -70,12 +66,13 @@ const query = graphql`
   }
 `;
 
-
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { t } = useTranslation();
   const { site } = useStaticQuery(query);
   const storage = useStorage();
-  const [isDarkMode, setThemeMode] = React.useState(storage ? storage.getItem('THEME') === 'DARK' : true);
+  const [isDarkMode, setThemeMode] = React.useState(
+    storage ? storage.getItem('THEME') === 'DARK' : true,
+  );
 
   const handleIsChecked = () => {
     storage?.setItem('THEME', !isDarkMode ? 'DARK' : 'LIGHT');
@@ -95,16 +92,11 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         <StyledFixedHeader>
           <StyledLogoContainer>
             <Typo type="h2" weight={700} isHighlight>
-              <Link to={isContentPath ? '/contents' : '/'}>{siteMetadata.siteTitle}</Link>
+              <SHLink to={isContentPath ? '/contents' : '/'}>{siteMetadata.siteTitle}</SHLink>
             </Typo>
           </StyledLogoContainer>
           <StyledSwitchContainer>
-            {/* <Switch
-              htmlFor="theme"
-              onChange={handleIsChecked}
-              checked={isDarkMode}
-              css={{ zIndex: 5 }}
-            /> */}
+            <SHSwitch htmlFor="theme" onChange={handleIsChecked} checked={isDarkMode} />
           </StyledSwitchContainer>
         </StyledFixedHeader>
         <main>{children}</main>
@@ -114,13 +106,11 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             {`${t('home:title')} by ${siteMetadata.author} . All rights reserved.`}
           </Typo>
           <Typo type="p">
-            <a href={siteMetadata.github} target="_blank" rel="noreferrer">
+            <SHLink to={siteMetadata.github} isExternal>
               {`${siteMetadata.author} GitHub`}
-            </a>
+            </SHLink>
           </Typo>
-          <Typo type="p">
-            {`Last build ${site.buildTime}`}
-          </Typo>
+          <Typo type="p">{`Last build ${site.buildTime}`}</Typo>
         </StyledFooter>
       </LayoutContainer>
     </ThemeProvider>
