@@ -89,7 +89,7 @@ const SEO = ({ isPostSEO, postPath = '', postNode }: SEO) => {
       <meta property="og:locale" content={siteMetadata.ogLanguage} />
       <meta property="og:site_name" content={siteMetadata.ogSiteName} />
       <meta property="og:url" content={isPostSEO ? postURL : blogURL} />
-      <meta property="fb:app_id" content={siteMetadata.siteFBAppID} />
+      <meta property="fb:app_id" content={siteMetadata.SITE_FB_APPID} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={siteMetadata.userTwitter} />
       <meta name="twitter:title" content={title} />

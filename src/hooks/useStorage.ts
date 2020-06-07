@@ -2,13 +2,11 @@ const ROOT_KEY: string = '__SEOLHUN__';
 type LocalStorageKeys = 'THEME';
 
 const useStorage = () => {
-  let storage = null;
-  if (typeof localStorage === 'undefined') {
-    storage = null;
-  }
-
-  storage = localStorage;
   const getRootStorage = () => {
+    if (typeof localStorage === 'undefined' || !localStorage) {
+      return;
+    }
+
     const rootItem: any = localStorage.getItem(ROOT_KEY);
     if (rootItem) {
       return JSON.parse(rootItem);
@@ -28,6 +26,10 @@ const useStorage = () => {
   };
 
   const setItem = (key: LocalStorageKeys, value: any) => {
+    if (typeof localStorage === 'undefined' || !localStorage) {
+      return;
+    }
+
     const rootItem = getRootStorage();
     const overridingRootItem = {
       ...rootItem,
@@ -38,6 +40,10 @@ const useStorage = () => {
   };
 
   const removeItem = (key: LocalStorageKeys) => {
+    if (typeof localStorage === 'undefined' || !localStorage) {
+      return;
+    }
+
     const rootItem = getItem(key);
     if (!rootItem[key]) {
       return false;
@@ -48,7 +54,6 @@ const useStorage = () => {
   };
 
   return {
-    storage,
     getItem,
     setItem,
     removeItem,

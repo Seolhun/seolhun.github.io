@@ -132,7 +132,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: siteMetadata.Google_Analytics_ID,
+        trackingId: siteMetadata.GOOGLE_ANALYTICS_ID,
         head: false,
         anonymize: true,
         respectDNT: true,
@@ -149,13 +149,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-adsense',
       options: {
-        publisherId: siteMetadata.Google_AD_Sense_ID,
+        publisherId: siteMetadata.GOOGLE_AD_SENSE_ID,
       },
     },
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        id: siteMetadata.Google_Tag_Manager_ID,
+        id: siteMetadata.GOOGLE_TAG_MANAGER_ID,
         includeInDevelopment: false,
         defaultDataLayer: { platform: 'gatsby' },
       },
@@ -163,7 +163,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-disqus',
       options: {
-        shortname: siteMetadata.Disqus_ShortName,
+        shortname: siteMetadata.DISQUS_SHORTNAME,
       },
     },
     {

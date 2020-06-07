@@ -61,14 +61,14 @@ const query = graphql`
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { t } = useTranslation();
   const { site } = useStaticQuery(query);
-  const storage = useStorage();
+  const { getItem, setItem } = useStorage();
 
   const [isDarkMode, setThemeMode] = React.useState(
-    storage ? storage.getItem('THEME') === 'DARK' : true,
+    getItem('THEME') === 'DARK',
   );
 
   const handleIsChecked = () => {
-    storage?.setItem('THEME', !isDarkMode ? 'DARK' : 'LIGHT');
+    setItem('THEME', !isDarkMode ? 'DARK' : 'LIGHT');
     setThemeMode(!isDarkMode);
   };
 
