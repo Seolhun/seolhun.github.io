@@ -1,5 +1,5 @@
+import React from 'react';
 import styled from '@emotion/styled';
-import { FC, ReactNode } from 'react';
 
 const StyledFooter = styled.footer({
   position: 'relative',
@@ -12,15 +12,13 @@ const StyledFooterContainer = styled.div({
 });
 
 interface FooterProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-export const Footer: FC<FooterProps> = ({ children }) => {
-  return (
-    <StyledFooter>
-      <StyledFooterContainer>{children}</StyledFooterContainer>
-    </StyledFooter>
-  );
-};
+export const Footer: React.FC<FooterProps> = ({ children }) => (
+  <StyledFooter>
+    <StyledFooterContainer>{children}</StyledFooterContainer>
+  </StyledFooter>
+);
 
 export default Footer;

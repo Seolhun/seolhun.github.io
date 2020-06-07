@@ -1,22 +1,24 @@
-import { useCallback } from 'react';
-
 const ROOT_KEY: string = '__SEOLHUN__';
 type LocalStorageKeys = 'THEME';
 
-export const useStorage = () => {
-  if (typeof localStorage === 'undefined') {
-    return null;
+const useStorage = () => {
+  let storage = sessionStorage;
+  if (typeof sessionStorage === 'undefined') {
+    storage = localStorage;
+    if (typeof localStorage === 'undefined') {
+      return null;
+    }
   }
 
-  const getRootStorage = useCallback(() => {
+  const getRootStorage = () => {
     const rootItem: any = localStorage.getItem(ROOT_KEY);
     if (rootItem) {
       return JSON.parse(rootItem);
     }
     return null;
-  }, []);
+  };
 
-  const getItem = useCallback((key: LocalStorageKeys) => {
+  const getItem = (key: LocalStorageKeys) => {
     const rootItem: any = getRootStorage();
     if (rootItem) {
       if (rootItem[key]) {
@@ -25,9 +27,9 @@ export const useStorage = () => {
       return rootItem;
     }
     return {};
-  }, []);
+  };
 
-  const setItem = useCallback((key: LocalStorageKeys, value: any) => {
+  const setItem = (key: LocalStorageKeys, value: any) => {
     const rootItem = getRootStorage();
     const overridingRootItem = {
       ...rootItem,
@@ -35,9 +37,9 @@ export const useStorage = () => {
     };
     localStorage.setItem(ROOT_KEY, JSON.stringify(overridingRootItem));
     return overridingRootItem;
-  }, []);
+  };
 
-  const removeItem = useCallback((key: LocalStorageKeys) => {
+  const removeItem = (key: LocalStorageKeys) => {
     const rootItem = getItem(key);
     if (!rootItem[key]) {
       return false;
@@ -45,13 +47,18 @@ export const useStorage = () => {
     delete rootItem[key];
     localStorage.setItem(ROOT_KEY, rootItem);
     return true;
-  }, []);
+  };
 
   return {
+    storage,
     getItem,
     setItem,
     removeItem,
   };
+};
+
+export {
+  useStorage,
 };
 
 export default useStorage;

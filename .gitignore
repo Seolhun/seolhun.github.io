@@ -67,4 +67,3 @@ yarn-error.log
 
 # Build
 public/
-!public/assets/

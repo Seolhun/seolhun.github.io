@@ -1,35 +1,32 @@
+/* eslint-disable max-len */
 const path = require('path');
-require('source-map-support').install();
-require('ts-node').register({
-  compilerOptions: {
-    module: 'commonjs',
-    target: 'es2017',
-  },
-});
+const siteMetadata = require('./siteMetadata');
 
-const SiteConfig = require('./config/SiteConfig').default;
-const pathPrefix = SiteConfig.pathPrefix === '/' ? '' : SiteConfig.pathPrefix;
+const pathPrefix = siteMetadata.pathPrefix === '/' ? '' : siteMetadata.pathPrefix;
 
 module.exports = {
-  pathPrefix: SiteConfig.pathPrefix,
+  pathPrefix: siteMetadata.pathPrefix,
   siteMetadata: {
-    title: SiteConfig.siteTitle,
-    description: SiteConfig.siteDescription,
-    siteUrl: SiteConfig.siteUrl + pathPrefix,
+    title: siteMetadata.siteTitle,
+    description: siteMetadata.siteDescription,
+    siteUrl: siteMetadata.siteUrl + pathPrefix,
   },
   plugins: [
-    'gatsby-plugin-sitemap',
-    'gatsby-plugin-catch-links',
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-lodash',
-    'gatsby-plugin-offline',
+    'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-json',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-remove-serviceworker',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-emotion',
+    'gatsby-plugin-offline',
     'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
         '@': path.join(__dirname, 'src'),
-        config: path.join(__dirname, 'config'),
       },
     },
     {
@@ -54,58 +51,65 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: 'gatsby-plugin-feed',
       options: {
         query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
+            {
+              site {
+                siteMetadata {
+                  title
+                  description
+                  siteUrl
+                  site_url: siteUrl
+                }
               }
             }
-          }
-        `,
+          `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map((edge) => {
-                const url = site.siteMetadata.siteUrl + '/contents' + edge.node.fields.slug;
-                return Object.assign({}, edge.node.frontmatter, {
+            serialize: ({ query: { site, allMarkdownRemark } }) =>
+              allMarkdownRemark.edges.map((edge) => {
+                const url = `${site.siteMetadata.siteUrl}/contents/${edge.node.fields.slug}`;
+                return {
+                  ...edge.node.frontmatter,
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
                   url,
                   guid: url,
                   custom_elements: [{ 'content:encoded': edge.node.html }],
-                });
-              });
-            },
+                };
+              }),
             query: `
-              {
-                allMarkdownRemark(
-                  sort: { fields: [frontmatter___date], order: DESC },
-                ) {
-                  edges {
-                    node {
-                      excerpt(pruneLength: 200)
-                      html
-                      fields {
-                        slug
-                      }
-                      frontmatter {
-                        title
-                        date(formatString: "YYYY.MM.DD")
-                        category
-                        tags
-                        banner
+                {
+                  allMarkdownRemark(
+                    sort: {
+                      fields: [frontmatter___date],
+                      order: DESC
+                    },
+                  ) {
+                    edges {
+                      node {
+                        excerpt(pruneLength: 250)
+                        fields {
+                          slug
+                        }
+                        frontmatter {
+                          author
+                          banner
+                          category
+                          date(formatString: "YYYY.MM.DD")
+                          subTitle
+                          tags
+                          title
+                        }
+                        html
+                        id
+                        timeToRead
                       }
                     }
                   }
                 }
-              }
-            `,
+              `,
             output: '/rss.xml',
             title: "Hi-Cord's RSS Feed",
           },
@@ -115,20 +119,20 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: SiteConfig.siteTitle,
-        short_name: SiteConfig.siteTitleAlt,
-        description: SiteConfig.siteDescription,
-        start_url: SiteConfig.pathPrefix,
-        background_color: SiteConfig.manifestBackgroundColor,
-        theme_color: SiteConfig.manifestThemeColor,
+        name: siteMetadata.siteTitle,
+        short_name: siteMetadata.siteTitleAlt,
+        description: siteMetadata.siteDescription,
+        start_url: siteMetadata.pathPrefix,
+        background_color: siteMetadata.manifestBackgroundColor,
+        theme_color: siteMetadata.manifestThemeColor,
         display: 'standalone',
-        icon: SiteConfig.favicon,
+        icon: siteMetadata.favicon,
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: SiteConfig.Google_Analytics_ID,
+        trackingId: siteMetadata.Google_Analytics_ID,
         head: false,
         anonymize: true,
         respectDNT: true,
@@ -139,33 +143,27 @@ module.exports = {
         // variationId: 'YOUR_GOOGLE_OPTIMIZE_VARIATION_ID',
         sampleRate: 5,
         siteSpeedSampleRate: 10,
-        cookieDomain: SiteConfig.siteUrl,
+        cookieDomain: siteMetadata.siteUrl,
       },
     },
     {
-      resolve: `gatsby-plugin-google-adsense`,
+      resolve: 'gatsby-plugin-google-adsense',
       options: {
-        publisherId: SiteConfig.Google_AD_Sense_ID,
+        publisherId: siteMetadata.Google_AD_Sense_ID,
       },
     },
     {
-      resolve: `gatsby-plugin-google-adsense`,
+      resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        publisherId: SiteConfig.Google_AD_Sense_ID2,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-tagmanager`,
-      options: {
-        id: SiteConfig.Google_Tag_Manager_ID,
+        id: siteMetadata.Google_Tag_Manager_ID,
         includeInDevelopment: false,
         defaultDataLayer: { platform: 'gatsby' },
       },
     },
     {
-      resolve: `gatsby-plugin-disqus`,
+      resolve: 'gatsby-plugin-disqus',
       options: {
-        shortname: SiteConfig.Disqus_ShortName,
+        shortname: siteMetadata.Disqus_ShortName,
       },
     },
     {

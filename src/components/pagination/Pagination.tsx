@@ -4,13 +4,15 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
-export const PaginationContainer = styled.span<any, ILocalizeTheme>(({ theme }) => {
-  return {
-    display: 'flex',
-    flex: 'auto',
-    justifyContent: 'space-evenly',
-    color: theme.fonts.COLOR.primaryColor,
-  };
+import { SHLink } from '@/components';
+
+export const PaginationWrapper = styled.div<any, ILocalizeTheme>({
+  width: '100%',
+});
+
+export const PaginationContainer = styled.div<any, ILocalizeTheme>({
+  display: 'flex',
+  justifyContent: 'space-evenly',
 });
 
 interface Props {
@@ -31,27 +33,29 @@ const Pagination = ({ currentPage, totalPages, url }: Props) => {
   }
 
   return (
-    <PaginationContainer>
-      {!isFirst && (
-        <Link className='prev page-numbers' to={prevPage} rel='prev'>
-          ← Prev
-        </Link>
-      )}
-      {Array.from({ length: totalPages }, (_, i) => (
-        <Link
-          className={currentPage === i + 1 ? 'page-numbers current' : 'page-numbers'}
-          key={`pagination-number${i + 1}`}
-          to={`/${url}/${i === 0 ? '' : i + 1}`}
-        >
-          {i + 1}
-        </Link>
-      ))}
-      {!isLast && (
-        <Link className='next page-numbers' to={nextPage} rel='next'>
-          Next →
-        </Link>
-      )}
-    </PaginationContainer>
+    <PaginationWrapper>
+      <PaginationContainer>
+        {!isFirst && (
+          <Link to={prevPage}>
+            ← Prev
+          </Link>
+        )}
+        {[...new Array(totalPages)].map((_, i) => (
+          <SHLink
+            className={currentPage === i + 1 ? 'page-numbers current' : 'page-numbers'}
+            key={`pagination-number${i + 1}`}
+            to={`/${url}/${i === 0 ? '' : i + 1}`}
+          >
+            {i + 1}
+          </SHLink>
+        ))}
+        {!isLast && (
+          <SHLink to={nextPage}>
+            Next →
+          </SHLink>
+        )}
+      </PaginationContainer>
+    </PaginationWrapper>
   );
 };
 

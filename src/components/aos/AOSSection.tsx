@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
+import React from 'react';
 
 import styled from '@emotion/styled';
 import { Container } from '@seolhun/localize-components';
@@ -11,42 +11,25 @@ import 'aos/dist/aos.css';
 
 type AOSAlign = 'center' | 'flex-start' | 'flex-end';
 
-export interface AOSSectionProps extends LocalizeThemeStyledProps {
-  [key: string]: any;
-  children: ReactNode;
-
+interface AOSSectionProps extends LocalizeThemeStyledProps {
   verticalAlign?: AOSAlign;
   horizonAlign?: AOSAlign;
 }
 
-const AOSWrapper = styled(Container)<any, ILocalizeTheme>(({ theme }) => {
-  return {
-    display: 'flex',
-    flex: '0 100%',
-    width: '100%',
-    height: '100%',
-    backgroundColor: theme.background,
-    position: 'relative',
-  };
-});
+const AOSWrapper = styled(Container)<any, ILocalizeTheme>(({ theme }) => ({
+  position: 'relative',
+  width: '100%',
+  height: '100%',
+  backgroundColor: theme.background,
+}));
 
-const AOSContent = styled.div<AOSSectionProps>(
-  ({ horizonAlign = 'center', verticalAlign = 'center' }) => {
-    return {
-      display: 'flex',
-      flex: `0 100%`,
-      flexDirection: 'column',
-      alignItems: horizonAlign,
-      justifyContent: verticalAlign,
+const AOSContent = styled.div<AOSSectionProps>(() => ({
+  width: '100%',
+  height: '100%',
+}));
 
-      width: `100%`,
-      height: `100%`,
-    };
-  }
-);
-
-const AOSSection = ({ children, ...props }: AOSSectionProps) => {
-  useEffect(() => {
+const AOSSection: React.FC<AOSSectionProps> = ({ children, ...props }) => {
+  React.useEffect(() => {
     AOS.init();
   }, []);
 
@@ -56,5 +39,7 @@ const AOSSection = ({ children, ...props }: AOSSectionProps) => {
     </AOSWrapper>
   );
 };
+
+export { AOSSection };
 
 export default AOSSection;

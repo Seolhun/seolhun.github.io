@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import { Col, Container, Row } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
@@ -8,7 +8,8 @@ import { Typo } from '@seolhun/localize-components-atomic';
 import { Article, PostHeader, SEO } from '@/components';
 import { Layout } from '@/containers';
 import PageProps from '@/models/PageProps';
-import SiteConfig from 'config/SiteConfig';
+
+import siteMetadata from '../../siteMetadata';
 
 const Category = ({ pathContext }: PageProps) => {
   const { posts, categoryName } = pathContext;
@@ -18,35 +19,36 @@ const Category = ({ pathContext }: PageProps) => {
   return (
     <Layout>
       <SEO isPostSEO={false} />
-      <Helmet title={`${categoryName} | ${SiteConfig.siteTitle}`} />
+      <Helmet title={`${categoryName} | ${siteMetadata.siteTitle}`} />
       <Container>
         <Row>
           <Col xs={24}>
             <PostHeader>
-              <Typo type='h1' weight={800} isHighlight>
-                Category &ndash; {categoryName}
+              <Typo type="h1" weight={800} isHighlight>
+                Category &ndash;
+                {` ${categoryName}`}
               </Typo>
-              <Typo type='small' weight={500}>
-                {subline} (See <Link to='/categories'>all categories</Link>)
+              <Typo type="small" weight={500}>
+                {`${subline} (See `}
+                <Link to="/categories"> All categories</Link>
+                )
               </Typo>
             </PostHeader>
           </Col>
         </Row>
-        <Row flexDirection='column'>
-          {posts.map((post) => (
-            <Col xs={24} key={post.fields.slug}>
-              <Article
-                title={post.frontmatter.title}
-                date={post.frontmatter.date}
-                excerpt={post.excerpt}
-                timeToRead={post.timeToRead}
-                slug={post.fields.slug}
-                category={post.frontmatter.category}
-                banner={post.frontmatter.banner}
-              />
-            </Col>
-          ))}
-        </Row>
+        {posts.map((post) => (
+          <Article
+            key={post.fields.slug}
+            date={post.frontmatter.date}
+            excerpt={post.excerpt}
+            slug={post.fields.slug}
+            timeToRead={post.timeToRead}
+            title={post.frontmatter.title}
+            banner={post.frontmatter.banner}
+            category={post.frontmatter.category}
+            subTitle={post.frontmatter.subTitle}
+          />
+        ))}
       </Container>
     </Layout>
   );

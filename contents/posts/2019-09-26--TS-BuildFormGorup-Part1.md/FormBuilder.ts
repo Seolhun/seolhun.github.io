@@ -25,8 +25,7 @@ export interface FormBuilderOptions {
   isOnChangeValidation?: boolean;
 }
 
-
-export interface IFormBuilder {
+export interface FormBuildeProps {
   properties: FormBuilderProperties;
   options: FormBuilderOptions;
   handleOnValidation: (value?: any) => FormBuilder;
@@ -37,8 +36,7 @@ export interface IFormBuilder {
   getValues: () => FormBuilderValues;
 }
 
-
-export class FormBuilder implements IFormBuilder {
+export class FormBuilder implements FormBuildeProps {
   properties: FormBuilderProperties;
   options: FormBuilderOptions;
 
@@ -104,7 +102,7 @@ export class FormBuilder implements IFormBuilder {
       properties,
       options,
     };
-  }
+  };
 
   // tslint:disable-next-line:variable-name
   handleOnValidation = (value = this.properties.value) => {
@@ -126,7 +124,7 @@ export class FormBuilder implements IFormBuilder {
     }
 
     return this;
-  }
+  };
 
   handleOnGroupValidation = (currentKey) => {
     this.options.onGroupValidation(currentKey);
@@ -158,7 +156,7 @@ export class FormBuilder implements IFormBuilder {
     return {
       hasError: this.properties.hasError,
       message: this.properties.message,
-    }
+    };
   }
 
   getPropertyValueBy(propertyKey: keyof FormBuilderProperties) {

@@ -1,26 +1,24 @@
-import config from 'config/SiteConfig';
+// @ts-ignore
 import Typography from 'typography';
 
-const headerFontFamilies = config.headerFontFamily.map((font) => {
-  return {
-    name: font,
-    styles: ['700'],
-  };
-});
+import siteMetadata from '../../siteMetadata';
 
-const bodyFontFamilies = config.bodyFontFamily.map((font) => {
-  return {
-    name: font,
-    styles: ['400'],
-  };
-});
+const headerFontFamilies = siteMetadata.headerFontFamily.map((font) => ({
+  name: font,
+  styles: ['700'],
+}));
+
+const bodyFontFamilies = siteMetadata.bodyFontFamily.map((font) => ({
+  name: font,
+  styles: ['400'],
+}));
 
 export const typography = new Typography({
-  baseFontSize: config.baseFontSize,
+  baseFontSize: siteMetadata.baseFontSize,
   baseLineHeight: 1.65,
   scaleRatio: 3.15,
-  headerFontFamily: [...config.headerFontFamily, 'sans-serif'],
-  bodyFontFamily: [...config.bodyFontFamily, 'sans-serif'],
+  headerFontFamily: [...siteMetadata.headerFontFamily, 'sans-serif'],
+  bodyFontFamily: [...siteMetadata.bodyFontFamily, 'sans-serif'],
   headerWeight: 700,
   googleFonts: [...headerFontFamilies, ...bodyFontFamilies],
 });

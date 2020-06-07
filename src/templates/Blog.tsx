@@ -1,13 +1,19 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import { Col, Container, Row } from '@seolhun/localize-components';
 
-import { Article, Pagination, PostHeader, SEO } from '@/components';
+import {
+  Article,
+  Pagination,
+  PostHeader,
+  SEO,
+} from '@/components';
 import { Layout, Profile } from '@/containers';
 import Data from '@/models/Data';
-import SiteConfig from 'config/SiteConfig';
+
+import siteMetadata from '../../siteMetadata';
 
 interface Props {
   data: Data;
@@ -24,35 +30,25 @@ export const BlogPage = ({ pageContext, data }: Props) => {
   return (
     <Layout>
       <SEO isPostSEO={false} />
-      <Helmet title={`Blogs | ${SiteConfig.siteTitle}`} />
+      <Helmet title={`Blogs | ${siteMetadata.siteTitle}`} />
       <Container>
-        <Row>
-          <Col xs={24}>
-            <PostHeader>
-              <Profile />
-            </PostHeader>
-          </Col>
-        </Row>
-        <Row flexDirection='column'>
-          {edges.map((post) => (
-            <Col xs={24} key={post.node.fields.slug}>
-              <Article
-                title={post.node.frontmatter.title}
-                date={post.node.frontmatter.date}
-                excerpt={post.node.excerpt}
-                timeToRead={post.node.timeToRead}
-                slug={post.node.fields.slug}
-                category={post.node.frontmatter.category}
-                banner={post.node.frontmatter.banner}
-              />
-            </Col>
-          ))}
-        </Row>
-        <Row>
-          <Col xs={24}>
-            <Pagination currentPage={currentPage} totalPages={totalPages} url={'contents'} />
-          </Col>
-        </Row>
+        <PostHeader>
+          <Profile />
+        </PostHeader>
+        {edges.map((post) => (
+          <Article
+            key={post.node.fields.slug}
+            date={post.node.frontmatter.date}
+            excerpt={post.node.excerpt}
+            slug={post.node.fields.slug}
+            timeToRead={post.node.timeToRead}
+            title={post.node.frontmatter.title}
+            banner={post.node.frontmatter.banner}
+            category={post.node.frontmatter.category}
+            subTitle={post.node.frontmatter.subTitle}
+          />
+        ))}
+        <Pagination currentPage={currentPage} totalPages={totalPages} url="contents" />
       </Container>
     </Layout>
   );
@@ -69,17 +65,21 @@ export const BlogQuery = graphql`
       totalCount
       edges {
         node {
+          excerpt(pruneLength: 165)
           fields {
             slug
           }
           frontmatter {
-            title
-            date(formatString: "YYYY.MM.DD")
-            category
-            tags
+            author
             banner
+            category
+            date(formatString: "YYYY.MM.DD")
+            subTitle
+            tags
+            title
           }
-          excerpt(pruneLength: 165)
+          html
+          id
           timeToRead
         }
       }

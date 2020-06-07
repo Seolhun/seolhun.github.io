@@ -17,3 +17,5 @@ export const bounce = (down: number = 30) => keyframes`
     transform: translate3d(0, -4px, 0);
   }
 `;
+
+export default bounce;

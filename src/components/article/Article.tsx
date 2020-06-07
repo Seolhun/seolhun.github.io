@@ -1,64 +1,91 @@
-import { Link } from 'gatsby';
 import React from 'react';
-
 import styled from '@emotion/styled';
-import { Col, Container, Row } from '@seolhun/localize-components';
-import { Typo } from '@seolhun/localize-components-atomic';
+
+import { Container } from '@seolhun/localize-components';
+
+import { SHLink } from '@/components';
+import media from '@/utils/media';
+
+import { Content } from '../content';
 
 interface Props {
-  title: string;
+  /**
+   * Date for blog
+   */
   date: string;
+
+  /**
+   * excerpt for blog
+   */
   excerpt: string;
+
+  /**
+   * Slug for blog
+   */
   slug: string;
+
+  /**
+   * TimeToRead for blog
+   */
   timeToRead: number;
-  category?: string;
+
+  /**
+   * Title for blog
+   */
+  title: string;
+
+  /**
+   * Banner for blog
+   */
   banner?: string;
+
+  /**
+   * Category for blog
+   */
+  category?: string;
+
+  /**
+   * SubTitle for blog
+   */
+  subTitle?: string;
 }
 
-const ArticleContainer = styled.article({
-  display: 'flex',
-  flex: 'auto',
-  flexDirection: 'column',
-  marginTop: '2rem',
-  marginBottom: '2rem',
+const ArticleWrapper = styled.article({
+
+});
+
+const ArticleContainer = styled.div({
+  margin: '3rem 0',
   wordBreak: 'break-all',
 });
 
-const Article = ({ title, date, excerpt, slug, timeToRead, category }: Props) => (
-  <ArticleContainer>
-    <Container>
-      <Link to={`/contents/${slug}`}>
-        <Row alignItems='flex-start'>
-          <Col xs={24}>
-            <Typo type='h2' weight={600}>
-              {title}
-            </Typo>
-          </Col>
-        </Row>
-        {excerpt && (
-          <Row alignItems='flex-start'>
-            <Col xs={24}>
-              <Typo type='p'>{excerpt}</Typo>
-            </Col>
-          </Row>
-        )}
-        <Row alignItems='flex-start'>
-          <Col xs={24} justifyContent='flex-end'>
-            <Typo type='small' weight={600}>
-              {date}
-            </Typo>
-            <Typo type='small' weight={600} css={{ padding: '0 5px' }}>
-              -
-            </Typo>
-            <Typo type='small' weight={600}>
-              {`${timeToRead}`} Min read
-              {category && ` in ${category}`}
-            </Typo>
-          </Col>
-        </Row>
-      </Link>
-    </Container>
-  </ArticleContainer>
+const Article = ({
+  title,
+  subTitle,
+  date,
+  excerpt,
+  slug,
+  timeToRead,
+  category,
+}: Props) => (
+  <ArticleWrapper>
+    <ArticleContainer>
+      <Container>
+        <SHLink to={`/contents/${slug}`}>
+          <Content
+            date={date}
+            excerpt={excerpt}
+            timeToRead={timeToRead}
+            title={title}
+            category={category}
+            subTitle={subTitle}
+          />
+        </SHLink>
+      </Container>
+    </ArticleContainer>
+  </ArticleWrapper>
 );
+
+export { Article };
 
 export default Article;
