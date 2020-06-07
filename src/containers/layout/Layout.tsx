@@ -25,7 +25,7 @@ const LayoutContainer = styled(Container)<any, ILocalizeTheme>(({ theme }) => ({
   backgroundColor: theme.background,
 }));
 
-const StyledFixedHeader = styled.header<any, ILocalizeTheme>(({ theme }) => ({
+const FixedHeader = styled.header<any, ILocalizeTheme>(({ theme }) => ({
   position: 'fixed',
   left: 0,
   top: 0,
@@ -36,26 +36,18 @@ const StyledFixedHeader = styled.header<any, ILocalizeTheme>(({ theme }) => ({
   zIndex: 5,
 }));
 
-const StyledLogoContainer = styled.div({
+const LogoContainer = styled.div({
   position: 'absolute',
-  left: '1.2rem',
+  left: '1rem',
   top: '0.8rem',
   zIndex: 10,
-
-  a: {
-    textDecoration: 'none',
-  },
 });
 
-const StyledSwitchContainer = styled.div({
+const SwitchContainer = styled.div({
   position: 'absolute',
   right: '1.2rem',
   top: '1.1rem',
   zIndex: 10,
-});
-
-const StyledFooter = styled(Footer)({
-  zIndex: 1,
 });
 
 const query = graphql`
@@ -89,18 +81,20 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
     <ThemeProvider theme={isDarkMode ? Theme.DARK : Theme.LIGHT}>
       <Global styles={globalStyles} />
       <LayoutContainer isFullWidth>
-        <StyledFixedHeader>
-          <StyledLogoContainer>
-            <Typo type="h2" weight={700} isHighlight>
-              <SHLink to={isContentPath ? '/contents' : '/'}>{siteMetadata.siteTitle}</SHLink>
-            </Typo>
-          </StyledLogoContainer>
-          <StyledSwitchContainer>
+        <FixedHeader>
+          <LogoContainer>
+            <SHLink to={isContentPath ? '/contents' : '/'}>
+              <Typo type="h2" weight={700} isHighlight>
+                {siteMetadata.siteTitle}
+              </Typo>
+            </SHLink>
+          </LogoContainer>
+          <SwitchContainer>
             <SHSwitch htmlFor="theme" onChange={handleIsChecked} checked={isDarkMode} />
-          </StyledSwitchContainer>
-        </StyledFixedHeader>
+          </SwitchContainer>
+        </FixedHeader>
         <main>{children}</main>
-        <StyledFooter>
+        <Footer>
           <Typo type="p">
             &copy;
             {`${t('home:title')} by ${siteMetadata.author} . All rights reserved.`}
@@ -111,7 +105,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             </SHLink>
           </Typo>
           <Typo type="p">{`Last build ${site.buildTime}`}</Typo>
-        </StyledFooter>
+        </Footer>
       </LayoutContainer>
     </ThemeProvider>
   );
