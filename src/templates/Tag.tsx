@@ -26,36 +26,29 @@ const TagTemplate = ({ pathContext }: PageProps) => {
             <PostHeader>
               <Typo type="h1" weight={800} isHighlight>
                 Category &ndash;
-                {' '}
-                {tagsName}
+                {` ${tagsName}`}
               </Typo>
               <Typo type="small" weight={500}>
-                {subline}
-                {' '}
-                (See
-                {' '}
+                {`${subline} (See `}
                 <Link to="/categories">all categories</Link>
-                {' '}
-                )
+                {' )'}
               </Typo>
             </PostHeader>
           </Col>
         </Row>
-        <Row flexDirection="column">
-          {posts.map((post) => (
-            <Col xs={24} key={post.fields.slug}>
-              <Article
-                title={post.frontmatter.title}
-                date={post.frontmatter.date}
-                excerpt={post.excerpt}
-                timeToRead={post.timeToRead}
-                slug={post.fields.slug}
-                category={post.frontmatter.category}
-                banner={post.frontmatter.banner}
-              />
-            </Col>
-          ))}
-        </Row>
+        {posts.map((post) => (
+          <Article
+            key={post.fields.slug}
+            date={post.frontmatter.date}
+            excerpt={post.excerpt}
+            slug={post.fields.slug}
+            timeToRead={post.timeToRead}
+            title={post.frontmatter.title}
+            banner={post.frontmatter.banner}
+            category={post.frontmatter.category}
+            subTitle={post.frontmatter.subTitle}
+          />
+        ))}
       </Container>
     </Layout>
   );

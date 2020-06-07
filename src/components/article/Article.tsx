@@ -2,33 +2,60 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import { Container } from '@seolhun/localize-components';
-import { Typo } from '@seolhun/localize-components-atomic';
 
 import { SHLink } from '@/components';
+import { Content } from '../content';
 
 interface Props {
-  title: string;
-  subTitle: string;
-  slug: string;
+  /**
+   * Date for blog
+   */
   date: string;
+
+  /**
+   * excerpt for blog
+   */
   excerpt: string;
+
+  /**
+   * Slug for blog
+   */
+  slug: string;
+
+  /**
+   * TimeToRead for blog
+   */
   timeToRead: number;
-  category?: string;
+
+  /**
+   * Title for blog
+   */
+  title: string;
+
+  /**
+   * Banner for blog
+   */
   banner?: string;
+
+  /**
+   * Category for blog
+   */
+  category?: string;
+
+  /**
+   * SubTitle for blog
+   */
+  subTitle?: string;
 }
 
-const ArticleContainer = styled.article({
-  display: 'flex',
-  flex: 'auto',
-  flexDirection: 'column',
-  marginTop: '2rem',
-  marginBottom: '2rem',
-  wordBreak: 'break-all',
+const ArticleWrapper = styled.article({
+
 });
 
-const StyledContentDateTime = styled.div(() => ({
-  textAlign: 'right',
-}));
+const ArticleContainer = styled.div({
+  margin: '4rem 2rem',
+  wordBreak: 'break-all',
+});
 
 const Article = ({
   title,
@@ -39,29 +66,22 @@ const Article = ({
   timeToRead,
   category,
 }: Props) => (
-  <ArticleContainer>
-    <Container>
-      <SHLink to={`/contents/${slug}`}>
-        <Typo type="h2" weight={600}>
-          {title}
-        </Typo>
-        {subTitle && (
-          <Typo type="p">{subTitle}</Typo>
-        )}
-        {excerpt && (
-          <Typo type="p">{excerpt}</Typo>
-        )}
-        <StyledContentDateTime>
-          <Typo type="p" weight={600}>
-            {date}
-          </Typo>
-          <Typo type="p" weight={600}>
-            {`${timeToRead} Min read ${category && `in ${category}`}`}
-          </Typo>
-        </StyledContentDateTime>
-      </SHLink>
-    </Container>
-  </ArticleContainer>
+  <ArticleWrapper>
+    <ArticleContainer>
+      <Container>
+        <SHLink to={`/contents/${slug}`}>
+          <Content
+            date={date}
+            excerpt={excerpt}
+            timeToRead={timeToRead}
+            title={title}
+            category={category}
+            subTitle={subTitle}
+          />
+        </SHLink>
+      </Container>
+    </ArticleContainer>
+  </ArticleWrapper>
 );
 
 export { Article };
