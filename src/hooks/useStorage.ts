@@ -2,14 +2,12 @@ const ROOT_KEY: string = '__SEOLHUN__';
 type LocalStorageKeys = 'THEME';
 
 const useStorage = () => {
-  let storage = sessionStorage;
-  if (typeof sessionStorage === 'undefined') {
-    storage = localStorage;
-    if (typeof localStorage === 'undefined') {
-      return null;
-    }
+  let storage = null;
+  if (typeof localStorage === 'undefined') {
+    storage = null;
   }
 
+  storage = localStorage;
   const getRootStorage = () => {
     const rootItem: any = localStorage.getItem(ROOT_KEY);
     if (rootItem) {

@@ -62,6 +62,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { t } = useTranslation();
   const { site } = useStaticQuery(query);
   const storage = useStorage();
+
   const [isDarkMode, setThemeMode] = React.useState(
     storage ? storage.getItem('THEME') === 'DARK' : true,
   );
