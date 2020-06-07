@@ -4,6 +4,8 @@ import styled from '@emotion/styled';
 import { Container } from '@seolhun/localize-components';
 
 import { SHLink } from '@/components';
+import media from '@/utils/media';
+
 import { Content } from '../content';
 
 interface Props {
@@ -53,7 +55,7 @@ const ArticleWrapper = styled.article({
 });
 
 const ArticleContainer = styled.div({
-  margin: '4rem 2rem',
+  margin: '3rem 0',
   wordBreak: 'break-all',
 });
 

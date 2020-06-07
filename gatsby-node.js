@@ -78,7 +78,7 @@ const createClassificationPages = ({
       pluralName: 'categories',
       template: {
         part: path.resolve('src/templates/Category.tsx'),
-        all: path.resolve('src/templates/AllCategory.tsx'),
+        all: path.resolve('src/templates/AllCategories.tsx'),
       },
       postsByClassificationNames: getPostsByType(posts, 'category'),
     },
@@ -87,7 +87,7 @@ const createClassificationPages = ({
       pluralName: 'tags',
       template: {
         part: path.resolve('src/templates/Tag.tsx'),
-        all: path.resolve('src/templates/AllTag.tsx'),
+        all: path.resolve('src/templates/AllTags.tsx'),
       },
       postsByClassificationNames: getPostsByType(posts, 'tags'),
     },

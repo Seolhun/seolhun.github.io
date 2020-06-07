@@ -30,8 +30,8 @@ const TagTemplate = ({ pathContext }: PageProps) => {
               </Typo>
               <Typo type="small" weight={500}>
                 {`${subline} (See `}
-                <Link to="/categories">all categories</Link>
-                {' )'}
+                <Link to="/tags"> All tags</Link>
+                )
               </Typo>
             </PostHeader>
           </Col>

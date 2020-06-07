@@ -26,14 +26,11 @@ const Category = ({ pathContext }: PageProps) => {
             <PostHeader>
               <Typo type="h1" weight={800} isHighlight>
                 Category &ndash;
-                {' '}
-                {categoryName}
+                {` ${categoryName}`}
               </Typo>
               <Typo type="small" weight={500}>
-                {subline}
-                {' '}
-                (See
-                <Link to="/categories">all categories</Link>
+                {`${subline} (See `}
+                <Link to="/categories"> All categories</Link>
                 )
               </Typo>
             </PostHeader>
