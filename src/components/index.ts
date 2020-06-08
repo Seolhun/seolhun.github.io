@@ -11,4 +11,5 @@ export * from './posts';
 export * from './seo';
 export * from './skeleton';
 export * from './switch';
+export * from './theme-picker';
 export * from './typo';

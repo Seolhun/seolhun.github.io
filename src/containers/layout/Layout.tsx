@@ -5,14 +5,21 @@ import { ThemeProvider } from 'emotion-theming';
 import { Global } from '@emotion/core';
 import styled from '@emotion/styled';
 import { useTranslation } from 'react-i18next';
+import { ColorResult } from 'react-color';
 
 import { Container } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
 import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
-import { Footer, SHLink, SHSwitch } from '@/components';
-import useStorage from '@/hooks/useStorage';
-import Theme from '@/constants/Theme';
+import {
+  Footer,
+  SHLink,
+  SHSwitch,
+  ThemePicker,
+} from '@/components';
+import { useStorage } from '@/hooks';
+import { SHTheme } from '@/constants';
+
 import '@/i18n';
 
 import globalStyles from './globalStyles';
@@ -45,6 +52,13 @@ const LogoContainer = styled.div({
   zIndex: 10,
 });
 
+const SketchContainer = styled.div({
+  position: 'absolute',
+  right: '6rem',
+  top: '0.9rem',
+  zIndex: 10,
+});
+
 const SwitchContainer = styled.div({
   position: 'absolute',
   right: '1.2rem',
@@ -65,13 +79,16 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { site } = useStaticQuery(query);
   const { getItem, setItem } = useStorage();
 
-  const [isDarkMode, setThemeMode] = React.useState(
-    getItem('THEME') === 'DARK',
-  );
+  const [isDarkMode, setThemeMode] = React.useState(getItem('THEME') === 'DARK');
+  const [currentColor, setCurrentColor] = React.useState('royalBlue');
 
   const handleIsChecked = () => {
     setItem('THEME', !isDarkMode ? 'DARK' : 'LIGHT');
     setThemeMode(!isDarkMode);
+  };
+
+  const handleCurrentColor = (color: ColorResult) => {
+    setCurrentColor(color.hex);
   };
 
   if (typeof window === 'undefined') {
@@ -81,7 +98,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const isContentPath = window.location.pathname.split('/').includes('contents');
 
   return (
-    <ThemeProvider theme={isDarkMode ? Theme.DARK : Theme.LIGHT}>
+    <ThemeProvider theme={isDarkMode ? SHTheme.DARK : SHTheme.LIGHT}>
       <Global styles={globalStyles} />
       <LayoutContainer isFullWidth>
         <FixedHeader>
@@ -92,6 +109,12 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
               </Typo>
             </SHLink>
           </LogoContainer>
+          <SketchContainer>
+            <ThemePicker
+              currentColor={currentColor}
+              onChangeColor={handleCurrentColor}
+            />
+          </SketchContainer>
           <SwitchContainer>
             <SHSwitch htmlFor="theme" onChange={handleIsChecked} checked={isDarkMode} />
           </SwitchContainer>
