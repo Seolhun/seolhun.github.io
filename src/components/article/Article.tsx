@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 import { Container } from '@seolhun/localize-components';
 
 import { SHLink } from '@/components';
-import media from '@/utils/media';
 
 import { Content } from '../content';
 

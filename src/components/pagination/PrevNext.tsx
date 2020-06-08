@@ -1,10 +1,10 @@
-import { Link } from 'gatsby';
 import React from 'react';
 
 import styled from '@emotion/styled';
 import kebabcase from 'lodash.kebabcase';
 
-import Post from '@/models/Post';
+import { Post } from '@/models';
+import { SHLink } from '@/components';
 
 interface PaginationWrapperProps {
   theme?: any;
@@ -61,13 +61,13 @@ const PrevNext = ({ prev, next }: Props) => (
     {prev && (
       <Prev>
         <span>Previous</span>
-        <Link to={`/contents/${kebabcase(prev.frontmatter.title)}`}>{prev.frontmatter.title}</Link>
+        <SHLink to={`/contents/${kebabcase(prev.frontmatter.title)}`}>{prev.frontmatter.title}</SHLink>
       </Prev>
     )}
     {next && (
       <Next>
         <span>Next</span>
-        <Link to={`/contents/${kebabcase(next.frontmatter.title)}`}>{next.frontmatter.title}</Link>
+        <SHLink to={`/contents/${kebabcase(next.frontmatter.title)}`}>{next.frontmatter.title}</SHLink>
       </Next>
     )}
   </PaginationWrapper>

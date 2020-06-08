@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import styled from '@emotion/styled';
 import { Col, Container, Row } from '@seolhun/localize-components';
@@ -8,7 +8,7 @@ import { Typo } from '@seolhun/localize-components-atomic';
 import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 // @ts-ignore
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { Disqus } from 'gatsby-plugin-disqus';
+// import { Disqus } from 'gatsby-plugin-disqus';
 import kebabcase from 'lodash.kebabcase';
 
 import {
@@ -16,13 +16,14 @@ import {
   PostHeader,
   PrevNext,
   SEO,
+  SHLink,
 } from '@/components';
 import { Layout } from '@/containers';
-import PathContext from '@/models/PathContext';
-import Post from '@/models/Post';
+import { PathContext, Post } from '@/models';
+
 import '@/utils/prismjs-theme.css';
 
-import siteMetadata from '../../siteMetadata';
+// import siteMetadata from '../../siteMetadata';
 
 interface PostPageProps {
   data: {
@@ -50,11 +51,12 @@ const PostPage: React.FC<PostPageProps> = ({ data, pathContext }) => {
     },
     html,
   } = post;
-  const disqusConfig = {
-    url: `${siteMetadata.siteUrl}/contents/${fields.slug}`,
-    identifier: fields.slug,
-    title,
-  };
+
+  // const disqusConfig = {
+  //   url: `${siteMetadata.siteUrl}/contents/${fields.slug}`,
+  //   identifier: fields.slug,
+  //   title,
+  // };
 
   return (
     <Layout>
@@ -74,11 +76,8 @@ const PostPage: React.FC<PostPageProps> = ({ data, pathContext }) => {
                     {date}
                     {' '}
                     &mdash;
-                    {timeToRead}
-                    {' '}
-                    Min Read &mdash; In
-                    {' '}
-                    <Link to={`/categories/${kebabcase(category)}`}>{category}</Link>
+                    {`${timeToRead} Min read ${category && 'in '}`}
+                    <SHLink to={`/categories/${kebabcase(category)}`}>{category}</SHLink>
                   </Typo>
                 </PostHeader>
               </Col>
@@ -90,11 +89,11 @@ const PostPage: React.FC<PostPageProps> = ({ data, pathContext }) => {
               <Typo type="small">
                 Tags: &#160;
                 {tags.map((tag, i) => (
-                  <Link key={i} to={`/tags/${kebabcase(tag)}`}>
+                  <SHLink key={i} to={`/tags/${kebabcase(tag)}`}>
                     <Typo type="small">{tag}</Typo>
                     {' '}
                     {i < tags.length - 1 ? ', ' : ''}
-                  </Link>
+                  </SHLink>
                 ))}
               </Typo>
             )}
@@ -103,11 +102,11 @@ const PostPage: React.FC<PostPageProps> = ({ data, pathContext }) => {
                 <PrevNext prev={prev} next={next} />
               </Col>
             </Row>
-            <Row>
+            {/* <Row>
               <Col xs={24}>
                 <Disqus config={disqusConfig} />
               </Col>
-            </Row>
+            </Row> */}
           </Container>
         </>
       )}

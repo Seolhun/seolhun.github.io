@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Col, Container, Row } from '@seolhun/localize-components';
+import { Container } from '@seolhun/localize-components';
 
 import {
   Article,

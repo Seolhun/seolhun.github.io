@@ -1,11 +1,15 @@
-import { Link } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import { Col, Container, Row } from '@seolhun/localize-components';
 import { Typo } from '@seolhun/localize-components-atomic';
 
-import { Article, PostHeader, SEO } from '@/components';
+import {
+  Article,
+  PostHeader,
+  SEO,
+  SHLink,
+} from '@/components';
 import { Layout } from '@/containers';
 import PageProps from '@/models/PageProps';
 
@@ -30,7 +34,7 @@ const Category = ({ pathContext }: PageProps) => {
               </Typo>
               <Typo type="small" weight={500}>
                 {`${subline} (See `}
-                <Link to="/categories"> All categories</Link>
+                <SHLink to="/categories"> All categories</SHLink>
                 )
               </Typo>
             </PostHeader>

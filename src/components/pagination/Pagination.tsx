@@ -1,4 +1,3 @@
-import { Link } from 'gatsby';
 import React from 'react';
 
 import styled from '@emotion/styled';
@@ -36,9 +35,9 @@ const Pagination = ({ currentPage, totalPages, url }: Props) => {
     <PaginationWrapper>
       <PaginationContainer>
         {!isFirst && (
-          <Link to={prevPage}>
+          <SHLink to={prevPage}>
             ← Prev
-          </Link>
+          </SHLink>
         )}
         {[...new Array(totalPages)].map((_, i) => (
           <SHLink
