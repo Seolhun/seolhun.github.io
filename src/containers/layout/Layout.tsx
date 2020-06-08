@@ -45,12 +45,15 @@ const FixedHeader = styled.header<any, ILocalizeTheme>(({ theme }) => ({
   zIndex: 5,
 }));
 
-const LogoContainer = styled.div({
+const LogoContainer = styled.div<any, ILocalizeTheme>(({ theme }) => ({
   position: 'absolute',
   left: '1rem',
-  top: '0.8rem',
+  top: '0.2rem',
+  fontWeight: 700,
+  fontSize: '2.2rem',
+  color: theme.primaryColor,
   zIndex: 10,
-});
+}));
 
 const SketchContainer = styled.div({
   position: 'absolute',
@@ -80,7 +83,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { getItem, setItem } = useStorage();
 
   const [isDarkMode, setThemeMode] = React.useState(getItem('THEME') === 'DARK');
-  const [currentColor, setCurrentColor] = React.useState('royalBlue');
+  const [currentColor, setCurrentColor] = React.useState(getItem('MAIN_COLOR') || 'royalBlue');
 
   const handleIsChecked = () => {
     setItem('THEME', !isDarkMode ? 'DARK' : 'LIGHT');
@@ -88,8 +91,39 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   const handleCurrentColor = (color: ColorResult) => {
+    setItem('MAIN_COLOR', color.hex);
     setCurrentColor(color.hex);
   };
+
+  const memoizedCustomTheme = React.useMemo(() => {
+    if (isDarkMode) {
+      return {
+        ...SHTheme.DARK,
+        primaryColor: currentColor,
+        clickableColor: currentColor,
+        fonts: {
+          ...SHTheme.DARK.fonts,
+          COLOR: {
+            ...SHTheme.DARK.fonts.COLOR,
+            highlightColor: currentColor,
+          },
+        },
+      };
+    }
+
+    return {
+      ...SHTheme.LIGHT,
+      primaryColor: currentColor,
+      clickableColor: currentColor,
+      fonts: {
+        ...SHTheme.LIGHT.fonts,
+        COLOR: {
+          ...SHTheme.LIGHT.fonts.COLOR,
+          highlightColor: currentColor,
+        },
+      },
+    };
+  }, [isDarkMode, currentColor, SHTheme]);
 
   if (typeof window === 'undefined') {
     return null;
@@ -98,15 +132,13 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const isContentPath = window.location.pathname.split('/').includes('contents');
 
   return (
-    <ThemeProvider theme={isDarkMode ? SHTheme.DARK : SHTheme.LIGHT}>
+    <ThemeProvider theme={memoizedCustomTheme}>
       <Global styles={globalStyles} />
       <LayoutContainer isFullWidth>
         <FixedHeader>
           <LogoContainer>
             <SHLink to={isContentPath ? '/contents' : '/'}>
-              <Typo type="h2" weight={700} isHighlight>
-                {siteMetadata.siteTitle}
-              </Typo>
+              {siteMetadata.siteTitle}
             </SHLink>
           </LogoContainer>
           <SketchContainer>
