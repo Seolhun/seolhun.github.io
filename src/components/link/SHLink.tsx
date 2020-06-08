@@ -20,10 +20,7 @@ const LinkContainer = styled.span({
 });
 
 const StyledLink = styled.a<{}, ILocalizeTheme>(({ theme }) => ({
-  '&:hover': {
-    color: theme.primaryColor,
-  },
-  '&:active': {
+  '&:hover, &:active': {
     color: theme.primaryColor,
   },
 }));

@@ -5,15 +5,16 @@ import { Card } from '@seolhun/localize-components';
 
 import { Post } from '@/models';
 import { SHLink, Content } from '@/components';
+import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
 export interface ContentItemProps extends Post {}
 
-const SHCard = styled(Card)(() => ({
+const SHCard = styled(Card)<{}, ILocalizeTheme>(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   cursor: 'pointer',
   textDecoration: 'none',
-  boxShadow: '1px 2px 4px #cccc, 2px 1px 2px #cccc',
+  boxShadow: theme.border.shadow,
 }));
 
 export const ContentItem: React.FC<ContentItemProps> = (props: ContentItemProps) => {

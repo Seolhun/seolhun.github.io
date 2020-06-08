@@ -6,4 +6,8 @@ export default (theme: ILocalizeTheme) => css`
   html, body {
     background-color: ${theme.background};
   }
+  a {
+    text-decoration: none;
+    color: ${theme.primaryColor};
+  }
 `;
