@@ -138,7 +138,7 @@ console.log(window.foo); // 123
 
 ```js
 let foo = 123;
-console.log(window.foo); // 123
+console.log(window.foo); // undefined
 ```
 
 ### 5. (Re-)Assign
