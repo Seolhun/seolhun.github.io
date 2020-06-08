@@ -5,24 +5,18 @@ node_js:
 
 branches:
   only:
-    - master
     - develop
 
 script:
   - npm ci
   - npm run lint
   - npm run build
+  - npm run deploy
 
 cache:
   npm: true
   directories:
     - "node_modules"
-
-deploy:
-  provider: pages
-  github_token: $GITHUB_TOKEN # Set in the settings page of your repository, as a secure variable
-  on:
-    branch: develop
 
 notifications:
   email:
