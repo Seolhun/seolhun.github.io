@@ -23,6 +23,8 @@ interface LayoutProps {}
 const LayoutContainer = styled(Container)<any, ILocalizeTheme>(({ theme }) => ({
   scrollBehavior: 'smooth',
   backgroundColor: theme.background,
+  padding: 0,
+  margin: 0,
 }));
 
 const FixedHeader = styled.header<any, ILocalizeTheme>(({ theme }) => ({
