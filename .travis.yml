@@ -11,7 +11,6 @@ script:
   - npm ci
   - npm run lint
   - npm run build
-  - npm run deploy
 
 cache:
   npm: true
