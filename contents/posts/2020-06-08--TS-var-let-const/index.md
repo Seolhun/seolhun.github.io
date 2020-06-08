@@ -2,7 +2,7 @@
 author: Seolhun
 category: 'TS'
 banner: '/assets/covers/typescript.png'
-date: 2020-06-08
+date: 2020-06-07
 title: '코드로 알아보는 var, let, const의 차이'
 description: '코드로 알아보는 Javascript, var, let, const의 차이는 무엇인가?'
 subTitle: '코드로 알아보는 Javascript, var, let, const의 차이는 무엇인가?'
