@@ -7,7 +7,6 @@ import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
 interface SHLinkProps extends LinkProps<any> {
   isExternal?: boolean;
-
 }
 
 const LinkWrapper = styled.span({});

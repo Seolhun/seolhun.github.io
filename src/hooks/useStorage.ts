@@ -19,13 +19,10 @@ const useStorage = () => {
 
   const getItem = (key: keyof typeof LocalStorageKeys) => {
     const rootItem: any = getRootStorage();
-    if (rootItem) {
-      if (rootItem[key]) {
-        return rootItem[key];
-      }
-      return rootItem;
+    if (rootItem && rootItem[key]) {
+      return rootItem[key];
     }
-    return {};
+    return null;
   };
 
   const setItem = (key: keyof typeof LocalStorageKeys, value: any) => {
