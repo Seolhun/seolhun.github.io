@@ -74,7 +74,7 @@ let, const의 선언은, 실행중인 실행 컨텍스트의 어휘적 환경으
 
 > NHN에서 스코프와 클로져에 대해서 상당히 글을 잘 써주었습니다. 읽으면 큰 도움이 될 것입니다. 아래 그림만 보아도 많은 도움이 됩니다.
 
-![NHN - executioncontext](./executioncontext.png)
+<img src='/assets/images/contents/2020/executioncontext.png' alt='NHN - executioncontext' width='100%'>
 
 ```js
 function isDev() {
