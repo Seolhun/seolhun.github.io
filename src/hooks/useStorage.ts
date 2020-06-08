@@ -1,5 +1,8 @@
 const ROOT_KEY: string = '__SEOLHUN__';
-type LocalStorageKeys = 'THEME';
+enum LocalStorageKeys {
+  THEME = 'THEME',
+  MAIN_COLOR = 'MAIN_COLOR'
+}
 
 const useStorage = () => {
   const getRootStorage = () => {
@@ -14,7 +17,7 @@ const useStorage = () => {
     return null;
   };
 
-  const getItem = (key: LocalStorageKeys) => {
+  const getItem = (key: keyof typeof LocalStorageKeys) => {
     const rootItem: any = getRootStorage();
     if (rootItem) {
       if (rootItem[key]) {
@@ -25,7 +28,7 @@ const useStorage = () => {
     return {};
   };
 
-  const setItem = (key: LocalStorageKeys, value: any) => {
+  const setItem = (key: keyof typeof LocalStorageKeys, value: any) => {
     if (typeof localStorage === 'undefined' || !localStorage) {
       return;
     }
@@ -39,7 +42,7 @@ const useStorage = () => {
     return overridingRootItem;
   };
 
-  const removeItem = (key: LocalStorageKeys) => {
+  const removeItem = (key: keyof typeof LocalStorageKeys) => {
     if (typeof localStorage === 'undefined' || !localStorage) {
       return;
     }

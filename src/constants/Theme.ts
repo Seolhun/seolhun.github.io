@@ -34,12 +34,12 @@ const fonts = {
   },
 };
 
-interface ISeolhunThemes {
+interface ISHTheme {
   DARK: any;
   LIGHT: any;
 }
 
-const SeolhunThemes: ISeolhunThemes = {
+const SHTheme: ISHTheme = {
   LIGHT: {
     primaryColor: 'royalblue',
     secondaryColor: '#fff',
@@ -100,6 +100,6 @@ const SeolhunThemes: ISeolhunThemes = {
   },
 };
 
-export { SeolhunThemes };
+export { SHTheme };
 
-export default SeolhunThemes;
+export default SHTheme;
