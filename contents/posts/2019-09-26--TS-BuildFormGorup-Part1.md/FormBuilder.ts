@@ -38,6 +38,7 @@ export interface FormBuildeProps {
 
 export class FormBuilder implements FormBuildeProps {
   properties: FormBuilderProperties;
+
   options: FormBuilderOptions;
 
   constructor(properties: FormBuilderProperties, options: FormBuilderOptions) {
