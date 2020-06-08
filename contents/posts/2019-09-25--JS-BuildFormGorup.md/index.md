@@ -3,7 +3,7 @@ author: Seolhun
 banner: '/assets/covers/typescript.png'
 category: 'TS'
 date: 2019-09-25
-title: '[JS] Javascript로 Reactive한 FormGroup Builder 만들어보기 - Part 1'
+title: '[JS] Javascript로 Reactive한 FormGroup Builder 만들어보기'
 subTitle: 'Create a form group.'
 description: 'Builder Pattern을 이용한 monad식의 FormGroup Builder 만들어보기'
 tags: ['JS', 'Form', 'FormGroup']
@@ -690,8 +690,6 @@ FormBuilder를 만들면서 가장 좋은 것은, FormGroup과 연계되어 생�
 즉, 어떠한 Library(Framework)에서도 매번 함수를 새로 구성하여 쉽게 파편화되고 하드코딩되는 부분들을 구조적으로 방지할 수 있다는 것입니다. 당연히 아직 개선할 점이 있지만, Form을 생성하는데는 무리가 없어보입니다.
 
 여기까지 글 읽어주셔서 감사합니다! :)
-
-PS. 다음에는 테스트코드 작성한 코드와 FormGroup 설명과 함께 직접 만든 코드로 작동되는 페이지를 보여드리겠습니다. 테스트코드는 이미 작성되었지만 글이 길어지므로 다음 포스팅으로 넘어가겠습니다.
 
 <img src='/assets/images/contents/2019/FormBuilderJsTest.png' width='100%' height='100%'>
 
