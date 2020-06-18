@@ -97,11 +97,10 @@ const PostPage: React.FC<PostPageProps> = ({ data, pathContext }) => {
                 ))}
               </Typo>
             )}
-            <Row>
-              <Col xs={24}>
-                <PrevNext prev={prev} next={next} />
-              </Col>
-            </Row>
+            <PrevNext
+              prev={prev}
+              next={next}
+            />
             {/* <Row>
               <Col xs={24}>
                 <Disqus config={disqusConfig} />

@@ -2,15 +2,20 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 import kebabcase from 'lodash.kebabcase';
+import { Card } from '@seolhun/localize-components';
+import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
 import { Post } from '@/models';
-import { SHLink } from '@/components';
+import { useNavigate } from '@reach/router';
 
-interface PaginationWrapperProps {
-  theme?: any;
-}
+const SHCard = styled(Card)<{}, ILocalizeTheme>(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  cursor: 'pointer',
+  textDecoration: 'none',
+}));
 
-const PaginationWrapper = styled.div<PaginationWrapperProps>(({ theme }) => ({
+const PaginationWrapper = styled.div<{}, ILocalizeTheme>(({ theme }) => ({
   display: 'flex',
   flex: 'auto',
   justifyContent: 'space-between',
@@ -24,29 +29,14 @@ const PaginationWrapper = styled.div<PaginationWrapperProps>(({ theme }) => ({
   justifyItems: 'center',
 }));
 
-interface PaginationItemProps {
-  theme?: any;
-}
+const PaginationIndicatpr = styled.div<{}, ILocalizeTheme>(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
 
-const Prev = styled.div<PaginationItemProps>(({ theme }) => ({
-  paddingRight: '10px',
   span: {
     cursor: 'pointer',
     textㅆransform: 'uppercase',
     fontㄴize: '0.8rem',
-    color: theme.clickableColor,
-  },
-}));
-
-const Next = styled.div<PaginationItemProps>(({ theme }) => ({
-  paddingLeft: '10px',
-  marginLeft: 'auto',
-  textAlign: 'right',
-
-  span: {
-    cursor: 'pointer',
-    textTransform: 'uppercase',
-    fontSize: '0.8rem',
     color: theme.clickableColor,
   },
 }));
@@ -56,21 +46,32 @@ interface Props {
   prev: Post;
 }
 
-const PrevNext = ({ prev, next }: Props) => (
-  <PaginationWrapper>
-    {prev && (
-      <Prev>
-        <span>Previous</span>
-        <SHLink to={`/contents/${kebabcase(prev.frontmatter.title)}`}>{prev.frontmatter.title}</SHLink>
-      </Prev>
-    )}
-    {next && (
-      <Next>
-        <span>Next</span>
-        <SHLink to={`/contents/${kebabcase(next.frontmatter.title)}`}>{next.frontmatter.title}</SHLink>
-      </Next>
-    )}
-  </PaginationWrapper>
-);
+const PrevNext = ({ prev, next }: Props) => {
+  const navigate = useNavigate();
+  const onClickPagination = (url: string) => () => {
+    navigate(url);
+  };
+
+  return (
+    <PaginationWrapper>
+      {prev && (
+        <SHCard>
+          <PaginationIndicatpr onClick={onClickPagination(`/contents/${kebabcase(prev.frontmatter.title)}`)}>
+            <span>Previous</span>
+            {prev.frontmatter.title}
+          </PaginationIndicatpr>
+        </SHCard>
+      )}
+      {next && (
+        <SHCard>
+          <PaginationIndicatpr onClick={onClickPagination(`/contents/${kebabcase(next.frontmatter.title)}`)}>
+            <span>Next</span>
+            {next.frontmatter.title}
+          </PaginationIndicatpr>
+        </SHCard>
+      )}
+    </PaginationWrapper>
+  );
+};
 
 export default PrevNext;

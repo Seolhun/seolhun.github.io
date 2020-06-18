@@ -9,12 +9,11 @@ import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
 export interface ContentItemProps extends Post {}
 
-const SHCard = styled(Card)<{}, ILocalizeTheme>(({ theme }) => ({
+const SHCard = styled(Card)<{}, ILocalizeTheme>(() => ({
   display: 'flex',
   flexDirection: 'column',
   cursor: 'pointer',
   textDecoration: 'none',
-  boxShadow: theme.border.shadow,
 }));
 
 export const ContentItem: React.FC<ContentItemProps> = (props: ContentItemProps) => {

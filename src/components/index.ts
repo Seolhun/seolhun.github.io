@@ -2,6 +2,7 @@ export * from './aos';
 export * from './article';
 export * from './content';
 export * from './footer';
+export * from './grid';
 export * from './image';
 export * from './link';
 export * from './markdown';
