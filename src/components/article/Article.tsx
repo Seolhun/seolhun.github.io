@@ -54,7 +54,6 @@ const ArticleWrapper = styled.article({
 });
 
 const ArticleContainer = styled.div({
-  margin: '3rem 0',
   wordBreak: 'break-all',
 });
 

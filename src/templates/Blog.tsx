@@ -1,8 +1,9 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-
-import { Container } from '@seolhun/localize-components';
+import styled from '@emotion/styled';
+import { Container, Card } from '@seolhun/localize-components';
+import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
 import {
   Article,
@@ -23,6 +24,21 @@ interface Props {
   };
 }
 
+const SHCard = styled(Card)<{}, ILocalizeTheme>(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  cursor: 'pointer',
+  textDecoration: 'none',
+
+  '& + &': {
+    marginTop: '1rem',
+  },
+}));
+
+const PaginationWrapper = styled.div<{}, ILocalizeTheme>(() => ({
+  marginTop: '3rem',
+}));
+
 export const BlogPage = ({ pageContext, data }: Props) => {
   const { currentPage, totalPages } = pageContext;
   const { edges } = data.allMarkdownRemark;
@@ -36,19 +52,26 @@ export const BlogPage = ({ pageContext, data }: Props) => {
           <Profile />
         </PostHeader>
         {edges.map((post) => (
-          <Article
-            key={post.node.fields.slug}
-            date={post.node.frontmatter.date}
-            excerpt={post.node.excerpt}
-            slug={post.node.fields.slug}
-            timeToRead={post.node.timeToRead}
-            title={post.node.frontmatter.title}
-            banner={post.node.frontmatter.banner}
-            category={post.node.frontmatter.category}
-            subTitle={post.node.frontmatter.subTitle}
-          />
+          <SHCard key={post.node.fields.slug}>
+            <Article
+              date={post.node.frontmatter.date}
+              excerpt={post.node.excerpt}
+              slug={post.node.fields.slug}
+              timeToRead={post.node.timeToRead}
+              title={post.node.frontmatter.title}
+              banner={post.node.frontmatter.banner}
+              category={post.node.frontmatter.category}
+              subTitle={post.node.frontmatter.subTitle}
+            />
+          </SHCard>
         ))}
-        <Pagination currentPage={currentPage} totalPages={totalPages} url="contents" />
+        <PaginationWrapper>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            url="contents"
+          />
+        </PaginationWrapper>
       </Container>
     </Layout>
   );

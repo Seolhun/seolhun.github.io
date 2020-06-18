@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import { Typo } from '@seolhun/localize-components-atomic';
+import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
 
 interface ContentProps {
@@ -40,6 +41,10 @@ const ContentWrapper = styled.div({});
 
 const ContentContainer = styled.div({});
 
+const ContentTitle = styled.div(() => ({
+  marginTop: '1rem',
+}));
+
 const ContentSubTitle = styled.div(() => ({
   marginTop: '1rem',
 }));
@@ -58,9 +63,11 @@ const Content: React.FC<ContentProps> = ({
 }) => (
   <ContentWrapper>
     <ContentContainer>
-      <Typo type="h2" weight={600}>
-        {title}
-      </Typo>
+      <ContentTitle>
+        <Typo type="h2" weight={600} isHighlight>
+          {title}
+        </Typo>
+      </ContentTitle>
       <ContentSubTitle>
         {subTitle && (
           <Typo type="p" weight={500}>{subTitle}</Typo>

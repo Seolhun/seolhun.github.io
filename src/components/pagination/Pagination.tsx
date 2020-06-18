@@ -11,7 +11,11 @@ export const PaginationWrapper = styled.div<any, ILocalizeTheme>({
 
 export const PaginationContainer = styled.div<any, ILocalizeTheme>({
   display: 'flex',
-  justifyContent: 'space-evenly',
+  justifyContent: 'center',
+
+  '* + *': {
+    marginLeft: '1rem',
+  },
 });
 
 interface Props {
