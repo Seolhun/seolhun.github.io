@@ -3,7 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Col, Row } from '@seolhun/localize-components';
 import { rightTwister } from '@/animations';
-import { Mission, ProfileImage } from '@/containers';
+import { Mission } from '@/containers';
 import { SHImage } from '@/components';
 
 import siteMetadata from '../../../siteMetadata';
@@ -16,10 +16,20 @@ const StyledIconLink = styled.a({
   },
 });
 
+const ProfileImage = styled(SHImage)(() => ({
+  borderRadius: '50%',
+  padding: 0,
+  margin: '0 15px 0 0',
+}));
+
 export const Profile = () => (
   <Row alignItems="center">
     <Col xs={24} justifyContent="center">
-      <ProfileImage src={siteMetadata.githubOwnerImage} />
+      <ProfileImage
+        src={siteMetadata.githubOwnerImage}
+        width="150px"
+        height="150px"
+      />
       <Mission />
     </Col>
     <Col xs={24} justifyContent="center">

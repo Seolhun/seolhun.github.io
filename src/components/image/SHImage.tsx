@@ -3,8 +3,6 @@ import styled from '@emotion/styled';
 
 import ogImage from '@static/assets/hi-cord.png';
 
-import { SHSkeleton } from '../skeleton';
-
 export interface SHImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   width?: string;
 
@@ -44,7 +42,6 @@ export const SHImage: React.FC<SHImageProps> = ({
 }) => {
   const ref = React.useRef<HTMLImageElement>(null);
   const [hasError, setError] = React.useState(false);
-  const [isLoaded, setLoaded] = React.useState(false);
 
   const handleImgError = () => {
     if (!ref.current) {
@@ -52,10 +49,6 @@ export const SHImage: React.FC<SHImageProps> = ({
     }
     ref.current.onerror = () => {
       setError(true);
-    };
-    ref.current.onload = () => {
-      console.error('@@@@');
-      setLoaded(true);
     };
   };
 
@@ -68,11 +61,7 @@ export const SHImage: React.FC<SHImageProps> = ({
   return (
     <ImageWrapper width={width} height={height} responsive={responsive}>
       <ImageContainer width={width} height={height} responsive={responsive}>
-        {isLoaded ? (
-          <Image {...props} src={hasError ? defaultImage : src} ref={ref} />
-        ) : (
-          <SHSkeleton />
-        )}
+        <Image {...props} src={hasError ? defaultImage : src} ref={ref} />
       </ImageContainer>
     </ImageWrapper>
   );
