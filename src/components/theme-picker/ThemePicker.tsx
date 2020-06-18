@@ -2,6 +2,7 @@ import React from 'react';
 
 import { TwitterPicker, ColorResult } from 'react-color';
 import styled from '@emotion/styled';
+import { MEDIA_QUERIES } from '@/constants';
 
 interface ThemePickerProps {
   /**
@@ -18,6 +19,19 @@ interface ThemePickerProps {
 
 const CurrentColorWrapper = styled.div({});
 
+const ThemePickerContainer = styled.div({
+  [MEDIA_QUERIES.SM]: {
+    position: 'fixed',
+    right: '3rem',
+    top: '0.9rem',
+  },
+  [MEDIA_QUERIES.XS]: {
+    position: 'fixed',
+    right: '1rem',
+    top: '0.9rem',
+  },
+});
+
 const CurrentColorContainer = styled.div<{ backgroundColor: string }>(({ backgroundColor }) => ({
   position: 'relative',
   backgroundColor,
@@ -28,11 +42,7 @@ const CurrentColorContainer = styled.div<{ backgroundColor: string }>(({ backgro
   cursor: 'pointer',
 }));
 
-const ThemePicker: React.FC<ThemePickerProps> = ({
-  currentColor = 'royalBlue',
-  onChangeColor,
-
-}) => {
+const ThemePicker: React.FC<ThemePickerProps> = ({ currentColor = 'royalBlue', onChangeColor }) => {
   const [isShow, setShow] = React.useState(false);
   const ref = React.useRef<HTMLDivElement>(null);
 
@@ -54,11 +64,9 @@ const ThemePicker: React.FC<ThemePickerProps> = ({
   return (
     <CurrentColorWrapper ref={ref}>
       {isShow ? (
-        <TwitterPicker
-          onChange={onChangeColor}
-          color={currentColor}
-          triangle="hide"
-        />
+        <ThemePickerContainer>
+          <TwitterPicker onChange={onChangeColor} color={currentColor} triangle="hide" />
+        </ThemePickerContainer>
       ) : (
         <CurrentColorContainer backgroundColor={currentColor} />
       )}
@@ -66,9 +74,6 @@ const ThemePicker: React.FC<ThemePickerProps> = ({
   );
 };
 
-export {
-  ThemePickerProps,
-  ThemePicker,
-};
+export { ThemePickerProps, ThemePicker };
 
 export default ThemePicker;

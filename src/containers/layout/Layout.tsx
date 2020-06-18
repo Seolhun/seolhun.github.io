@@ -59,7 +59,7 @@ const SketchContainer = styled.div({
   position: 'absolute',
   right: '6rem',
   top: '0.9rem',
-  zIndex: 10,
+  zIndex: 100,
 });
 
 const SwitchContainer = styled.div({
