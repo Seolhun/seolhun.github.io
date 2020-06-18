@@ -2,7 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import { Typo } from '@seolhun/localize-components-atomic';
-import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
 
 interface ContentProps {
