@@ -17,7 +17,8 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master",
     "lint": "eslint --ext .js,.ts,.tsx,.jsx './src'",
     "lint:fix": "eslint --fix --ext .js,.ts,.tsx,.jsx './src'",
-    "fix": "yarn prettier && yarn lint:fix -p tsconfig.json && yarn style:lint"
+    "fix": "yarn prettier && yarn lint:fix -p tsconfig.json && yarn style:lint",
+    "version:prod": "npm version patch --from-git"
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
