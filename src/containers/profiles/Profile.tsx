@@ -2,10 +2,9 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 import { Col, Row } from '@seolhun/localize-components';
-import { Image } from '@seolhun/localize-components-atomic';
-
 import { rightTwister } from '@/animations';
 import { Mission, ProfileImage } from '@/containers';
+import { SHImage } from '@/components';
 
 import siteMetadata from '../../../siteMetadata';
 
@@ -26,7 +25,7 @@ export const Profile = () => (
     <Col xs={24} justifyContent="center">
       {siteMetadata.authorSocialLinks.map((link) => (
         <StyledIconLink key={link.name} {...link}>
-          <Image src={`/assets/icons/${link.name}.svg`} width="25px" />
+          <SHImage src={`/assets/icons/${link.name}.svg`} width="25px" />
         </StyledIconLink>
       ))}
     </Col>

@@ -54,6 +54,7 @@ export const SHImage: React.FC<SHImageProps> = ({
       setError(true);
     };
     ref.current.onload = () => {
+      console.error('@@@@');
       setLoaded(true);
     };
   };
