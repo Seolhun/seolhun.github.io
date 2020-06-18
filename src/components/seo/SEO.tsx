@@ -17,7 +17,7 @@ const SEO = ({ isPostSEO, postPath = '', postNode }: SEO) => {
   const title = postMeta && postMeta.title ? postMeta.title : siteMetadata.siteTitle;
   const description = postNode && postNode.excerpt
     ? postNode.excerpt : siteMetadata.siteDescription;
-  const realPrefix = siteMetadata.pathPrefix === '/' ? '/' : siteMetadata.pathPrefix;
+  const realPrefix = siteMetadata.pathPrefix === '/' ? '' : siteMetadata.pathPrefix;
   const postURL = `${siteMetadata.siteUrl}${realPrefix}contents/${postPath}`;
   const blogURL = siteMetadata.siteUrl + siteMetadata.pathPrefix;
   const image = siteMetadata.siteUrl + realPrefix + siteMetadata.siteBanner;
@@ -90,7 +90,10 @@ const SEO = ({ isPostSEO, postPath = '', postNode }: SEO) => {
       <meta property="og:site_name" content={siteMetadata.ogSiteName} />
       <meta property="og:url" content={isPostSEO ? postURL : blogURL} />
       <meta property="fb:app_id" content={siteMetadata.SITE_FB_APPID} />
-      <meta name="twitter:card" content="summary_large_image" />
+      {/*
+        @see https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started
+      */}
+      <meta name="twitter:card" content="summary" />
       <meta name="twitter:creator" content={siteMetadata.userTwitter} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:url" content={siteMetadata.siteUrl} />
