@@ -27,6 +27,7 @@ module.exports = {
       resolve: 'gatsby-plugin-root-import',
       options: {
         '@': path.join(__dirname, 'src'),
+        '@static': path.join(__dirname, 'static'),
       },
     },
     {
@@ -41,6 +42,13 @@ module.exports = {
       options: {
         name: 'stories',
         path: `${__dirname}/contents/stories`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/static/assets`,
       },
     },
     {

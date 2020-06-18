@@ -21,7 +21,8 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@static/*": ["./static/*"]
     }
   },
   "include": ["src/**/*", "@types"],
