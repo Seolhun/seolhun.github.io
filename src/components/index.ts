@@ -1,4 +1,3 @@
-export * from './aos';
 export * from './article';
 export * from './content';
 export * from './footer';
