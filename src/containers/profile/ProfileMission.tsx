@@ -8,7 +8,7 @@ import { Button } from '@seolhun/localize-components-atomic';
 import { Profile } from '@/containers';
 import { SHLink } from '@/components';
 
-const StyledHomeContainer = styled(Container)(() => ({
+const ProfileMissionContainer = styled(Container)(() => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -21,21 +21,21 @@ const StyledHomeContainer = styled(Container)(() => ({
   },
 }));
 
-export const HomeContainer = () => {
+export const ProfileMission = () => {
   const { t } = useTranslation();
 
   return (
-    <StyledHomeContainer>
-      <Profile data-aos="fade-up" />
-      <Row data-aos="fade-up" data-aos-delay="100">
+    <ProfileMissionContainer>
+      <Profile />
+      <Row>
         <Col xs={24} alignItems="center">
           <SHLink to="/contents/about-seolhun">
             <Button>{t('common:viewMore')}</Button>
           </SHLink>
         </Col>
       </Row>
-    </StyledHomeContainer>
+    </ProfileMissionContainer>
   );
 };
 
-export default HomeContainer;
+export default ProfileMission;

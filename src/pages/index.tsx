@@ -2,12 +2,16 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Layout, LatestContents } from '@/containers';
-
+import {
+  Layout,
+  LatestContentList,
+  BackgroundCanvas,
+  ProfileMission,
+} from '@/containers';
 import { SEO } from '@/components';
-import HomeView from '@/views/HomeView';
 import { AllMarkdownRemark } from '@/models';
 
+import { Container, Row, Col } from '@seolhun/localize-components';
 import siteMetadata from '../../siteMetadata';
 
 interface IndexPageProps {
@@ -17,14 +21,25 @@ interface IndexPageProps {
 }
 
 const IndexPage:React.FC<IndexPageProps> = ({ data }) => (
-  <>
-    <Layout>
-      <SEO isPostSEO={false} />
-      <Helmet title={siteMetadata.siteTitle} />
-      <HomeView />
-      <LatestContents allMarkdownRemark={data.allMarkdownRemark} />
-    </Layout>
-  </>
+  <Layout>
+    <SEO isPostSEO={false} />
+    <Helmet title={siteMetadata.siteTitle} />
+    <Container>
+      <BackgroundCanvas />
+      <Row>
+        <Col xs={24}>
+          <ProfileMission />
+        </Col>
+      </Row>
+      <Row>
+        <Col xs={24}>
+          <LatestContentList
+            allMarkdownRemark={data.allMarkdownRemark}
+          />
+        </Col>
+      </Row>
+    </Container>
+  </Layout>
 );
 
 export const IndexQuery = graphql`

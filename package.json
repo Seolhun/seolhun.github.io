@@ -12,7 +12,7 @@
   "main": "n/a",
   "scripts": {
     "browserslist": "browserslist",
-    "dev": "gatsby develop",
+    "dev": "gatsby develop -p 8080 -o",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master",
     "lint": "eslint --ext .js,.ts,.tsx,.jsx './src'",
@@ -27,7 +27,6 @@
     "@seolhun/localize-components": "^0.1.13",
     "@seolhun/localize-components-atomic": "^0.1.14",
     "@seolhun/localize-components-styled-types": "^0.5.2",
-    "aos": "^2.3.4",
     "emotion-theming": "^10.0.27",
     "gatsby": "^2.23.0",
     "i18next": "^17.0.13",
@@ -48,7 +47,6 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.9.0",
     "@testing-library/react": "^9.5.0",
-    "@types/aos": "^3.0.3",
     "@types/i18next": "^13.0.0",
     "@types/i18next-browser-languagedetector": "^3.0.0",
     "@types/lodash.kebabcase": "^4.1.6",

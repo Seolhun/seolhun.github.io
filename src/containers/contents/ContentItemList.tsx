@@ -18,7 +18,7 @@ const ContentItemListContainer = styled.div({
 const ContentItemList: React.FC<ContentItemListProps> = ({ items }) => (
   <ContentItemListWrapper>
     {items.map((item) => (
-      <ContentItemListContainer key={item.fields.slug} data-aos="fade-up">
+      <ContentItemListContainer key={item.fields.slug}>
         <ContentItem {...item} />
       </ContentItemListContainer>
     ))}
